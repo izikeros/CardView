@@ -18,11 +18,44 @@ src/card_view_tag.py
 src/view/common/common_strings.py
 src/view/common/hybrid_localization.py
 
-# Card components - Stage 2
+# Card components - Stage 2 & 3
 src/view/cards/card_view.py
+src/view/cards/card_address.py
+src/view/cards/card_attribute.py
+src/view/cards/card_child_ref.py
+src/view/cards/card_citation.py
+src/view/cards/card_event_ref.py
+src/view/cards/card_event.py
+src/view/cards/card_family.py
+src/view/cards/card_generic.py
+src/view/cards/card_media_ref.py
+src/view/cards/card_media.py
+src/view/cards/card_name.py
+src/view/cards/card_note_url.py
+src/view/cards/card_note.py
+src/view/cards/card_object.py
+src/view/cards/card_ordinance.py
+src/view/cards/card_person_backref.py
+src/view/cards/card_person_ref.py
+src/view/cards/card_person.py
+src/view/cards/card_place_ref.py
+src/view/cards/card_place.py
+src/view/cards/card_primary.py
+src/view/cards/card_reference.py
+src/view/cards/card_repository_ref.py
+src/view/cards/card_repository.py
+src/view/cards/card_secondary.py
+src/view/cards/card_source.py
+src/view/cards/card_tag.py
+src/view/cards/card_text.py
+src/view/cards/card_url.py
+src/view/cards/card_utils.py
+src/view/cards/card_widgets.py
 
-# Card components (will be expanded in Stage 3)
-# src/view/cards/*.py
+# Services (Stage 4)
+src/view/services/service_templates.py
+src/view/services/service_windows.py
+src/view/services/service_statistics_labels.py
 
 # Services (will be expanded in Stage 4)
 # src/view/services/*.py
