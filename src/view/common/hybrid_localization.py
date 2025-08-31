@@ -63,7 +63,7 @@ class HybridTranslation:
             # Return identity function if loading fails
             return lambda x: x
 
-    def _(self, text):
+    def _(self, text, context=None):
         """
         Smart translation with fallback.
 
@@ -71,10 +71,17 @@ class HybridTranslation:
 
         Args:
             text (str): Text to translate
+            context (str, optional): Translation context for sgettext
 
         Returns:
             str: Translated text
         """
+        # If context is provided, use sgettext pattern
+        if context is not None:
+            # For plugin translations with context, we'd need msgctxt support
+            # For now, fall back to Gramps sgettext directly
+            return self.gramps_gettext(text)
+        
         # Try plugin translation first
         plugin_result = self.plugin_gettext(text)
         if plugin_result != text:
