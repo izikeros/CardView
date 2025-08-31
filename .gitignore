@@ -148,3 +148,21 @@ Thumbs.db
 locale/
 po/*.pot
 
+scripts/cleanup_stage3.py
+scripts/cleanup_stage4.py
+scripts/cleanup_stage5.py
+scripts/emergency_cleanup_stage2.py
+scripts/emergency_fix_critical.py
+scripts/emergency_stage7.py
+scripts/implement_stage6.py
+scripts/test_polish.py
+scripts/test_stage1.py
+scripts/update_stage2.py
+scripts/update_stage3.py
+scripts/update_stage4.py
+scripts/update_stage5.py
+scripts/verify_stage2.py
+scripts/verify_stage3.py
+scripts/verify_stage4.py
+scripts/verify_stage5.py
+scripts/verify_stage6.py
