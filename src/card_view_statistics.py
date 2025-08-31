@@ -38,6 +38,9 @@ import time
 #
 # -------------------------------------------------------------------------
 from gramps.gen.const import GRAMPS_LOCALE as glocale
+
+# Hybrid localization - supports both plugin and Gramps translations
+from view.common.hybrid_localization import _
 from gramps.gui.uimanager import ActionGroup
 
 # -------------------------------------------------------------------------
@@ -51,7 +54,7 @@ from view.services.service_statistics import StatisticsService
 from view.services.service_windows import WindowService
 from view.views.view_builder import view_builder
 
-_ = glocale.translation.sgettext
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 
 # -------------------------------------------------------------------------

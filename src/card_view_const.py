@@ -33,7 +33,10 @@ CardView constants
 # -------------------------------------------------------------------------
 from gramps.gen.const import GRAMPS_LOCALE as glocale
 
-_ = glocale.translation.sgettext
+
+# Hybrid localization - supports both plugin and Gramps translations
+from view.common.hybrid_localization import _
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 # -------------------------------------------------------------------------
 #

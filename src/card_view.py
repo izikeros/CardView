@@ -46,7 +46,6 @@ from gi.repository import GObject, Gtk
 #
 # -------------------------------------------------------------------------
 from gramps.gen.config import config as global_config
-from gramps.gen.const import GRAMPS_LOCALE as glocale
 from gramps.gen.db.dummydb import DummyDb
 from gramps.gen.errors import WindowActiveError
 from gramps.gen.utils.db import navigation_label
@@ -78,10 +77,7 @@ from view.views.view_builder import view_builder
 from view.common.hybrid_localization import _
 
 # Legacy imports (commented out for Stage 2)
-# _ = glocale.translation.sgettext
-
-
-# -------------------------------------------------------------------------
+# # -------------------------------------------------------------------------
 #
 # CardView Class
 #

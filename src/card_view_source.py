@@ -30,7 +30,6 @@ SourceCardView
 # Gramps Modules
 #
 # -------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
 from gramps.gen.lib import Source
 from gramps.gui.uimanager import ActionGroup
 
@@ -59,10 +58,7 @@ from view.actions import action_handler
 from view.common.hybrid_localization import _
 
 # Legacy imports (commented out for Stage 2)
-# _ = glocale.translation.sgettext
-
-
-# -------------------------------------------------------------------------
+# # -------------------------------------------------------------------------
 #
 # SourceCardView Class
 #

@@ -47,6 +47,9 @@ from gi.repository import Gdk, Gtk
 #
 # ----------------------------------------------------------------
 from gramps.gen.const import GRAMPS_LOCALE as glocale
+
+# Hybrid localization - supports both plugin and Gramps translations
+from view.common.hybrid_localization import _
 from gramps.gen.constfunc import mod_key
 from gramps.gen.db.dummydb import DummyDb
 from gramps.gen.utils.db import navigation_label
@@ -74,7 +77,7 @@ from gramps.gui.views.pageview import PageView
 from global_history import GlobalHistory
 from view.config.config_const import CATEGORIES
 
-_ = glocale.translation.sgettext
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 _LOG = logging.getLogger(".navigationview")
 
