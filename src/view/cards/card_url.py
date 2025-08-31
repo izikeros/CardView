@@ -41,7 +41,6 @@ from gi.repository import Gtk
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
 from gramps.gui.display import display_url
 from gramps.gui.utils import match_primary_mask
 
@@ -54,10 +53,10 @@ from ..common.common_const import BUTTON_PRIMARY
 from ..common.common_utils import button_released
 from .card_secondary import SecondaryCard
 
-_ = glocale.translation.sgettext
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 
-
-# ------------------------------------------------------------------------
+# # ------------------------------------------------------------------------
 #
 # UrlCard Class
 #

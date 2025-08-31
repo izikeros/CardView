@@ -27,8 +27,6 @@ AddressCard
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
-
 # ------------------------------------------------------------------------
 #
 # Plugin Modules
@@ -37,10 +35,10 @@ from gramps.gen.const import GRAMPS_LOCALE as glocale
 from ..common.common_utils import format_address
 from .card_secondary import SecondaryCard
 
-_ = glocale.translation.sgettext
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 
-
-# ------------------------------------------------------------------------
+# # ------------------------------------------------------------------------
 #
 # AddressCard Class
 #

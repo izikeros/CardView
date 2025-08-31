@@ -41,7 +41,6 @@ from gi.repository import Gdk, Gtk
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
 from gramps.gui.ddtargets import DdTargets
 from gramps.gui.utils import match_primary_mask
 
@@ -72,10 +71,10 @@ from ..menus.menu_utils import (
 from .card_primary import PrimaryCard
 from .card_utils import load_metadata
 
-_ = glocale.translation.sgettext
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 
-
-# ------------------------------------------------------------------------
+# # ------------------------------------------------------------------------
 #
 # ReferenceCard Class
 #

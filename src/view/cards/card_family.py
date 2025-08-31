@@ -34,7 +34,6 @@ from gi.repository import Gtk
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
 from gramps.gen.display.name import displayer as name_displayer
 from gramps.gen.lib import EventType
 from gramps.gen.utils.db import family_name
@@ -56,10 +55,10 @@ from ..menus.menu_utils import (
 from .card_person import PersonCard
 from .card_primary import PrimaryCard
 
-_ = glocale.translation.sgettext
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 
-
-# ------------------------------------------------------------------------
+# # ------------------------------------------------------------------------
 #
 # FamilyCard Class
 #

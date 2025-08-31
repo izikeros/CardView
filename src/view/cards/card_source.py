@@ -27,7 +27,6 @@ SourceCard
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
 from gramps.gui.ddtargets import DdTargets
 
 # ------------------------------------------------------------------------
@@ -39,10 +38,10 @@ from ..actions import action_handler
 from ..menus.menu_utils import add_repositories_menu
 from .card_primary import PrimaryCard
 
-_ = glocale.translation.sgettext
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 
-
-# ------------------------------------------------------------------------
+# # ------------------------------------------------------------------------
 #
 # SourceCard Class
 #

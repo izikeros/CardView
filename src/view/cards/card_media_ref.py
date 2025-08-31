@@ -27,8 +27,6 @@ MediaRefCard
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
-
 # ------------------------------------------------------------------------
 #
 # Plugin Modules
@@ -43,10 +41,10 @@ from ..common.common_strings import (
 from ..menus.menu_utils import menu_item
 from .card_media import MediaCard
 
-_ = glocale.translation.sgettext
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 
-
-# ------------------------------------------------------------------------
+# # ------------------------------------------------------------------------
 #
 # MediaRefCard Class
 #

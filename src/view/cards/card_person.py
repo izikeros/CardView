@@ -38,7 +38,6 @@ from gi.repository import Gtk
 #
 # ------------------------------------------------------------------------
 from gramps.gen.config import config as global_config
-from gramps.gen.const import GRAMPS_LOCALE as glocale
 from gramps.gen.display.name import displayer as name_displayer
 from gramps.gen.utils.alive import probably_alive
 from gramps.gui.ddtargets import DdTargets
@@ -63,10 +62,10 @@ from ..menus.menu_utils import (
 )
 from .card_reference import ReferenceCard
 
-_ = glocale.translation.sgettext
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 
-
-# ------------------------------------------------------------------------
+# # ------------------------------------------------------------------------
 #
 # PersonCard Class
 #

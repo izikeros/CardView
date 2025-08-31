@@ -27,7 +27,6 @@ LDSOrdinanceCard
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
 from gramps.gen.display.place import displayer as place_displayer
 from gramps.gen.utils.db import family_name
 
@@ -39,10 +38,10 @@ from gramps.gen.utils.db import family_name
 from ..common.common_classes import GrampsContext
 from .card_secondary import SecondaryCard
 
-_ = glocale.translation.sgettext
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 
-
-# ------------------------------------------------------------------------
+# # ------------------------------------------------------------------------
 #
 # LDSOrdinanceCard Class
 #

@@ -34,7 +34,6 @@ from gi.repository import Gtk
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
 from gramps.gen.lib import StyledText
 from gramps.gui.widgets import StyledTextBuffer
 
@@ -47,10 +46,10 @@ from ..actions import action_handler
 from ..menus.menu_utils import menu_item
 from .card_primary import PrimaryCard
 
-_ = glocale.translation.sgettext
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 
-
-# ------------------------------------------------------------------------
+# # ------------------------------------------------------------------------
 #
 # NoteCard Class
 #

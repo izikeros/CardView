@@ -27,8 +27,6 @@ CitationCard
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
-
 # ------------------------------------------------------------------------
 #
 # Plugin Modules
@@ -40,10 +38,10 @@ from ..common.common_utils import get_confidence, get_confidence_color_css
 from ..menus.menu_utils import menu_item
 from .card_primary import PrimaryCard
 
-_ = glocale.translation.sgettext
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 
-
-# ------------------------------------------------------------------------
+# # ------------------------------------------------------------------------
 #
 # CitationCard Class
 #

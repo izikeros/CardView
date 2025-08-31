@@ -27,8 +27,6 @@ NameCard
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
-
 # ------------------------------------------------------------------------
 #
 # Plugin Modules
@@ -38,10 +36,10 @@ from ..common.common_classes import GrampsContext
 from ..common.common_strings import MISSING_ORIGIN
 from .card_secondary import SecondaryCard
 
-_ = glocale.translation.sgettext
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 
-
-# ------------------------------------------------------------------------
+# # ------------------------------------------------------------------------
 #
 # NameCard Class
 #
@@ -166,7 +164,6 @@ class NameCard(SecondaryCard):
         grcontext = GrampsContext(self.primary, None, self.secondary)
         return self.grstate.load_page(grcontext.pickled)
 
-
 def get_name_type(name):
     """
     Return name type.
@@ -174,7 +171,6 @@ def get_name_type(name):
     if name.get_type():
         return glocale.translation.sgettext(name.get_type().xml_str())
     return _("Unknown")
-
 
 def get_origin_type(surname):
     """

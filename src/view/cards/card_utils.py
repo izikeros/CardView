@@ -42,7 +42,6 @@ from gi.repository import Gtk
 #
 # ------------------------------------------------------------------------
 from gramps.gen.config import config as global_config
-from gramps.gen.const import GRAMPS_LOCALE as glocale
 
 # ------------------------------------------------------------------------
 #
@@ -51,7 +50,8 @@ from gramps.gen.const import GRAMPS_LOCALE as glocale
 # ------------------------------------------------------------------------
 from ..common.common_utils import get_bookmarks, pack_icon, prepare_markup
 
-_ = glocale.translation.sgettext
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 
 
 def get_tag_icon(tag, size=Gtk.IconSize.SMALL_TOOLBAR):
@@ -105,9 +105,7 @@ def load_metadata(widget, grstate, groptions, grobject, gramps_id=None):
             add_gramps_id(widget, config, gramps_id)
 
         if grobject.has_handle and config.get("indicator.bookmarks"):
-            add_bookmark_indicator(
-                widget, obj, obj_type, grstate.dbstate.db, icon_size
-            )
+            add_bookmark_indicator(widget, obj, obj_type, grstate.dbstate.db, icon_size)
         elif "Ref" in obj_type:
             pack_icon(widget, "stock_link", size=icon_size)
 
@@ -116,9 +114,7 @@ def load_metadata(widget, grstate, groptions, grobject, gramps_id=None):
         if obj_type == "Person" and config.get("indicator.home-person"):
             default = grstate.dbstate.db.get_default_person()
             if default and default.handle == obj.handle:
-                pack_icon(
-                    widget, "go-home", size=icon_size, tooltip=_("Home Person")
-                )
+                pack_icon(widget, "go-home", size=icon_size, tooltip=_("Home Person"))
 
 
 def add_gramps_id(widget, config, gramps_id):
@@ -129,9 +125,7 @@ def add_gramps_id(widget, config, gramps_id):
         scheme = global_config.get("colors.scheme")
         markup = prepare_markup(config, scheme=scheme)
         text = markup.format(escape(gramps_id))
-        widget.pack_end(
-            Gtk.Label(use_markup=True, label=text), False, False, 0
-        )
+        widget.pack_end(Gtk.Label(use_markup=True, label=text), False, False, 0)
 
 
 def add_bookmark_indicator(widget, obj, obj_type, db, icon_size):
@@ -158,11 +152,7 @@ def add_privacy_indicator(widget, config, obj, size):
     if mode:
         if obj.private:
             if mode in [1, 3]:
-                pack_icon(
-                    widget, "gramps-lock", size=size, tooltip=_("Private")
-                )
+                pack_icon(widget, "gramps-lock", size=size, tooltip=_("Private"))
         else:
             if mode in [2, 3]:
-                pack_icon(
-                    widget, "gramps-unlock", size=size, tooltip=_("Public")
-                )
+                pack_icon(widget, "gramps-unlock", size=size, tooltip=_("Public"))

@@ -34,7 +34,6 @@ from gi.repository import Gtk
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
 from gramps.gen.display.place import displayer as place_displayer
 
 # ------------------------------------------------------------------------
@@ -46,10 +45,10 @@ from ..common.common_strings import LATITUDE_LONGITUDE, MISSING
 from ..menus.menu_utils import add_enclosed_places_menu
 from .card_reference import ReferenceCard
 
-_ = glocale.translation.sgettext
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 
-
-# ------------------------------------------------------------------------
+# # ------------------------------------------------------------------------
 #
 # PlaceCard Class
 #

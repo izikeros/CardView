@@ -27,7 +27,6 @@ ChildRefCard
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
 from gramps.gui.ddtargets import DdTargets
 
 # ------------------------------------------------------------------------
@@ -40,10 +39,10 @@ from ..menus.menu_utils import menu_item
 from .card_person import PersonCard
 from ..common.common_strings import DELETE_REFERENCE, EDIT_REFERENCE
 
-_ = glocale.translation.sgettext
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 
-
-# ------------------------------------------------------------------------
+# # ------------------------------------------------------------------------
 #
 # ChildRefCard Class
 #

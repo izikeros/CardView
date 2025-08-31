@@ -27,7 +27,6 @@ EventRefCard.
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
 from gramps.gen.display.name import displayer as name_displayer
 from gramps.gen.utils.db import family_name
 from gramps.gui.ddtargets import DdTargets
@@ -42,10 +41,10 @@ from ..common.common_strings import DELETE_REFERENCE, EDIT_REFERENCE
 from ..menus.menu_utils import menu_item
 from .card_event import EventCard
 
-_ = glocale.translation.sgettext
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 
-
-# ------------------------------------------------------------------------
+# # ------------------------------------------------------------------------
 #
 # EventRefCard Class
 #

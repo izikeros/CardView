@@ -38,21 +38,12 @@ from gi.repository import Gtk
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
-
-# ------------------------------------------------------------------------
 #
 # Plugin Modules
 #
 # ------------------------------------------------------------------------
 from ..common.common_classes import GrampsConfig
 from .card_widgets import CardGrid, CardIcons
-
-# Hybrid localization - supports both plugin and Gramps translations
-from view.common.hybrid_localization import _
-
-# Legacy imports (commented out for Stage 2)
-# _ = glocale.translation.sgettext
 
 
 # ------------------------------------------------------------------------
@@ -69,9 +60,7 @@ class CardView(Gtk.VBox, GrampsConfig):
         Gtk.VBox.__init__(self, hexpand=True, vexpand=False)
         GrampsConfig.__init__(self, grstate, groptions)
         self.frame = Gtk.Frame(shadow_type=Gtk.ShadowType.NONE)
-        self.widgets = {
-            "body": Gtk.HBox(vexpand=False, hexpand=True, margin=3)
-        }
+        self.widgets = {"body": Gtk.HBox(vexpand=False, hexpand=True, margin=3)}
         self.eventbox = Gtk.EventBox()
 
         self.ref_frame = None
@@ -166,9 +155,7 @@ class CardView(Gtk.VBox, GrampsConfig):
         self.frame.add(view_obj)
         self.add(self.frame)
 
-        self.ref_widgets["body"] = Gtk.VBox(
-            halign=justify, valign=Gtk.Align.START
-        )
+        self.ref_widgets["body"] = Gtk.VBox(halign=justify, valign=Gtk.Align.START)
         ref_body = Gtk.VBox(hexpand=False, halign=justify, margin=3)
         if "ref" in self.groptions.size_groups:
             self.groptions.size_groups["ref"].add_widget(ref_body)
@@ -199,9 +186,7 @@ class CardView(Gtk.VBox, GrampsConfig):
         ref_body.pack_start(ref_widgets["body"], True, True, 0)
         attribute_block = Gtk.VBox(hexpand=False)
         if "attributes" in self.groptions.size_groups:
-            self.groptions.size_groups["attributes"].add_widget(
-                attribute_block
-            )
+            self.groptions.size_groups["attributes"].add_widget(attribute_block)
         attribute_block.pack_start(ref_widgets["id"], False, False, 0)
         attribute_block.pack_end(ref_widgets["icons"], False, False, 0)
         ref_body.pack_end(attribute_block, False, False, 0)

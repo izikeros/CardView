@@ -45,7 +45,6 @@ from gi.repository import Gtk
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
 from gramps.gen.utils.alive import probably_alive
 
 # ------------------------------------------------------------------------
@@ -67,10 +66,10 @@ from ..menus.menu_utils import (
 from .card_object import ObjectCard
 from .card_utils import load_metadata
 
-_ = glocale.translation.sgettext
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 
-
-# ------------------------------------------------------------------------
+# # ------------------------------------------------------------------------
 #
 # SecondaryCard Class
 #

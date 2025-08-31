@@ -27,7 +27,6 @@ EventCard.
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
 from gramps.gen.display.place import displayer as place_displayer
 from gramps.gen.lib import EventType
 from gramps.gen.utils.alive import probably_alive
@@ -60,10 +59,10 @@ from ..common.common_vitals import (
 from ..menus.menu_utils import add_participants_menu, menu_item
 from .card_reference import ReferenceCard
 
-_ = glocale.translation.sgettext
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 
-
-# ------------------------------------------------------------------------
+# # ------------------------------------------------------------------------
 #
 # EventCard Class
 #
@@ -476,7 +475,6 @@ class EventCard(ReferenceCard):
                     action.set_death_event,
                 )
             )
-
 
 def get_object_text(obj_list, single, plural):
     """

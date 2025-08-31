@@ -47,7 +47,6 @@ from gi.repository import Gdk, Gtk
 #
 # ------------------------------------------------------------------------
 from gramps.gen.config import config as global_config
-from gramps.gen.const import GRAMPS_LOCALE as glocale
 from gramps.gen.errors import WindowActiveError
 from gramps.gen.lib import Span
 from gramps.gen.utils.db import navigation_label
@@ -73,10 +72,10 @@ from ..menus.menu_config import build_config_menu
 from ..menus.menu_templates import build_templates_menu
 from .card_view import CardView
 
-_ = glocale.translation.sgettext
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 
-
-# ------------------------------------------------------------------------
+# # ------------------------------------------------------------------------
 #
 # GenericCard Class
 #

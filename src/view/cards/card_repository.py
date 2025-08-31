@@ -27,7 +27,6 @@ RepositoryCard
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
 from gramps.gui.ddtargets import DdTargets
 
 # ------------------------------------------------------------------------
@@ -40,10 +39,10 @@ from ..common.common_utils import format_address
 from ..menus.menu_utils import menu_item
 from .card_reference import ReferenceCard
 
-_ = glocale.translation.sgettext
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 
-
-# ------------------------------------------------------------------------
+# # ------------------------------------------------------------------------
 #
 # RepositoryCard Class
 #

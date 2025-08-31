@@ -38,7 +38,6 @@ from gi.repository import Gtk
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
 from gramps.gen.lib import Media, MediaRef
 from gramps.gen.lib.mediabase import MediaBase
 from gramps.gen.utils.file import media_path_full
@@ -60,10 +59,10 @@ from ..common.common_utils import button_pressed
 from ..services.service_status import StatusIndicatorService
 from ..services.service_images import images_service
 
-_ = glocale.translation.sgettext
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 
-
-# ------------------------------------------------------------------------
+# # ------------------------------------------------------------------------
 #
 # CardGrid class
 #
@@ -111,7 +110,6 @@ class CardGrid(Gtk.Grid):
         """
         list(map(self.remove, self.get_children()))
         self.row = 0
-
 
 # ------------------------------------------------------------------------
 #
@@ -330,7 +328,6 @@ class CardIcons(Gtk.HBox, GrampsConfig):
         page_context = GrampsContext(tag, None, None)
         self.grstate.load_page(page_context.pickled)
         return True
-
 
 # ------------------------------------------------------------------------
 #
