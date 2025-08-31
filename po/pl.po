@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CardView\n"
 "Report-Msgid-Bugs-To: your-email@domain.com\n"
-"POT-Creation-Date: 2025-08-31 22:57+0200\n"
+"POT-Creation-Date: 2025-08-31 23:18+0200\n"
 "PO-Revision-Date: 2025-08-31 22:22+0200\n"
 "Last-Translator: Krystian Safjan <ksafjan@gmail.com>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
@@ -27,7 +27,8 @@ msgid "No active object"
 msgstr "Brak aktywnego obiektu"
 
 #: src/card_view.py:508 src/card_view_tag.py:78
-#: src/view/services/service_windows.py:95
+#: src/view/services/service_windows.py:95 src/view/config/config_const.py:213
+#: src/view/config/config_const.py:235
 msgid "Tag"
 msgstr "Etykieta"
 
@@ -37,40 +38,58 @@ msgid "Configure %(cat)s - %(view)s"
 msgstr "Konfiguruj %(cat)s - %(view)s"
 
 #: src/card_view_citation.py:78 src/view/cards/card_event.py:375
+#: src/view/config/config_const.py:197 src/view/config/config_const.py:219
+#: src/view/config/config_panel.py:197
 msgid "Citation"
 msgstr "Cytat"
 
 #: src/card_view_event.py:76 src/view/cards/card_reference.py:325
+#: src/view/config/config_selectors.py:66 src/view/config/config_const.py:198
+#: src/view/config/config_const.py:220 src/view/config/config_panel.py:186
+#: src/view/config/config_panel.py:250
 msgid "Event"
 msgstr "Wydarzenie"
 
 #: src/card_view_family.py:76 src/view/cards/card_ordinance.py:125
+#: src/view/config/config_const.py:200 src/view/config/config_const.py:222
+#: src/view/config/config_panel.py:184 src/view/config/config_panel.py:231
 msgid "Family"
 msgstr "Rodzina"
 
 #: src/card_view_media.py:80 src/view/cards/card_reference.py:329
 #: src/view/services/service_statistics_labels.py:142
+#: src/view/config/config_const.py:202 src/view/config/config_const.py:224
+#: src/view/config/config_panel.py:205
 msgid "Media"
 msgstr "Media"
 
-#: src/card_view_note.py:78
+#: src/card_view_note.py:78 src/view/config/config_const.py:205
+#: src/view/config/config_const.py:227 src/view/config/config_panel.py:207
 msgid "Note"
 msgstr "Notatka"
 
 #: src/card_view_person.py:79 src/view/cards/card_reference.py:323
+#: src/view/config/config_const.py:206 src/view/config/config_const.py:228
+#: src/view/config/config_panel.py:143 src/view/config/config_panel.py:229
 msgid "Person"
 msgstr "Osoba"
 
 #: src/card_view_place.py:78 src/view/cards/card_ordinance.py:114
-#: src/view/cards/card_reference.py:331
+#: src/view/cards/card_reference.py:331 src/view/config/config_const.py:208
+#: src/view/config/config_const.py:230 src/view/config/config_panel.py:195
+#: src/view/config/config_panel.py:233
 msgid "Place"
 msgstr "Miejsce"
 
 #: src/card_view_repository.py:78 src/view/cards/card_reference.py:327
+#: src/view/config/config_const.py:209 src/view/config/config_const.py:231
+#: src/view/config/config_panel.py:202
 msgid "Repository"
 msgstr "Repozytorium"
 
 #: src/card_view_source.py:78 src/view/cards/card_event.py:372
+#: src/view/config/config_const.py:211 src/view/config/config_const.py:233
+#: src/view/config/config_panel.py:199
 msgid "Source"
 msgstr "Źródło"
 
@@ -131,7 +150,15 @@ msgstr "Nieznane"
 msgid "Untitled"
 msgstr "Bez tytułu"
 
-#: src/view/common/common_strings.py:56
+#: src/view/common/common_strings.py:56 src/view/config/config_selectors.py:63
+#: src/view/config/config_selectors.py:72
+#: src/view/config/config_selectors.py:83
+#: src/view/config/config_selectors.py:92
+#: src/view/config/config_selectors.py:202
+#: src/view/config/config_selectors.py:203
+#: src/view/config/config_selectors.py:274
+#: src/view/config/config_selectors.py:276
+#: src/view/config/configure_dialog.py:63
 msgid "None"
 msgstr "Brak"
 
@@ -195,7 +222,7 @@ msgstr "Ustaw preferowane zdarzenie urodzenia"
 msgid "Set preferred death event"
 msgstr "Ustaw preferowane zdarzenie śmierci"
 
-#: src/view/cards/card_event.py:489
+#: src/view/cards/card_event.py:489 src/view/config/config_templates.py:322
 msgid "No"
 msgstr "Nie"
 
@@ -269,12 +296,13 @@ msgid "Status"
 msgstr "Status"
 
 #: src/view/cards/card_person_backref.py:86
-#: src/view/cards/card_person_ref.py:79
+#: src/view/cards/card_person_ref.py:79 src/view/config/config_panel.py:168
 msgid "Association"
 msgstr "Skojarzenie"
 
 #: src/view/cards/card_person_backref.py:91
-#: src/view/cards/card_person_ref.py:84
+#: src/view/cards/card_person_ref.py:84 src/view/config/config_selectors.py:68
+#: src/view/config/config_selectors.py:88 src/view/config/config_panel.py:259
 msgid "Relationship"
 msgstr "Pokrewieństwo"
 
@@ -310,7 +338,7 @@ msgstr "Ostatnia zmiana"
 msgid "Never changed"
 msgstr "Nigdy nie zmieniane"
 
-#: src/view/cards/card_reference.py:321
+#: src/view/cards/card_reference.py:321 src/view/config/config_panel.py:163
 msgid "Child"
 msgstr "Dziecko"
 
@@ -378,12 +406,13 @@ msgstr "Kopia"
 msgid "Changes"
 msgstr "Zmiany"
 
-#: src/view/services/service_windows.py:83
+#: src/view/services/service_windows.py:83 src/view/config/config_panel.py:109
 msgid "Dashboard"
 msgstr "Kokpit"
 
 # Plugin-specific test strings (manually added for testing)
-#: src/view/services/service_windows.py:85
+#: src/view/services/service_windows.py:85 src/view/config/config_const.py:212
+#: src/view/config/config_const.py:234
 msgid "Statistics"
 msgstr "Statystyki"
 
@@ -854,14 +883,17 @@ msgid "Very low"
 msgstr "Bardzo niski"
 
 #: src/view/services/service_statistics_labels.py:205
+#: src/view/config/config_const.py:92
 msgid "Low"
 msgstr "Niski"
 
 #: src/view/services/service_statistics_labels.py:206
+#: src/view/config/config_const.py:93
 msgid "Normal"
 msgstr "Normalny"
 
 #: src/view/services/service_statistics_labels.py:207
+#: src/view/config/config_const.py:94
 msgid "High"
 msgstr "Wysoki"
 
@@ -1017,14 +1049,1899 @@ msgstr "Zakładki repozytoriów"
 msgid "Note bookmarks"
 msgstr "Zakładki notatek"
 
-#~ msgid "Layout Options"
-#~ msgstr "Opcje układu"
+#: src/view/config/config_timeline.py:65 src/view/config/config_objects.py:65
+#: src/view/config/config_global.py:111 src/view/config/config_global.py:674
+#, fuzzy
+msgid "Display Options"
+msgstr "Opcje układu"
+
+#: src/view/config/config_timeline.py:68
+msgid "Timeline color scheme"
+msgstr ""
+
+#: src/view/config/config_timeline.py:75 src/view/config/config_objects.py:145
+#: src/view/config/config_objects.py:229 src/view/config/config_objects.py:425
+#: src/view/config/config_objects.py:537 src/view/config/config_objects.py:711
+#: src/view/config/config_objects.py:803 src/view/config/config_objects.py:859
+msgid "Image display mode"
+msgstr ""
+
+#: src/view/config/config_timeline.py:82 src/view/config/config_objects.py:153
+#: src/view/config/config_objects.py:433 src/view/config/config_objects.py:743
+#: src/view/config/config_objects.py:811 src/view/config/config_objects.py:867
+#, fuzzy
+msgid "Reference display mode"
+msgstr "Typy nośników referencyjnych"
+
+#: src/view/config/config_timeline.py:89 src/view/config/config_objects.py:315
+#: src/view/config/config_objects.py:337 src/view/config/config_objects.py:359
+#: src/view/config/config_objects.py:392 src/view/config/config_objects.py:544
+#: src/view/config/config_objects.py:874
+msgid "Show year and age"
+msgstr ""
+
+#: src/view/config/config_timeline.py:95
+#, fuzzy
+msgid "Include dated media items"
+msgstr "Liczba unikalnych elementów multimedialnych"
+
+#: src/view/config/config_timeline.py:102
+#, fuzzy
+msgid "Include dated names"
+msgstr "Z niekompletnymi nazwami"
+
+#: src/view/config/config_timeline.py:108
+msgid "Include dated addresses"
+msgstr ""
+
+#: src/view/config/config_timeline.py:115
+msgid "Include dated ordinances"
+msgstr ""
+
+#: src/view/config/config_timeline.py:121
+#, fuzzy
+msgid "Include dated citations"
+msgstr "Oznaczone etykietami cytaty"
+
+#: src/view/config/config_timeline.py:125 src/view/config/config_objects.py:878
+#, fuzzy
+msgid "Display Attributes"
+msgstr "Ustawienia wyświetlania kart"
+
+#: src/view/config/config_timeline.py:128 src/view/config/config_objects.py:881
+msgid "Show role always not just secondary events"
+msgstr ""
+
+#: src/view/config/config_timeline.py:134 src/view/config/config_objects.py:887
+#, fuzzy
+msgid "Show description"
+msgstr "Brak opisu"
+
+#: src/view/config/config_timeline.py:140 src/view/config/config_objects.py:893
+msgid "Show registered participants if more than one person"
+msgstr ""
+
+#: src/view/config/config_timeline.py:146 src/view/config/config_objects.py:899
+msgid "Show source count"
+msgstr ""
+
+#: src/view/config/config_timeline.py:152 src/view/config/config_objects.py:905
+#, fuzzy
+msgid "Show citation count"
+msgstr "Edytuj źródło cytatu"
+
+#: src/view/config/config_timeline.py:158 src/view/config/config_objects.py:911
+msgid "Show best confidence rating"
+msgstr ""
+
+#: src/view/config/config_timeline.py:162 src/view/config/config_objects.py:179
+#: src/view/config/config_objects.py:273 src/view/config/config_objects.py:459
+#: src/view/config/config_objects.py:666 src/view/config/config_objects.py:716
+#: src/view/config/config_objects.py:915
+msgid "Attributes Group"
+msgstr ""
+
+#: src/view/config/config_timeline.py:178
+msgid "Category Filters"
+msgstr ""
+
+#: src/view/config/config_timeline.py:181
+#: src/view/config/config_timeline.py:312
+msgid "Show vital"
+msgstr ""
+
+#: src/view/config/config_timeline.py:187
+#: src/view/config/config_timeline.py:318
+msgid "Show family"
+msgstr ""
+
+#: src/view/config/config_timeline.py:193
+#: src/view/config/config_timeline.py:324
+msgid "Show religious"
+msgstr ""
+
+#: src/view/config/config_timeline.py:199
+#: src/view/config/config_timeline.py:330
+msgid "Show vocational"
+msgstr ""
+
+#: src/view/config/config_timeline.py:205
+#: src/view/config/config_timeline.py:336
+msgid "Show academic"
+msgstr ""
+
+#: src/view/config/config_timeline.py:211
+#: src/view/config/config_timeline.py:342
+msgid "Show travel"
+msgstr ""
+
+#: src/view/config/config_timeline.py:217
+#: src/view/config/config_timeline.py:348
+msgid "Show legal"
+msgstr ""
+
+#: src/view/config/config_timeline.py:223
+#: src/view/config/config_timeline.py:354
+msgid "Show residence"
+msgstr ""
+
+#: src/view/config/config_timeline.py:229
+#: src/view/config/config_timeline.py:360
+#, fuzzy
+msgid "Show other"
+msgstr "Matka"
+
+#: src/view/config/config_timeline.py:235
+#: src/view/config/config_timeline.py:366
+msgid "Show custom"
+msgstr ""
+
+#: src/view/config/config_timeline.py:242
+#, fuzzy
+msgid "Relationship Filters"
+msgstr "Typy związków"
+
+#: src/view/config/config_timeline.py:245
+msgid "Generations of ancestors to examine"
+msgstr ""
+
+#: src/view/config/config_timeline.py:252
+msgid "Generations of offspring to examine"
+msgstr ""
+
+#: src/view/config/config_timeline.py:259
+msgid "Include events for father and grandfathers"
+msgstr ""
+
+#: src/view/config/config_timeline.py:265
+msgid "Include events for mother and grandmothers"
+msgstr ""
+
+#: src/view/config/config_timeline.py:271
+msgid "Include events for brothers and stepbrothers"
+msgstr ""
+
+#: src/view/config/config_timeline.py:277
+msgid "Include events for sisters and stepsisters"
+msgstr ""
+
+#: src/view/config/config_timeline.py:283
+msgid "Include events for wives"
+msgstr ""
+
+#: src/view/config/config_timeline.py:289
+msgid "Include events for husbands"
+msgstr ""
+
+#: src/view/config/config_timeline.py:295
+msgid "Include events for sons and grandsons"
+msgstr ""
+
+#: src/view/config/config_timeline.py:301
+msgid "Include events for daughters and granddaughters"
+msgstr ""
+
+#: src/view/config/config_timeline.py:308
+#, fuzzy
+msgid "Relationship Category Filters"
+msgstr "Typy związków"
+
+#: src/view/config/config_objects.py:125 src/view/config/config_objects.py:222
+#: src/view/config/config_objects.py:704 src/view/config/config_objects.py:852
+msgid "Event display format"
+msgstr ""
+
+#: src/view/config/config_objects.py:132
+msgid "Show age at death and if selected burial or if living"
+msgstr ""
+
+#: src/view/config/config_objects.py:138
+msgid "Sex display mode"
+msgstr ""
+
+#: src/view/config/config_objects.py:161
+#, fuzzy
+msgid "Show primary parents"
+msgstr "Dodaj nowe zdarzenie podstawowe"
+
+#: src/view/config/config_objects.py:167
+msgid "Use a compact mode for primary parents"
+msgstr ""
+
+#: src/view/config/config_objects.py:174 src/view/config/config_objects.py:259
+msgid "Primary Fact Group"
+msgstr ""
+
+#: src/view/config/config_objects.py:194 src/view/config/config_objects.py:289
+msgid "Secondary Fact Group"
+msgstr ""
+
+#: src/view/config/config_objects.py:236
+msgid "Enable compact mode"
+msgstr ""
+
+#: src/view/config/config_objects.py:244
+msgid "Show parents of couple"
+msgstr ""
+
+#: src/view/config/config_objects.py:251
+msgid "Enable compact mode for parents"
+msgstr ""
+
+#: src/view/config/config_objects.py:312 src/view/config/config_objects.py:334
+#: src/view/config/config_objects.py:356 src/view/config/config_objects.py:382
+#, fuzzy
+msgid "Group Display Options"
+msgstr "Ustawienia wyświetlania kart"
+
+#: src/view/config/config_objects.py:319
+msgid ""
+"Valid when name is for a person. If name is dated will show year and age of "
+"person on that date."
+msgstr ""
+
+#: src/view/config/config_objects.py:341
+msgid ""
+"Valid when ordinance is for a person. If ordinance is dated will show year "
+"and age of person on that date."
+msgstr ""
+
+#: src/view/config/config_objects.py:363
+msgid ""
+"Valid when address is for a person. If address is dated will show year and "
+"age of person on that date."
+msgstr ""
+
+#: src/view/config/config_objects.py:385
+msgid "Maximum number of media items to show in a media group"
+msgstr ""
+
+#: src/view/config/config_objects.py:398
+msgid "Sort media by date"
+msgstr ""
+
+#: src/view/config/config_objects.py:404
+#, fuzzy
+msgid "Group media by type"
+msgstr "Typ medium"
+
+#: src/view/config/config_objects.py:408
+msgid ""
+"Indicates whether to group like media, based on the custom Media-Type "
+"attribute."
+msgstr ""
+
+#: src/view/config/config_objects.py:414
+msgid "Filter out non-photos"
+msgstr ""
+
+#: src/view/config/config_objects.py:418
+msgid ""
+"Indicates only photos should be displayed, based on the custom Media-Type "
+"attribute."
+msgstr ""
+
+#: src/view/config/config_objects.py:422
+#, fuzzy
+msgid "Object Display Options"
+msgstr "Ustawienia wyświetlania kart"
+
+#: src/view/config/config_objects.py:440 src/view/config/config_objects.py:614
+msgid "Show date"
+msgstr ""
+
+#: src/view/config/config_objects.py:447
+msgid "Show path"
+msgstr ""
+
+#: src/view/config/config_objects.py:454
+#, fuzzy
+msgid "Show mime type"
+msgstr "Brak typu MIME"
+
+#: src/view/config/config_objects.py:486
+msgid "Maximum number of notes to show in a notes group"
+msgstr ""
+
+#: src/view/config/config_objects.py:493
+msgid "Show note text on top"
+msgstr ""
+
+#: src/view/config/config_objects.py:499
+msgid "Enable preview mode"
+msgstr ""
+
+#: src/view/config/config_objects.py:505
+#, fuzzy
+msgid "Number of lines to preview"
+msgstr "Liczba repozytoriów"
+
+#: src/view/config/config_objects.py:513
+msgid "Include notes from all child objects"
+msgstr ""
+
+#: src/view/config/config_objects.py:530
+msgid "Maximum number of citations to show in a citations group"
+msgstr ""
+
+#: src/view/config/config_objects.py:548
+msgid ""
+"Valid when citation is for a person. If citation is dated will show year and "
+"age of person on that date."
+msgstr ""
+
+#: src/view/config/config_objects.py:555
+msgid "Sort citations by date"
+msgstr ""
+
+#: src/view/config/config_objects.py:558
+msgid "Enabling this option will sort the citations by date."
+msgstr ""
+
+#: src/view/config/config_objects.py:562
+msgid "Include indirect citations about the person"
+msgstr ""
+
+#: src/view/config/config_objects.py:566
+msgid ""
+"Enabling this option will include citations on nested attributes like names "
+"and person associations in addition to the ones directly on the person "
+"themselves."
+msgstr ""
+
+#: src/view/config/config_objects.py:574
+msgid "Include citations related to the persons family membership as a child"
+msgstr ""
+
+#: src/view/config/config_objects.py:580
+msgid ""
+"Enabling this option will include citations related to the membership of the "
+"person as a child in other families."
+msgstr ""
+
+#: src/view/config/config_objects.py:587
+msgid ""
+"Include citations related to the persons family membership as a head of "
+"household"
+msgstr ""
+
+#: src/view/config/config_objects.py:593
+msgid ""
+"Enabling this option will include citations on the families this person "
+"formed with other partners."
+msgstr ""
+
+#: src/view/config/config_objects.py:600
+msgid ""
+"Include indirect citations related to the persons family membership as a "
+"head of household"
+msgstr ""
+
+#: src/view/config/config_objects.py:606
+msgid ""
+"Enabling this option will include citations on nested attributes about the "
+"families this person formed with other partners."
+msgstr ""
+
+#: src/view/config/config_objects.py:611 src/view/config/config_objects.py:748
+msgid "Attributes"
+msgstr ""
+
+#: src/view/config/config_objects.py:618
+msgid "Enabling this option will show the citation date if it is available."
+msgstr ""
+
+#: src/view/config/config_objects.py:624
+msgid "Show publisher"
+msgstr ""
+
+#: src/view/config/config_objects.py:628
+msgid ""
+"Enabling this option will show the publisher information if it is available."
+msgstr ""
+
+#: src/view/config/config_objects.py:634
+#, fuzzy
+msgid "Show reference type"
+msgstr "Typy nośników referencyjnych"
+
+#: src/view/config/config_objects.py:638
+msgid ""
+"Enabling this option will display what type of citation it is. Direct is one "
+"related to the person or a family they formed, indirect would be related to "
+"some nested attribute like a name or person association."
+msgstr ""
+
+#: src/view/config/config_objects.py:646
+msgid "Show reference description"
+msgstr ""
+
+#: src/view/config/config_objects.py:650
+msgid ""
+"Enabling this option will display a description of the type of data the "
+"citation supports. For direct citations this would be person or family, "
+"indirect ones could be primary name, an attribute, association, address, and "
+"so forth."
+msgstr ""
+
+#: src/view/config/config_objects.py:658
+msgid "Show confidence rating"
+msgstr ""
+
+#: src/view/config/config_objects.py:662
+msgid ""
+"Enabling this option will display the user selected confidence level for the "
+"citation."
+msgstr ""
+
+#: src/view/config/config_objects.py:697
+msgid "Maximum number of sources to show in a sources group"
+msgstr ""
+
+#: src/view/config/config_objects.py:751
+#, fuzzy
+msgid "Show call number"
+msgstr "Numer sygnaturowy"
+
+#: src/view/config/config_objects.py:755
+msgid ""
+"Enabling this option will show the source call number at the repository if "
+"it is available."
+msgstr ""
+
+#: src/view/config/config_objects.py:761
+#, fuzzy
+msgid "Show media type"
+msgstr "Typ medium"
+
+#: src/view/config/config_objects.py:765
+msgid ""
+"Enabling this option will show the source media type at the repository if it "
+"is available."
+msgstr ""
+
+#: src/view/config/config_objects.py:771
+#, fuzzy
+msgid "Show repository type"
+msgstr "Typy repozytoriów"
+
+#: src/view/config/config_objects.py:775
+msgid "Enabling this option will show the repository type if it is available."
+msgstr ""
+
+#: src/view/config/config_objects.py:796
+msgid "Maximum number of places to show in a places group"
+msgstr ""
+
+#: src/view/config/config_objects.py:818
+msgid "Recursively show all enclosed places"
+msgstr ""
+
+#: src/view/config/config_objects.py:836
+msgid "Maximum number of events to show in an events or timeline group"
+msgstr ""
+
+#: src/view/config/config_objects.py:845
+#, fuzzy
+msgid "Event color scheme"
+msgstr "Zakładki wydarzeń"
+
+#: src/view/config/config_objects.py:941 src/view/config/config_objects.py:958
+#, fuzzy
+msgid "Family display format"
+msgstr "Uczestnicy rodzinni"
+
+#: src/view/config/config_selectors.py:64
+msgid "Attribute"
+msgstr ""
+
+#: src/view/config/config_selectors.py:65
+msgid "Calculated"
+msgstr ""
+
+#: src/view/config/config_selectors.py:67
+msgid "Fact"
+msgstr ""
+
+#: src/view/config/config_selectors.py:73
+#, fuzzy
+msgid "Child Number"
+msgstr "Numer sygnaturowy"
+
+#: src/view/config/config_selectors.py:74
+#: src/view/config/config_selectors.py:84
+#, fuzzy
+msgid "Duration"
+msgstr "Cytat"
+
+#: src/view/config/config_selectors.py:75
+msgid "Lifespan"
+msgstr ""
+
+#: src/view/config/config_selectors.py:76
+#, fuzzy
+msgid "Living"
+msgstr "Żyjący mężczyźni"
+
+#: src/view/config/config_selectors.py:77
+#, fuzzy
+msgid "Occupations"
+msgstr "Skojarzenia"
+
+#: src/view/config/config_selectors.py:78
+msgid "Maternal Progenitors"
+msgstr ""
+
+#: src/view/config/config_selectors.py:79
+msgid "Paternal Progenitors"
+msgstr ""
+
+#: src/view/config/config_selectors.py:85
+msgid "Ages"
+msgstr ""
+
+#: src/view/config/config_selectors.py:86
+msgid "Bride Age"
+msgstr ""
+
+#: src/view/config/config_selectors.py:87
+msgid "Groom Age"
+msgstr ""
+
+#: src/view/config/config_selectors.py:93
+#, fuzzy
+msgid "Soundex"
+msgstr "Znaleziono"
+
+#: src/view/config/config_selectors.py:287
+#, fuzzy
+msgid "Select Person"
+msgstr "Osoba główna"
+
+#: src/view/config/config_selectors.py:347
+msgid "Field"
+msgstr ""
+
+#: src/view/config/config_selectors.py:374
+msgid ""
+"All person or family facts displayed are user configurable and they may be "
+"populated with event, fact, attribute, relationship or calculated data in a "
+"number of different combinations. Not all combinations may make sense, but "
+"this mechanism allows the user to tailor the view to their needs. Note fact "
+"and event types are the same, the difference between them is that for an "
+"event the date and place are displayed while for a fact the event "
+"description is displayed. So a baptism is an event while an occupation can "
+"be thought of as a fact."
+msgstr ""
+
+#: src/view/config/config_colors.py:61
+#, fuzzy
+msgid "Confidence color scheme"
+msgstr "Poziom wiarygodności"
+
+#: src/view/config/config_colors.py:66
+msgid "Background for Very High"
+msgstr ""
+
+#: src/view/config/config_colors.py:67
+msgid "Background for High"
+msgstr ""
+
+#: src/view/config/config_colors.py:68
+msgid "Background for Normal"
+msgstr ""
+
+#: src/view/config/config_colors.py:69
+msgid "Background for Low"
+msgstr ""
+
+#: src/view/config/config_colors.py:70
+msgid "Background for Very Low"
+msgstr ""
+
+#: src/view/config/config_colors.py:71
+msgid "Border for Very High"
+msgstr ""
+
+#: src/view/config/config_colors.py:72
+msgid "Border for High"
+msgstr ""
+
+#: src/view/config/config_colors.py:73
+msgid "Border for Normal"
+msgstr ""
+
+#: src/view/config/config_colors.py:74
+msgid "Border for Low"
+msgstr ""
+
+#: src/view/config/config_colors.py:75
+msgid "Border for Very Low"
+msgstr ""
+
+#: src/view/config/config_colors.py:80
+#, fuzzy
+msgid "Relationship color scheme"
+msgstr "Typy związków"
+
+#: src/view/config/config_colors.py:85
+msgid "Background for Active Person"
+msgstr ""
+
+#: src/view/config/config_colors.py:86
+msgid "Background for Spouse"
+msgstr ""
+
+#: src/view/config/config_colors.py:87
+msgid "Background for Father"
+msgstr ""
+
+#: src/view/config/config_colors.py:88
+msgid "Background for Mother"
+msgstr ""
+
+#: src/view/config/config_colors.py:89
+msgid "Background for Brother"
+msgstr ""
+
+#: src/view/config/config_colors.py:90
+msgid "Background for Sister"
+msgstr ""
+
+#: src/view/config/config_colors.py:91
+msgid "Background for Son"
+msgstr ""
+
+#: src/view/config/config_colors.py:92
+msgid "Background for Daughter"
+msgstr ""
+
+#: src/view/config/config_colors.py:93
+msgid "Background for None"
+msgstr ""
+
+#: src/view/config/config_colors.py:94
+msgid "Border for Active Person"
+msgstr ""
+
+#: src/view/config/config_colors.py:95
+msgid "Border for Spouse"
+msgstr ""
+
+#: src/view/config/config_colors.py:96
+msgid "Border for Father"
+msgstr ""
+
+#: src/view/config/config_colors.py:97
+msgid "Border for Mother"
+msgstr ""
+
+#: src/view/config/config_colors.py:98
+msgid "Border for Brother"
+msgstr ""
+
+#: src/view/config/config_colors.py:99
+msgid "Border for Sister"
+msgstr ""
+
+#: src/view/config/config_colors.py:100
+msgid "Border for Son"
+msgstr ""
+
+#: src/view/config/config_colors.py:101
+msgid "Border for Daughter"
+msgstr ""
+
+#: src/view/config/config_colors.py:102
+msgid "Border for None"
+msgstr ""
+
+#: src/view/config/config_colors.py:107
+msgid "Event category color scheme"
+msgstr ""
+
+#: src/view/config/config_colors.py:112
+msgid "Background for Vital Events"
+msgstr ""
+
+#: src/view/config/config_colors.py:113
+msgid "Background for Family Events"
+msgstr ""
+
+#: src/view/config/config_colors.py:114
+msgid "Background for Religious Events"
+msgstr ""
+
+#: src/view/config/config_colors.py:115
+msgid "Background for Vocational Events"
+msgstr ""
+
+#: src/view/config/config_colors.py:116
+msgid "Background for Academic Events"
+msgstr ""
+
+#: src/view/config/config_colors.py:117
+msgid "Background for Travel Events"
+msgstr ""
+
+#: src/view/config/config_colors.py:118
+msgid "Background for Legal Events"
+msgstr ""
+
+#: src/view/config/config_colors.py:119
+msgid "Background for Residence Events"
+msgstr ""
+
+#: src/view/config/config_colors.py:120
+msgid "Background for Other Events"
+msgstr ""
+
+#: src/view/config/config_colors.py:121
+msgid "Background for Custom Events"
+msgstr ""
+
+#: src/view/config/config_colors.py:122
+msgid "Border for Vital Events"
+msgstr ""
+
+#: src/view/config/config_colors.py:123
+msgid "Border for Family Events"
+msgstr ""
+
+#: src/view/config/config_colors.py:124
+msgid "Border for Religious Events"
+msgstr ""
+
+#: src/view/config/config_colors.py:125
+msgid "Border for Vocational Events"
+msgstr ""
+
+#: src/view/config/config_colors.py:126
+msgid "Border for Academic Events"
+msgstr ""
+
+#: src/view/config/config_colors.py:127
+msgid "Border for Travel Events"
+msgstr ""
+
+#: src/view/config/config_colors.py:128
+msgid "Border for Legal Events"
+msgstr ""
+
+#: src/view/config/config_colors.py:129
+msgid "Border for Residence Events"
+msgstr ""
+
+#: src/view/config/config_colors.py:130
+msgid "Border for Other Events"
+msgstr ""
+
+#: src/view/config/config_colors.py:131
+msgid "Border for Custom Events"
+msgstr ""
+
+#: src/view/config/config_colors.py:136
+msgid "Event role color scheme"
+msgstr ""
+
+#: src/view/config/config_colors.py:141
+msgid "Background for Primary Role"
+msgstr ""
+
+#: src/view/config/config_colors.py:142
+msgid "Background for Secondary Role"
+msgstr ""
+
+#: src/view/config/config_colors.py:143
+msgid "Background for Family Role"
+msgstr ""
+
+#: src/view/config/config_colors.py:144
+#, fuzzy
+msgid "Background for Implicit Family Role"
+msgstr "Rodzina domniemana"
+
+#: src/view/config/config_colors.py:145
+msgid "Background for Unknown Role"
+msgstr ""
+
+#: src/view/config/config_colors.py:146
+msgid "Border for Primary Role"
+msgstr ""
+
+#: src/view/config/config_colors.py:147
+msgid "Border for Secondary Role"
+msgstr ""
+
+#: src/view/config/config_colors.py:148
+msgid "Border for Family Role"
+msgstr ""
+
+#: src/view/config/config_colors.py:149
+#, fuzzy
+msgid "Border for Implicit Family Role"
+msgstr "Rodzina domniemana"
+
+#: src/view/config/config_colors.py:150
+msgid "Border for Unknown Role"
+msgstr ""
+
+#: src/view/config/config_colors.py:161
+msgid "The default Gramps color scheme is managed under the Gramps preferences"
+msgstr ""
+
+#: src/view/config/config_colors.py:183
+msgid "Light colors"
+msgstr ""
+
+#: src/view/config/config_colors.py:187
+msgid "Dark colors"
+msgstr ""
+
+#: src/view/config/configure_dialog.py:62
+msgid "Father's surname"
+msgstr ""
+
+#: src/view/config/configure_dialog.py:64
+msgid "Combination of mother's and father's surname"
+msgstr ""
+
+#: src/view/config/configure_dialog.py:65
+msgid "Icelandic style"
+msgstr ""
+
+#: src/view/config/configure_dialog.py:75
+#: src/view/config/configure_dialog.py:103 src/view/config/config_utils.py:75
+#, fuzzy
+msgid "Preferences"
+msgstr "odniesienie"
+
+#: src/view/config/configure_dialog.py:128
+msgid "_Close"
+msgstr ""
+
+#: src/view/config/configure_dialog.py:184
+#: src/view/config/configure_dialog.py:192
+msgid "Invalid or incomplete format definition."
+msgstr ""
+
+#: src/view/config/configure_dialog.py:366
+#: src/view/config/configure_dialog.py:402
+#: src/view/config/configure_dialog.py:433
+#: src/view/config/configure_dialog.py:449
+#: src/view/config/configure_dialog.py:491
+#: src/view/config/configure_dialog.py:537
+#: src/view/config/configure_dialog.py:565
+#, python-format
+msgid "%s: "
+msgstr ""
+
+#: src/view/config/config_const.py:88
+msgid "Not displayed"
+msgstr ""
+
+#: src/view/config/config_const.py:91
+#, fuzzy
+msgid "Very Low"
+msgstr "Bardzo niski"
+
+#: src/view/config/config_const.py:95
+#, fuzzy
+msgid "Very High"
+msgstr "Bardzo wysoki"
+
+#: src/view/config/config_const.py:99
+msgid "Show life span only and nothing else"
+msgstr ""
+
+#: src/view/config/config_const.py:100
+msgid "Single line with place"
+msgstr ""
+
+#: src/view/config/config_const.py:101
+msgid "Single line with no place"
+msgstr ""
+
+#: src/view/config/config_const.py:102
+msgid "Abbreviated single line with place"
+msgstr ""
+
+#: src/view/config/config_const.py:103
+msgid "Abbreviated single line with no place"
+msgstr ""
+
+#: src/view/config/config_const.py:104
+msgid "Split line"
+msgstr ""
+
+#: src/view/config/config_const.py:105
+msgid "Abbreviated split line"
+msgstr ""
+
+#: src/view/config/config_const.py:110
+msgid "Small image on right"
+msgstr ""
+
+#: src/view/config/config_const.py:111
+msgid "Large image on right"
+msgstr ""
+
+#: src/view/config/config_const.py:112
+msgid "Small image on left"
+msgstr ""
+
+#: src/view/config/config_const.py:113
+msgid "Large image on left"
+msgstr ""
+
+#: src/view/config/config_const.py:118
+msgid "Small cropped images"
+msgstr ""
+
+#: src/view/config/config_const.py:119
+msgid "Small full images"
+msgstr ""
+
+#: src/view/config/config_const.py:120
+msgid "Large cropped images"
+msgstr ""
+
+#: src/view/config/config_const.py:121
+msgid "Large full images"
+msgstr ""
+
+#: src/view/config/config_const.py:125 src/view/config/config_const.py:168
+msgid "Horizontally"
+msgstr ""
+
+#: src/view/config/config_const.py:126
+msgid "Left side"
+msgstr ""
+
+#: src/view/config/config_const.py:127
+msgid "Right side"
+msgstr ""
+
+#: src/view/config/config_const.py:132
+msgid "Only show state if private"
+msgstr ""
+
+#: src/view/config/config_const.py:133
+msgid "Only show state if public"
+msgstr ""
+
+#: src/view/config/config_const.py:134
+msgid "Always show state"
+msgstr ""
+
+#: src/view/config/config_const.py:139
+msgid "Indicator to left of name"
+msgstr ""
+
+#: src/view/config/config_const.py:140
+msgid "Indicator to right of name"
+msgstr ""
+
+#: src/view/config/config_const.py:144 src/view/config/config_const.py:152
+#, fuzzy
+msgid "Person scheme"
+msgstr "Osoba"
+
+#: src/view/config/config_const.py:145 src/view/config/config_const.py:153
+msgid "Event role scheme"
+msgstr ""
+
+#: src/view/config/config_const.py:146 src/view/config/config_const.py:154
+msgid "Event category scheme"
+msgstr ""
+
+#: src/view/config/config_const.py:147 src/view/config/config_const.py:155
+msgid "Evidence confidence scheme"
+msgstr ""
+
+#: src/view/config/config_const.py:148
+#, fuzzy
+msgid "Relationship scheme"
+msgstr "Pokrewieństwo"
+
+#: src/view/config/config_const.py:160
+msgid "Display on left"
+msgstr ""
+
+#: src/view/config/config_const.py:161
+msgid "Display on top"
+msgstr ""
+
+#: src/view/config/config_const.py:162
+msgid "Display on right"
+msgstr ""
+
+#: src/view/config/config_const.py:163
+msgid "Display on bottom"
+msgstr ""
+
+#: src/view/config/config_const.py:167
+msgid "Compact"
+msgstr ""
+
+#: src/view/config/config_const.py:169
+msgid "Vertically"
+msgstr ""
+
+#: src/view/config/config_const.py:173
+msgid "Fixed, Left Justified"
+msgstr ""
+
+#: src/view/config/config_const.py:174
+msgid "Fixed, Centered"
+msgstr ""
+
+#: src/view/config/config_const.py:175
+msgid "Fixed, Right Justified"
+msgstr ""
+
+#: src/view/config/config_const.py:176
+msgid "Collapsable, Title Show"
+msgstr ""
+
+#: src/view/config/config_const.py:177
+msgid "Collapsable, Title Hidden"
+msgstr ""
+
+#: src/view/config/config_const.py:195 src/view/config/config_const.py:217
+#: src/view/config/config_panel.py:217
+msgid "Address"
+msgstr ""
+
+#: src/view/config/config_const.py:196
+#, fuzzy
+msgid "ChildRef"
+msgstr "Dziecko"
+
+#: src/view/config/config_const.py:199
+#, fuzzy
+msgid "EventRef"
+msgstr "Wydarzenie"
+
+#: src/view/config/config_const.py:201 src/view/config/config_panel.py:192
+msgid "LdsOrd"
+msgstr ""
+
+#: src/view/config/config_const.py:203
+#, fuzzy
+msgid "MediaRef"
+msgstr "Media"
+
+#: src/view/config/config_const.py:204 src/view/config/config_const.py:226
+#: src/view/config/config_panel.py:212 src/view/config/config_templates.py:140
+#, fuzzy
+msgid "Name"
+msgstr "Imię używane"
+
+#: src/view/config/config_const.py:207
+#, fuzzy
+msgid "PersonRef"
+msgstr "Osoba"
+
+#: src/view/config/config_const.py:210
+msgid "RepoRef"
+msgstr ""
+
+#: src/view/config/config_const.py:218
+#, fuzzy
+msgid "Child Reference"
+msgstr "Łączna liczba odwołań do dzieci"
+
+#: src/view/config/config_const.py:221
+#, fuzzy
+msgid "Event Reference"
+msgstr "Odniesienie wsteczne"
+
+#: src/view/config/config_const.py:223
+#, fuzzy
+msgid "LDS Ordinance"
+msgstr "Obrzędy osobiste LDS"
+
+#: src/view/config/config_const.py:225
+#, fuzzy
+msgid "Media Reference"
+msgstr "Odniesienie wsteczne"
+
+#: src/view/config/config_const.py:229
+#, fuzzy
+msgid "Person Reference"
+msgstr "odniesienie"
+
+#: src/view/config/config_const.py:232
+#, fuzzy
+msgid "Repository Reference"
+msgstr "Łączna liczba odwołań do repozytoriów"
+
+#: src/view/config/config_global.py:83
+#, fuzzy
+msgid "Template Options"
+msgstr "Szablony"
+
+#: src/view/config/config_global.py:84 src/view/config/config_templates.py:141
+#, fuzzy
+msgid "Description"
+msgstr "Brak opisu"
+
+#: src/view/config/config_global.py:85
+msgid "Comments:"
+msgstr ""
+
+#: src/view/config/config_global.py:96
+#, fuzzy
+msgid "Window Options"
+msgstr "Opcje układu"
+
+#: src/view/config/config_global.py:99
+msgid "Maximum number of open page copy windows to allow"
+msgstr ""
+
+#: src/view/config/config_global.py:106
+msgid "Maximum number of open object group windows to allow"
+msgstr ""
+
+#: src/view/config/config_global.py:114
+msgid "Pin active header so it does not scroll"
+msgstr ""
+
+#: src/view/config/config_global.py:120
+msgid "Highlight the page focal object in header"
+msgstr ""
+
+#: src/view/config/config_global.py:127
+msgid "Focal object highlight color light scheme"
+msgstr ""
+
+#: src/view/config/config_global.py:135
+msgid "Focal object highlight color dark scheme"
+msgstr ""
+
+#: src/view/config/config_global.py:143
+msgid "Default card background color light scheme"
+msgstr ""
+
+#: src/view/config/config_global.py:151
+msgid "Default card background color dark scheme"
+msgstr ""
+
+#: src/view/config/config_global.py:159
+msgid "Default card foreground color light scheme"
+msgstr ""
+
+#: src/view/config/config_global.py:167
+msgid "Default card foreground color dark scheme"
+msgstr ""
+
+#: src/view/config/config_global.py:174
+msgid "Enable coloring schemes"
+msgstr ""
+
+#: src/view/config/config_global.py:180
+msgid "Use a smaller font for titles"
+msgstr ""
+
+#: src/view/config/config_global.py:186
+msgid "Use a smaller font for details"
+msgstr ""
+
+#: src/view/config/config_global.py:192
+msgid "Use smaller icons"
+msgstr ""
+
+#: src/view/config/config_global.py:198
+msgid "Desired border width"
+msgstr ""
+
+#: src/view/config/config_global.py:205
+msgid "Maximum icons to show per line in header cards"
+msgstr ""
+
+#: src/view/config/config_global.py:212
+msgid "Maximum icons to show per line in group cards"
+msgstr ""
+
+#: src/view/config/config_global.py:219
+msgid "Group wrapper display mode"
+msgstr ""
+
+#: src/view/config/config_global.py:226
+msgid "Maximum items per changed object list"
+msgstr ""
+
+#: src/view/config/config_global.py:240
+#, fuzzy
+msgid "Dashboard Options"
+msgstr "Kokpit"
+
+#: src/view/config/config_global.py:243
+msgid "Concurrent data collection threshold (requires restart)"
+msgstr ""
+
+#: src/view/config/config_global.py:250
+msgid "Collect extended person event summary data (requires restart)"
+msgstr ""
+
+#: src/view/config/config_global.py:263 src/view/config/config_global.py:704
+#, fuzzy
+msgid "Behaviour Options"
+msgstr "Opcje układu"
+
+#: src/view/config/config_global.py:266
+msgid "Link people to relationships instead of people category"
+msgstr ""
+
+#: src/view/config/config_global.py:272 src/view/config/config_global.py:725
+msgid "Link images to the media page and not the image viewer"
+msgstr ""
+
+#: src/view/config/config_global.py:278
+msgid "Link citation title to the source page and not citation page"
+msgstr ""
+
+#: src/view/config/config_global.py:285
+msgid "Enable Zotero citation picking support with Better BibTex extension"
+msgstr ""
+
+#: src/view/config/config_global.py:293
+msgid "Enable experimental Zotero source note imports"
+msgstr ""
+
+#: src/view/config/config_global.py:300
+msgid ""
+"Open second instance of association editor to add a reciprocal association"
+msgstr ""
+
+#: src/view/config/config_global.py:309
+msgid "Include notes found on child objects in the context menu note items"
+msgstr ""
+
+#: src/view/config/config_global.py:318
+msgid "Parse and include urls found in notes in the url group when possible"
+msgstr ""
+
+#: src/view/config/config_global.py:327
+msgid "Maximum number of referencing objects to show in a references group"
+msgstr ""
+
+#: src/view/config/config_global.py:336
+msgid "Enable warning dialogs when detaching or deleting objects"
+msgstr ""
+
+#: src/view/config/config_global.py:349
+msgid "Context Menu Options"
+msgstr ""
+
+#: src/view/config/config_global.py:351
+msgid "Enable delete option for selected object"
+msgstr ""
+
+#: src/view/config/config_global.py:355
+msgid "If delete enabled append delete to bottom of menu"
+msgstr ""
+
+#: src/view/config/config_global.py:361
+msgid "Enable delete option for objects in submenus"
+msgstr ""
+
+#: src/view/config/config_global.py:366
+#, fuzzy
+msgid "Enable set home person option"
+msgstr "Ustaw osobę główną"
+
+#: src/view/config/config_global.py:369
+msgid "Enable go to person options"
+msgstr ""
+
+#: src/view/config/config_global.py:373
+msgid "Enable parents submenu"
+msgstr ""
+
+#: src/view/config/config_global.py:379
+msgid "Enable spouses submenu"
+msgstr ""
+
+#: src/view/config/config_global.py:385
+#, fuzzy
+msgid "Enable associations submenu"
+msgstr "Łączna liczba odwołań do skojarzeń"
+
+#: src/view/config/config_global.py:391
+#, fuzzy
+msgid "Enable participants submenu"
+msgstr "Uczestnicy rodzinni"
+
+#: src/view/config/config_global.py:397
+msgid "Enable names submenu"
+msgstr ""
+
+#: src/view/config/config_global.py:403
+msgid "Enable attributes submenu"
+msgstr ""
+
+#: src/view/config/config_global.py:409
+#, fuzzy
+msgid "Enable ordinances submenu"
+msgstr "Obrzędy rodzinne"
+
+#: src/view/config/config_global.py:415
+msgid "Enable enclosed places submenu"
+msgstr ""
+
+#: src/view/config/config_global.py:421
+#, fuzzy
+msgid "Enable citations submenu"
+msgstr "Edytuj źródło cytatu"
+
+#: src/view/config/config_global.py:427
+#, fuzzy
+msgid "Enable repositories submenu"
+msgstr "Oznaczone etykietami repozytoria"
+
+#: src/view/config/config_global.py:433
+msgid "Enable media submenu"
+msgstr ""
+
+#: src/view/config/config_global.py:439
+msgid "Enable notes submenu"
+msgstr ""
+
+#: src/view/config/config_global.py:445
+msgid "If notes enabled include child object notes"
+msgstr ""
+
+#: src/view/config/config_global.py:451
+msgid "Enable urls submenu"
+msgstr ""
+
+#: src/view/config/config_global.py:457
+msgid "Enable tags submenu"
+msgstr ""
+
+#: src/view/config/config_global.py:463
+msgid "Enable clipboard copy option"
+msgstr ""
+
+#: src/view/config/config_global.py:469
+#, fuzzy
+msgid "Enable bookmarks option"
+msgstr "Zakładki miejsc"
+
+#: src/view/config/config_global.py:474
+msgid "Enable privacy option"
+msgstr ""
+
+#: src/view/config/config_global.py:485
+msgid "Metadata Indicators"
+msgstr ""
+
+#: src/view/config/config_global.py:488
+msgid "Enable the display of Gramps ids"
+msgstr ""
+
+#: src/view/config/config_global.py:494
+msgid "Privacy indicator display mode"
+msgstr ""
+
+#: src/view/config/config_global.py:501
+msgid "Enable bookmark indicator"
+msgstr ""
+
+#: src/view/config/config_global.py:507
+#, fuzzy
+msgid "Enable home person indicator"
+msgstr "Ustaw osobę główną"
+
+#: src/view/config/config_global.py:511
+msgid "Tag Indicators"
+msgstr ""
+
+#: src/view/config/config_global.py:514
+msgid "Enable tag icons"
+msgstr ""
+
+#: src/view/config/config_global.py:520
+msgid "Sort tag icons based on tag name and not priority"
+msgstr ""
+
+#: src/view/config/config_global.py:526
+msgid "Maximum tag icons to display"
+msgstr ""
+
+#: src/view/config/config_global.py:531
+msgid "Child Object Indicators"
+msgstr ""
+
+#: src/view/config/config_global.py:534
+msgid "Enable associated child object indicator icons"
+msgstr ""
+
+#: src/view/config/config_global.py:540
+msgid "Enable display of object counts with the indicator icons"
+msgstr ""
+
+#: src/view/config/config_global.py:546
+msgid "Enable alternate names indicator icon"
+msgstr ""
+
+#: src/view/config/config_global.py:552
+msgid "Enable parents indicator icon"
+msgstr ""
+
+#: src/view/config/config_global.py:558
+msgid "Enable spouses indicator icon"
+msgstr ""
+
+#: src/view/config/config_global.py:564
+msgid "Enable children indicator icon"
+msgstr ""
+
+#: src/view/config/config_global.py:570
+msgid "Enable associations indicator icon"
+msgstr ""
+
+#: src/view/config/config_global.py:576
+msgid "Enable events indicator icon"
+msgstr ""
+
+#: src/view/config/config_global.py:582
+msgid "Enable ordinances indicator icon"
+msgstr ""
+
+#: src/view/config/config_global.py:588
+msgid "Enable media indicator icon"
+msgstr ""
+
+#: src/view/config/config_global.py:594
+msgid "Enable attributes indicator icon"
+msgstr ""
+
+#: src/view/config/config_global.py:600
+msgid "Enable addresses indicator icon"
+msgstr ""
+
+#: src/view/config/config_global.py:606
+msgid "Enable citations indicator icon"
+msgstr ""
+
+#: src/view/config/config_global.py:612
+msgid "Enable notes indicator icon"
+msgstr ""
+
+#: src/view/config/config_global.py:618
+msgid "Enable urls indicator icon"
+msgstr ""
+
+#: src/view/config/config_global.py:677
+msgid "Enable the compact media bar"
+msgstr ""
+
+#: src/view/config/config_global.py:683
+#, fuzzy
+msgid "Media bar position"
+msgstr "Zakładki mediów"
+
+#: src/view/config/config_global.py:690
+msgid "Media display mode"
+msgstr ""
+
+#: src/view/config/config_global.py:698
+msgid "Minimum number of media items required for the bar to be displayed"
+msgstr ""
+
+#: src/view/config/config_global.py:707
+msgid "Sort the displayed media items by date"
+msgstr ""
+
+#: src/view/config/config_global.py:713
+msgid "Group media by type, requires the Media-Type attribute be set"
+msgstr ""
+
+#: src/view/config/config_global.py:719
+msgid "Filter out non-photos, requires the Media-Type attribute be set"
+msgstr ""
+
+#: src/view/config/config_defaults.py:66
+msgid "Default"
+msgstr ""
+
+#: src/view/config/config_defaults.py:67
+msgid "Default view template"
+msgstr ""
+
+#: src/view/config/config_panel.py:105
+msgid "Display"
+msgstr ""
+
+#: src/view/config/config_panel.py:107
+msgid "General"
+msgstr ""
+
+#: src/view/config/config_panel.py:112
+msgid "Context Menu"
+msgstr ""
+
+#: src/view/config/config_panel.py:116
+msgid "Basic Indicators"
+msgstr ""
+
+#: src/view/config/config_panel.py:120
+msgid "Status Indicators"
+msgstr ""
+
+#: src/view/config/config_panel.py:125
+msgid "Calculated Fields"
+msgstr ""
+
+#: src/view/config/config_panel.py:128
+#, fuzzy
+msgid "Media Bar"
+msgstr "Media"
+
+#: src/view/config/config_panel.py:131
+#, fuzzy
+msgid "Template Data"
+msgstr "Szablony"
+
+#: src/view/config/config_panel.py:147
+msgid "Parent"
+msgstr ""
+
+#: src/view/config/config_panel.py:153
+msgid "Sibling"
+msgstr ""
+
+#: src/view/config/config_panel.py:158
+msgid "Spouse"
+msgstr ""
+
+#: src/view/config/config_panel.py:175
+msgid "Paternal Lineage"
+msgstr ""
+
+#: src/view/config/config_panel.py:181
+msgid "Maternal Lineage"
+msgstr ""
+
+#: src/view/config/config_panel.py:246
+#, fuzzy
+msgid "Confidence"
+msgstr "Poziom wiarygodności"
+
+#: src/view/config/config_panel.py:254
+msgid "Role"
+msgstr ""
+
+#: src/view/config/config_templates.py:139
+#: src/view/config/config_templates.py:537
+#, fuzzy
+msgid "Active"
+msgstr "aktywne"
+
+#: src/view/config/config_templates.py:142
+msgid "Normal Baseline"
+msgstr ""
+
+#: src/view/config/config_templates.py:143
+msgid "Active Baseline"
+msgstr ""
+
+#: src/view/config/config_templates.py:151
+#, fuzzy
+msgid "Edit Template"
+msgstr "Szablony"
+
+#: src/view/config/config_templates.py:152
+#, fuzzy
+msgid "View Changes"
+msgstr "Zmiany"
+
+#: src/view/config/config_templates.py:153
+#, fuzzy
+msgid "Copy Template"
+msgstr "Szablony"
+
+#: src/view/config/config_templates.py:154
+#, fuzzy
+msgid "Rename Template"
+msgstr "Szablony"
+
+#: src/view/config/config_templates.py:156
+#, fuzzy
+msgid "Delete Template"
+msgstr "Szablony"
+
+#: src/view/config/config_templates.py:158
+#: src/view/config/config_templates.py:575
+#, fuzzy
+msgid "Import Template"
+msgstr "Szablony"
+
+#: src/view/config/config_templates.py:159 src/view/config/config_utils.py:294
+msgid "Help"
+msgstr ""
+
+#: src/view/config/config_templates.py:249
+#, fuzzy
+msgid "Template Editor:"
+msgstr "Szablony"
+
+#: src/view/config/config_templates.py:319
+#, python-format
+msgid "Delete template '%s'?"
+msgstr ""
+
+#: src/view/config/config_templates.py:320
+msgid "The template will be permanently deleted."
+msgstr ""
+
+#: src/view/config/config_templates.py:321
+msgid "Yes"
+msgstr ""
+
+#: src/view/config/config_templates.py:374
+#, fuzzy
+msgid "New Template Name"
+msgstr "Szablony"
+
+#: src/view/config/config_templates.py:419
+msgid "The name cannot be empty"
+msgstr ""
+
+#: src/view/config/config_templates.py:422
+msgid "Only a single word with alphanumeric characters is permitted"
+msgstr ""
+
+#: src/view/config/config_templates.py:425
+msgid "The name is already in use"
+msgstr ""
+
+#: src/view/config/config_templates.py:427
+msgid "Invalid name"
+msgstr ""
+
+#: src/view/config/config_templates.py:439
+msgid "New Template Name:"
+msgstr ""
+
+#: src/view/config/config_templates.py:443
+#: src/view/config/config_templates.py:591
+msgid "_Cancel"
+msgstr ""
+
+#: src/view/config/config_templates.py:444
+msgid "_OK"
+msgstr ""
+
+#: src/view/config/config_templates.py:476
+#: src/view/config/config_templates.py:686
+#: src/view/config/config_templates.py:714
+#, fuzzy
+msgid "Template"
+msgstr "Szablony"
+
+#: src/view/config/config_templates.py:476
+msgid "Card"
+msgstr ""
+
+#: src/view/config/config_templates.py:525
+msgid "Global"
+msgstr ""
+
+#: src/view/config/config_templates.py:531
+#, fuzzy
+msgid "Layout"
+msgstr "Opcje układu"
+
+#: src/view/config/config_templates.py:545
+#, fuzzy
+msgid "Groups"
+msgstr "grupa"
+
+#: src/view/config/config_templates.py:553
+msgid "Timelines"
+msgstr ""
+
+#: src/view/config/config_templates.py:559
+#, fuzzy
+msgid "Colors"
+msgstr "Kolor"
+
+#: src/view/config/config_templates.py:593
+msgid "Import"
+msgstr ""
+
+#: src/view/config/config_templates.py:637
+#: src/view/config/config_templates.py:645
+msgid "Cannot open file"
+msgstr ""
+
+#: src/view/config/config_templates.py:638
+msgid "The selected file is a directory, not a file.\n"
+msgstr ""
+
+#: src/view/config/config_templates.py:646
+msgid "You do not have read access to the selected file."
+msgstr ""
+
+#: src/view/config/config_templates.py:653
+msgid "Error parsing file format"
+msgstr ""
+
+#: src/view/config/config_templates.py:654
+msgid "File does not appear to be a valid template."
+msgstr ""
+
+#: src/view/config/config_templates.py:684
+msgid "Template Change View"
+msgstr ""
+
+#: src/view/config/config_templates.py:712
+#, fuzzy
+msgid "Option"
+msgstr "Opcje układu"
+
+#: src/view/config/config_templates.py:713
+msgid "Baseline"
+msgstr ""
+
+#: src/view/config/config_templates.py:715
+msgid "Database"
+msgstr ""
+
+#: src/view/config/config_templates.py:735
+msgid "Active User Template:"
+msgstr ""
+
+#: src/view/config/config_templates.py:742
+msgid "Active Database Template:"
+msgstr ""
+
+#: src/view/config/config_templates.py:819
+#, fuzzy
+msgid "Preference Templates"
+msgstr "Typy nośników referencyjnych"
+
+#: src/view/config/config_utils.py:79
+msgid "This option will launch the Gramps default preferences dialog."
+msgstr ""
+
+#: src/view/config/config_utils.py:115
+msgid "Defaults"
+msgstr ""
+
+#: src/view/config/config_utils.py:119
+msgid ""
+"This option will examine a set of options and set any that were changed back "
+"to their default value. It may apply to a whole page or in some cases a part "
+"of a page. Note if it finds and has to reset any values when done it will "
+"close the configuration dialog and you will need to reopen it. Redraw logic "
+"has not been implemented yet."
+msgstr ""
+
+#: src/view/config/config_utils.py:133
+msgid "Reset Option Defaults"
+msgstr ""
+
+#: src/view/config/config_utils.py:139
+msgid ""
+"You are about to reset the options on this page back to their default "
+"values.\n"
+"\n"
+"If any options are found to reset then when done the configuration dialog "
+"will close and you will need to reopen it if needed.\n"
+"\n"
+"Are you sure you want to proceed?"
+msgstr ""
+
+#: src/view/config/config_utils.py:157
+msgid "Reset all options to defaults, not just this page."
+msgstr ""
+
+#: src/view/config/config_utils.py:380
+msgid "Skip birth alternatives if birth found"
+msgstr ""
+
+#: src/view/config/config_utils.py:382
+msgid ""
+"If enabled then if a birth event was found other events considered to be "
+"birth alternatives such as baptism or christening will not be displayed."
+msgstr ""
+
+#: src/view/config/config_utils.py:389
+msgid "Skip death alternatives if death found"
+msgstr ""
+
+#: src/view/config/config_utils.py:391
+msgid ""
+"If enabled then if a death event was found other events considered to be "
+"death alternatives such as burial or cremation will not be displayed."
+msgstr ""
+
+#: src/view/config/config_utils.py:401
+msgid "Skip marriage alternatives if marriage found"
+msgstr ""
+
+#: src/view/config/config_utils.py:403
+msgid ""
+"If enabled then if a marriage event was found other events considered to be "
+"marriage alternatives such as marriage banns or license will not be "
+"displayed."
+msgstr ""
+
+#: src/view/config/config_utils.py:410
+msgid "Skip divorce alternatives if divorce found"
+msgstr ""
+
+#: src/view/config/config_utils.py:412
+msgid ""
+"If enabled then if a divorce event was found other events considered to be "
+"divorce alternatives such as divorce filing or annulment will not be "
+"displayed."
+msgstr ""
+
+#: src/view/config/config_utils.py:422
+msgid "Show attribute labels"
+msgstr ""
+
+#: src/view/config/config_utils.py:424
+msgid "If enabled then both the attribute name and value will be displayed."
+msgstr ""
+
+#: src/view/config/config_layout.py:117
+msgid "Tabbed Mode"
+msgstr ""
+
+#: src/view/config/config_layout.py:122
+msgid "Scrolled Mode"
+msgstr ""
+
+#: src/view/config/config_layout.py:146
+msgid "Apply"
+msgstr ""
+
+#: src/view/config/config_layout.py:149
+msgid "Undo"
+msgstr ""
+
+#: src/view/config/config_layout.py:470
+msgid "Visible"
+msgstr ""
+
+#: src/view/config/config_layout.py:475
+msgid "Append Next Group If Visible"
+msgstr ""
+
+#: src/view/groups/group_window.py:76
+#, fuzzy
+msgid "Reference"
+msgstr "odniesienie"
 
 #~ msgid "Card Navigation"
 #~ msgstr "Nawigacja kart"
 
 #~ msgid "Configure Card View"
 #~ msgstr "Konfiguruj widok kart"
-
-#~ msgid "Card Display Settings"
-#~ msgstr "Ustawienia wyświetlania kart"
