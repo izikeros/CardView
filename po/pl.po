@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CardView\n"
 "Report-Msgid-Bugs-To: your-email@domain.com\n"
-"POT-Creation-Date: 2025-08-31 23:36+0200\n"
+"POT-Creation-Date: 2025-08-31 23:41+0200\n"
 "PO-Revision-Date: 2025-08-31 22:22+0200\n"
 "Last-Translator: Krystian Safjan <ksafjan@gmail.com>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
@@ -28,7 +28,7 @@ msgstr "Brak aktywnego obiektu"
 
 #: src/card_view.py:504 src/card_view_tag.py:74
 #: src/view/services/service_windows.py:95 src/view/config/config_const.py:213
-#: src/view/config/config_const.py:235
+#: src/view/config/config_const.py:235 src/tagview.py:419 src/tagview.py:506
 msgid "Tag"
 msgstr "Etykieta"
 
@@ -39,38 +39,41 @@ msgstr "Konfiguruj %(cat)s - %(view)s"
 
 #: src/card_view_citation.py:74 src/view/cards/card_event.py:375
 #: src/view/config/config_const.py:197 src/view/config/config_const.py:219
-#: src/view/config/config_panel.py:197
+#: src/view/config/config_panel.py:197 src/status_person.py:498
 msgid "Citation"
 msgstr "Cytat"
 
 #: src/card_view_event.py:72 src/view/cards/card_reference.py:325
 #: src/view/config/config_selectors.py:66 src/view/config/config_const.py:198
 #: src/view/config/config_const.py:220 src/view/config/config_panel.py:186
-#: src/view/config/config_panel.py:250
+#: src/view/config/config_panel.py:250 src/status_person.py:620
 msgid "Event"
 msgstr "Wydarzenie"
 
 #: src/card_view_family.py:72 src/view/cards/card_ordinance.py:125
 #: src/view/config/config_const.py:200 src/view/config/config_const.py:222
 #: src/view/config/config_panel.py:184 src/view/config/config_panel.py:231
+#: src/status_person.py:618
 msgid "Family"
 msgstr "Rodzina"
 
 #: src/card_view_media.py:76 src/view/cards/card_reference.py:329
 #: src/view/services/service_statistics_labels.py:142
 #: src/view/config/config_const.py:202 src/view/config/config_const.py:224
-#: src/view/config/config_panel.py:205
+#: src/view/config/config_panel.py:205 src/status_person.py:642
 msgid "Media"
 msgstr "Media"
 
 #: src/card_view_note.py:74 src/view/config/config_const.py:205
 #: src/view/config/config_const.py:227 src/view/config/config_panel.py:207
+#: src/status_todo.py:344
 msgid "Note"
 msgstr "Notatka"
 
 #: src/card_view_person.py:75 src/view/cards/card_reference.py:323
 #: src/view/config/config_const.py:206 src/view/config/config_const.py:228
 #: src/view/config/config_panel.py:143 src/view/config/config_panel.py:229
+#: src/status_person.py:615
 msgid "Person"
 msgstr "Osoba"
 
@@ -101,7 +104,7 @@ msgstr "odniesienie"
 msgid "Edit"
 msgstr "Edytuj"
 
-#: src/view/common/common_strings.py:45
+#: src/view/common/common_strings.py:45 src/tagview.py:419 src/tagview.py:433
 msgid "Delete"
 msgstr "Usuń"
 
@@ -117,7 +120,7 @@ msgstr "Odniesienie wsteczne"
 msgid "Reciprocal"
 msgstr "Wzajemne"
 
-#: src/view/common/common_strings.py:49
+#: src/view/common/common_strings.py:49 src/status_person.py:498
 msgid "Missing"
 msgstr "Brakujące"
 
@@ -142,7 +145,8 @@ msgid "active"
 msgstr "aktywne"
 
 #: src/view/common/common_strings.py:52 src/view/cards/card_family.py:111
-#: src/view/cards/card_name.py:173
+#: src/view/cards/card_name.py:173 src/field_marriage_age.py:97
+#: src/field_marriage_age.py:105
 msgid "Unknown"
 msgstr "Nieznane"
 
@@ -192,7 +196,7 @@ msgstr "Edytuj źródło cytatu"
 
 #: src/view/cards/card_event.py:180 src/view/cards/card_event.py:242
 #: src/view/cards/card_event.py:260 src/view/cards/card_widgets.py:257
-#: src/view/cards/card_widgets.py:263
+#: src/view/cards/card_widgets.py:263 src/field_child.py:139
 msgid "of"
 msgstr "z"
 
@@ -297,12 +301,14 @@ msgstr "Status"
 
 #: src/view/cards/card_person_backref.py:86
 #: src/view/cards/card_person_ref.py:79 src/view/config/config_panel.py:168
+#: src/status_person.py:635
 msgid "Association"
 msgstr "Skojarzenie"
 
 #: src/view/cards/card_person_backref.py:91
 #: src/view/cards/card_person_ref.py:84 src/view/config/config_selectors.py:68
 #: src/view/config/config_selectors.py:88 src/view/config/config_panel.py:259
+#: src/field_relationship.py:63 src/field_relationship.py:96
 msgid "Relationship"
 msgstr "Pokrewieństwo"
 
@@ -339,6 +345,7 @@ msgid "Never changed"
 msgstr "Nigdy nie zmieniane"
 
 #: src/view/cards/card_reference.py:321 src/view/config/config_panel.py:163
+#: src/status_person.py:568 src/field_child.py:127
 msgid "Child"
 msgstr "Dziecko"
 
@@ -358,11 +365,11 @@ msgstr "Dodaj nowe źródło"
 msgid "Add existing source"
 msgstr "Dodaj istniejące źródło"
 
-#: src/view/cards/card_tag.py:100
+#: src/view/cards/card_tag.py:100 src/tagview.py:172
 msgid "Priority"
 msgstr "Priorytet"
 
-#: src/view/cards/card_tag.py:104
+#: src/view/cards/card_tag.py:104 src/tagview.py:171
 msgid "Color"
 msgstr "Kolor"
 
@@ -1551,7 +1558,7 @@ msgstr "Zakładki wydarzeń"
 msgid "Family display format"
 msgstr "Uczestnicy rodzinni"
 
-#: src/view/config/config_selectors.py:64
+#: src/view/config/config_selectors.py:64 src/status_person.py:631
 msgid "Attribute"
 msgstr ""
 
@@ -1563,48 +1570,52 @@ msgstr ""
 msgid "Fact"
 msgstr ""
 
-#: src/view/config/config_selectors.py:73
+#: src/view/config/config_selectors.py:73 src/field_child.py:49
 #, fuzzy
 msgid "Child Number"
 msgstr "Numer sygnaturowy"
 
 #: src/view/config/config_selectors.py:74
-#: src/view/config/config_selectors.py:84
+#: src/view/config/config_selectors.py:84 src/field_duration.py:68
+#: src/field_duration.py:72 src/field_duration.py:90
 #, fuzzy
 msgid "Duration"
 msgstr "Cytat"
 
-#: src/view/config/config_selectors.py:75
+#: src/view/config/config_selectors.py:75 src/field_duration.py:69
+#: src/field_duration.py:112
 msgid "Lifespan"
 msgstr ""
 
-#: src/view/config/config_selectors.py:76
+#: src/view/config/config_selectors.py:76 src/field_duration.py:70
+#: src/field_duration.py:126 src/field_duration.py:127
 #, fuzzy
 msgid "Living"
 msgstr "Żyjący mężczyźni"
 
-#: src/view/config/config_selectors.py:77
+#: src/view/config/config_selectors.py:77 src/field_occupations.py:61
+#: src/field_occupations.py:95
 #, fuzzy
 msgid "Occupations"
 msgstr "Skojarzenia"
 
-#: src/view/config/config_selectors.py:78
+#: src/view/config/config_selectors.py:78 src/field_progenitors.py:44
 msgid "Maternal Progenitors"
 msgstr ""
 
-#: src/view/config/config_selectors.py:79
+#: src/view/config/config_selectors.py:79 src/field_progenitors.py:46
 msgid "Paternal Progenitors"
 msgstr ""
 
-#: src/view/config/config_selectors.py:85
+#: src/view/config/config_selectors.py:85 src/field_marriage_age.py:44
 msgid "Ages"
 msgstr ""
 
-#: src/view/config/config_selectors.py:86
+#: src/view/config/config_selectors.py:86 src/field_marriage_age.py:46
 msgid "Bride Age"
 msgstr ""
 
-#: src/view/config/config_selectors.py:87
+#: src/view/config/config_selectors.py:87 src/field_marriage_age.py:48
 msgid "Groom Age"
 msgstr ""
 
@@ -2109,7 +2120,7 @@ msgid "Collapsable, Title Hidden"
 msgstr ""
 
 #: src/view/config/config_const.py:195 src/view/config/config_const.py:217
-#: src/view/config/config_panel.py:217
+#: src/view/config/config_panel.py:217 src/status_person.py:639
 msgid "Address"
 msgstr ""
 
@@ -2134,6 +2145,7 @@ msgstr "Media"
 
 #: src/view/config/config_const.py:204 src/view/config/config_const.py:226
 #: src/view/config/config_panel.py:212 src/view/config/config_templates.py:140
+#: src/status_person.py:624 src/tagview.py:170
 #, fuzzy
 msgid "Name"
 msgstr "Imię używane"
@@ -2939,6 +2951,282 @@ msgstr ""
 #, fuzzy
 msgid "Reference"
 msgstr "odniesienie"
+
+#: src/status_todo.py:127
+msgid "To Do Indicator"
+msgstr ""
+
+#: src/status_todo.py:130
+#, fuzzy
+msgid "Enable to do indicator icon"
+msgstr "Ustaw osobę główną"
+
+#: src/status_todo.py:136
+msgid "Open note in editor instead of navigating to note page"
+msgstr ""
+
+#: src/status_todo.py:142
+#, fuzzy
+msgid "Enable full person to do evaluation"
+msgstr "Ustaw osobę główną"
+
+#: src/status_todo.py:148
+msgid "Enable full family to do evaluation"
+msgstr ""
+
+#: src/status_todo.py:325
+msgid "To Do Tasks"
+msgstr ""
+
+#: src/status_todo.py:327
+msgid "To Do Task"
+msgstr ""
+
+#: src/status_person.py:192
+msgid "Confidence Ranking Indicator"
+msgstr ""
+
+#: src/status_person.py:196
+msgid "Enable confidence ranking"
+msgstr ""
+
+#: src/status_person.py:202
+#, fuzzy
+msgid "Include base object"
+msgstr "Z niekompletnymi nazwami"
+
+#: src/status_person.py:209
+#, fuzzy
+msgid "Include all names"
+msgstr "Z niekompletnymi nazwami"
+
+#: src/status_person.py:215
+#, fuzzy
+msgid "Include all events"
+msgstr "Z niekompletnymi nazwami"
+
+#: src/status_person.py:221
+#, fuzzy
+msgid "Include all ordinances"
+msgstr "Z niekompletnymi nazwami"
+
+#: src/status_person.py:227
+msgid "Include spouses for family"
+msgstr ""
+
+#: src/status_person.py:234
+#, fuzzy
+msgid "Include all attributes"
+msgstr "Liczba unikalnych elementów multimedialnych"
+
+#: src/status_person.py:241
+#, fuzzy
+msgid "Include all associations"
+msgstr "Oznaczone etykietami cytaty"
+
+#: src/status_person.py:248
+#, fuzzy
+msgid "Include all addresses"
+msgstr "Z niekompletnymi nazwami"
+
+#: src/status_person.py:255
+msgid "Include children for family"
+msgstr ""
+
+#: src/status_person.py:267
+msgid "Additional Individual Events To Include (Birth and Death Implicit)"
+msgstr ""
+
+#: src/status_person.py:280
+#, fuzzy
+msgid "Citation Alert Indicator"
+msgstr "Cytaty z multimediami"
+
+#: src/status_person.py:283
+#, fuzzy
+msgid "Enable citation alerts"
+msgstr "Edytuj źródło cytatu"
+
+#: src/status_person.py:289
+#, fuzzy
+msgid "Minimum confidence level required"
+msgstr "Poziom wiarygodności"
+
+#: src/status_person.py:296
+msgid "Open event in editor instead of navigating to event page"
+msgstr ""
+
+#: src/status_person.py:301
+msgid "Events Checked For Citations"
+msgstr ""
+
+#: src/status_person.py:308
+#, fuzzy
+msgid "Missing Event Indicator"
+msgstr "Brakujące wydarzenia"
+
+#: src/status_person.py:311
+#, fuzzy
+msgid "Enable missing event alerts"
+msgstr "Brakujące wydarzenia"
+
+#: src/status_person.py:315
+msgid "Required Events"
+msgstr ""
+
+#: src/status_person.py:396
+#, fuzzy
+msgid "Confidence Ranking"
+msgstr "Poziom wiarygodności"
+
+#: src/status_person.py:409
+#, fuzzy
+msgid "Missing Events"
+msgstr "Brakujące wydarzenia"
+
+#: src/status_person.py:627
+#, fuzzy
+msgid "Ordinance"
+msgstr "Obrzędy osobiste LDS"
+
+#: src/status_person.py:738
+#, fuzzy
+msgid "Citation Alerts"
+msgstr "Cytaty"
+
+#: src/status_person.py:740
+#, fuzzy
+msgid "Citation Alert"
+msgstr "Cytat"
+
+#: src/tagview.py:173
+#, fuzzy
+msgid "Last Changed"
+msgstr "Ostatnia zmiana"
+
+#: src/tagview.py:182
+#, fuzzy
+msgid "Add a new tag"
+msgstr "Dodaj nowe zdarzenie podstawowe"
+
+#: src/tagview.py:183
+msgid "Edit the selected tag"
+msgstr ""
+
+#: src/tagview.py:184
+msgid "Delete the selected tag"
+msgstr ""
+
+#: src/tagview.py:204
+msgid "Tags"
+msgstr ""
+
+#: src/tagview.py:284 src/tagview.py:391
+#, fuzzy
+msgid "_Edit..."
+msgstr "Edytuj"
+
+#: src/tagview.py:420
+msgid "Deleting item will remove it from the database."
+msgstr ""
+
+#: src/tagview.py:425
+#, fuzzy
+msgid "_Delete"
+msgstr "Usuń"
+
+#: src/field_marriage_age.py:110
+msgid "Bride age"
+msgstr ""
+
+#: src/field_marriage_age.py:111
+msgid "Groom age"
+msgstr ""
+
+#: src/field_child.py:89
+#, fuzzy
+msgid "Child Number Field"
+msgstr "Numer sygnaturowy"
+
+#: src/field_child.py:92
+msgid "Show age of mother at birth of child"
+msgstr ""
+
+#: src/field_child.py:98
+msgid "Show age of father at birth of child"
+msgstr ""
+
+#: src/field_child.py:104
+msgid "Show duration of marriage at birth of child"
+msgstr ""
+
+#: src/field_child.py:127
+#, fuzzy
+msgid "Unknown Parents"
+msgstr "Nieznana płeć"
+
+#: src/field_child.py:198
+msgid "Father deceased at birth"
+msgstr ""
+
+#: src/field_child.py:209
+#, fuzzy
+msgid "Mother age"
+msgstr "Matka"
+
+#: src/field_child.py:211
+#, fuzzy
+msgid "Father age"
+msgstr "Ojciec"
+
+#: src/field_child.py:227
+msgid "unmarried"
+msgstr ""
+
+#: src/field_child.py:233
+msgid "divorced"
+msgstr ""
+
+#: src/field_child.py:236
+#, fuzzy
+msgid "Parents"
+msgstr "Wydarzenia"
+
+#: src/field_child.py:250
+#, fuzzy
+msgid "married"
+msgstr "Małżeństwa"
+
+#: src/field_child.py:255
+msgid "umarried at time of birth"
+msgstr ""
+
+#: src/field_progenitors.py:105
+#, fuzzy
+msgid "Generations"
+msgstr "Cytat"
+
+#: src/field_progenitors.py:107
+#, fuzzy
+msgid "Generation"
+msgstr "Cytat"
+
+#: src/field_relationship.py:90
+msgid "husband"
+msgstr ""
+
+#: src/field_relationship.py:90
+msgid "wife"
+msgstr ""
+
+#: src/template_minimal.py:40
+msgid "Minimal"
+msgstr ""
+
+#: src/template_minimal.py:41
+#, fuzzy
+msgid "Minimal view template"
+msgstr "Szablony"
 
 #~ msgid "Card Navigation"
 #~ msgstr "Nawigacja kart"
