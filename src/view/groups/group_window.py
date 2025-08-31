@@ -34,7 +34,9 @@ from gi.repository import Gtk
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
+
 from gramps.gen.utils.db import navigation_label
 from gramps.gui.managedwindow import ManagedWindow
 
@@ -47,9 +49,6 @@ from ..common.common_classes import GrampsObject
 from ..common.common_const import GROUP_LABELS
 from ..common.common_utils import make_scrollable
 from .group_builder import group_builder
-
-_ = glocale.translation.sgettext
-
 
 # ------------------------------------------------------------------------
 #
