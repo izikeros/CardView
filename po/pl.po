@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CardView\n"
 "Report-Msgid-Bugs-To: your-email@domain.com\n"
-"POT-Creation-Date: 2025-08-31 22:38+0200\n"
+"POT-Creation-Date: 2025-08-31 22:57+0200\n"
 "PO-Revision-Date: 2025-08-31 22:22+0200\n"
 "Last-Translator: Krystian Safjan <ksafjan@gmail.com>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
@@ -27,6 +27,7 @@ msgid "No active object"
 msgstr "Brak aktywnego obiektu"
 
 #: src/card_view.py:508 src/card_view_tag.py:78
+#: src/view/services/service_windows.py:95
 msgid "Tag"
 msgstr "Etykieta"
 
@@ -35,19 +36,20 @@ msgstr "Etykieta"
 msgid "Configure %(cat)s - %(view)s"
 msgstr "Konfiguruj %(cat)s - %(view)s"
 
-#: src/card_view_citation.py:78
+#: src/card_view_citation.py:78 src/view/cards/card_event.py:375
 msgid "Citation"
 msgstr "Cytat"
 
-#: src/card_view_event.py:76
+#: src/card_view_event.py:76 src/view/cards/card_reference.py:325
 msgid "Event"
 msgstr "Wydarzenie"
 
-#: src/card_view_family.py:76
+#: src/card_view_family.py:76 src/view/cards/card_ordinance.py:125
 msgid "Family"
 msgstr "Rodzina"
 
-#: src/card_view_media.py:80
+#: src/card_view_media.py:80 src/view/cards/card_reference.py:329
+#: src/view/services/service_statistics_labels.py:142
 msgid "Media"
 msgstr "Media"
 
@@ -55,27 +57,28 @@ msgstr "Media"
 msgid "Note"
 msgstr "Notatka"
 
-#: src/card_view_person.py:79
+#: src/card_view_person.py:79 src/view/cards/card_reference.py:323
 msgid "Person"
 msgstr "Osoba"
 
-#: src/card_view_place.py:78
+#: src/card_view_place.py:78 src/view/cards/card_ordinance.py:114
+#: src/view/cards/card_reference.py:331
 msgid "Place"
-msgstr ""
+msgstr "Miejsce"
 
-#: src/card_view_repository.py:78
+#: src/card_view_repository.py:78 src/view/cards/card_reference.py:327
 msgid "Repository"
-msgstr ""
+msgstr "Repozytorium"
 
-#: src/card_view_source.py:78
+#: src/card_view_source.py:78 src/view/cards/card_event.py:372
 msgid "Source"
-msgstr ""
+msgstr "Źródło"
 
 #: src/view/common/common_strings.py:45
 msgid "reference"
 msgstr "odniesienie"
 
-#: src/view/common/common_strings.py:46
+#: src/view/common/common_strings.py:46 src/view/cards/card_family.py:303
 msgid "Edit"
 msgstr "Edytuj"
 
@@ -119,7 +122,8 @@ msgstr "media"
 msgid "active"
 msgstr "aktywne"
 
-#: src/view/common/common_strings.py:54
+#: src/view/common/common_strings.py:54 src/view/cards/card_family.py:111
+#: src/view/cards/card_name.py:173
 msgid "Unknown"
 msgstr "Nieznane"
 
@@ -139,9 +143,879 @@ msgstr "Niedostępne"
 msgid "Missing Origin"
 msgstr "Brakujące źródło"
 
+#: src/view/cards/card_address.py:63
+msgid "Empty"
+msgstr "Pusty"
+
+#: src/view/cards/card_child_ref.py:73
+msgid "Father"
+msgstr "Ojciec"
+
+#: src/view/cards/card_child_ref.py:76
+msgid "Mother"
+msgstr "Matka"
+
+#: src/view/cards/card_citation.py:190
+msgid "Remove citation"
+msgstr "Usuń cytat"
+
+#: src/view/cards/card_citation.py:199
+msgid "Edit citation source"
+msgstr "Edytuj źródło cytatu"
+
+#: src/view/cards/card_event.py:180 src/view/cards/card_event.py:242
+#: src/view/cards/card_event.py:260 src/view/cards/card_widgets.py:257
+#: src/view/cards/card_widgets.py:263
+msgid "of"
+msgstr "z"
+
+#: src/view/cards/card_event.py:201
+msgid "Participants"
+msgstr "Uczestnicy"
+
+#: src/view/cards/card_event.py:261
+msgid "Implicit Family"
+msgstr "Rodzina domniemana"
+
+#: src/view/cards/card_event.py:372
+#: src/view/services/service_statistics_labels.py:170
+msgid "Sources"
+msgstr "Źródła"
+
+#: src/view/cards/card_event.py:376
+#: src/view/services/service_statistics_labels.py:169
+msgid "Citations"
+msgstr "Cytaty"
+
+#: src/view/cards/card_event.py:451
+msgid "Set preferred birth event"
+msgstr "Ustaw preferowane zdarzenie urodzenia"
+
+#: src/view/cards/card_event.py:474
+msgid "Set preferred death event"
+msgstr "Ustaw preferowane zdarzenie śmierci"
+
+#: src/view/cards/card_event.py:489
+msgid "No"
+msgstr "Nie"
+
+#: src/view/cards/card_family.py:317
+msgid "Go to"
+msgstr "Przejdź do"
+
+#: src/view/cards/card_media.py:209
+msgid "Make active media"
+msgstr "Ustaw jako aktywne media"
+
+#: src/view/cards/card_name.py:74
+msgid "Primary"
+msgstr "Główne"
+
+#: src/view/cards/card_name.py:76
+msgid "Alternate"
+msgstr "Alternatywne"
+
+#: src/view/cards/card_name.py:90
+msgid "Given"
+msgstr "Imiona"
+
+#: src/view/cards/card_name.py:100
+msgid "Call Name"
+msgstr "Imię używane"
+
+#: src/view/cards/card_name.py:110
+msgid "Nick Name"
+msgstr "Przezwisko"
+
+#: src/view/cards/card_name.py:140
+msgid "Family Nick Name"
+msgstr "Przydomek rodzinny"
+
+#: src/view/cards/card_name.py:152 src/view/cards/card_ordinance.py:90
+#: src/view/cards/card_place_ref.py:77
+msgid "Date"
+msgstr "Data"
+
+#: src/view/cards/card_note_url.py:76
+msgid "Found"
+msgstr "Znaleziono"
+
+#: src/view/cards/card_note_url.py:76
+msgid "in"
+msgstr "w"
+
+#: src/view/cards/card_note_url.py:76
+msgid "note"
+msgstr "notatka"
+
+#: src/view/cards/card_note.py:112 src/view/cards/card_note.py:114
+msgid "Preview"
+msgstr "Podgląd"
+
+#: src/view/cards/card_note.py:178
+msgid "Remove note"
+msgstr "Usuń notatkę"
+
+#: src/view/cards/card_ordinance.py:72
+msgid "LDS"
+msgstr "LDS"
+
+#: src/view/cards/card_ordinance.py:135
+msgid "Temple"
+msgstr "Świątynia"
+
+#: src/view/cards/card_ordinance.py:145
+msgid "Status"
+msgstr "Status"
+
+#: src/view/cards/card_person_backref.py:86
+#: src/view/cards/card_person_ref.py:79
+msgid "Association"
+msgstr "Skojarzenie"
+
+#: src/view/cards/card_person_backref.py:91
+#: src/view/cards/card_person_ref.py:84
+msgid "Relationship"
+msgstr "Pokrewieństwo"
+
+#: src/view/cards/card_person.py:250
+msgid "Set home person"
+msgstr "Ustaw osobę główną"
+
+#: src/view/cards/card_person.py:257
+msgid "Add a new primary event"
+msgstr "Dodaj nowe zdarzenie podstawowe"
+
+#: src/view/cards/card_person.py:264
+msgid "Add as participant to an existing event"
+msgstr "Dodaj jako uczestnika do istniejącego zdarzenia"
+
+#: src/view/cards/card_place.py:101
+msgid "Type"
+msgstr "Typ"
+
+#: src/view/cards/card_place.py:111
+msgid "Code"
+msgstr "Kod"
+
+#: src/view/cards/card_place.py:145
+msgid "Alternate Name"
+msgstr "Nazwa alternatywna"
+
+#: src/view/cards/card_primary.py:236
+msgid "Last changed"
+msgstr "Ostatnia zmiana"
+
+#: src/view/cards/card_primary.py:242
+msgid "Never changed"
+msgstr "Nigdy nie zmieniane"
+
+#: src/view/cards/card_reference.py:321
+msgid "Child"
+msgstr "Dziecko"
+
+#: src/view/cards/card_repository_ref.py:67
+msgid "Call number"
+msgstr "Numer sygnaturowy"
+
+#: src/view/cards/card_repository_ref.py:72
+msgid "Media type"
+msgstr "Typ medium"
+
+#: src/view/cards/card_repository.py:127
+msgid "Add new source"
+msgstr "Dodaj nowe źródło"
+
+#: src/view/cards/card_repository.py:134
+msgid "Add existing source"
+msgstr "Dodaj istniejące źródło"
+
+#: src/view/cards/card_tag.py:100
+msgid "Priority"
+msgstr "Priorytet"
+
+#: src/view/cards/card_tag.py:104
+msgid "Color"
+msgstr "Kolor"
+
+#: src/view/cards/card_tag.py:114
+msgid "Edit tag"
+msgstr "Edytuj etykietę"
+
+#: src/view/cards/card_tag.py:116
+msgid "Organize tags"
+msgstr "Organizuj etykiety"
+
+#: src/view/cards/card_utils.py:117
+msgid "Home Person"
+msgstr "Osoba główna"
+
+#: src/view/cards/card_utils.py:142
+msgid "Bookmarked"
+msgstr "Zakładka"
+
+#: src/view/cards/card_utils.py:155
+msgid "Private"
+msgstr "Prywatne"
+
+#: src/view/cards/card_utils.py:158
+msgid "Public"
+msgstr "Publiczne"
+
+#: src/view/cards/card_widgets.py:256
+msgid "Set"
+msgstr "Zestaw"
+
+#: src/view/cards/card_widgets.py:263
+msgid "Sets"
+msgstr "Zestawy"
+
+#: src/view/services/service_templates.py:281
+msgid "Copy of"
+msgstr "Kopia"
+
+#: src/view/services/service_windows.py:81
+msgid "Changes"
+msgstr "Zmiany"
+
+#: src/view/services/service_windows.py:83
+msgid "Dashboard"
+msgstr "Kokpit"
+
 # Plugin-specific test strings (manually added for testing)
-#~ msgid "Card Statistics"
-#~ msgstr "Statystyki kart"
+#: src/view/services/service_windows.py:85
+msgid "Statistics"
+msgstr "Statystyki"
+
+#: src/view/services/service_windows.py:210
+msgid "page"
+msgstr "strona"
+
+#: src/view/services/service_windows.py:234
+msgid "group"
+msgstr "grupa"
+
+#: src/view/services/service_windows.py:303
+msgid "Could Not Spawn New Window"
+msgstr "Nie można utworzyć nowego okna"
+
+#: src/view/services/service_windows.py:305
+#, python-format
+msgid ""
+"Too many %s view windows are open. Close one before launching another or "
+"increase the default in the preferences."
+msgstr ""
+"Zbyt wiele okien widoku %s jest otwartych. Zamknij jedno przed uruchomieniem "
+"kolejnego lub zwiększ domyślną wartość w preferencjach."
+
+#: src/view/services/service_statistics_labels.py:37
+msgid "Number of individuals"
+msgstr "Liczba osób"
+
+#: src/view/services/service_statistics_labels.py:38
+msgid "With incomplete names"
+msgstr "Z niekompletnymi nazwami"
+
+#: src/view/services/service_statistics_labels.py:39
+msgid "With alternate names"
+msgstr "Z nazwami alternatywnymi"
+
+#: src/view/services/service_statistics_labels.py:40
+msgid "Disconnected from a family"
+msgstr "Niepołączone z rodziną"
+
+#: src/view/services/service_statistics_labels.py:41
+#: src/view/services/service_statistics_labels.py:130
+#: src/view/services/service_statistics_labels.py:147
+msgid "Males"
+msgstr "Mężczyźni"
+
+#: src/view/services/service_statistics_labels.py:42
+msgid "Living males"
+msgstr "Żyjący mężczyźni"
+
+#: src/view/services/service_statistics_labels.py:43
+msgid "Missing birth"
+msgstr "Brak urodzenia"
+
+#: src/view/services/service_statistics_labels.py:44
+msgid "Missing preferred birth date"
+msgstr "Brak preferowanej daty urodzenia"
+
+#: src/view/services/service_statistics_labels.py:45
+msgid "Missing preferred birth place"
+msgstr "Brak preferowanego miejsca urodzenia"
+
+#: src/view/services/service_statistics_labels.py:46
+msgid "Missing baptism or christening"
+msgstr "Brak chrztu"
+
+#: src/view/services/service_statistics_labels.py:47
+msgid "Missing baptism or christening date"
+msgstr "Brak daty chrztu"
+
+#: src/view/services/service_statistics_labels.py:48
+msgid "Missing baptism or christening place"
+msgstr "Brak miejsca chrztu"
+
+#: src/view/services/service_statistics_labels.py:49
+msgid "Missing death and not living"
+msgstr "Brak śmierci i nie żyje"
+
+#: src/view/services/service_statistics_labels.py:50
+msgid "Missing preferred death date"
+msgstr "Brak preferowanej daty śmierci"
+
+#: src/view/services/service_statistics_labels.py:51
+msgid "Missing preferred death place"
+msgstr "Brak preferowanego miejsca śmierci"
+
+#: src/view/services/service_statistics_labels.py:52
+msgid "Missing burial or cremation and not living"
+msgstr "Brak pogrzebu lub kremacji i nie żyje"
+
+#: src/view/services/service_statistics_labels.py:53
+msgid "Missing burial or cremation date"
+msgstr "Brak daty pogrzebu lub kremacji"
+
+#: src/view/services/service_statistics_labels.py:54
+msgid "Missing burial or cremation place"
+msgstr "Brak miejsca pogrzebu lub kremacji"
+
+#: src/view/services/service_statistics_labels.py:55
+#: src/view/services/service_statistics_labels.py:131
+#: src/view/services/service_statistics_labels.py:149
+msgid "Females"
+msgstr "Kobiety"
+
+#: src/view/services/service_statistics_labels.py:56
+msgid "Living females"
+msgstr "Żyjące kobiety"
+
+#: src/view/services/service_statistics_labels.py:57
+#: src/view/services/service_statistics_labels.py:132
+#: src/view/services/service_statistics_labels.py:151
+msgid "Unknown genders"
+msgstr "Nieznana płeć"
+
+#: src/view/services/service_statistics_labels.py:58
+msgid "Living unknown genders"
+msgstr "Żyjące osoby nieznanej płci"
+
+#: src/view/services/service_statistics_labels.py:62
+msgid "People with associations"
+msgstr "Osoby ze skojarzeniami"
+
+#: src/view/services/service_statistics_labels.py:63
+msgid "Total association references"
+msgstr "Łączna liczba odwołań do skojarzeń"
+
+#: src/view/services/service_statistics_labels.py:64
+msgid "Association types"
+msgstr "Typy skojarzeń"
+
+#: src/view/services/service_statistics_labels.py:68
+msgid "Participants in events"
+msgstr "Uczestnicy wydarzeń"
+
+#: src/view/services/service_statistics_labels.py:69
+msgid "Total event participant references"
+msgstr "Łączna liczba odwołań do uczestników wydarzeń"
+
+#: src/view/services/service_statistics_labels.py:70
+msgid "Individual participant roles"
+msgstr "Role uczestników indywidualnych"
+
+#: src/view/services/service_statistics_labels.py:71
+msgid "Family participant roles"
+msgstr "Role uczestników rodzinnych"
+
+#: src/view/services/service_statistics_labels.py:75
+msgid "Number of families"
+msgstr "Liczba rodzin"
+
+#: src/view/services/service_statistics_labels.py:76
+msgid "Unique surnames"
+msgstr "Unikalne nazwiska"
+
+#: src/view/services/service_statistics_labels.py:77
+msgid "Relationship types"
+msgstr "Typy związków"
+
+#: src/view/services/service_statistics_labels.py:78
+msgid "Missing one partner"
+msgstr "Brak jednego partnera"
+
+#: src/view/services/service_statistics_labels.py:79
+msgid "Missing both partners"
+msgstr "Brak obojga partnerów"
+
+#: src/view/services/service_statistics_labels.py:80
+msgid "Missing events"
+msgstr "Brakujące wydarzenia"
+
+#: src/view/services/service_statistics_labels.py:81
+msgid "Childless"
+msgstr "Bezdzietne"
+
+#: src/view/services/service_statistics_labels.py:82
+msgid "Missing marriage date"
+msgstr "Brak daty ślubu"
+
+#: src/view/services/service_statistics_labels.py:83
+msgid "Missing marriage place"
+msgstr "Brak miejsca ślubu"
+
+#: src/view/services/service_statistics_labels.py:87
+msgid "Total child references"
+msgstr "Łączna liczba odwołań do dzieci"
+
+#: src/view/services/service_statistics_labels.py:88
+msgid "Father relationships"
+msgstr "Relacje ojcowskie"
+
+#: src/view/services/service_statistics_labels.py:89
+msgid "Mother relationships"
+msgstr "Relacje macierzyńskie"
+
+#: src/view/services/service_statistics_labels.py:93
+msgid "Number of events"
+msgstr "Liczba wydarzeń"
+
+#: src/view/services/service_statistics_labels.py:94
+#: src/view/services/service_statistics_labels.py:103
+#: src/view/services/service_statistics_labels.py:113
+#: src/view/services/service_statistics_labels.py:182
+#: src/view/services/service_statistics_labels.py:202
+msgid "Missing date"
+msgstr "Brak daty"
+
+#: src/view/services/service_statistics_labels.py:95
+#: src/view/services/service_statistics_labels.py:104
+#: src/view/services/service_statistics_labels.py:114
+msgid "Missing place"
+msgstr "Brak miejsca"
+
+#: src/view/services/service_statistics_labels.py:96
+#: src/view/services/service_statistics_labels.py:180
+msgid "Missing description"
+msgstr "Brak opisu"
+
+#: src/view/services/service_statistics_labels.py:97
+msgid "Event types"
+msgstr "Typy wydarzeń"
+
+#: src/view/services/service_statistics_labels.py:101
+msgid "Number of people with ordinances"
+msgstr "Liczba osób z obrzędami"
+
+#: src/view/services/service_statistics_labels.py:102
+msgid "Total person ordinances"
+msgstr "Łączna liczba obrzędów osobistych"
+
+#: src/view/services/service_statistics_labels.py:105
+#: src/view/services/service_statistics_labels.py:115
+msgid "Missing temple"
+msgstr "Brak świątyni"
+
+#: src/view/services/service_statistics_labels.py:106
+#: src/view/services/service_statistics_labels.py:116
+msgid "Missing status"
+msgstr "Brak statusu"
+
+#: src/view/services/service_statistics_labels.py:107
+msgid "Missing family"
+msgstr "Brak rodziny"
+
+#: src/view/services/service_statistics_labels.py:111
+msgid "Number of families with ordinances"
+msgstr "Liczba rodzin z obrzędami"
+
+#: src/view/services/service_statistics_labels.py:112
+msgid "Total family ordinances"
+msgstr "Łączna liczba obrzędów rodzinnych"
+
+#: src/view/services/service_statistics_labels.py:120
+msgid "Number of places"
+msgstr "Liczba miejsc"
+
+#: src/view/services/service_statistics_labels.py:121
+#: src/view/services/service_statistics_labels.py:225
+msgid "Missing name"
+msgstr "Brak nazwy"
+
+#: src/view/services/service_statistics_labels.py:122
+msgid "Missing latitude"
+msgstr "Brak szerokości geograficznej"
+
+#: src/view/services/service_statistics_labels.py:123
+msgid "Missing longitude"
+msgstr "Brak długości geograficznej"
+
+#: src/view/services/service_statistics_labels.py:124
+msgid "Missing place code"
+msgstr "Brak kodu miejsca"
+
+#: src/view/services/service_statistics_labels.py:125
+msgid "Place types"
+msgstr "Typy miejsc"
+
+#: src/view/services/service_statistics_labels.py:129
+#: src/view/services/service_statistics_labels.py:157
+msgid "Names of people"
+msgstr "Nazwy osób"
+
+#: src/view/services/service_statistics_labels.py:133
+#: src/view/services/service_statistics_labels.py:153
+msgid "Preferred births"
+msgstr "Preferowane urodzenia"
+
+#: src/view/services/service_statistics_labels.py:134
+#: src/view/services/service_statistics_labels.py:155
+msgid "Preferred deaths"
+msgstr "Preferowane zgony"
+
+#: src/view/services/service_statistics_labels.py:135
+#: src/view/services/service_statistics_labels.py:158
+msgid "Families"
+msgstr "Rodziny"
+
+#: src/view/services/service_statistics_labels.py:136
+#: src/view/services/service_statistics_labels.py:160
+msgid "Children"
+msgstr "Dzieci"
+
+#: src/view/services/service_statistics_labels.py:137
+#: src/view/services/service_statistics_labels.py:161
+msgid "Associations"
+msgstr "Skojarzenia"
+
+#: src/view/services/service_statistics_labels.py:138
+#: src/view/services/service_statistics_labels.py:143
+#: src/view/services/service_statistics_labels.py:162
+msgid "Events"
+msgstr "Wydarzenia"
+
+#: src/view/services/service_statistics_labels.py:139
+msgid "Person ordinances"
+msgstr "Obrzędy osobiste"
+
+#: src/view/services/service_statistics_labels.py:140
+msgid "Family ordinances"
+msgstr "Obrzędy rodzinne"
+
+#: src/view/services/service_statistics_labels.py:141
+#: src/view/services/service_statistics_labels.py:167
+msgid "Places"
+msgstr "Miejsca"
+
+#: src/view/services/service_statistics_labels.py:148
+msgid "Living males not private"
+msgstr "Żyjący mężczyźni nieprywatnni"
+
+#: src/view/services/service_statistics_labels.py:150
+msgid "Living females not private"
+msgstr "Żyjące kobiety nieprywatnne"
+
+#: src/view/services/service_statistics_labels.py:152
+msgid "Living unknown genders not private"
+msgstr "Żyjące osoby nieznanej płci nieprywatnne"
+
+#: src/view/services/service_statistics_labels.py:154
+msgid "Baptisms and christenings"
+msgstr "Chrzty"
+
+#: src/view/services/service_statistics_labels.py:156
+msgid "Burials and cremations"
+msgstr "Pogrzeby i kremacje"
+
+#: src/view/services/service_statistics_labels.py:159
+msgid "Marriages"
+msgstr "Małżeństwa"
+
+#: src/view/services/service_statistics_labels.py:163
+msgid "Individual participants"
+msgstr "Uczestnicy indywidualni"
+
+#: src/view/services/service_statistics_labels.py:164
+msgid "Family participants"
+msgstr "Uczestnicy rodzinni"
+
+#: src/view/services/service_statistics_labels.py:165
+msgid "LDS person ordinances"
+msgstr "Obrzędy osobiste LDS"
+
+#: src/view/services/service_statistics_labels.py:166
+msgid "LDS family ordinances"
+msgstr "Obrzędy rodzinne LDS"
+
+#: src/view/services/service_statistics_labels.py:168
+msgid "Media objects"
+msgstr "Obiekty multimedialne"
+
+#: src/view/services/service_statistics_labels.py:171
+msgid "Repositories"
+msgstr "Repozytoria"
+
+#: src/view/services/service_statistics_labels.py:172
+msgid "Notes"
+msgstr "Notatki"
+
+#: src/view/services/service_statistics_labels.py:176
+msgid "Number of unique media items"
+msgstr "Liczba unikalnych elementów multimedialnych"
+
+#: src/view/services/service_statistics_labels.py:177
+msgid "Total size of media objects"
+msgstr "Łączny rozmiar obiektów multimedialnych"
+
+#: src/view/services/service_statistics_labels.py:178
+msgid "Missing file"
+msgstr "Brak pliku"
+
+#: src/view/services/service_statistics_labels.py:179
+msgid "Missing path"
+msgstr "Brak ścieżki"
+
+#: src/view/services/service_statistics_labels.py:181
+msgid "Missing mime type"
+msgstr "Brak typu MIME"
+
+#: src/view/services/service_statistics_labels.py:183
+msgid "People with media"
+msgstr "Osoby z multimediami"
+
+#: src/view/services/service_statistics_labels.py:184
+msgid "Total person media references"
+msgstr "Łączna liczba odwołań do multimediów osób"
+
+#: src/view/services/service_statistics_labels.py:185
+msgid "Person media references missing region"
+msgstr "Odwołania do multimediów osób bez regionu"
+
+#: src/view/services/service_statistics_labels.py:186
+msgid "Families with media"
+msgstr "Rodziny z multimediami"
+
+#: src/view/services/service_statistics_labels.py:187
+msgid "Total family media references"
+msgstr "Łączna liczba odwołań do multimediów rodzin"
+
+#: src/view/services/service_statistics_labels.py:188
+msgid "Events with media"
+msgstr "Wydarzenia z multimediami"
+
+#: src/view/services/service_statistics_labels.py:189
+msgid "Total event media references"
+msgstr "Łączna liczba odwołań do multimediów wydarzeń"
+
+#: src/view/services/service_statistics_labels.py:190
+msgid "Places with media"
+msgstr "Miejsca z multimediami"
+
+#: src/view/services/service_statistics_labels.py:191
+msgid "Total place media references"
+msgstr "Łączna liczba odwołań do multimediów miejsc"
+
+#: src/view/services/service_statistics_labels.py:192
+msgid "Sources with media"
+msgstr "Źródła z multimediami"
+
+#: src/view/services/service_statistics_labels.py:193
+msgid "Total source media references"
+msgstr "Łączna liczba odwołań do multimediów źródeł"
+
+#: src/view/services/service_statistics_labels.py:194
+msgid "Citations with media"
+msgstr "Cytaty z multimediami"
+
+#: src/view/services/service_statistics_labels.py:195
+msgid "Total citation media references"
+msgstr "Łączna liczba odwołań do multimediów cytatów"
+
+#: src/view/services/service_statistics_labels.py:199
+msgid "Number of citations"
+msgstr "Liczba cytatów"
+
+#: src/view/services/service_statistics_labels.py:200
+msgid "Missing source"
+msgstr "Brak źródła"
+
+#: src/view/services/service_statistics_labels.py:201
+msgid "Missing page"
+msgstr "Brak strony"
+
+#: src/view/services/service_statistics_labels.py:203
+msgid "Confidence level"
+msgstr "Poziom wiarygodności"
+
+#: src/view/services/service_statistics_labels.py:204
+msgid "Very low"
+msgstr "Bardzo niski"
+
+#: src/view/services/service_statistics_labels.py:205
+msgid "Low"
+msgstr "Niski"
+
+#: src/view/services/service_statistics_labels.py:206
+msgid "Normal"
+msgstr "Normalny"
+
+#: src/view/services/service_statistics_labels.py:207
+msgid "High"
+msgstr "Wysoki"
+
+#: src/view/services/service_statistics_labels.py:208
+msgid "Very high"
+msgstr "Bardzo wysoki"
+
+#: src/view/services/service_statistics_labels.py:212
+msgid "Number of sources"
+msgstr "Liczba źródeł"
+
+#: src/view/services/service_statistics_labels.py:213
+msgid "Missing title"
+msgstr "Brak tytułu"
+
+#: src/view/services/service_statistics_labels.py:214
+msgid "Missing author"
+msgstr "Brak autora"
+
+#: src/view/services/service_statistics_labels.py:215
+msgid "Missing publication info"
+msgstr "Brak informacji o publikacji"
+
+#: src/view/services/service_statistics_labels.py:216
+msgid "Missing abbreviation"
+msgstr "Brak skrótu"
+
+#: src/view/services/service_statistics_labels.py:217
+msgid "Missing repository"
+msgstr "Brak repozytorium"
+
+#: src/view/services/service_statistics_labels.py:218
+msgid "Total repository references"
+msgstr "Łączna liczba odwołań do repozytoriów"
+
+#: src/view/services/service_statistics_labels.py:219
+msgid "References missing call number"
+msgstr "Odwołania bez numeru sygnaturowego"
+
+#: src/view/services/service_statistics_labels.py:220
+msgid "Reference media types"
+msgstr "Typy nośników referencyjnych"
+
+#: src/view/services/service_statistics_labels.py:224
+msgid "Number of repositories"
+msgstr "Liczba repozytoriów"
+
+#: src/view/services/service_statistics_labels.py:226
+msgid "Missing address"
+msgstr "Brak adresu"
+
+#: src/view/services/service_statistics_labels.py:227
+msgid "Repository types"
+msgstr "Typy repozytoriów"
+
+#: src/view/services/service_statistics_labels.py:231
+msgid "Number of notes"
+msgstr "Liczba notatek"
+
+#: src/view/services/service_statistics_labels.py:232
+msgid "Missing text"
+msgstr "Brak tekstu"
+
+#: src/view/services/service_statistics_labels.py:233
+msgid "Note types"
+msgstr "Typy notatek"
+
+#: src/view/services/service_statistics_labels.py:237
+msgid "Number of tags"
+msgstr "Liczba etykiet"
+
+#: src/view/services/service_statistics_labels.py:238
+msgid "Tagged males"
+msgstr "Oznaczone etykietami mężczyźni"
+
+#: src/view/services/service_statistics_labels.py:239
+msgid "Tagged females"
+msgstr "Oznaczone etykietami kobiety"
+
+#: src/view/services/service_statistics_labels.py:240
+msgid "Tagged unknown gender"
+msgstr "Oznaczone etykietami osoby nieznanej płci"
+
+#: src/view/services/service_statistics_labels.py:241
+msgid "Tagged families"
+msgstr "Oznaczone etykietami rodziny"
+
+#: src/view/services/service_statistics_labels.py:242
+msgid "Tagged events"
+msgstr "Oznaczone etykietami wydarzenia"
+
+#: src/view/services/service_statistics_labels.py:243
+msgid "Tagged places"
+msgstr "Oznaczone etykietami miejsca"
+
+#: src/view/services/service_statistics_labels.py:244
+msgid "Tagged media"
+msgstr "Oznaczone etykietami media"
+
+#: src/view/services/service_statistics_labels.py:245
+msgid "Tagged sources"
+msgstr "Oznaczone etykietami źródła"
+
+#: src/view/services/service_statistics_labels.py:246
+msgid "Tagged citations"
+msgstr "Oznaczone etykietami cytaty"
+
+#: src/view/services/service_statistics_labels.py:247
+msgid "Tagged repositories"
+msgstr "Oznaczone etykietami repozytoria"
+
+#: src/view/services/service_statistics_labels.py:248
+msgid "Tagged notes"
+msgstr "Oznaczone etykietami notatki"
+
+#: src/view/services/service_statistics_labels.py:252
+msgid "Number of bookmarks"
+msgstr "Liczba zakładek"
+
+#: src/view/services/service_statistics_labels.py:253
+msgid "Person bookmarks"
+msgstr "Zakładki osób"
+
+#: src/view/services/service_statistics_labels.py:254
+msgid "Family bookmarks"
+msgstr "Zakładki rodzin"
+
+#: src/view/services/service_statistics_labels.py:255
+msgid "Event bookmarks"
+msgstr "Zakładki wydarzeń"
+
+#: src/view/services/service_statistics_labels.py:256
+msgid "Place bookmarks"
+msgstr "Zakładki miejsc"
+
+#: src/view/services/service_statistics_labels.py:257
+msgid "Media bookmarks"
+msgstr "Zakładki mediów"
+
+#: src/view/services/service_statistics_labels.py:258
+msgid "Source bookmarks"
+msgstr "Zakładki źródeł"
+
+#: src/view/services/service_statistics_labels.py:259
+msgid "Citation bookmarks"
+msgstr "Zakładki cytatów"
+
+#: src/view/services/service_statistics_labels.py:260
+msgid "Repository bookmarks"
+msgstr "Zakładki repozytoriów"
+
+#: src/view/services/service_statistics_labels.py:261
+msgid "Note bookmarks"
+msgstr "Zakładki notatek"
 
 #~ msgid "Layout Options"
 #~ msgstr "Opcje układu"
