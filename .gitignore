@@ -152,3 +152,4 @@ scripts/*
 STAGE*_STATUS.md
 HYBRID_LOCALIZATION_PLAN.md
 Makefile
+requirements-dev.txt
