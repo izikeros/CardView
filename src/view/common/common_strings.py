@@ -27,10 +27,19 @@ Common strings for cards
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Legacy import - keeping for reference during migration
+# from gramps.gen.const import GRAMPS_LOCALE as glocale
+
+# ------------------------------------------------------------------------
+#
+# Plugin Modules
+#
+# ------------------------------------------------------------------------
+from .hybrid_localization import _, _plugin
 
 
-_ = glocale.translation.sgettext
+# Legacy translation function - commented out during hybrid migration
+# _ = glocale.translation.sgettext
 
 
 REFERENCE = _("reference")
