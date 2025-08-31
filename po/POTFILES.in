@@ -1,7 +1,7 @@
 # List of source files containing translatable strings
 # This file is used by xgettext to extract strings for translation
 
-# Core plugin files
+# Core plugin files - Stage 2: Card View Base Classes
 src/card_view.py
 src/card_view_citation.py
 src/card_view_event.py
@@ -9,29 +9,36 @@ src/card_view_family.py
 src/card_view_media.py
 src/card_view_note.py
 src/card_view_person.py
+src/card_view_place.py
+src/card_view_repository.py
+src/card_view_source.py
+src/card_view_tag.py
 
-# Common modules
+# Common modules - Stage 1
 src/view/common/common_strings.py
 src/view/common/hybrid_localization.py
 
-# Card components (will be expanded in later stages)
+# Card components - Stage 2
+src/view/cards/card_view.py
+
+# Card components (will be expanded in Stage 3)
 # src/view/cards/*.py
 
-# Services (will be expanded in later stages)
+# Services (will be expanded in Stage 4)
 # src/view/services/*.py
 
-# Forms and dialogs (will be expanded in later stages)
+# Forms and dialogs (will be expanded in Stage 5)
 # src/view/dialogs/*.py
 # src/view/forms/*.py
 
-# Configuration (will be expanded in later stages)
+# Configuration (will be expanded in Stage 6)
 # src/config*.py
 # src/view/config/*.py
 
-# Actions and menus (will be expanded in later stages)
+# Actions and menus (will be expanded in Stage 8)
 # src/view/actions/*.py
 # src/view/menus/*.py
 
-# Utilities and helpers (will be expanded in later stages)
+# Utilities and helpers (will be expanded in Stage 7)
 # src/view/utilities/*.py
 # src/view/helpers/*.py
