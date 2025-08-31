@@ -150,3 +150,5 @@ po/*.pot
 
 scripts/*
 STAGE*_STATUS.md
+HYBRID_LOCALIZATION_PLAN.md
+Makefile
