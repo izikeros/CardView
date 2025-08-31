@@ -1,0 +1,144 @@
+# Polish translations for CardView package.
+# Copyright (C) 2025 THE CardView'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the CardView package.
+# Krystian Safjan <ksafjan@gmail.com>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: CardView\n"
+"Report-Msgid-Bugs-To: your-email@domain.com\n"
+"POT-Creation-Date: 2025-08-31 22:16+0200\n"
+"PO-Revision-Date: 2025-08-31 22:22+0200\n"
+"Last-Translator: Krystian Safjan <ksafjan@gmail.com>\n"
+"Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+
+#: src/card_view.py:312
+msgid "Templates"
+msgstr "Szablony"
+
+#: src/card_view.py:418
+msgid "No active object"
+msgstr "Brak aktywnego obiektu"
+
+#: src/card_view.py:512
+msgid "Tag"
+msgstr "Etykieta"
+
+#: src/card_view.py:639
+#, python-format
+msgid "Configure %(cat)s - %(view)s"
+msgstr "Konfiguruj %(cat)s - %(view)s"
+
+#: src/card_view_citation.py:74
+msgid "Citation"
+msgstr "Cytat"
+
+#: src/card_view_event.py:72
+msgid "Event"
+msgstr "Wydarzenie"
+
+#: src/card_view_family.py:72
+msgid "Family"
+msgstr "Rodzina"
+
+#: src/card_view_media.py:76
+msgid "Media"
+msgstr "Media"
+
+#: src/card_view_note.py:74
+msgid "Note"
+msgstr "Notatka"
+
+#: src/card_view_person.py:75
+msgid "Person"
+msgstr "Osoba"
+
+#: src/view/common/common_strings.py:45
+msgid "reference"
+msgstr "odniesienie"
+
+#: src/view/common/common_strings.py:46
+msgid "Edit"
+msgstr "Edytuj"
+
+#: src/view/common/common_strings.py:47
+msgid "Delete"
+msgstr "Usuń"
+
+#: src/view/common/common_strings.py:48
+msgid "None Provided"
+msgstr "Nie podano"
+
+#: src/view/common/common_strings.py:49
+msgid "Back Reference"
+msgstr "Odniesienie wsteczne"
+
+#: src/view/common/common_strings.py:50
+msgid "Reciprocal"
+msgstr "Wzajemne"
+
+#: src/view/common/common_strings.py:51
+msgid "Missing"
+msgstr "Brakujące"
+
+#: src/view/common/common_strings.py:52
+msgid "Latitude"
+msgstr "Szerokość geograficzna"
+
+#: src/view/common/common_strings.py:52
+msgid "Longitude"
+msgstr "Długość geograficzna"
+
+#: src/view/common/common_strings.py:53
+msgid "Make"
+msgstr "Ustaw"
+
+#: src/view/common/common_strings.py:53
+msgid "media"
+msgstr "media"
+
+#: src/view/common/common_strings.py:53
+msgid "active"
+msgstr "aktywne"
+
+#: src/view/common/common_strings.py:54
+msgid "Unknown"
+msgstr "Nieznane"
+
+#: src/view/common/common_strings.py:55
+msgid "Untitled"
+msgstr "Bez tytułu"
+
+#: src/view/common/common_strings.py:56
+msgid "None"
+msgstr "Brak"
+
+#: src/view/common/common_strings.py:57
+msgid "Unavailable"
+msgstr "Niedostępne"
+
+#: src/view/common/common_strings.py:58
+msgid "Missing Origin"
+msgstr "Brakujące źródło"
+
+# Plugin-specific test strings (manually added for testing)
+msgid "Card Statistics"
+msgstr "Statystyki kart"
+
+msgid "Layout Options"
+msgstr "Opcje układu"
+
+msgid "Card Navigation"
+msgstr "Nawigacja kart"
+
+msgid "Configure Card View"
+msgstr "Konfiguruj widok kart"
+
+msgid "Card Display Settings"
+msgstr "Ustawienia wyświetlania kart"
