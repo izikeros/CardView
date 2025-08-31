@@ -41,7 +41,9 @@ from gi.repository import Gtk
 # Gramps Modules
 #
 # -------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
+
 from gramps.gen.errors import WindowActiveError
 from gramps.gen.lib.tableobj import TableObject
 from gramps.gui.dialog import WarningDialog
@@ -55,9 +57,6 @@ from gramps.gui.managedwindow import ManagedWindow
 # -------------------------------------------------------------------------
 from view.groups.group_window import CardGroupWindow
 from view.views.view_builder import view_builder
-
-_ = glocale.translation.sgettext
-
 
 # ------------------------------------------------------------------------
 #
@@ -169,7 +168,6 @@ class PinnedViewWindow(ManagedWindow):
         ManagedWindow.close(self)
         if not defer_delete:
             self.callback(self.key)
-
 
 # -------------------------------------------------------------------------
 #
@@ -286,7 +284,6 @@ class WindowService:
         self.refresh_page_windows()
         self.refresh_group_windows()
 
-
 def reload_single_window(windows, max_windows, *args):
     """
     If only one spawned window enabled reload it.
@@ -296,7 +293,6 @@ def reload_single_window(windows, max_windows, *args):
         window.reload(*args)
         return True
     return False
-
 
 def launch_new_window(grstate, key, windows, max_windows, window_type):
     """
@@ -316,14 +312,12 @@ def launch_new_window(grstate, key, windows, max_windows, window_type):
         return False
     return True
 
-
 def clear_window(key, windows):
     """
     Clear a window.
     """
     if key in windows:
         del windows[key]
-
 
 def close_windows(windows):
     """
@@ -332,7 +326,6 @@ def close_windows(windows):
     for window in [y for x, y in windows.items()]:
         window.close()
     windows.clear()
-
 
 def refresh_windows(windows):
     """

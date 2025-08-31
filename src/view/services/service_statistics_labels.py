@@ -27,10 +27,8 @@ Statistics service labels
 # Gramps Modules
 #
 # -------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
-
-_ = glocale.translation.sgettext
-
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 
 # Each gathered statistic has a key to identify it. The following maps are
 # for looking up the translated label to describe it on a card or elsewhere.
@@ -60,13 +58,11 @@ PERSON_LABELS = {
     "unknown_living": _("Living unknown genders"),
 }
 
-
 ASSOCIATION_LABELS = {
     "total": _("People with associations"),
     "refs": _("Total association references"),
     "types": _("Association types"),
 }
-
 
 PARTICIPANT_LABELS = {
     "total": _("Participants in events"),
@@ -74,7 +70,6 @@ PARTICIPANT_LABELS = {
     "person_roles": _("Individual participant roles"),
     "family_roles": _("Family participant roles"),
 }
-
 
 FAMILY_LABELS = {
     "total": _("Number of families"),
@@ -88,13 +83,11 @@ FAMILY_LABELS = {
     "no_marriage_place": _("Missing marriage place"),
 }
 
-
 CHILD_LABELS = {
     "refs": _("Total child references"),
     "father_relations": _("Father relationships"),
     "mother_relations": _("Mother relationships"),
 }
-
 
 EVENT_LABELS = {
     "total": _("Number of events"),
@@ -103,7 +96,6 @@ EVENT_LABELS = {
     "no_description": _("Missing description"),
     "types": _("Event types"),
 }
-
 
 LDSORD_PERSON_LABELS = {
     "ldsord": _("Number of people with ordinances"),
@@ -115,7 +107,6 @@ LDSORD_PERSON_LABELS = {
     "no_family": _("Missing family"),
 }
 
-
 LDSORD_FAMILY_LABELS = {
     "ldsord": _("Number of families with ordinances"),
     "ldsord_refs": _("Total family ordinances"),
@@ -125,7 +116,6 @@ LDSORD_FAMILY_LABELS = {
     "no_status": _("Missing status"),
 }
 
-
 PLACE_LABELS = {
     "total": _("Number of places"),
     "no_name": _("Missing name"),
@@ -134,7 +124,6 @@ PLACE_LABELS = {
     "no_code": _("Missing place code"),
     "types": _("Place types"),
 }
-
 
 UNCITED_LABELS = {
     "names": _("Names of people"),
@@ -153,7 +142,6 @@ UNCITED_LABELS = {
     "media": _("Media"),
     "events": _("Events"),
 }
-
 
 PRIVATE_LABELS = {
     "male": _("Males"),
@@ -184,7 +172,6 @@ PRIVATE_LABELS = {
     "note": _("Notes"),
 }
 
-
 MEDIA_LABELS = {
     "total": _("Number of unique media items"),
     "size": _("Total size of media objects"),
@@ -208,7 +195,6 @@ MEDIA_LABELS = {
     "citation_refs": _("Total citation media references"),
 }
 
-
 CITATION_LABELS = {
     "total": _("Number of citations"),
     "no_source": _("Missing source"),
@@ -222,7 +208,6 @@ CITATION_LABELS = {
     "very_high": _("Very high"),
 }
 
-
 SOURCE_LABELS = {
     "total": _("Number of sources"),
     "no_title": _("Missing title"),
@@ -235,7 +220,6 @@ SOURCE_LABELS = {
     "types": _("Reference media types"),
 }
 
-
 REPOSITORY_LABELS = {
     "total": _("Number of repositories"),
     "no_name": _("Missing name"),
@@ -243,13 +227,11 @@ REPOSITORY_LABELS = {
     "types": _("Repository types"),
 }
 
-
 NOTE_LABELS = {
     "total": _("Number of notes"),
     "no_text": _("Missing text"),
     "types": _("Note types"),
 }
-
 
 TAG_LABELS = {
     "total": _("Number of tags"),
@@ -265,7 +247,6 @@ TAG_LABELS = {
     "repository": _("Tagged repositories"),
     "note": _("Tagged notes"),
 }
-
 
 BOOKMARK_LABELS = {
     "total": _("Number of bookmarks"),

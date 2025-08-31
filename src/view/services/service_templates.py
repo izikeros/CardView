@@ -42,7 +42,9 @@ import os
 #
 # -------------------------------------------------------------------------
 from gramps.gen.config import config as configman
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
+
 from gramps.gen.const import VERSION_DIR
 from gramps.gen.plug import BasePluginManager
 
@@ -55,8 +57,6 @@ from ..config.config_defaults import VIEWDEFAULTS
 from ..config.config_const import BASE_TEMPLATE_NAME
 from .service_fields import FieldCalculatorService
 from .service_status import StatusIndicatorService
-
-_ = glocale.translation.sgettext
 
 # -------------------------------------------------------------------------
 #
@@ -351,7 +351,6 @@ class TemplatesService:
         self.save_template(manager)
         configman.register_manager(template_name, override=manager)
 
-
 def parse_template(file_name):
     """
     Parse a template to extract template metadata.
@@ -391,7 +390,6 @@ def parse_template(file_name):
     data["comments"] = comments
     return data
 
-
 def rewrite_template(file_name, comments):
     """
     Rewrite template to save additional comments.
@@ -416,7 +414,6 @@ def rewrite_template(file_name, comments):
             new_file.write("%s\n" % line)
     os.replace(work_file_name, file_name)
 
-
 def merge_defaults(options, defaults):
     """
     Merge two sets of default values.
@@ -432,7 +429,6 @@ def merge_defaults(options, defaults):
             options = options + [(key, value)]
     return tuple(options)
 
-
 def find_option_value(options, search_key):
     """
     Return option value given key.
@@ -440,7 +436,6 @@ def find_option_value(options, search_key):
     for key, value in options:
         if key == search_key:
             return value
-
 
 def register_default_options(ini, default_options):
     """

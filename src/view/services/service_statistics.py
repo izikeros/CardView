@@ -48,7 +48,6 @@ from gi.repository import GLib
 # Gramps Modules
 #
 # -------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
 from gramps.gen.const import USER_PLUGINS
 from gramps.gen.utils.callback import Callback
 
@@ -71,9 +70,6 @@ CATEGORIES = [
     "Note",
     "Tag",
 ]
-
-_ = glocale.translation.sgettext
-
 
 # -------------------------------------------------------------------------
 #
@@ -289,7 +285,6 @@ class StatisticsService(Callback):
         Force a statistics collection if one not running.
         """
         self.spawn_collect_statistics()
-
 
 def find_statistics_service_worker():
     """
