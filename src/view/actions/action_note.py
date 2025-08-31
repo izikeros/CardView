@@ -48,6 +48,7 @@ from .action_factory import factory
 
 # _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
+
 # ------------------------------------------------------------------------
 #
 # NoteAction Class
@@ -198,5 +199,6 @@ class NoteAction(GrampsAction):
         active_target_object.obj.remove_note(self.action_object.obj.handle)
         active_target_object.sync_hash(self.grstate)
         self.target_object.commit(self.grstate, message)
+
 
 factory.register_action("Note", NoteAction)

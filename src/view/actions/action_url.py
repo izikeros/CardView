@@ -48,6 +48,7 @@ from .action_factory import factory
 
 # _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
+
 # ------------------------------------------------------------------------
 #
 # UrlAction Class
@@ -120,7 +121,10 @@ class UrlAction(GrampsAction):
         """
         if url:
             active_target_object = self.get_target_object()
-            message = _("Edited Url %s for %s") % (url.path, self.describe_object(active_target_object.obj))
+            message = _("Edited Url %s for %s") % (
+                url.path,
+                self.describe_object(active_target_object.obj),
+            )
             self.target_object.commit(self.grstate, message)
 
     def add_url(self, *_dummy_args):
@@ -141,7 +145,10 @@ class UrlAction(GrampsAction):
         """
         if url:
             active_target_object = self.get_target_object()
-            message = _("Added Url %s to %s") % (url.path, self.describe_object(active_target_object.obj))
+            message = _("Added Url %s to %s") % (
+                url.path,
+                self.describe_object(active_target_object.obj),
+            )
             active_target_object.obj.add_url(url)
             self.target_object.commit(self.grstate, message)
 
@@ -156,8 +163,7 @@ class UrlAction(GrampsAction):
         url_name = str(self.action_object.obj.path)
         message1 = _("Delete Url %s?") % url_name
         message2 = _(
-            "Deleting the url will remove the url from "
-            "the %s %s in the database."
+            "Deleting the url will remove the url from " "the %s %s in the database."
         ) % (active_target_object.obj_lang.lower(), target_name)
         self.verify_action(
             message1,
@@ -171,7 +177,10 @@ class UrlAction(GrampsAction):
         Actually delete the url.
         """
         active_target_object = self.get_target_object()
-        message = _("Deleted Url %s from %s") % (self.action_object.obj.path, self.describe_object(active_target_object.obj))
+        message = _("Deleted Url %s from %s") % (
+            self.action_object.obj.path,
+            self.describe_object(active_target_object.obj),
+        )
         if active_target_object.obj.remove_url(self.action_object.obj):
             self.target_object.commit(self.grstate, message)
 
@@ -187,5 +196,6 @@ class UrlAction(GrampsAction):
         Edit the url. This overrides default method.
         """
         self.edit_url()
+
 
 factory.register_action("Url", UrlAction)

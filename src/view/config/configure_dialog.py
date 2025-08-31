@@ -85,6 +85,7 @@ WIKI_HELP_SEC = _("Preferences")
 #
 # -------------------------------------------------------------------------
 
+
 class ModifiedConfigureDialog(ManagedWindow):
     """
     Base class for configuration dialogs. They provide a Notebook, to which
@@ -290,9 +291,7 @@ class ModifiedConfigureDialog(ManagedWindow):
         grid.attach(checkbox, start, index, stop - start, 1)
         return checkbox
 
-    def add_radiobox(
-        self, grid, label, index, constant, group, column, config=None
-    ):
+    def add_radiobox(self, grid, label, index, constant, group, column, config=None):
         """
         Adds radiobox option.
         """
@@ -458,9 +457,7 @@ class ModifiedConfigureDialog(ManagedWindow):
         entry = Gtk.ColorButton(color=color)
         color_hex_label = BasicLabel(hexval)
         color_hex_label.set_hexpand(True)
-        entry.connect(
-            "notify::color", self.update_color, constant, color_hex_label
-        )
+        entry.connect("notify::color", self.update_color, constant, color_hex_label)
         grid.attach(lwidget, col, index, 1, 1)
         grid.attach(entry, col + 1, index, 1, 1)
         grid.attach(color_hex_label, col + 2, index, 1, 1)

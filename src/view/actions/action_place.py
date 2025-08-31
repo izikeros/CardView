@@ -46,6 +46,7 @@ from .action_factory import factory
 
 # _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
+
 # ------------------------------------------------------------------------
 #
 # PlaceAction Class
@@ -100,9 +101,7 @@ class PlaceAction(GrampsAction):
         place_ref = PlaceRef()
         place_ref.ref = self.action_object.obj.handle
         place.add_placeref(place_ref)
-        self._edit_place_reference(
-            place, place_ref, self._save_place_reference
-        )
+        self._edit_place_reference(place, place_ref, self._save_place_reference)
 
     def add_existing_enclosed_place(self, *_dummy_args):
         """
@@ -118,9 +117,7 @@ class PlaceAction(GrampsAction):
             place_ref = PlaceRef()
             place_ref.ref = self.target_object.obj.handle
             place.add_placeref(place_ref)
-            self._edit_place_reference(
-                place, place_ref, self._save_place_reference
-            )
+            self._edit_place_reference(place, place_ref, self._save_place_reference)
 
     def _save_place_reference(self, place_ref, saved_place):
         """
@@ -156,9 +153,7 @@ class PlaceAction(GrampsAction):
             place = self.db.get_place_from_handle(self.target_object.obj.ref)
 
         place_name = place_displayer.display(self.db, place)
-        enclosed_place_name = place_displayer.display(
-            self.db, self.action_object.obj
-        )
+        enclosed_place_name = place_displayer.display(self.db, self.action_object.obj)
         message1 = _("Remove Enclosed Place %s?") % enclosed_place_name
         message2 = _(
             "Removing the enclosed place will remove the place reference "
@@ -188,8 +183,12 @@ class PlaceAction(GrampsAction):
                 new_list.append(place_ref)
 
         place_name = place_displayer.display(self.db, self.action_object.obj)
-        message = _("Removed Enclosed Place %s from %s") % (place_name, self.describe_object(self.target_object.obj))
+        message = _("Removed Enclosed Place %s from %s") % (
+            place_name,
+            self.describe_object(self.target_object.obj),
+        )
         self.action_object.obj.set_placeref_list(new_list)
         self.action_object.commit(self.grstate, message)
+
 
 factory.register_action("Place", PlaceAction)

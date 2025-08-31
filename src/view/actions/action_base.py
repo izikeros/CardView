@@ -51,6 +51,7 @@ from .delete import delete_object
 
 # _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
+
 # ------------------------------------------------------------------------
 #
 # GrampsAction Class
@@ -123,13 +124,9 @@ class GrampsAction:
         """
         if not gramps_id or not isinstance(obj, PrimaryObject):
             return describe_object(self.db, obj)
-        return "".join(
-            (describe_object(self.db, obj), " [", obj.gramps_id, "]")
-        )
+        return "".join((describe_object(self.db, obj), " [", obj.gramps_id, "]"))
 
-    def verify_action(
-        self, message1, message2, button, callback, recover_message=True
-    ):
+    def verify_action(self, message1, message2, button, callback, recover_message=True):
         """
         Verify an action with the user before performing it.
         """
@@ -147,10 +144,7 @@ class GrampsAction:
         """
         Edit the object.
         """
-        if (
-            self.action_object.is_primary
-            or self.action_object.obj_type == "Tag"
-        ):
+        if self.action_object.is_primary or self.action_object.obj_type == "Tag":
             try:
                 GRAMPS_EDITORS[self.action_object.obj_type](
                     self.grstate.dbstate,
@@ -212,9 +206,10 @@ class GrampsAction:
                 obj_lang,
                 self.describe_object(target_object.obj),
             )
-            message2 = _(
-                "Deleting the %s will remove the %s from the database."
-            ) % (obj_lang.lower(), obj_lang.lower())
+            message2 = _("Deleting the %s will remove the %s from the database.") % (
+                obj_lang.lower(),
+                obj_lang.lower(),
+            )
             if backlink_count > 0:
                 message2 = "%s %s" % (
                     message2,
@@ -246,9 +241,7 @@ class GrampsAction:
                     _("No other objects in the database refer to this one."),
                 )
             callback = lambda: self._delete_object(target_object)
-            self.verify_action(
-                message1, message2, _("Delete %s") % obj_lang, callback
-            )
+            self.verify_action(message1, message2, _("Delete %s") % obj_lang, callback)
 
     def _delete_object(self, override_object=None, *_dummy_args):
         """

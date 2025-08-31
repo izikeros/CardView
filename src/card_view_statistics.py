@@ -75,9 +75,7 @@ class StatisticsCardView(CardView):
             nav_group,
         )
         self.statistics_service = StatisticsService(self.grstate)
-        self.statistics_service.connect(
-            "changes-detected", self.enable_refresh
-        )
+        self.statistics_service.connect("changes-detected", self.enable_refresh)
 
     def set_active(self):
         CardView.set_active(self)
@@ -144,9 +142,7 @@ class StatisticsCardView(CardView):
         """
         CardView.define_actions(self)
         self.second_action_group = ActionGroup(name="Refresh")
-        self.second_action_group.add_actions(
-            [("ViewRefresh", self.refresh_statistics)]
-        )
+        self.second_action_group.add_actions([("ViewRefresh", self.refresh_statistics)])
         self.second_action_group_sensitive = False
         self._add_action_group(self.second_action_group)
 
@@ -178,9 +174,7 @@ class StatisticsCardView(CardView):
 
         self._clear_current_view()
         self.current_context = GrampsContext()
-        view = view_builder(
-            self.grstate, self.current_context, hint="Statistics"
-        )
+        view = view_builder(self.grstate, self.current_context, hint="Statistics")
         self.current_view.pack_start(view, True, True, 0)
         self.current_view.show_all()
 

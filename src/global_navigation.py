@@ -135,9 +135,7 @@ class GlobalNavigationView(PageView):
 
         object_history = self.uistate.get_history(self.navigation_type())
         if object_history:
-            object_history.connect(
-                "active-changed", self.sync(self.navigation_type())
-            )
+            object_history.connect("active-changed", self.sync(self.navigation_type()))
         self.dirty_redraw_trigger = False
 
     def sync(self, history_type):
@@ -230,9 +228,7 @@ class GlobalNavigationView(PageView):
                             (view_plugin, _view_class),
                         ) in enumerate(category_views):
                             if self.navigation_group_key() in view_plugin.id:
-                                return viewmanager.goto_page(
-                                    category_index, view_index
-                                )
+                                return viewmanager.goto_page(category_index, view_index)
                         return viewmanager.goto_page(category_index, None)
 
     def change_person_category(self):
@@ -250,9 +246,7 @@ class GlobalNavigationView(PageView):
         """
         Called when the page changes.
         """
-        self.uimanager.set_actions_sensitive(
-            self.fwd_action, not self.history.at_end()
-        )
+        self.uimanager.set_actions_sensitive(self.fwd_action, not self.history.at_end())
         self.uimanager.set_actions_sensitive(
             self.back_action, not self.history.at_front()
         )
@@ -264,12 +258,8 @@ class GlobalNavigationView(PageView):
         """
         PageView.set_active(self)
         self.bookmarks.display()
-        self.active_signal = self.history.connect(
-            "active-changed", self.goto_active
-        )
-        self.mru_signal = self.history.connect(
-            "mru-changed", self.update_mru_menu
-        )
+        self.active_signal = self.history.connect("active-changed", self.goto_active)
+        self.mru_signal = self.history.connect("mru-changed", self.update_mru_menu)
         self.update_mru_menu(self.history.mru, update_menu=False)
         self.goto_active(None)
 
@@ -370,11 +360,9 @@ class GlobalNavigationView(PageView):
         Initialize bookmarks list.
         """
         bookmarks = {}
-        for (bookmark_type, bookmark_class) in BOOKMARKS.items():
+        for bookmark_type, bookmark_class in BOOKMARKS.items():
             change_active = partial(self.goto_bookmark, bookmark_type)
-            bookmark_handler = bookmark_class(
-                self.dbstate, self.uistate, change_active
-            )
+            bookmark_handler = bookmark_class(self.dbstate, self.uistate, change_active)
             bookmarks.update({bookmark_type: bookmark_handler})
         return bookmarks
 
@@ -524,9 +512,7 @@ class GlobalNavigationView(PageView):
             self.dirty = True
             self.history.forward()
             self.uistate.modify_statusbar(self.dbstate)
-        self.uimanager.set_actions_sensitive(
-            self.fwd_action, not self.history.at_end()
-        )
+        self.uimanager.set_actions_sensitive(self.fwd_action, not self.history.at_end())
         self.uimanager.set_actions_sensitive(self.back_action, True)
 
     def back_clicked(self, *_dummy_obj):

@@ -46,6 +46,7 @@ from .action_factory import factory
 
 # _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
+
 # ------------------------------------------------------------------------
 #
 # AddressAction Class
@@ -63,9 +64,7 @@ class AddressAction(GrampsAction):
         """
         Edit an address.
         """
-        callback = lambda x: self._edited_address(
-            x, self.action_object.obj_hash
-        )
+        callback = lambda x: self._edited_address(x, self.action_object.obj_hash)
         try:
             EditAddress(
                 self.grstate.dbstate,
@@ -87,5 +86,6 @@ class AddressAction(GrampsAction):
                 self.describe_object(self.target_object.obj),
             )
             self.target_object.commit(self.grstate, message)
+
 
 factory.register_action("Address", AddressAction)
