@@ -34,7 +34,9 @@ from gi.repository import Gdk, Gtk
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
+
 from gramps.gui.ddtargets import DdTargets
 
 # ------------------------------------------------------------------------
@@ -47,15 +49,11 @@ from ..common.common_utils import make_scrollable, set_dnd_css
 from .config_const import PAGES, HELP_CONFIG_PAGE_LAYOUT
 from .config_utils import ConfigReset, create_grid, HelpButton
 
-_ = glocale.translation.sgettext
-
-
 GROUPS = "{}.groups"
 TABBED = "{}.tabbed"
 SCROLLED = "{}.scrolled"
 VISIBLE = "{}.visible"
 APPEND = "{}.append"
-
 
 def build_layout_grid(configdialog, grstate, page_type=None, *_dummy_args):
     """
@@ -84,7 +82,6 @@ def build_layout_grid(configdialog, grstate, page_type=None, *_dummy_args):
             )
         grid.add(notebook)
     return grid
-
 
 # ------------------------------------------------------------------------
 #
@@ -280,7 +277,6 @@ class ProfilePageLayout(Gtk.VBox):
         """
         self.tabbed.set_inconsistent(False)
 
-
 # ------------------------------------------------------------------------
 #
 # ProfileColumnLayout Class
@@ -431,7 +427,6 @@ class ProfileColumnLayout(Gtk.ListBox):
             context.remove_provider(self.row_current_provider)
             self.row_current_provider = None
         self.rows[self.row_current].set_css_style()
-
 
 # ------------------------------------------------------------------------
 #

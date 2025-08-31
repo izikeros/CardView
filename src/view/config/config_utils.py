@@ -41,7 +41,9 @@ from gi.repository import GObject, Gtk
 # Gramps Modules
 #
 # -------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
+
 from gramps.gen.errors import WindowActiveError
 from gramps.gui.configure import GrampsPreferences
 from gramps.gui.display import display_url
@@ -53,9 +55,6 @@ from gramps.gui.display import display_url
 # -------------------------------------------------------------------------
 from ..common.common_utils import make_scrollable
 from .config_selectors import CardFieldSelector
-
-_ = glocale.translation.sgettext
-
 
 # -------------------------------------------------------------------------
 #
@@ -90,7 +89,6 @@ class ConfigPreferences(Gtk.ButtonBox):
             GrampsPreferences(self.grstate.uistate, self.grstate.dbstate)
         except WindowActiveError:
             return
-
 
 # -------------------------------------------------------------------------
 #
@@ -211,7 +209,6 @@ class ConfigReset(Gtk.ButtonBox):
                 options.append("%s.%s" % (section, setting))
         return options
 
-
 # -------------------------------------------------------------------------
 #
 # TemplateCommentsEntry Class
@@ -281,7 +278,6 @@ class TemplateCommentsEntry(Gtk.VBox):
         self.defer_refresh_id = None
         return False
 
-
 # -------------------------------------------------------------------------
 #
 # HelpButton Class
@@ -304,7 +300,6 @@ class HelpButton(Gtk.Button):
         """
         display_url(self.url)
 
-
 def create_grid():
     """
     Generate grid for config panels.
@@ -319,7 +314,6 @@ def create_grid():
     )
     return grid
 
-
 def add_config_buttons(configdialog, grstate, space, grid, url):
     """
     Add help and configuration reset buttons.
@@ -331,7 +325,6 @@ def add_config_buttons(configdialog, grstate, space, grid, url):
     hbox.add(ConfigReset(configdialog, grstate, space))
     vbox.pack_end(hbox, False, False, 0)
     return make_scrollable(vbox, hexpand=True)
-
 
 def config_facts_fields(
     configdialog,
@@ -446,7 +439,6 @@ def config_facts_fields(
             )
             row = row + 1
 
-
 def config_event_fields(grstate, key="alert", count=12):
     """
     Build event status fields configuration section.
@@ -458,7 +450,6 @@ def config_event_fields(grstate, key="alert", count=12):
     grid.attach(grid1, 1, 0, 1, 1)
     grid.attach(grid2, 2, 0, 1, 1)
     return grid
-
 
 def config_event_grid(grstate, key, start=1, count=6):
     """
@@ -484,7 +475,6 @@ def config_event_grid(grstate, key, start=1, count=6):
         )
         grid.attach(user_select, 1, row, 2, 1)
     return grid
-
 
 def get_event_fields(grstate, key, count=12):
     """

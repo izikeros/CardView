@@ -41,7 +41,8 @@ from gi.repository import Gtk
 # Gramps Modules
 #
 # -------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 
 # -------------------------------------------------------------------------
 #
@@ -94,9 +95,6 @@ from .config_timeline import (
 )
 from .config_utils import create_grid
 
-_ = glocale.translation.sgettext
-
-
 def build_global_panel(configdialog, grstate, *_dummy_args):
     """
     Build timeline options panel for the configuration dialog.
@@ -134,7 +132,6 @@ def build_global_panel(configdialog, grstate, *_dummy_args):
     )
     grid.attach(notebook, 1, 0, 1, 1)
     return grid
-
 
 def build_object_panel(configdialog, grstate, space):
     """
@@ -222,7 +219,6 @@ def build_object_panel(configdialog, grstate, space):
     grid.attach(notebook, 1, 0, 1, 1)
     return grid
 
-
 def build_timeline_panel(configdialog, grstate):
     """
     Build timeline options panel for the configuration dialog.
@@ -237,7 +233,6 @@ def build_timeline_panel(configdialog, grstate):
     notebook.append_deferred_page(Gtk.Label(label=_("Place")), render_page)
     grid.attach(notebook, 1, 0, 1, 1)
     return grid
-
 
 def build_color_panel(configdialog, grstate):
     """

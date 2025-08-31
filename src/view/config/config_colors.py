@@ -41,7 +41,9 @@ from gi.repository import Gdk, Gtk
 # Gramps Modules
 #
 # -------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
+
 from gramps.gui.widgets import BasicLabel
 
 # -------------------------------------------------------------------------
@@ -52,9 +54,6 @@ from gramps.gui.widgets import BasicLabel
 from .config_const import HELP_CONFIG_COLORS
 from .config_utils import ConfigPreferences, add_config_buttons, create_grid
 
-_ = glocale.translation.sgettext
-
-
 BOLD_MARKUP = "<b>{}</b>"
 
 CONFIDENCE_TYPE = (
@@ -62,7 +61,6 @@ CONFIDENCE_TYPE = (
     _("Confidence color scheme"),
     "colors.confidence",
 )
-
 
 CONFIDENCE_OPTIONS = [
     (_("Background for Very High"), "very-high", 1, 1),
@@ -152,7 +150,6 @@ ROLE_OPTIONS = [
     (_("Border for Unknown Role"), "border-unknown", 5, 4),
 ]
 
-
 def build_color_grid(configdialog, grstate, scheme_type, scheme_options):
     """
     Build color scheme selection grid for the configuration dialog.
@@ -200,7 +197,6 @@ def build_color_grid(configdialog, grstate, scheme_type, scheme_options):
         configdialog, grstate, space, grid, HELP_CONFIG_COLORS
     )
 
-
 def add_color(config, grid, text, option, coordinates, scheme):
     """
     Add color chooser widget with label and hex value to the grid.
@@ -223,7 +219,6 @@ def add_color(config, grid, text, option, coordinates, scheme):
     grid.attach(entry, column + 1, row, 1, 1)
     grid.attach(color_hex_label, column + 2, row, 1, 1)
     return entry
-
 
 def update_color(obj, _dummy_obj, config, option, color_hex_label, scheme):
     """

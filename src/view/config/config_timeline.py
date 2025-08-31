@@ -41,7 +41,8 @@ from gi.repository import Gtk
 # Gramps Modules
 #
 # -------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 
 # -------------------------------------------------------------------------
 #
@@ -55,9 +56,6 @@ from .config_const import (
     TIMELINE_COLOR_MODES,
 )
 from .config_utils import add_config_buttons, config_facts_fields, create_grid
-
-_ = glocale.translation.sgettext
-
 
 def build_timeline_grid(configdialog, grstate, space, *_dummy_args):
     """
@@ -379,20 +377,17 @@ def build_timeline_grid(configdialog, grstate, space, *_dummy_args):
         configdialog, grstate, space, grid, HELP_CONFIG_TIMELINES
     )
 
-
 def build_person_timeline_grid(configdialog, grstate, *_dummy_args):
     """
     Build person timeline configuration grid.
     """
     return build_timeline_grid(configdialog, grstate, "timeline.person")
 
-
 def build_family_timeline_grid(configdialog, grstate, *_dummy_args):
     """
     Build family timeline configuration grid.
     """
     return build_timeline_grid(configdialog, grstate, "timeline.family")
-
 
 def build_place_timeline_grid(configdialog, grstate, *_dummy_args):
     """

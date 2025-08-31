@@ -43,7 +43,9 @@ from gi.repository import Gtk
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
+
 from gramps.gen.display.name import displayer as name_displayer
 from gramps.gen.errors import HandleError
 from gramps.gen.lib import AttributeType, EventType
@@ -56,8 +58,6 @@ from gramps.gui.selectors import SelectorFactory
 # ------------------------------------------------------------------------
 from ..common.common_utils import get_config_option, save_config_option
 from ..services.service_fields import FieldCalculatorService
-
-_ = glocale.translation.sgettext
 
 VALUE_TYPES = {
     "None": _("None"),
@@ -93,7 +93,6 @@ CALCULATED_ATTRIBUTE_TYPES = {
     "Soundex": _("Soundex"),
 }
 
-
 def get_type_maps(mode):
     """
     Get category type maps.
@@ -113,7 +112,6 @@ def get_type_maps(mode):
         itoe.update({categories[category]: category})
     return categories, itoe
 
-
 def get_attribute_types(db, obj_type):
     """
     Get available attribute types based on current object type.
@@ -131,7 +129,6 @@ def get_attribute_types(db, obj_type):
     if obj_type == "Citation":
         return db.get_source_attribute_types()
     return []
-
 
 def get_attribute_maps(db, obj_type):
     """
@@ -155,7 +152,6 @@ def get_attribute_maps(db, obj_type):
         itoe.update({attribute: attribute})
     return etoi, itoe
 
-
 def get_calculated_maps(obj_type):
     """
     Return forward and reverse language mappings for calculated types.
@@ -166,7 +162,6 @@ def get_calculated_maps(obj_type):
         for value in values:
             itoe.update({values[value]: value})
     return values, itoe
-
 
 def get_event_maps(db):
     """
@@ -190,7 +185,6 @@ def get_event_maps(db):
         itoe.update({event: event})
     return etoi, itoe
 
-
 def map_builder(db, obj_type, value_type):
     """
     Build and return needed option maps.
@@ -208,7 +202,6 @@ def map_builder(db, obj_type, value_type):
         etoi.update({"None": _("None")})
         itoe.update({_("None"): "None"})
     return etoi, itoe
-
 
 # ------------------------------------------------------------------------
 #
@@ -322,7 +315,6 @@ class FieldSelector(Gtk.HBox):
             self.value_type,
             current_value,
         )
-
 
 # ------------------------------------------------------------------------
 #

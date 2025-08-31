@@ -34,17 +34,12 @@ ProfileManager
 # Gramps Modules
 #
 # -------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
-
 # -------------------------------------------------------------------------
 #
 # Plugin Modules
 #
 # -------------------------------------------------------------------------
 from ..services.service_templates import TemplatesService
-
-_ = glocale.translation.sgettext
-
 
 # -------------------------------------------------------------------------
 #

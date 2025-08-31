@@ -42,7 +42,9 @@ from gi.repository import Gdk, Gtk
 # gramps Modules
 #
 # -------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
+
 from gramps.gen.const import URL_MANUAL_PAGE
 from gramps.gui.dialog import ErrorDialog
 from gramps.gui.managedwindow import ManagedWindow
@@ -72,7 +74,6 @@ COL_EXPL = 3
 WIKI_HELP_PAGE = URL_MANUAL_PAGE + "_-_Settings"
 WIKI_HELP_SEC = _("Preferences")
 
-
 # -------------------------------------------------------------------------
 #
 # ModifiedConfigureDialog
@@ -82,7 +83,6 @@ WIKI_HELP_SEC = _("Preferences")
 # pass window tracking parameter through to the managed window.
 #
 # -------------------------------------------------------------------------
-
 
 class ModifiedConfigureDialog(ManagedWindow):
     """

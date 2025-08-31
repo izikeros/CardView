@@ -27,10 +27,10 @@ Configuration related constants
 # Gramps Modules
 #
 # -------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
-from gramps.gen.lib import Citation
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 
-_ = glocale.translation.sgettext
+from gramps.gen.lib import Citation
 
 HELP_VIEW = "https://www.gramps-project.org/wiki/index.php/Addon:CardView"
 HELP_CONFIG = "%s%s" % (HELP_VIEW, "_Configuration:")

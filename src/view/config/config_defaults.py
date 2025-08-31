@@ -27,9 +27,8 @@ View default configuration options.
 # Gramps Modules
 #
 # -------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
-
-_ = glocale.translation.sgettext
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 
 from .config_const import (
     OPTION_VALUE_BIRTH,

@@ -41,7 +41,8 @@ from gi.repository import Gtk
 # Gramps Modules
 #
 # -------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 
 # -------------------------------------------------------------------------
 #
@@ -61,11 +62,7 @@ from .config_const import (
 )
 from .config_utils import add_config_buttons, config_facts_fields, create_grid
 
-_ = glocale.translation.sgettext
-
-
 DISPLAY_OPTIONS = _("Display Options")
-
 
 # -------------------------------------------------------------------------
 #
@@ -107,7 +104,6 @@ class ConfigNotebook(Gtk.Notebook):
             container.show_all()
             self.rendered_pages.append(index)
 
-
 def get_help(space):
     """
     Return help url based on space
@@ -115,7 +111,6 @@ def get_help(space):
     if "group" in space:
         return HELP_CONFIG_OBJECT_GROUPS
     return HELP_CONFIG_ACTIVE_OBJECT
-
 
 def build_person_grid(configdialog, grstate, space, person):
     """
@@ -215,7 +210,6 @@ def build_person_grid(configdialog, grstate, space, person):
         get_help(space),
     )
 
-
 def build_family_grid(configdialog, grstate, space, *_dummy_context):
     """
     Builds a family options section for the configuration dialog
@@ -309,7 +303,6 @@ def build_family_grid(configdialog, grstate, space, *_dummy_context):
         configdialog, grstate, "{}.family".format(space), grid, get_help(space)
     )
 
-
 def build_name_grid(configdialog, grstate, space, *_dummy_context):
     """
     Builds a name options section for the configuration dialog
@@ -332,7 +325,6 @@ def build_name_grid(configdialog, grstate, space, *_dummy_context):
         configdialog, grstate, "{}.name".format(space), grid, get_help(space)
     )
 
-
 def build_ldsord_grid(configdialog, grstate, space, *_dummy_context):
     """
     Builds a ordinance options section for the configuration dialog
@@ -354,7 +346,6 @@ def build_ldsord_grid(configdialog, grstate, space, *_dummy_context):
     return add_config_buttons(
         configdialog, grstate, "{}.ldsord".format(space), grid, get_help(space)
     )
-
 
 def build_address_grid(configdialog, grstate, space, *_dummy_context):
     """
@@ -381,7 +372,6 @@ def build_address_grid(configdialog, grstate, space, *_dummy_context):
         grid,
         get_help(space),
     )
-
 
 def build_media_grid(configdialog, grstate, space, *_dummy_context):
     """
@@ -484,7 +474,6 @@ def build_media_grid(configdialog, grstate, space, *_dummy_context):
         configdialog, grstate, "{}.media".format(space), grid, get_help(space)
     )
 
-
 def build_note_grid(configdialog, grstate, space, *_dummy_context):
     """
     Builds note options section for the configuration dialog.
@@ -528,7 +517,6 @@ def build_note_grid(configdialog, grstate, space, *_dummy_context):
     return add_config_buttons(
         configdialog, grstate, "{}.note".format(space), grid, get_help(space)
     )
-
 
 def build_citation_grid(configdialog, grstate, space, *_dummy_context):
     """
@@ -697,7 +685,6 @@ def build_citation_grid(configdialog, grstate, space, *_dummy_context):
         get_help(space),
     )
 
-
 def build_source_grid(configdialog, grstate, space, *_dummy_context):
     """
     Builds source options section for the configuration dialog.
@@ -743,7 +730,6 @@ def build_source_grid(configdialog, grstate, space, *_dummy_context):
     return add_config_buttons(
         configdialog, grstate, "{}.source".format(space), grid, get_help(space)
     )
-
 
 def build_repository_grid(configdialog, grstate, space, *_dummy_context):
     """
@@ -798,7 +784,6 @@ def build_repository_grid(configdialog, grstate, space, *_dummy_context):
         get_help(space),
     )
 
-
 def build_place_grid(configdialog, grstate, space, *_dummy_context):
     """
     Builds place options section for the configuration dialog.
@@ -837,7 +822,6 @@ def build_place_grid(configdialog, grstate, space, *_dummy_context):
     return add_config_buttons(
         configdialog, grstate, "{}.place".format(space), grid, get_help(space)
     )
-
 
 def build_event_grid(configdialog, grstate, space, *_dummy_context):
     """
@@ -946,7 +930,6 @@ def build_event_grid(configdialog, grstate, space, *_dummy_context):
         configdialog, grstate, "{}.event".format(space), grid, get_help(space)
     )
 
-
 def build_paternal_grid(configdialog, grstate, space, *_dummy_context):
     """
     Builds paternal options section for the configuration dialog.
@@ -963,7 +946,6 @@ def build_paternal_grid(configdialog, grstate, space, *_dummy_context):
     return add_config_buttons(
         configdialog, grstate, "group.paternal", grid, get_help(space)
     )
-
 
 def build_maternal_grid(configdialog, grstate, space, *_dummy_context):
     """

@@ -40,7 +40,9 @@ from gi.repository import Gtk
 #
 # -------------------------------------------------------------------------
 from gramps.gen.config import config as configman
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
+
 from gramps.gen.errors import WindowActiveError
 from gramps.gui.dialog import ErrorDialog, QuestionDialog2
 from gramps.gui.display import display_url
@@ -63,9 +65,6 @@ from .config_panel import (
     build_timeline_panel,
 )
 from .configure_dialog import ModifiedConfigureDialog
-
-_ = glocale.translation.sgettext
-
 
 # -------------------------------------------------------------------------
 #
@@ -109,7 +108,6 @@ class ConfigTemplatesDialog(ModifiedConfigureDialog):
 
     def build_menu_names(self, obj):
         return (self.title, self.title)
-
 
 # -------------------------------------------------------------------------
 #
@@ -362,7 +360,6 @@ class ConfigTemplates(Gtk.HBox):
         )
         return new_name_dialog.run()
 
-
 # -------------------------------------------------------------------------
 #
 # GetNewTemplateName Class
@@ -446,7 +443,6 @@ class GetNewTemplateNameDialog(ManagedWindow):
         top.add_button(_("_Cancel"), Gtk.ResponseType.CANCEL)
         top.add_button(_("_OK"), Gtk.ResponseType.OK)
         return top
-
 
 # -------------------------------------------------------------------------
 #
@@ -562,7 +558,6 @@ class EditTemplateOptions:
         """
         return _("Colors"), build_color_panel(configdialog, self.grstate)
 
-
 # -------------------------------------------------------------------------
 #
 # ImportTemplateSelector Class
@@ -665,7 +660,6 @@ class ImportTemplateSelector(ManagedWindow):
     def build_menu_names(self, obj):
         return (self.title, None)
 
-
 # -------------------------------------------------------------------------
 #
 # ViewTemplateChanges Class
@@ -760,7 +754,6 @@ class TemplateChangeViewer(ManagedWindow):
     def build_menu_names(self, obj):  # this is meaningless since it's modal
         return (self.title, None)
 
-
 def load_change_model(add_model, defaults_list, ini, config):
     """
     Load options and changes into the model.
@@ -776,7 +769,6 @@ def load_change_model(add_model, defaults_list, ini, config):
         elif not template_value and database_value == default_value:
             database_value = ""
         add_model((key, default_value, template_value, database_value))
-
 
 def add_header(widget, group, label1, label2, label3):
     """
@@ -804,13 +796,11 @@ def add_header(widget, group, label1, label2, label3):
     hbox.pack_end(label, True, True, 6)
     widget.pack_start(hbox, True, True, 0)
 
-
 def icase(ext):
     """
     Return a glob reresenting a case insensitive file extension.
     """
     return "".join(["[{}{}]".format(s.lower(), s.upper()) for s in ext])
-
 
 def build_templates_panel(configdialog, grstate):
     """
@@ -830,7 +820,6 @@ def build_templates_panel(configdialog, grstate):
     templates = ConfigTemplates(configdialog, grstate)
     grid.attach(templates, 1, 1, 1, 1)
     return grid
-
 
 def add_button(grid, column, label, callback):
     """

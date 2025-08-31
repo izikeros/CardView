@@ -41,7 +41,8 @@ from gi.repository import Gtk
 # Gramps Modules
 #
 # -------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 
 # -------------------------------------------------------------------------
 #
@@ -73,9 +74,6 @@ from .config_utils import (
     TemplateCommentsEntry,
 )
 
-_ = glocale.translation.sgettext
-
-
 def build_template_grid(configdialog, grstate, *_dummy_args):
     """
     Build template option configuration section.
@@ -89,7 +87,6 @@ def build_template_grid(configdialog, grstate, *_dummy_args):
     return add_config_buttons(
         configdialog, grstate, "template", grid, HELP_CONFIG_DISPLAY
     )
-
 
 def build_display_grid(configdialog, grstate, *_dummy_args):
     """
@@ -235,7 +232,6 @@ def build_display_grid(configdialog, grstate, *_dummy_args):
         configdialog, grstate, "display", grid, HELP_CONFIG_DISPLAY
     )
 
-
 def build_dashboard_grid(configdialog, grstate, *_dummy_args):
     """
     Build dashboard option configuration section.
@@ -258,7 +254,6 @@ def build_dashboard_grid(configdialog, grstate, *_dummy_args):
     return add_config_buttons(
         configdialog, grstate, "dashboard", grid, HELP_CONFIG_DASHBOARD
     )
-
 
 def build_general_grid(configdialog, grstate, *_dummy_args):
     """
@@ -345,7 +340,6 @@ def build_general_grid(configdialog, grstate, *_dummy_args):
     return add_config_buttons(
         configdialog, grstate, "general", grid, HELP_CONFIG_GENERAL
     )
-
 
 def build_menu_grid(configdialog, grstate, *_dummy_args):
     """
@@ -482,7 +476,6 @@ def build_menu_grid(configdialog, grstate, *_dummy_args):
     return add_config_buttons(
         configdialog, grstate, "menu", grid, HELP_CONFIG_MENU
     )
-
 
 def build_indicator_grid(configdialog, grstate, *_dummy_args):
     """
@@ -630,7 +623,6 @@ def build_indicator_grid(configdialog, grstate, *_dummy_args):
         configdialog, grstate, "indicator", grid, HELP_CONFIG_INDICATORS_BASIC
     )
 
-
 def build_status_grid(configdialog, grstate, *_dummy_args):
     """
     Build status indicator configuration section.
@@ -650,7 +642,6 @@ def build_status_grid(configdialog, grstate, *_dummy_args):
     hbox.pack_start(HelpButton(HELP_CONFIG_INDICATORS_STATUS), False, False, 0)
     vbox.pack_start(hbox, False, False, 0)
     return make_scrollable(vbox, hexpand=True)
-
 
 def build_field_grid(configdialog, grstate, *_dummy_args):
     """
@@ -674,7 +665,6 @@ def build_field_grid(configdialog, grstate, *_dummy_args):
     hbox.pack_start(HelpButton(HELP_CONFIG_CALCULATED_FIELDS), False, False, 0)
     vbox.pack_start(hbox, False, False, 0)
     return make_scrollable(vbox, hexpand=True)
-
 
 def build_media_bar_grid(configdialog, grstate, *_dummy_args):
     """
