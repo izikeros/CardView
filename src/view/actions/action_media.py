@@ -39,7 +39,8 @@ import os
 #
 # ------------------------------------------------------------------------
 from gramps.gen.config import config as global_config
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 from gramps.gen.errors import WindowActiveError
 from gramps.gen.lib import Media, MediaRef
 from gramps.gen.utils.file import media_path, relative_path
@@ -55,8 +56,7 @@ from ..common.common_classes import GrampsObject
 from .action_base import GrampsAction
 from .action_factory import factory
 
-_ = glocale.translation.sgettext
-
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 # ------------------------------------------------------------------------
 #
@@ -286,6 +286,5 @@ class MediaAction(GrampsAction):
                 self.db.get_media_from_handle(self.action_object.obj.ref)
             )
         GrampsAction.delete_object(self, None, media)
-
 
 factory.register_action("Media", MediaAction)

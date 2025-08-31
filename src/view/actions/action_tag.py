@@ -31,7 +31,8 @@ TagAction
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 from gramps.gen.errors import WindowActiveError
 from gramps.gen.lib import Tag
 from gramps.gui.views.tags import EditTag, OrganizeTagsDialog
@@ -44,8 +45,7 @@ from gramps.gui.views.tags import EditTag, OrganizeTagsDialog
 from .action_base import GrampsAction
 from .action_factory import factory
 
-_ = glocale.translation.sgettext
-
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 # ------------------------------------------------------------------------
 #
@@ -134,7 +134,6 @@ class TagAction(GrampsAction):
         if self.target_object.obj.remove_tag(self.action_object.obj.handle):
             self.target_object.commit(self.grstate, message)
 
-
 class EditTagWrapper(EditTag):
     """
     A class to wrap the tag editor to provide callback support.
@@ -159,6 +158,5 @@ class EditTagWrapper(EditTag):
         EditTag.run(self)
         if self.saved and self.callback:
             self.callback(self.tag)
-
 
 factory.register_action("Tag", TagAction)

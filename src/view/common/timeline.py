@@ -27,7 +27,8 @@ GrampsTimeline
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 from gramps.gen.lib import Date, EventType, Span
 from gramps.gen.relationship import get_relationship_calculator
 from gramps.gen.utils.alive import probably_alive_range
@@ -66,7 +67,6 @@ EVENT_CATEGORIES = [
     "custom",
 ]
 
-
 # A timeline item is a tuple of following format:
 #
 # (Event, EventRef, Person, Family, relationship, category)
@@ -90,7 +90,6 @@ EVENT_CATEGORIES = [
 #
 # A place timeline will filter on all events in a given place between an
 # optional set of dates.
-
 
 # ------------------------------------------------------------------------
 #

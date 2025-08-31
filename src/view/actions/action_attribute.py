@@ -31,7 +31,8 @@ AttributeAction
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 from gramps.gen.errors import WindowActiveError
 from gramps.gen.lib import Attribute, SrcAttribute
 from gramps.gui.editors import EditAttribute, EditSrcAttribute
@@ -45,8 +46,7 @@ from ..config.config_selectors import get_attribute_types
 from .action_base import GrampsAction
 from .action_factory import factory
 
-_ = glocale.translation.sgettext
-
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 # ------------------------------------------------------------------------
 #
@@ -184,6 +184,5 @@ class AttributeAction(GrampsAction):
         Edit the attribute. This overrides default method.
         """
         self.edit_attribute()
-
 
 factory.register_action("Attribute", AttributeAction)

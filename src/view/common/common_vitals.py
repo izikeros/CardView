@@ -30,7 +30,8 @@ Common utility functions related to people, families and events
 #
 # ------------------------------------------------------------------------
 from gramps.gen.config import config as global_config
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 from gramps.gen.display.name import displayer as name_displayer
 from gramps.gen.lib import EventType, Person, Span
 from gramps.gen.lib.date import Today
@@ -45,8 +46,7 @@ from gramps.gen.utils.db import family_name
 # ------------------------------------------------------------------------
 from .common_utils import get_confidence
 
-_ = glocale.translation.sgettext
-
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 def get_span(date1, date2, strip=True):
     """
@@ -61,7 +61,6 @@ def get_span(date1, date2, strip=True):
                 return age.strip("()")
             return age
     return ""
-
 
 def get_age(base_event, current_event, today=None, strip=False):
     """
@@ -79,7 +78,6 @@ def get_age(base_event, current_event, today=None, strip=False):
         return get_span(base_event.date, current, strip=strip)
     return ""
 
-
 def format_date_string(event1, event2):
     """
     Format a simple one line date string.
@@ -94,7 +92,6 @@ def format_date_string(event1, event2):
     if text == "-":
         return ""
     return text
-
 
 def get_relation(db, person, relation, depth=15):
     """
@@ -115,7 +112,6 @@ def get_relation(db, person, relation, depth=15):
         return "%s %s %s" % (result[0].capitalize(), _("of"), base_person_name)
     return None
 
-
 def get_key_family_events(db, family):
     """
     Get the two key events in the formation and dissolution of a family.
@@ -131,7 +127,6 @@ def get_key_family_events(db, family):
                 divorce = event
     return marriage, divorce
 
-
 def extract_event_ref(db, event_handle, obj, obj_type):
     """
     Extract the participant event reference.
@@ -144,7 +139,6 @@ def extract_event_ref(db, event_handle, obj, obj_type):
                 name = family_name(obj, db)
             return (obj_type, obj, event_ref, name)
     return None
-
 
 def get_participants(db, event):
     """
@@ -175,7 +169,6 @@ def get_participants(db, event):
                 participants.append(participant)
     return participants
 
-
 def get_primary_participant(participants):
     """
     Return first primary participant found, or first if none found
@@ -190,7 +183,6 @@ def get_primary_participant(participants):
     if participants:
         return participants[0]
     return None
-
 
 def get_participants_text(participants, primary=None):
     """
@@ -215,7 +207,6 @@ def get_participants_text(participants, primary=None):
         text = "%s; %s" % (text, obj_name)
     return text
 
-
 def get_event_category(db, event):
     """
     Return the category for grouping an event.
@@ -232,7 +223,6 @@ def get_event_category(db, event):
             return "custom"
     return "other"
 
-
 def get_person_birth_or_death(db, handle, birth=True):
     """
     Get person and birth or death event given a handle.
@@ -248,7 +238,6 @@ def get_person_birth_or_death(db, handle, birth=True):
         event = None
     return person, event
 
-
 def get_date_sortval(event):
     """
     Return sortval for an event.
@@ -256,7 +245,6 @@ def get_date_sortval(event):
     if event and event.get_date_object():
         return event.get_date_object().sortval
     return None
-
 
 def get_marriage_duration(db, family_obj_or_handle):
     """
@@ -297,7 +285,6 @@ def get_marriage_duration(db, family_obj_or_handle):
         return get_age(marriage, None, today=today, strip=True)
     return ""
 
-
 def get_marriage_ages(db, family_obj_or_handle):
     """
     Evaluate and return ages of husband and wife if possible.
@@ -328,7 +315,6 @@ def get_marriage_ages(db, family_obj_or_handle):
         wife_age = None
     return husband_age, wife_age
 
-
 def check_multiple_events(db, obj, event_type):
     """
     Check if an object has multiple events of a given type.
@@ -339,7 +325,6 @@ def check_multiple_events(db, obj, event_type):
         if event.get_type() == event_type:
             count = count + 1
     return count > 1
-
 
 def get_event_confidence(db, handle, refs, lists, language_map, hit_map):
     """
@@ -365,7 +350,6 @@ def get_event_confidence(db, handle, refs, lists, language_map, hit_map):
                     hit_map.update({event_name: confidence})
             else:
                 hit_map.update({event_name: confidence})
-
 
 def get_status_ranking(
     db, person, rank_list=None, alert_list=None, alert_minimum=0
@@ -404,7 +388,6 @@ def get_status_ranking(
 
     return rank_other_count, rank_total, alerts_list
 
-
 def get_confidence_alert_text(name, confidence, language):
     """
     Return confidence alert text.
@@ -414,7 +397,6 @@ def get_confidence_alert_text(name, confidence, language):
     else:
         text = "%s (%s)" % (language[name], get_confidence(confidence - 1))
     return text
-
 
 def get_highest_confidence(db, obj):
     """

@@ -38,7 +38,8 @@ from gi.repository import Gtk
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 from gramps.gen.display.name import displayer as name_displayer
 from gramps.gen.display.place import displayer as place_displayer
 from gramps.gen.utils.db import family_name
@@ -52,10 +53,9 @@ from ..actions import action_handler
 from ..common.common_utils import citation_option_text
 from ..zotero.zotero import GrampsZotero
 
-_ = glocale.translation.sgettext
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 OPTION_DELETE_SUBMENUS = "menu.delete-submenus"
-
 
 def menu_item(icon, label, callback, *args):
     """
@@ -66,7 +66,6 @@ def menu_item(icon, label, callback, *args):
     item.connect("activate", callback, *args)
     return item
 
-
 def submenu_item(icon, label, menu):
     """
     Helper for constructing a submenu item.
@@ -76,7 +75,6 @@ def submenu_item(icon, label, menu):
     item.set_submenu(menu)
     return item
 
-
 def new_menu(icon, label, callback, *args):
     """
     Create and return a new menu with an initial entry.
@@ -85,7 +83,6 @@ def new_menu(icon, label, callback, *args):
     menu.add(menu_item(icon, label, callback, *args))
     return menu
 
-
 def new_submenu(menu, icon, label):
     """
     Add and return a newly created submenu.
@@ -93,7 +90,6 @@ def new_submenu(menu, icon, label):
     submenu = Gtk.Menu()
     menu.add(submenu_item(icon, label, submenu))
     return submenu
-
 
 def show_menu(menu, widget, event):
     """
@@ -107,14 +103,12 @@ def show_menu(menu, widget, event):
         menu.popup(None, None, None, None, event.button, event.time)
     return True
 
-
 def add_double_separator(menu):
     """
     Add two separator items to menu.
     """
     menu.add(Gtk.SeparatorMenuItem())
     menu.add(Gtk.SeparatorMenuItem())
-
 
 def add_edit_menu_option(grstate, parent_menu, grobject, grchild=None):
     """
@@ -133,7 +127,6 @@ def add_edit_menu_option(grstate, parent_menu, grobject, grchild=None):
             action.edit_object,
         )
     )
-
 
 def add_delete_menu_option(grstate, parent_menu, grobject, grchild=None):
     """
@@ -161,7 +154,6 @@ def add_delete_menu_option(grstate, parent_menu, grobject, grchild=None):
             action.delete_object,
         )
     )
-
 
 def add_attributes_menu(grstate, parent_menu, grobject, grchild=None):
     """
@@ -205,7 +197,6 @@ def add_attributes_menu(grstate, parent_menu, grobject, grchild=None):
                 )
             )
     parent_menu.append(submenu_item("gramps-attribute", _("Attributes"), menu))
-
 
 def add_citations_menu(grstate, parent_menu, grobject, grchild=None):
     """
@@ -269,7 +260,6 @@ def add_citations_menu(grstate, parent_menu, grobject, grchild=None):
             menu.add(menu_item("gtk-edit", text, action.edit_citation))
     parent_menu.append(submenu_item("gramps-citation", _("Citations"), menu))
 
-
 def add_zotero_option(grstate, menu, action):
     """
     Add Zotero citation picking option if enabled.
@@ -292,7 +282,6 @@ def add_zotero_option(grstate, menu, action):
             )
             entry.set_sensitive(False)
             menu.add(entry)
-
 
 def add_notes_menu(grstate, parent_menu, grobject, grchild=None):
     """
@@ -330,7 +319,6 @@ def add_notes_menu(grstate, parent_menu, grobject, grchild=None):
         get_child_notes(menu, grstate, grobject, grchild)
     parent_menu.append(submenu_item("gramps-notes", _("Notes"), menu))
 
-
 def get_child_notes(menu, grstate, grobject, grchild):
     """
     Find and add child notes to menu.
@@ -347,7 +335,6 @@ def get_child_notes(menu, grstate, grobject, grchild):
             action = action_handler("Note", grstate, note, grobject, grchild)
             menu.add(menu_item("gtk-edit", text, action.edit_note))
 
-
 def get_sorted_notes(db, handle_list):
     """
     Return a sorted note list.
@@ -363,7 +350,6 @@ def get_sorted_notes(db, handle_list):
         note_list.append((text, note))
     note_list.sort(key=lambda x: x[0])
     return note_list
-
 
 def add_privacy_menu_option(grstate, parent_menu, grobject, grchild=None):
     """
@@ -383,7 +369,6 @@ def add_privacy_menu_option(grstate, parent_menu, grobject, grchild=None):
             menu_item("gramps-lock", _("Make private"), action.toggle, True)
         )
 
-
 def add_clipboard_menu_option(grstate, parent_menu, callback):
     """
     Build and add the copy to clipboard menu entry.
@@ -393,7 +378,6 @@ def add_clipboard_menu_option(grstate, parent_menu, callback):
     parent_menu.append(
         menu_item("edit-copy", _("Copy to clipboard"), callback)
     )
-
 
 def add_bookmark_menu_option(grstate, parent_menu, grobject):
     """
@@ -412,7 +396,6 @@ def add_bookmark_menu_option(grstate, parent_menu, grobject):
         parent_menu.append(
             menu_item("gramps-bookmark", _("Bookmark"), action.toggle, True)
         )
-
 
 def add_tags_menu(grstate, parent_menu, grobject, sort_by_name=False):
     """
@@ -454,7 +437,6 @@ def add_tags_menu(grstate, parent_menu, grobject, sort_by_name=False):
     menu.add(menu_item("gramps-tag", _("Organize tags"), action.organize_tags))
     parent_menu.append(submenu_item("gramps-tag", _("Tags"), menu))
 
-
 def prepare_tag_menu_item(grstate, parent_menu, grobject, tag_list, icon_name):
     """
     Prepare menu options for a tag action.
@@ -478,7 +460,6 @@ def prepare_tag_menu_item(grstate, parent_menu, grobject, tag_list, icon_name):
                     menu_item("list-remove", tag.name, action.delete_object)
                 )
         parent_menu.append(submenu_item("gramps-tag", label, menu))
-
 
 def add_urls_menu(grstate, parent_menu, grobject):
     """
@@ -510,7 +491,6 @@ def add_urls_menu(grstate, parent_menu, grobject):
             )
             menu.add(menu_item("gramps-url", text, action.launch_url))
     parent_menu.append(submenu_item("gramps-url", _("Urls"), menu))
-
 
 def add_media_menu(grstate, parent_menu, grobject):
     """
@@ -556,7 +536,6 @@ def add_media_menu(grstate, parent_menu, grobject):
             menu.add(menu_item("gtk-edit", text, action.edit_media))
     parent_menu.append(submenu_item("gramps-media", _("Media"), menu))
 
-
 def add_names_menu(grstate, parent_menu, grobject):
     """
     Build and add the names submenu.
@@ -581,7 +560,6 @@ def add_names_menu(grstate, parent_menu, grobject):
             )
             menu.add(menu_item("gtk-edit", given_name, action.edit_name))
     parent_menu.append(submenu_item("gramps-person", _("Names"), menu))
-
 
 def add_associations_menu(grstate, parent_menu, grobject):
     """
@@ -629,7 +607,6 @@ def add_associations_menu(grstate, parent_menu, grobject):
             )
     parent_menu.append(submenu_item("gramps-person", _("Associations"), menu))
 
-
 def add_parents_menu(grstate, parent_menu, grobject):
     """
     Build and add the parents submenu.
@@ -666,7 +643,6 @@ def add_parents_menu(grstate, parent_menu, grobject):
             )
     parent_menu.append(submenu_item("gramps-parents", _("Parents"), menu))
 
-
 def add_partners_menu(grstate, parent_menu, grobject):
     """
     Build and add submenu the partners submenu.
@@ -695,7 +671,6 @@ def add_partners_menu(grstate, parent_menu, grobject):
                 )
             )
     parent_menu.append(submenu_item("gramps-spouse", _("Spouses"), menu))
-
 
 def add_participants_menu(grstate, parent_menu, grobject, participants):
     """
@@ -760,7 +735,6 @@ def add_participants_menu(grstate, parent_menu, grobject, participants):
             removemenu.destroy()
     parent_menu.append(submenu_item("gramps-person", _("Participants"), menu))
 
-
 def get_sorted_participants(participants):
     """
     Return sorted participants list.
@@ -772,7 +746,6 @@ def get_sorted_participants(participants):
             participant_list.append((text, obj, obj_event_ref))
     participant_list.sort(key=lambda x: x[0])
     return participant_list
-
 
 def add_repositories_menu(grstate, parent_menu, grobject):
     """
@@ -822,7 +795,6 @@ def add_repositories_menu(grstate, parent_menu, grobject):
         submenu_item("gramps-repository", _("Repositories"), menu)
     )
 
-
 def add_person_menu_options(grstate, parent_menu, grobject, family, context):
     """
     Add context sensitive person menu options.
@@ -864,7 +836,6 @@ def add_person_menu_options(grstate, parent_menu, grobject, family, context):
             )
         )
 
-
 def add_family_event_option(parent_menu, action):
     """
     Add the family event options.
@@ -876,7 +847,6 @@ def add_family_event_option(parent_menu, action):
             action.add_new_event,
         )
     )
-
 
 def add_family_child_options(parent_menu, action):
     """
@@ -897,14 +867,12 @@ def add_family_child_options(parent_menu, action):
         )
     )
 
-
 def is_preferred_parents(family, person):
     """
     Return true if family the preferred one.
     """
     main_parents = person.get_main_parents_family_handle()
     return family.handle == main_parents
-
 
 def has_spouse(family, parent):
     """
@@ -917,7 +885,6 @@ def has_spouse(family, parent):
     if mother_handle and mother_handle != parent.handle:
         return True
     return False
-
 
 def add_ldsords_menu(grstate, parent_menu, grobject):
     """
@@ -946,7 +913,6 @@ def add_ldsords_menu(grstate, parent_menu, grobject):
             )
             menu.add(menu_item("gtk-edit", text, action.edit_object))
     parent_menu.append(submenu_item("gramps-person", _("Ordinances"), menu))
-
 
 def add_enclosed_places_menu(grstate, parent_menu, grobject):
     """
@@ -984,7 +950,6 @@ def add_enclosed_places_menu(grstate, parent_menu, grobject):
     parent_menu.append(
         submenu_item("gramps-place", _("Enclosed Places"), menu)
     )
-
 
 def get_enclosed_places(db, place):
     """

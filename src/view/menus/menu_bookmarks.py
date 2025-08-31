@@ -41,7 +41,8 @@ from gi.repository import Gtk
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 from gramps.gui.views.bookmarks import (
     PersonBookmarks,
     FamilyBookmarks,
@@ -67,7 +68,7 @@ from .menu_utils import (
     submenu_item,
 )
 
-_ = glocale.translation.sgettext
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 BOOKMARK_TYPES = [
     ("Person", _("People"), PersonBookmarks, "gramps-person"),
@@ -80,7 +81,6 @@ BOOKMARK_TYPES = [
     ("Source", _("Source"), SourceBookmarks, "gramps-source"),
     ("Repository", _("Repository"), RepoBookmarks, "gramps-repository"),
 ]
-
 
 def build_bookmark_menu(grstate, parent_menu, bookmark_type):
     """
@@ -103,7 +103,6 @@ def build_bookmark_menu(grstate, parent_menu, bookmark_type):
             menu.add(menu_item("go-next", title, goto_object))
         parent_menu.append(submenu_item(icon, obj_type_lang, menu))
 
-
 def edit_bookmarks(_dummy_arg, bookmarks):
     """
     Organize bookmarks.
@@ -111,14 +110,12 @@ def edit_bookmarks(_dummy_arg, bookmarks):
     bookmarks.edit()
     return True
 
-
 def goto_bookmark(grstate, obj_type, obj_handle, *_dummy_args):
     """
     Go to desired bookmark.
     """
     grstate.load_primary_page(obj_type, obj_handle)
     return True
-
 
 def build_bookmarks_menu(widget, grstate, event):
     """

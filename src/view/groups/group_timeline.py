@@ -27,8 +27,8 @@ TimelineCardGroup
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
-
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 # ------------------------------------------------------------------------
 #
 # Plugin Modules
@@ -45,8 +45,7 @@ from ..cards import (
 )
 from .group_list import CardGroupList
 
-_ = glocale.translation.sgettext
-
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 # ------------------------------------------------------------------------
 #
@@ -288,7 +287,6 @@ class TimelineCardGroup(CardGroupList):
                 media.append((date.sortval, "media", obj, (item, media_ref)))
         return media
 
-
 def extract_addresses(obj):
     """
     Return list of addresses with a date value.
@@ -300,7 +298,6 @@ def extract_addresses(obj):
             addresses.append((date.sortval, "address", obj, address))
     return addresses
 
-
 def extract_names(obj):
     """
     Return list of names with a date value.
@@ -311,7 +308,6 @@ def extract_names(obj):
         if date and date.is_valid() and date.sortval:
             names.append((date.sortval, "name", obj, name))
     return names
-
 
 def extract_ordinances(obj):
     """

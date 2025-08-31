@@ -27,7 +27,8 @@ RepositoryAction
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 from gramps.gen.errors import WindowActiveError
 from gramps.gen.lib import RepoRef, Source
 from gramps.gui.editors import EditRepoRef, EditRepository, EditSource
@@ -42,8 +43,7 @@ from ..common.common_classes import GrampsObject
 from .action_base import GrampsAction
 from .action_factory import factory
 
-_ = glocale.translation.sgettext
-
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 # ------------------------------------------------------------------------
 #
@@ -142,6 +142,5 @@ class RepositoryAction(GrampsAction):
         )
         self.target_object.obj.add_repo_reference(repo_ref)
         self.target_object.commit(self.grstate, message)
-
 
 factory.register_action("Repository", RepositoryAction)

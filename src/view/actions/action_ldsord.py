@@ -30,7 +30,8 @@ LdsOrdAction
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 from gramps.gen.errors import WindowActiveError
 from gramps.gen.lib import LdsOrd
 from gramps.gui.editors import EditFamilyLdsOrd, EditLdsOrd
@@ -43,8 +44,7 @@ from gramps.gui.editors import EditFamilyLdsOrd, EditLdsOrd
 from .action_base import GrampsAction
 from .action_factory import factory
 
-_ = glocale.translation.sgettext
-
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 # ------------------------------------------------------------------------
 #
@@ -148,6 +148,5 @@ class LdsOrdAction(GrampsAction):
         )
         self.target_object.obj.remove_lds_ord(self.action_object.obj)
         self.target_object.commit(self.grstate, message)
-
 
 factory.register_action("LdsOrd", LdsOrdAction)

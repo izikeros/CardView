@@ -34,7 +34,8 @@ from gi.repository import Gtk
 # Gramps modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 from gramps.gen.lib import Family, Person
 
 # ------------------------------------------------------------------------
@@ -51,8 +52,7 @@ from .group_expander import CardGroupExpander
 from .group_generic import GenericCardGroup
 from .group_statistics import StatisticsCardGroup
 
-_ = glocale.translation.sgettext
-
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 def group_builder(grstate, group_type, obj, args):
     """
@@ -75,7 +75,6 @@ def group_builder(grstate, group_type, obj, args):
     else:
         group = None
     return group
-
 
 def build_simple_group(grstate, group_type, obj, args):
     """
@@ -109,7 +108,6 @@ def build_simple_group(grstate, group_type, obj, args):
         return group
     return group_wrapper(grstate, group, (single, plural, None))
 
-
 def build_statistics_group(grstate, group):
     """
     Generate and return a database statistics group.
@@ -118,7 +116,6 @@ def build_statistics_group(grstate, group):
     groptions = GrampsOptions("group.%s" % group)
     group = StatisticsCardGroup(grstate, groptions, group)
     return group_wrapper(grstate, group, (title, title, title))
-
 
 def group_wrapper(grstate, group, title, force_mode=-1):
     """
@@ -147,7 +144,6 @@ def group_wrapper(grstate, group, title, force_mode=-1):
     content.add(group)
     return content
 
-
 def get_group_title(group, title):
     """
     Build title for a card group.
@@ -160,7 +156,6 @@ def get_group_title(group, title):
         else:
             group_title = "%s %s" % (str(len(group)), plural)
     return group_title
-
 
 def get_children_group(
     grstate,
@@ -188,7 +183,6 @@ def get_children_group(
         title_tuple = (_("Child"), _("Children"), None)
     return group_wrapper(grstate, group, title_tuple, force_mode=3)
 
-
 def get_family_unit(grstate, family, args, context="family", relation=None):
     """
     Get the group for a family unit.
@@ -212,7 +206,6 @@ def get_family_unit(grstate, family, args, context="family", relation=None):
     if children and len(children) > 0:
         couple.pack_start(children, expand=False, fill=False, padding=0)
     return couple
-
 
 def get_parents_group(grstate, person, args):
     """
@@ -251,7 +244,6 @@ def get_parents_group(grstate, person, args):
             elements.pack_start(group, expand=False, fill=False, padding=0)
     return parents
 
-
 def get_spouses_group(grstate, person, args):
     """
     Get the group for all the spouses and children of a person.
@@ -282,7 +274,6 @@ def get_spouses_group(grstate, person, args):
         )
         elements.pack_start(group, expand=False, fill=False, padding=0)
     return spouses
-
 
 def get_references_group(
     grstate,
@@ -320,7 +311,6 @@ def get_references_group(
         title = "%s (%s %s)" % (title, str(not_shown), _("Not Shown"))
     return group_wrapper(grstate, group, (None, None, title))
 
-
 def prepare_reference_items(obj_types, obj_list):
     """
     Prepare sorted item list.
@@ -344,7 +334,6 @@ def prepare_reference_items(obj_types, obj_list):
     tuple_list.sort(key=lambda x: x[0])
     return total, tuple_list
 
-
 def prepare_reference_options(groptions, args):
     """
     Prepare references options.
@@ -355,7 +344,6 @@ def prepare_reference_options(groptions, args):
     if args and "title" in args and args["title"]:
         groptions.title = args["title"]
     return groptions
-
 
 def get_events_group(grstate, obj, args):
     """
@@ -377,7 +365,6 @@ def get_events_group(grstate, obj, args):
         if group:
             group_set.pack_start(group, False, True, 0)
     return group_set
-
 
 def prepare_event_group(grstate, obj, obj_type, args):
     """

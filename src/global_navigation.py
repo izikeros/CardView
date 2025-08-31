@@ -46,8 +46,6 @@ from gi.repository import Gdk, Gtk
 # Gramps Modules
 #
 # ----------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
-
 # Hybrid localization - supports both plugin and Gramps translations
 from view.common.hybrid_localization import _
 from gramps.gen.constfunc import mod_key

@@ -28,7 +28,8 @@ Base field building functions
 #
 # ------------------------------------------------------------------------
 from gramps.gen.config import config as global_config
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 from gramps.gen.display.name import displayer as name_displayer
 from gramps.gen.errors import HandleError
 from gramps.gen.lib.eventtype import EventType
@@ -47,8 +48,7 @@ from ..common.common_const import (
 from ..common.common_vitals import get_relation
 from .field_utils import get_event_labels
 
-_ = glocale.translation.sgettext
-
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 def find_event_ref(grstate, args, event_cache, event_ref, event_type):
     """
@@ -63,7 +63,6 @@ def find_event_ref(grstate, args, event_cache, event_ref, event_type):
             ref_event = event
     args["multiple_events"] = count > 1
     return get_event_labels(grstate, ref_event, args)
-
 
 def get_event_field(grstate, obj, event_type, args):
     """
@@ -112,7 +111,6 @@ def get_event_field(grstate, obj, event_type, args):
             return get_event_labels(grstate, event, args)
     return []
 
-
 def skip_person_labels(
     skip_birth, have_birth, skip_death, have_death, event_type
 ):
@@ -125,7 +123,6 @@ def skip_person_labels(
         return True
     return False
 
-
 def skip_family_labels(
     skip_marriage, have_marriage, skip_divorce, have_divorce, event_type
 ):
@@ -137,7 +134,6 @@ def skip_family_labels(
     if skip_divorce and have_divorce and event_type in _DIVORCE_EQUIVALENTS:
         return True
     return False
-
 
 def get_fact_field(_dummy_grstate, _dummy_obj, event_type, args):
     """
@@ -167,7 +163,6 @@ def get_fact_field(_dummy_grstate, _dummy_obj, event_type, args):
             return [(label, value)]
     return []
 
-
 def get_attribute_field(_dummy_grstate, obj, attribute_type, args):
     """
     Find an attribute and return field data.
@@ -187,7 +182,6 @@ def get_attribute_field(_dummy_grstate, obj, attribute_type, args):
             label = get_label(str(attribute.get_type()))
             return [(label, value)]
     return []
-
 
 def get_relation_field(grstate, obj, relation_handle, args):
     """

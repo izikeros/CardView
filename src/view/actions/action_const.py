@@ -29,7 +29,8 @@ Action handler related constants
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 from gramps.gui.editors import (
     EditAddress,
     EditAttribute,
@@ -53,8 +54,7 @@ from gramps.gui.views.tags import EditTag
 # Plugin Modules
 #
 # ------------------------------------------------------------------------
-_ = glocale.translation.sgettext
-
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 RECIPROCAL_ASSOCIATIONS = {
     _("Godfather"): _("Godchild"),

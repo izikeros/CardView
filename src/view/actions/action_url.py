@@ -31,7 +31,8 @@ UrlAction
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 from gramps.gen.errors import WindowActiveError
 from gramps.gen.lib import Url
 from gramps.gui.display import display_url
@@ -45,8 +46,7 @@ from gramps.gui.editors import EditUrl
 from .action_base import GrampsAction
 from .action_factory import factory
 
-_ = glocale.translation.sgettext
-
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 # ------------------------------------------------------------------------
 #
@@ -196,6 +196,5 @@ class UrlAction(GrampsAction):
         Edit the url. This overrides default method.
         """
         self.edit_url()
-
 
 factory.register_action("Url", UrlAction)

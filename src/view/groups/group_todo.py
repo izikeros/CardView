@@ -27,7 +27,8 @@ TodoNotesCardGroup
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 from gramps.gen.lib import NoteType
 
 # ------------------------------------------------------------------------
@@ -39,8 +40,7 @@ from ..common.common_utils import get_object_type
 from ..cards import NoteCard
 from .group_list import CardGroupList
 
-_ = glocale.translation.sgettext
-
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 # ------------------------------------------------------------------------
 #

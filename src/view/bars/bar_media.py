@@ -34,7 +34,8 @@ from gi.repository import Gtk
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 from gramps.gen.lib.mediabase import MediaBase
 from gramps.gen.utils.file import media_path_full
 from gramps.gui.utils import open_file_with_default_application
@@ -50,8 +51,7 @@ from ..common.common_utils import button_pressed, button_released
 from ..services.service_images import images_service
 from ..cards import MediaRefCard
 
-_ = glocale.translation.sgettext
-
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 # ------------------------------------------------------------------------
 #
@@ -206,7 +206,6 @@ class MediaBarGroup(Gtk.Box, GrampsConfig):
                     other_list.append(media)
             media_list = other_list
         return media_list
-
 
 # ------------------------------------------------------------------------
 #

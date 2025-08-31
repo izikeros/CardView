@@ -34,7 +34,8 @@ import json
 # Gramps Modules
 #
 # -------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 from gramps.gen.db import DbTxn
 from gramps.gen.lib import (
     Citation,
@@ -57,8 +58,7 @@ from gramps.gen.lib.citationbase import CitationBase
 # -------------------------------------------------------------------------
 from .zotero_bibtex import ZoteroBibTex
 
-_ = glocale.translation.sgettext
-
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 # -------------------------------------------------------------------------
 #
@@ -363,7 +363,6 @@ class GrampsZotero:
                     znotes = self.zotero.get_note_data([citekey.get_value()])
                     self.update_gramps_source(gsource, zsource, znotes)
 
-
 def construct_author_string(zsource):
     """
     Construct comma delimited author string.
@@ -382,7 +381,6 @@ def construct_author_string(zsource):
                 comma = ", "
     return author
 
-
 def find_attribute(obj, name):
     """
     Find an attribute for an object.
@@ -391,7 +389,6 @@ def find_attribute(obj, name):
         if attribute.get_type().xml_str() == name:
             return attribute
     return None
-
 
 def merge_attributes(gsource, zsource):
     """
@@ -419,7 +416,6 @@ def merge_attributes(gsource, zsource):
             gattribute.set_value(data)
             change = True
     return change
-
 
 def convert_string(data):
     """

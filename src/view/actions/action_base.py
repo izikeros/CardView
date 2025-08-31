@@ -32,7 +32,8 @@ GrampsAction
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 from gramps.gen.errors import WindowActiveError
 from gramps.gen.lib.primaryobj import PrimaryObject
 from gramps.gen.utils.string import data_recover_msg
@@ -48,8 +49,7 @@ from ..common.common_utils import describe_object
 from .action_const import GRAMPS_EDITORS
 from .delete import delete_object
 
-_ = glocale.translation.sgettext
-
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 # ------------------------------------------------------------------------
 #

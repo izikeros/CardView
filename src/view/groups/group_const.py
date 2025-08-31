@@ -27,8 +27,8 @@ CardGroup constants
 # Gramps modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
-
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 # ------------------------------------------------------------------------
 #
 # Plugin modules
@@ -52,8 +52,7 @@ from .group_todo import TodoNotesCardGroup
 from .group_uncited import UncitedEventsCardGroup
 from .group_urls import UrlsCardGroup
 
-_ = glocale.translation.sgettext
-
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 GENERIC_GROUPS = {
     "address": (
@@ -152,7 +151,6 @@ GENERIC_GROUPS = {
         _("Urls"),
     ),
 }
-
 
 STATISTICS_GROUPS = {
     "stats-association": _("Associations"),

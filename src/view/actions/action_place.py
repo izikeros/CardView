@@ -27,7 +27,8 @@ PlaceAction
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 from gramps.gen.db import DbTxn
 from gramps.gen.display.place import displayer as place_displayer
 from gramps.gen.errors import WindowActiveError
@@ -43,8 +44,7 @@ from gramps.gui.selectors import SelectorFactory
 from .action_base import GrampsAction
 from .action_factory import factory
 
-_ = glocale.translation.sgettext
-
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 # ------------------------------------------------------------------------
 #
@@ -194,6 +194,5 @@ class PlaceAction(GrampsAction):
         )
         self.action_object.obj.set_placeref_list(new_list)
         self.action_object.commit(self.grstate, message)
-
 
 factory.register_action("Place", PlaceAction)

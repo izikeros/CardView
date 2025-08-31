@@ -27,10 +27,9 @@ Minimal baseline card view template plugin.
 # Gramps Modules
 #
 # -------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
-
-_ = glocale.translation.sgettext
-
+# Hybrid localization - supports both plugin and Gramps translations
+from view.common.hybrid_localization import _
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 _TEMPLATE = (
     ######################################################################
@@ -1373,7 +1372,6 @@ _TEMPLATE = (
     ("status.citation-alert", False),
     ("status.confidence-ranking", False),
 )
-
 
 def load_on_reg(_dummy_dbstate, _dummy_uistate, _dummy_plugin):
     """

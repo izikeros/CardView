@@ -27,7 +27,8 @@ MediaCardGroup
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 from gramps.gen.errors import WindowActiveError
 from gramps.gen.lib import MediaRef
 from gramps.gen.lib.mediabase import MediaBase
@@ -41,8 +42,7 @@ from gramps.gui.editors import EditMediaRef
 from ..cards import MediaRefCard
 from .group_list import CardGroupList
 
-_ = glocale.translation.sgettext
-
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 # ------------------------------------------------------------------------
 #

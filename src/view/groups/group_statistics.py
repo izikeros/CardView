@@ -27,7 +27,8 @@ StatisticsCardGroup
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 from gramps.gen.lib import (
     ChildRefType,
     EventType,
@@ -69,8 +70,7 @@ from ..services.service_statistics_labels import (
     BOOKMARK_LABELS,
 )
 
-_ = glocale.translation.sgettext
-
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 # ------------------------------------------------------------------------
 #
@@ -111,7 +111,6 @@ def get_person_statistics(data):
         PERSON_LABELS,
     )
 
-
 def get_person_statistics_short(data):
     """
     Return person statistics for rendering.
@@ -140,7 +139,6 @@ def get_person_statistics_short(data):
         PERSON_LABELS,
     )
 
-
 def get_family_statistics(data):
     """
     Return family statistics for rendering.
@@ -164,7 +162,6 @@ def get_family_statistics(data):
         result, families, FamilyRelType, FAMILY_LABELS, type_key="relations"
     )
 
-
 def get_child_statistics(data):
     """
     Return child statistics for rendering.
@@ -186,7 +183,6 @@ def get_child_statistics(data):
         type_key="mother_relations",
     )
 
-
 def get_event_statistics(data):
     """
     Return event statistics for rendering.
@@ -198,7 +194,6 @@ def get_event_statistics(data):
         EVENT_LABELS,
     )
     return prepare_type_statistics(result, events, EventType, EVENT_LABELS)
-
 
 def get_ldsord_person_statistics(data):
     """
@@ -219,7 +214,6 @@ def get_ldsord_person_statistics(data):
         LDSORD_PERSON_LABELS,
     )
 
-
 def get_ldsord_family_statistics(data):
     """
     Return LDS family ordinance statistics for rendering.
@@ -237,7 +231,6 @@ def get_ldsord_family_statistics(data):
         ldsord,
         LDSORD_FAMILY_LABELS,
     )
-
 
 def get_participant_statistics(data):
     """
@@ -259,7 +252,6 @@ def get_participant_statistics(data):
         PARTICIPANT_LABELS,
         type_key="family_roles",
     )
-
 
 def get_association_statistics(data):
     """
@@ -288,7 +280,6 @@ def get_association_statistics(data):
             result = result + [(x, y, z) for (discard, x, y, z) in output]
     return result
 
-
 def get_place_statistics(data):
     """
     Return place statistics for rendering.
@@ -300,7 +291,6 @@ def get_place_statistics(data):
         PLACE_LABELS,
     )
     return prepare_type_statistics(result, places, PlaceType, PLACE_LABELS)
-
 
 def get_media_statistics(data):
     """
@@ -334,7 +324,6 @@ def get_media_statistics(data):
         MEDIA_LABELS,
     )
 
-
 def get_uncited_statistics(data):
     """
     Return uncited statistics for rendering.
@@ -364,7 +353,6 @@ def get_uncited_statistics(data):
         result, uncited, EventType, UNCITED_LABELS, type_key="events"
     )
 
-
 def get_citation_statistics(data):
     """
     Return citation statistics for rendering.
@@ -383,7 +371,6 @@ def get_citation_statistics(data):
                 ("• %s" % CITATION_LABELS[key], count, count * 100 / total)
             )
     return result
-
 
 def get_source_statistics(data):
     """
@@ -408,7 +395,6 @@ def get_source_statistics(data):
         result, sources, SourceMediaType, SOURCE_LABELS
     )
 
-
 def get_repository_statistics(data):
     """
     Return repository statistics for rendering.
@@ -423,7 +409,6 @@ def get_repository_statistics(data):
         result, repositories, RepositoryType, REPOSITORY_LABELS
     )
 
-
 def get_note_statistics(data):
     """
     Return note statistics for rendering.
@@ -431,7 +416,6 @@ def get_note_statistics(data):
     notes = data.get("note")
     result = prepare_statistics(["total", "no_text"], notes, NOTE_LABELS)
     return prepare_type_statistics(result, notes, NoteType, NOTE_LABELS)
-
 
 def get_tag_statistics(data):
     """
@@ -457,7 +441,6 @@ def get_tag_statistics(data):
         TAG_LABELS,
     )
 
-
 def get_bookmark_statistics(data):
     """
     Return bookmark statistics for rendering.
@@ -479,7 +462,6 @@ def get_bookmark_statistics(data):
         bookmarks,
         BOOKMARK_LABELS,
     )
-
 
 def get_private_statistics(data):
     """
@@ -519,7 +501,6 @@ def get_private_statistics(data):
         PRIVATE_LABELS,
     )
 
-
 def prepare_statistics(keys, data, labels):
     """
     Prepare statistics data for rendering.
@@ -536,7 +517,6 @@ def prepare_statistics(keys, data, labels):
         else:
             result.append((labels[key], count, None))
     return result
-
 
 def prepare_type_statistics(
     result, data, object_class, labels, type_key="types"
@@ -564,7 +544,6 @@ def prepare_type_statistics(
             result = result + [(x, y, z) for (discard, x, y, z) in output]
     return result
 
-
 PREPARE_GROUP = {
     "person": get_person_statistics,
     "person-short": get_person_statistics_short,
@@ -586,7 +565,6 @@ PREPARE_GROUP = {
     "uncited": get_uncited_statistics,
     "privacy": get_private_statistics,
 }
-
 
 # ------------------------------------------------------------------------
 #

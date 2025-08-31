@@ -27,7 +27,8 @@ Marriage age field calculator.
 # Gramps Modules
 #
 # -------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from view.common.hybrid_localization import _
 from gramps.gen.lib import Family
 
 # -------------------------------------------------------------------------
@@ -37,7 +38,7 @@ from gramps.gen.lib import Family
 # -------------------------------------------------------------------------
 from view.common.common_vitals import get_marriage_ages
 
-_ = glocale.translation.sgettext
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 AGES = "Ages"
 AGES_LANG = _("Ages")
@@ -45,7 +46,6 @@ BRIDE_AGE = "Bride Age"
 BRIDE_AGE_LANG = _("Bride Age")
 GROOM_AGE = "Groom Age"
 GROOM_AGE_LANG = _("Groom Age")
-
 
 # ------------------------------------------------------------------------
 #
@@ -68,7 +68,6 @@ def load_on_reg(_dummy_dbstate, _dummy_uistate, _dummy_plugin):
         }
     ]
 
-
 supported_types = {
     "Family": [
         (AGES, AGES_LANG),
@@ -77,13 +76,11 @@ supported_types = {
     ]
 }
 
-
 def build_marriage_age_grid(_dummy_configdialog, _dummy_grstate):
     """
     Build the marriage age option grid. As we have none return None.
     """
     return None
-
 
 def get_marriage_age_field(grstate, obj, field_value, args):
     """

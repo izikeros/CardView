@@ -27,7 +27,8 @@ EventsCardGroup
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 from gramps.gen.errors import WindowActiveError
 from gramps.gen.lib import EventRef, EventType
 from gramps.gui.editors import EditEventRef
@@ -40,8 +41,7 @@ from gramps.gui.editors import EditEventRef
 from ..cards import EventRefCard
 from .group_list import CardGroupList
 
-_ = glocale.translation.sgettext
-
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 # ------------------------------------------------------------------------
 #

@@ -31,7 +31,8 @@ AddressAction
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 from gramps.gen.errors import WindowActiveError
 from gramps.gui.editors import EditAddress
 
@@ -43,8 +44,7 @@ from gramps.gui.editors import EditAddress
 from .action_base import GrampsAction
 from .action_factory import factory
 
-_ = glocale.translation.sgettext
-
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 # ------------------------------------------------------------------------
 #
@@ -87,6 +87,5 @@ class AddressAction(GrampsAction):
                 self.describe_object(self.target_object.obj),
             )
             self.target_object.commit(self.grstate, message)
-
 
 factory.register_action("Address", AddressAction)

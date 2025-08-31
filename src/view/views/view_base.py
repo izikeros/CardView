@@ -42,8 +42,8 @@ from gi.repository import Gtk
 #
 # -------------------------------------------------------------------------
 from gramps.gen.config import config as global_config
-from gramps.gen.const import GRAMPS_LOCALE as glocale
-
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 # -------------------------------------------------------------------------
 #
 # Plugin Modules
@@ -54,8 +54,7 @@ from ..common.common_const import GROUP_LABELS
 from ..common.common_utils import make_scrollable
 from ..groups.group_builder import group_builder
 
-_ = glocale.translation.sgettext
-
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 # -------------------------------------------------------------------------
 #
@@ -229,7 +228,6 @@ class GrampsObjectView(Gtk.VBox):
             if mediabar.total:
                 widget.pack_start(mediabar, False, False, 0)
 
-
 def add_to_title(title, group):
     """
     Add group label to title.
@@ -241,7 +239,6 @@ def add_to_title(title, group):
             title = title.replace(" &", ",")
         title = "%s & %s" % (title, GROUP_LABELS[group])
     return title
-
 
 def pack_container(container, scrolled, box):
     """
@@ -256,7 +253,6 @@ def pack_container(container, scrolled, box):
         )
     else:
         container.pack_start(box, expand=False, fill=True, padding=0)
-
 
 def prepare_untabbed_groups(obj_groups, groupings, scrolled):
     """
@@ -274,7 +270,6 @@ def prepare_untabbed_groups(obj_groups, groupings, scrolled):
                 )
             pack_container(container, scrolled, box)
     return container
-
 
 def prepare_tabbed_groups(obj_groups, groupings, scrolled):
     """

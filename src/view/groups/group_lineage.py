@@ -27,8 +27,8 @@ PaternalLineageCardGroup, MaternalLineageCardGroup
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
-
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 # ------------------------------------------------------------------------
 #
 # Plugin Modules
@@ -38,8 +38,7 @@ from ..common.common_classes import GrampsOptions
 from ..cards import FamilyCard
 from .group_list import CardGroupList
 
-_ = glocale.translation.sgettext
-
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 # ------------------------------------------------------------------------
 #
@@ -116,7 +115,6 @@ class PaternalLineageCardGroup(CardGroupList):
                     ancestors.append((mother, father))
                     family_handle = mother.get_main_parents_family_handle()
         return families, ancestors
-
 
 # ------------------------------------------------------------------------
 #

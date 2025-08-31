@@ -36,7 +36,8 @@ from gi.repository import Gdk, Gtk
 # Gramps Modules
 #
 # -------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from view.common.hybrid_localization import _
 from gramps.gen.datehandler import format_time
 from gramps.gui.views.listview import ListView, TEXT, MARKUP, ICON
 from gramps.gui.views.treemodels.flatbasemodel import FlatBaseModel
@@ -50,11 +51,10 @@ from gramps.gui.views.tags import EditTag
 from gramps.gen.plug import CATEGORY_QR_NOTE
 from gramps.gen.utils.string import data_recover_msg
 
-_ = glocale.translation.sgettext
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 # HARD DEPENDENCY ON NON-GRAMPS CORE CODE
 from view.actions.delete import delete_object
-
 
 # Tags lack this like other primary objects so we construct our own
 (POS_HANDLE, POS_NAME, POS_COLOR, POS_PRIORITY, POS_CHANGE) = list(range(5))
@@ -146,7 +146,6 @@ class TagModel(FlatBaseModel):
 
     def column_change(self, data):
         return format_time(data.change)
-
 
 # -------------------------------------------------------------------------
 #

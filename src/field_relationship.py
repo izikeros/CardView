@@ -27,7 +27,8 @@ Couple relationship field calculator.
 # Gramps Modules
 #
 # -------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from view.common.hybrid_localization import _
 from gramps.gen.lib import Family
 
 # -------------------------------------------------------------------------
@@ -36,8 +37,7 @@ from gramps.gen.lib import Family
 #
 # -------------------------------------------------------------------------
 
-_ = glocale.translation.sgettext
-
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 # ------------------------------------------------------------------------
 #
@@ -60,16 +60,13 @@ def load_on_reg(_dummy_dbstate, _dummy_uistate, _dummy_plugin):
         }
     ]
 
-
 supported_types = {"Family": [("Relationship", _("Relationship"))]}
-
 
 def build_relationship_grid(_dummy_configdialog, _dummy_grstate):
     """
     Build the couple relationship option grid. As we have none return None.
     """
     return None
-
 
 def get_relationship_field(grstate, obj, field_value, args):
     """

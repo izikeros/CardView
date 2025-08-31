@@ -31,7 +31,8 @@ PrivacyAction
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 from gramps.gen.lib.privacybase import PrivacyBase
 
 # ------------------------------------------------------------------------
@@ -42,8 +43,7 @@ from gramps.gen.lib.privacybase import PrivacyBase
 from .action_base import GrampsAction
 from .action_factory import factory
 
-_ = glocale.translation.sgettext
-
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 # ------------------------------------------------------------------------
 #
@@ -104,6 +104,5 @@ class PrivacyAction(GrampsAction):
         active_target_object.obj.set_privacy(not mode)
         active_target_object.sync_hash(self.grstate)
         self.target_object.commit(self.grstate, message)
-
 
 factory.register_action("Privacy", PrivacyAction)

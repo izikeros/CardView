@@ -31,7 +31,8 @@ FamilyAction
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 from gramps.gen.db import DbTxn
 from gramps.gen.errors import WindowActiveError
 from gramps.gen.lib import (
@@ -61,8 +62,7 @@ from gramps.gui.selectors import SelectorFactory
 from .action_base import GrampsAction
 from .action_factory import factory
 
-_ = glocale.translation.sgettext
-
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 # ------------------------------------------------------------------------
 #
@@ -400,6 +400,5 @@ class FamilyAction(GrampsAction):
             self.action_object.obj.handle
         )
         self.target_object.commit(self.grstate, message)
-
 
 factory.register_action("Family", FamilyAction)

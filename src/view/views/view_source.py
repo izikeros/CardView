@@ -27,8 +27,8 @@ SourceObjectView
 # Gramps Modules
 #
 # -------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
-
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 # -------------------------------------------------------------------------
 #
 # Plugin Modules
@@ -39,8 +39,7 @@ from ..groups.group_builder import get_references_group
 from .view_base import GrampsObjectView
 from .view_const import CARD_MAP
 
-_ = glocale.translation.sgettext
-
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 # -------------------------------------------------------------------------
 #

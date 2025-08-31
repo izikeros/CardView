@@ -35,8 +35,8 @@ from gi.repository import Gtk
 #
 # ------------------------------------------------------------------------
 from gramps.gen.config import config as global_config
-from gramps.gen.const import GRAMPS_LOCALE as glocale
-
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 # ------------------------------------------------------------------------
 #
 # Plugin Modules
@@ -49,7 +49,7 @@ from ..config.config_layout import build_layout_grid
 from ..config.config_panel import build_global_panel
 from .menu_utils import add_double_separator, menu_item, new_menu, show_menu
 
-_ = glocale.translation.sgettext
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 TOGGLE_OPTIONS = [
     (
@@ -99,13 +99,11 @@ TOGGLE_OPTIONS = [
     ),
 ]
 
-
 def run_global_config(_dummy_obj, grstate):
     """
     Global config page.
     """
     grstate.launch_config(_("Global"), build_global_panel, None, None)
-
 
 def run_object_config(_dummy_obj, grstate, groptions, primary_type):
     """
@@ -116,7 +114,6 @@ def run_object_config(_dummy_obj, grstate, groptions, primary_type):
     )
     builder = config_factory(space, context)
     grstate.launch_config(window_title, builder, space, context)
-
 
 def get_object_config_title(groptions, primary_type):
     """
@@ -149,7 +146,6 @@ def get_object_config_title(groptions, primary_type):
     window_title = "%s %s %s" % (_("Configuration"), _("for"), space_label)
     return space, context, menu_title, window_title
 
-
 def add_page_layout_option(menu, grstate):
     """
     Build page layout menu option.
@@ -177,14 +173,12 @@ def add_page_layout_option(menu, grstate):
         )
     )
 
-
 def run_layout_config(_dummy_obj, grstate, page_tuple):
     """
     Configure current page layout.
     """
     (page_type, window_title) = page_tuple
     grstate.launch_config(window_title, build_layout_grid, page_type, None)
-
 
 def build_config_menu(widget, grstate, groptions, primary_type, event):
     """
@@ -229,7 +223,6 @@ def build_config_menu(widget, grstate, groptions, primary_type, event):
     menu.append(label)
     return show_menu(menu, widget, event)
 
-
 def toggle_option(config, option_data):
     """
     Prepare a toggle option.
@@ -250,7 +243,6 @@ def toggle_option(config, option_data):
         config,
         option,
     )
-
 
 def toggle(_dummy_arg, config, option):
     """

@@ -36,7 +36,8 @@ from gi.repository import Gdk
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 from gramps.gen.lib import (
     Address,
     Attribute,
@@ -68,8 +69,7 @@ from gramps.gui.ddtargets import DdTargets
 # Plugin Modules
 #
 # ------------------------------------------------------------------------
-_ = glocale.translation.sgettext
-
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 BUTTON_PRIMARY = Gdk.BUTTON_PRIMARY
 BUTTON_MIDDLE = Gdk.BUTTON_MIDDLE
@@ -248,7 +248,6 @@ GROUP_LABELS_SINGLE = {
     "paternal": _("Paternal Lineage"),
     "maternal": _("Maternal Lineage"),
 }
-
 
 PAGE_LABELS = {
     "Person": _("Person"),

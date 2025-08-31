@@ -34,8 +34,8 @@ from gi.repository import Gtk
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
-
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 # ------------------------------------------------------------------------
 #
 # Plugin Modules
@@ -44,8 +44,7 @@ from gramps.gen.const import GRAMPS_LOCALE as glocale
 from .menu_utils import add_double_separator, menu_item, show_menu
 from ..services.service_templates import TemplatesService
 
-_ = glocale.translation.sgettext
-
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 def build_templates_menu(widget, grstate, event):
     """
@@ -69,7 +68,6 @@ def build_templates_menu(widget, grstate, event):
     label.set_sensitive(False)
     menu.append(label)
     return show_menu(menu, widget, event)
-
 
 def switch_active_template(_dummy_obj, grstate, new_template):
     """

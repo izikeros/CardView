@@ -34,7 +34,8 @@ from gi.repository import Gtk
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from view.common.hybrid_localization import _
 from gramps.gen.errors import WindowActiveError
 from gramps.gen.lib import Family, NoteType, Person
 from gramps.gui.editors import EditNote
@@ -49,13 +50,12 @@ from view.common.common_utils import describe_object
 from view.config.config_utils import create_grid
 from view.menus.menu_utils import menu_item, show_menu
 
-_ = glocale.translation.sgettext
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 OPTION_TODO = "status.todo"
 OPTION_TODO_EDIT = "status.todo-edit"
 OPTION_TODO_PERSON = "status.todo-person"
 OPTION_TODO_FAMILY = "status.todo-family"
-
 
 # ------------------------------------------------------------------------
 #
@@ -76,7 +76,6 @@ def load_on_reg(_dummy_dbstate, _dummy_uistate, _dummy_plugin):
             "get_status": get_todo_status,
         }
     ]
-
 
 # ------------------------------------------------------------------------
 #
@@ -103,7 +102,6 @@ supported_types = [
     "Source",
 ]
 
-
 # ------------------------------------------------------------------------
 #
 # Default options for this status plugin
@@ -115,7 +113,6 @@ default_options = [
     (OPTION_TODO_PERSON, False),
     (OPTION_TODO_FAMILY, False),
 ]
-
 
 # ------------------------------------------------------------------------
 #
@@ -154,7 +151,6 @@ def build_todo_grid(configdialog, _dummy_grstate):
     )
     return grid
 
-
 # ------------------------------------------------------------------------
 #
 # Function to check status and return icons as needed.
@@ -185,7 +181,6 @@ def get_todo_status(grstate, obj, size):
         todo_icon = GrampsToDoIcon(grstate, todo_list, size)
         return [todo_icon]
     return []
-
 
 # ------------------------------------------------------------------------
 #
@@ -229,7 +224,6 @@ def evaluate_family(db, obj, obj_path, todo_list):
             db, person, new_obj_path, todo_list, include_parents=False
         )
 
-
 def evaluate_person(
     db, obj, obj_path, todo_list, include_parents=True, include_family=True
 ):
@@ -246,7 +240,6 @@ def evaluate_person(
         include_parents=include_parents,
         include_family=include_family,
     )
-
 
 def evaluate_person_details(
     db, obj, obj_path, todo_list, include_parents=True, include_family=True
@@ -280,7 +273,6 @@ def evaluate_person_details(
                 if child_ref.ref == person_handle:
                     evaluate_object(db, child_ref, obj_path, todo_list)
 
-
 def evaluate_event(db, handle, obj_path, todo_list):
     """
     Evaluate whether event has any todo notes.
@@ -288,7 +280,6 @@ def evaluate_event(db, handle, obj_path, todo_list):
     event = db.get_event_from_handle(handle)
     new_obj_path = evaluate_obj_path(db, event, obj_path)
     evaluate_object(db, event, new_obj_path, todo_list)
-
 
 def evaluate_object(db, obj, obj_path, todo_list):
     """
@@ -302,7 +293,6 @@ def evaluate_object(db, obj, obj_path, todo_list):
         for handle in child_obj.note_list:
             evaluate_note(db, handle, new_obj_path, todo_list)
 
-
 def evaluate_note(db, handle, obj_path, todo_list):
     """
     Evaluate whether it is a to do note.
@@ -310,7 +300,6 @@ def evaluate_note(db, handle, obj_path, todo_list):
     note = db.get_note_from_handle(handle)
     if note.get_type() == NoteType.TODO:
         todo_list.append((obj_path, note))
-
 
 def evaluate_obj_path(db, obj, obj_path):
     """
@@ -320,7 +309,6 @@ def evaluate_obj_path(db, obj, obj_path):
     if obj_path[-1] != new_obj:
         return obj_path + [new_obj]
     return obj_path
-
 
 # ------------------------------------------------------------------------
 #

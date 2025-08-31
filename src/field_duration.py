@@ -27,7 +27,8 @@ Duration field calculator.
 # Gramps Modules
 #
 # -------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from view.common.hybrid_localization import _
 from gramps.gen.lib import Family, Person
 from gramps.gen.lib.date import Today
 from gramps.gen.utils.alive import probably_alive_range
@@ -39,8 +40,7 @@ from gramps.gen.utils.alive import probably_alive_range
 # -------------------------------------------------------------------------
 from view.common.common_vitals import get_marriage_duration, get_span
 
-_ = glocale.translation.sgettext
-
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 # ------------------------------------------------------------------------
 #
@@ -63,7 +63,6 @@ def load_on_reg(_dummy_dbstate, _dummy_uistate, _dummy_plugin):
         }
     ]
 
-
 supported_types = {
     "Person": [
         ("Duration", _("Duration")),
@@ -73,13 +72,11 @@ supported_types = {
     "Family": [("Duration", _("Duration"))],
 }
 
-
 def build_duration_grid(_dummy_configuration, _dummy_grstate):
     """
     Build the duration option grid. As we have none return None.
     """
     return None
-
 
 def get_duration_field(grstate, obj, field_value, args):
     """
@@ -118,7 +115,6 @@ def get_duration_field(grstate, obj, field_value, args):
                 ]
     return []
 
-
 def currently_living(key, get_label, birth_date):
     """
     Return living status and duration if requested.
@@ -130,7 +126,6 @@ def currently_living(key, get_label, birth_date):
                 return [(get_label(_("Living")), get_label(span))]
         return [(get_label(_("Living")), get_label(""))]
     return []
-
 
 def accurate_lifespan(obj):
     """

@@ -31,7 +31,8 @@ NoteAction
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 from gramps.gen.errors import WindowActiveError
 from gramps.gen.lib import Note
 from gramps.gui.editors import EditNote
@@ -45,8 +46,7 @@ from gramps.gui.selectors import SelectorFactory
 from .action_base import GrampsAction
 from .action_factory import factory
 
-_ = glocale.translation.sgettext
-
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 # ------------------------------------------------------------------------
 #
@@ -198,6 +198,5 @@ class NoteAction(GrampsAction):
         active_target_object.obj.remove_note(self.action_object.obj.handle)
         active_target_object.sync_hash(self.grstate)
         self.target_object.commit(self.grstate, message)
-
 
 factory.register_action("Note", NoteAction)

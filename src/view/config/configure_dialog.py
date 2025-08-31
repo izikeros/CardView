@@ -50,7 +50,8 @@ from gramps.gui.dialog import ErrorDialog
 from gramps.gui.managedwindow import ManagedWindow
 from gramps.gui.widgets import BasicLabel, MarkupLabel
 
-_ = glocale.translation.gettext
+# Legacy import removed - using hybrid localization now
+# _ = glocale.translation.gettext
 
 # -------------------------------------------------------------------------
 #

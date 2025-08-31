@@ -27,7 +27,8 @@ Child number and parent information calculator.
 # Gramps Modules
 #
 # -------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from view.common.hybrid_localization import _
 from gramps.gen.lib import FamilyRelType, Person
 
 # -------------------------------------------------------------------------
@@ -43,14 +44,13 @@ from view.common.common_vitals import (
 )
 from view.config.config_utils import create_grid
 
-_ = glocale.translation.sgettext
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 CHILD_NUMBER_LANG = _("Child Number")
 
 OPTION_SHOW_MOTHER = "field.child.show-mother"
 OPTION_SHOW_FATHER = "field.child.show-father"
 OPTION_SHOW_DURATION = "field.child.show-marriage-duration"
-
 
 # ------------------------------------------------------------------------
 #
@@ -73,16 +73,13 @@ def load_on_reg(_dummy_dbstate, _dummy_uistate, _dummy_plugin):
         }
     ]
 
-
 supported_types = {"Person": [("Child Number", CHILD_NUMBER_LANG)]}
-
 
 default_options = [
     (OPTION_SHOW_MOTHER, True),
     (OPTION_SHOW_FATHER, True),
     (OPTION_SHOW_DURATION, True),
 ]
-
 
 def build_child_grid(configdialog, _dummy_grstate):
     """
@@ -109,7 +106,6 @@ def build_child_grid(configdialog, _dummy_grstate):
         OPTION_SHOW_DURATION,
     )
     return grid
-
 
 def get_child_field(grstate, obj, _dummy_field_value, args):
     """
@@ -146,7 +142,6 @@ def get_child_field(grstate, obj, _dummy_field_value, args):
         data = data + get_optional_fields(grstate, parent_family, person_birth)
     return [(get_label(CHILD_NUMBER_LANG), get_label("; ".join(tuple(data))))]
 
-
 def get_optional_fields(grstate, parent_family, person_birth):
     """
     Return additional options data field text.
@@ -173,7 +168,6 @@ def get_optional_fields(grstate, parent_family, person_birth):
         if family_text:
             data.append(family_text)
     return data
-
 
 def get_parent_text(db, family, birth_date, parent_type):
     """
@@ -204,7 +198,6 @@ def get_parent_text(db, family, birth_date, parent_type):
                 death_text = _("Father deceased at birth")
     return parent_text, death_text
 
-
 def get_parent_age_text(parent_birth_date, event_date, parent_type):
     """
     Return parent age text.
@@ -217,7 +210,6 @@ def get_parent_age_text(parent_birth_date, event_date, parent_type):
         else:
             parent_text = "%s %s" % (_("Father age"), span)
     return parent_text
-
 
 def get_family_text(db, family, birth_date, death_text):
     """
@@ -250,7 +242,6 @@ def get_family_text(db, family, birth_date, death_text):
         if span:
             family_text = "%s %s" % (family_text, span)
     return family_text
-
 
 def check_unmarried_at_birth(birth_date, marriage):
     """

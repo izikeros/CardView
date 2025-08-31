@@ -27,7 +27,8 @@ Progenitors field calculator.
 # Gramps Modules
 #
 # -------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from view.common.hybrid_localization import _
 from gramps.gen.lib import Person
 from gramps.gen.utils.db import family_name
 
@@ -37,13 +38,12 @@ from gramps.gen.utils.db import family_name
 #
 # -------------------------------------------------------------------------
 
-_ = glocale.translation.sgettext
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 MATERNAL_PROGENITORS = "Maternal Progenitors"
 MATERNAL_PROGENITORS_LANG = _("Maternal Progenitors")
 PATERNAL_PROGENITORS = "Paternal Progenitors"
 PATERNAL_PROGENITORS_LANG = _("Paternal Progenitors")
-
 
 # ------------------------------------------------------------------------
 #
@@ -66,7 +66,6 @@ def load_on_reg(_dummy_dbstate, _dummy_uistate, _dummy_plugin):
         }
     ]
 
-
 supported_types = {
     "Person": [
         (MATERNAL_PROGENITORS, MATERNAL_PROGENITORS_LANG),
@@ -74,13 +73,11 @@ supported_types = {
     ]
 }
 
-
 def build_progenitors_grid(_dummy_configdialog, _dummy_grstate):
     """
     Build the progenitors option grid. As we have none return None.
     """
     return None
-
 
 def get_progenitors_field(grstate, obj, field_value, args):
     """
@@ -119,7 +116,6 @@ def get_progenitors_field(grstate, obj, field_value, args):
             )
         ]
     return []
-
 
 def extract_progenitor_family(db, family, generation=1, paternal=True):
     """

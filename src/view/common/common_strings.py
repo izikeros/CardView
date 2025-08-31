@@ -28,8 +28,8 @@ Common strings for cards
 #
 # ------------------------------------------------------------------------
 # Legacy import - keeping for reference during migration
-# from gramps.gen.const import GRAMPS_LOCALE as glocale
-
+# # Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 # ------------------------------------------------------------------------
 #
 # Plugin Modules
@@ -37,10 +37,8 @@ Common strings for cards
 # ------------------------------------------------------------------------
 from .hybrid_localization import _, _plugin
 
-
 # Legacy translation function - commented out during hybrid migration
 # _ = glocale.translation.sgettext
-
 
 REFERENCE = _("reference")
 EDIT_REFERENCE = "%s %s" % (_("Edit"), REFERENCE)

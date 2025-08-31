@@ -27,8 +27,8 @@ EnclosingPlacesCardGroup and EnclosedPlacesCardGroup
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
-
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 # ------------------------------------------------------------------------
 #
 # Plugin Modules
@@ -37,8 +37,7 @@ from gramps.gen.const import GRAMPS_LOCALE as glocale
 from ..cards import PlaceRefCard
 from .group_list import CardGroupList
 
-_ = glocale.translation.sgettext
-
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 # ------------------------------------------------------------------------
 #
@@ -83,7 +82,6 @@ class EnclosingPlacesCardGroup(CardGroupList):
             ref_place = self.fetch("Place", place_ref.ref)
             place_list.append((ref_place, place_ref))
             self.build_enclosing_place_list(place_list, place_ref.ref)
-
 
 # ------------------------------------------------------------------------
 #

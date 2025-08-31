@@ -49,7 +49,8 @@ from gi.repository import Gtk
 #
 # ------------------------------------------------------------------------
 from gramps.gen.config import config as global_config
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 from gramps.gen.db import DbTxn
 from gramps.gen.errors import HandleError
 from gramps.gen.lib.addressbase import AddressBase
@@ -81,8 +82,7 @@ from .common_utils import (
     prepare_markup,
 )
 
-_ = glocale.translation.sgettext
-
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 # ------------------------------------------------------------------------
 #
@@ -294,7 +294,6 @@ class GrampsObject:
             commit_method(self.obj, trans)
         if grstate.uistate:
             grstate.uistate.set_busy_cursor(False)
-
 
 # ------------------------------------------------------------------------
 #
@@ -547,7 +546,6 @@ class GrampsContext:
             )
             self.secondary_obj = GrampsObject(new_secondary_obj)
 
-
 # ------------------------------------------------------------------------
 #
 # GrampsState Class
@@ -676,7 +674,6 @@ class GrampsState:
         """
         return self.callbacks["set-dirty-redraw-trigger"]()
 
-
 # ------------------------------------------------------------------------
 #
 # GrampsOptions Class
@@ -756,7 +753,6 @@ class GrampsOptions:
         Set the context.
         """
         self.age_base = value
-
 
 # ------------------------------------------------------------------------
 #
@@ -854,7 +850,6 @@ class GrampsConfig:
             hexpand=hexpand,
             tooltip=tooltip,
         )
-
 
 # ------------------------------------------------------------------------
 #

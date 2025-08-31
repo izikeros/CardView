@@ -45,7 +45,8 @@ from gi.repository import Gdk, Gtk
 #
 # ------------------------------------------------------------------------
 from gramps.gen.config import config as global_config
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 from gramps.gen.lib import Person
 from gramps.gen.lib.primaryobj import BasicPrimaryObject
 from gramps.gen.utils.db import navigation_label
@@ -66,8 +67,7 @@ from .common_const import (
 )
 from .timeline import RELATIVES
 
-_ = glocale.translation.sgettext
-
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 # ------------------------------------------------------------------------
 #
@@ -136,7 +136,6 @@ class TextLink(Gtk.EventBox):
         """
         self.label.set_markup(self.name)
 
-
 def get_object_type(obj, lang=False):
     """
     Return Gramps object information.
@@ -147,7 +146,6 @@ def get_object_type(obj, lang=False):
                 return obj_data[2]
             return obj_data[1]
     return ""
-
 
 def button_pressed(event, mouse_button):
     """
@@ -161,7 +159,6 @@ def button_pressed(event, mouse_button):
         and event.keyval in (_RETURN, _KP_ENTER, _SPACE)
     )
 
-
 def button_released(event, mouse_button):
     """
     Test if specific button release happened.
@@ -174,13 +171,11 @@ def button_released(event, mouse_button):
         and event.keyval in (_RETURN, _KP_ENTER, _SPACE)
     )
 
-
 def get_confidence(level):
     """
     Return textual string for the confidence level.
     """
     return _CONFIDENCE[level]
-
 
 def format_color_css(background, border):
     """
@@ -194,7 +189,6 @@ def format_color_css(background, border):
         css = "%s border-color: %s;" % (css, border[scheme])
     return css
 
-
 def get_confidence_color_css(index, config):
     """
     Return css color string based on confidence rating.
@@ -206,7 +200,6 @@ def get_confidence_color_css(index, config):
     background = config.get("colors.confidence.%s" % key)
     border = config.get("colors.confidence.border-%s" % key)
     return format_color_css(background, border)
-
 
 def get_relationship_color_css(relationship, config):
     """
@@ -233,7 +226,6 @@ def get_relationship_color_css(relationship, config):
     border = config.get("colors.relations.border-%s" % key)
     return format_color_css(background, border)
 
-
 def get_event_category_color_css(index, config):
     """
     Return css color string based on event category.
@@ -245,7 +237,6 @@ def get_event_category_color_css(index, config):
     border = config.get("colors.events.border-%s" % index)
     return format_color_css(background, border)
 
-
 def get_event_role_color_css(index, config):
     """
     Return css color string based on event role.
@@ -256,7 +247,6 @@ def get_event_role_color_css(index, config):
     background = config.get("colors.roles.%s" % index)
     border = config.get("colors.roles.border-%s" % index)
     return format_color_css(background, border)
-
 
 def get_person_color_css(person, living=False, home=None):
     """
@@ -283,7 +273,6 @@ def get_person_color_css(person, living=False, home=None):
     background = global_config.get("colors.%s-%s" % (key, value))
     return format_color_css(background, border)
 
-
 def get_family_color_css(family, divorced=False):
     """
     Return css color string based on family information.
@@ -307,7 +296,6 @@ def get_family_color_css(family, divorced=False):
         background = global_config.get("colors.family%s" % values[key])
     return format_color_css(background, border)
 
-
 def get_config_option(config, option, full=False):
     """
     Extract a compound config option.
@@ -324,13 +312,11 @@ def get_config_option(config, option, full=False):
         return option_data.split(":")
     return "", ""
 
-
 def save_config_option(config, option, option_type, option_value=""):
     """
     Save a compound config option.
     """
     config.set(option, "%s:%s" % (option_type, option_value))
-
 
 def citation_option_text(db, citation):
     """
@@ -347,7 +333,6 @@ def citation_option_text(db, citation):
     else:
         text = "%s: [%s]" % (text, _("Missing Page"))
     return text
-
 
 def get_bookmarks(db, obj_type):
     """
@@ -373,7 +358,6 @@ def get_bookmarks(db, obj_type):
         return db.get_repo_bookmarks()
     return []
 
-
 def prepare_icon(name, size=Gtk.IconSize.SMALL_TOOLBAR, tooltip=None):
     """
     Prepare an icon.
@@ -385,7 +369,6 @@ def prepare_icon(name, size=Gtk.IconSize.SMALL_TOOLBAR, tooltip=None):
     image = Gtk.EventBox(tooltip_text=tooltip)
     image.add(icon)
     return image
-
 
 def pack_icon(
     widget,
@@ -404,7 +387,6 @@ def pack_icon(
     if start:
         return widget.pack_start(icon, False, False, 1)
     return widget.pack_end(icon, False, False, 1)
-
 
 def find_reference(obj, reference_type, reference_handle):
     """
@@ -426,7 +408,6 @@ def find_reference(obj, reference_type, reference_handle):
         if reference.ref == reference_handle:
             return reference
     return None
-
 
 def find_referencer(grstate, obj, reference_type, reference_hash):
     """
@@ -451,7 +432,6 @@ def find_referencer(grstate, obj, reference_type, reference_hash):
                 return work_obj
     return None
 
-
 def get_secondary_object_list(obj, secondary_type):
     """
     Return list of secondary objects.
@@ -474,7 +454,6 @@ def get_secondary_object_list(obj, secondary_type):
         return None
     return secondary_list
 
-
 def find_secondary_object(obj, secondary_type, secondary_hash):
     """
     Find a specific secondary object inside a given object.
@@ -487,7 +466,6 @@ def find_secondary_object(obj, secondary_type, secondary_hash):
             if sha256_hash.hexdigest() == secondary_hash:
                 return secondary_obj
     return None
-
 
 def find_modified_secondary_object(secondary_type, old_obj, updated_obj):
     """
@@ -507,7 +485,6 @@ def find_modified_secondary_object(secondary_type, old_obj, updated_obj):
         return new_list[0]
     return None
 
-
 def make_scrollable(widget, hexpand=False, vexpand=True):
     """
     Prepare a scrollable widget.
@@ -518,7 +495,6 @@ def make_scrollable(widget, hexpand=False, vexpand=True):
     viewport.add(widget)
     scroll.add(viewport)
     return scroll
-
 
 def set_dnd_css(row, top):
     """
@@ -538,7 +514,6 @@ def set_dnd_css(row, top):
     context.add_provider(provider, Gtk.STYLE_PROVIDER_PRIORITY_USER)
     context.add_class("frame")
     return provider
-
 
 def describe_object(db, obj):
     """
@@ -590,7 +565,6 @@ def describe_object(db, obj):
         return "%s %s: %s" % (_("Person"), _("Reference"), title)
     return obj_lang
 
-
 def format_address(address):
     """
     Return address lines.
@@ -606,7 +580,6 @@ def format_address(address):
         format_address_international(lines, address)
     return lines
 
-
 def format_address_international(lines, address):
     """
     Format an international address.
@@ -621,7 +594,6 @@ def format_address_international(lines, address):
         lines.append(address.postal)
     if address.country:
         lines.append(address.country)
-
 
 def format_address_usa(lines, address):
     """
@@ -643,7 +615,6 @@ def format_address_usa(lines, address):
         lines.append(line)
     if address.country:
         lines.append(address.country)
-
 
 def get_initial_object(db, obj_type=None):
     """
@@ -683,7 +654,6 @@ def get_initial_object(db, obj_type=None):
         if handles:
             return (obj_type, handles[0], None, None, None, None)
     return None
-
 
 def prepare_markup(config, key="detail", scheme=0):
     """

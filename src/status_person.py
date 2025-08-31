@@ -34,7 +34,8 @@ from gi.repository import Gtk
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from view.common.hybrid_localization import _
 from gramps.gen.errors import WindowActiveError
 from gramps.gen.lib import Event, EventType, Family, Person
 from gramps.gui.editors import EditEvent
@@ -68,7 +69,7 @@ from view.config.config_utils import (
 )
 from view.menus.menu_utils import menu_item, show_menu
 
-_ = glocale.translation.sgettext
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 OPTION_CONFIDENCE_RANKING = "status.confidence-ranking"
 OPTION_RANK_OBJECT = "status.rank-object"
@@ -104,7 +105,6 @@ RANK_ICONS = {
     4: "starred",
 }
 
-
 # ------------------------------------------------------------------------
 #
 # Status plugin API consists of a dictionary with the supported types,
@@ -124,7 +124,6 @@ def load_on_reg(_dummy_dbstate, _dummy_uistate, _dummy_plugin):
             "get_status": get_status,
         }
     ]
-
 
 # ------------------------------------------------------------------------
 #
@@ -177,7 +176,6 @@ default_options = [
     ("status.missing-5", "None"),
     ("status.missing-6", "None"),
 ]
-
 
 # ------------------------------------------------------------------------
 #
@@ -320,7 +318,6 @@ def get_status_config_grids(configdialog, grstate, *_dummy_args):
     grids.append(grid)
     return grids
 
-
 # ------------------------------------------------------------------------
 #
 # Function to check status and return icons as needed.
@@ -331,7 +328,6 @@ def get_status(grstate, obj, size):
     if isinstance(obj, Person):
         return get_person_status(grstate, obj, size)
     return get_family_status(grstate, obj, size)
-
 
 # ------------------------------------------------------------------------
 #
@@ -365,7 +361,6 @@ def get_person_status(grstate, obj, size):
                 prepare_icon(missing_icon, size=size, tooltip=missing_text)
             )
     return icon_list
-
 
 def get_person_status_icons(grstate, obj, size):
     """
@@ -418,7 +413,6 @@ def get_person_status_icons(grstate, obj, size):
 
     return alert_icon, rank_icon, rank_text, missing_icon, missing_text
 
-
 def get_family_status(grstate, obj, size):
     """
     Load status indicators if needed.
@@ -430,7 +424,6 @@ def get_family_status(grstate, obj, size):
         if alert_icon:
             icon_list.append(alert_icon)
     return icon_list
-
 
 def get_family_status_icons(grstate, obj, size):
     """
@@ -457,7 +450,6 @@ def get_family_status_icons(grstate, obj, size):
     else:
         alert_icon = None
     return alert_icon
-
 
 def get_status_ranking(
     db,
@@ -546,7 +538,6 @@ def get_status_ranking(
         confidence_alerts,
     )
 
-
 def collect_primary_object_data(db, obj, rank_list):
     """
     Collect all object and event data for a primary object.
@@ -557,7 +548,6 @@ def collect_primary_object_data(db, obj, rank_list):
     elif isinstance(obj, Family):
         collect_family_data(db, obj, rank_list, buckets)
     return buckets[0], buckets[1]
-
 
 def collect_person_data(db, person, rank_list, buckets, include_family=True):
     """
@@ -583,7 +573,6 @@ def collect_person_data(db, person, rank_list, buckets, include_family=True):
             family = db.get_family_from_handle(handle)
             collect_object_data(db, family, rank_list, object_bucket)
             collect_event_data(db, family, events_bucket)
-
 
 def collect_family_data(db, obj, rank_list, buckets, skip_handle=None):
     """
@@ -615,7 +604,6 @@ def collect_family_data(db, obj, rank_list, buckets, skip_handle=None):
                 collect_person_data(
                     db, child, rank_list, buckets, include_family=False
                 )
-
 
 def collect_object_data(db, obj, rank_list, bucket):
     """
@@ -653,7 +641,6 @@ def collect_object_data(db, obj, rank_list, bucket):
     if "media" in rank_list:
         collect_child_object_data(db, obj, _("Media"), obj.media_list, bucket)
 
-
 def collect_child_object_data(db, obj, description, child_list, bucket):
     """
     Collect child object citation metrics.
@@ -674,7 +661,6 @@ def collect_child_object_data(db, obj, description, child_list, bucket):
                 highest_confidence,
             )
         )
-
 
 def collect_event_data(db, obj, bucket):
     """
@@ -710,7 +696,6 @@ def collect_event_data(db, obj, bucket):
             )
         )
 
-
 def get_preferred_vital_handles(obj):
     """
     Return list of preferred birth and death event handles.
@@ -725,7 +710,6 @@ def get_preferred_vital_handles(obj):
             vital_handles.append(death_ref.ref)
     return vital_handles
 
-
 def get_citation_metrics(db, obj):
     """
     Examine citations for an object and return what metrics are available.
@@ -738,7 +722,6 @@ def get_citation_metrics(db, obj):
         if citation.confidence > highest_confidence:
             highest_confidence = citation.confidence
     return len(obj.citation_list), total_confidence, highest_confidence
-
 
 # ------------------------------------------------------------------------
 #

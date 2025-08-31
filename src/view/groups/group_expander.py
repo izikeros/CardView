@@ -38,7 +38,8 @@ from gi.repository import Gtk
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
-from gramps.gen.const import GRAMPS_LOCALE as glocale
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 from gramps.gui.utils import match_primary_mask
 
 # ------------------------------------------------------------------------
@@ -49,8 +50,7 @@ from gramps.gui.utils import match_primary_mask
 from ..common.common_const import BUTTON_SECONDARY
 from ..common.common_utils import button_pressed
 
-_ = glocale.translation.sgettext
-
+# _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
 # ------------------------------------------------------------------------
 #
