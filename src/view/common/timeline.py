@@ -29,6 +29,7 @@ GrampsTimeline
 # ------------------------------------------------------------------------
 # Hybrid localization - supports both plugin and Gramps translations
 from ..common.hybrid_localization import _
+from gramps.gen.const import GRAMPS_LOCALE as glocale
 from gramps.gen.lib import Date, EventType, Span
 from gramps.gen.relationship import get_relationship_calculator
 from gramps.gen.utils.alive import probably_alive_range
@@ -90,6 +91,7 @@ EVENT_CATEGORIES = [
 #
 # A place timeline will filter on all events in a given place between an
 # optional set of dates.
+
 
 # ------------------------------------------------------------------------
 #
@@ -201,9 +203,7 @@ class GrampsTimeline:
         Prepare the event filter table.
         """
         self.event_filters = filters or []
-        self.eligible_events = self._prepare_eligible_events(
-            self.event_filters
-        )
+        self.eligible_events = self._prepare_eligible_events(self.event_filters)
 
     def set_relative_event_filters(self, filters=None):
         """
@@ -271,9 +271,9 @@ class GrampsTimeline:
             span = Span(start_date, date)
             if span.is_valid():
                 age = str(
-                    span.format(
-                        precision=self.precision, dlocale=self.locale
-                    ).strip("()")
+                    span.format(precision=self.precision, dlocale=self.locale).strip(
+                        "()"
+                    )
                 )
         return age
 
@@ -355,10 +355,7 @@ class GrampsTimeline:
             person = get_person_from_handle(backlink[1])
             if person:
                 for event_ref in person.get_primary_event_ref_list():
-                    if (
-                        handle == event_ref.ref
-                        and event_ref.get_role().is_primary()
-                    ):
+                    if handle == event_ref.ref and event_ref.get_role().is_primary():
                         return person
         return None
 
@@ -384,13 +381,9 @@ class GrampsTimeline:
             sortval = event.date.sortval
             if not sortval:
                 if event.type.is_marriage() and family:
-                    sortval = self.generate_union_event_sortval(
-                        family, union=True
-                    )
+                    sortval = self.generate_union_event_sortval(family, union=True)
                 if event.type.is_divorce() and family:
-                    sortval = self.generate_union_event_sortval(
-                        family, union=False
-                    )
+                    sortval = self.generate_union_event_sortval(family, union=False)
                 if not sortval:
                     sortval = lastval + 1
             keyed_list.append((sortval, event, event_ref, family))
@@ -408,9 +401,7 @@ class GrampsTimeline:
         offset = -int(bool(union)) or 1
         child_handles = family.child_ref_list
         if child_handles:
-            child = self.db_handle.get_person_from_handle(
-                child_handles[index].ref
-            )
+            child = self.db_handle.get_person_from_handle(child_handles[index].ref)
             birth = None
             birth_fallback = None
             get_event_from_handle = self.db_handle.get_event_from_handle
@@ -419,11 +410,7 @@ class GrampsTimeline:
                 if event.type.is_birth():
                     birth = event
                     break
-                if (
-                    not birth
-                    and not birth_fallback
-                    and event.type.is_birth_fallback()
-                ):
+                if not birth and not birth_fallback and event.type.is_birth_fallback():
                     birth_fallback = event
                     break
             if not birth and birth_fallback:
@@ -452,19 +439,11 @@ class GrampsTimeline:
             if role.is_primary():
                 if event.type.is_birth():
                     birth = event
-                if (
-                    not birth
-                    and not birth_fallback
-                    and event.type.is_birth_fallback()
-                ):
+                if not birth and not birth_fallback and event.type.is_birth_fallback():
                     birth_fallback = event
                 if event.type.is_death():
                     death = event
-                if (
-                    not death
-                    and not death_fallback
-                    and event.type in DEATH_INDICATORS
-                ):
+                if not death and not death_fallback and event.type in DEATH_INDICATORS:
                     death_fallback = event
                 events.append((event, event_ref, None))
             elif not relative:
@@ -506,9 +485,7 @@ class GrampsTimeline:
 
         person = self.db_handle.get_person_from_handle(handle)
         timeline, birth, death = self.extract_person_events(person)
-        self.merge_eligible_events(
-            person, timeline, "self", birth=birth, death=death
-        )
+        self.merge_eligible_events(person, timeline, "self", birth=birth, death=death)
         if person.handle not in self.cached_people:
             self.cached_people.update({person.handle: birth})
 
@@ -533,9 +510,7 @@ class GrampsTimeline:
                 self.add_family(family, ancestors=ancestors)
 
             for family in person.family_list:
-                self.add_family(
-                    family, ancestors=ancestors, offspring=offspring
-                )
+                self.add_family(family, ancestors=ancestors, offspring=offspring)
 
     def add_person(self, handle):
         """
@@ -543,9 +518,7 @@ class GrampsTimeline:
         """
         person = self.db_handle.get_person_from_handle(handle)
         timeline, birth, death = self.extract_person_events(person)
-        self.merge_eligible_events(
-            person, timeline, "self", birth=birth, death=death
-        )
+        self.merge_eligible_events(person, timeline, "self", birth=birth, death=death)
         if person.handle not in self.cached_people:
             self.cached_people.update({person.handle: birth})
 
@@ -557,9 +530,7 @@ class GrampsTimeline:
         if not self.eligible_relatives:
             return
         person = self.db_handle.get_person_from_handle(handle)
-        calculator = get_relationship_calculator(
-            reinit=True, clocale=self.locale
-        )
+        calculator = get_relationship_calculator(reinit=True, clocale=self.locale)
         calculator.set_depth(self.depth)
         relationship = calculator.get_one_relationship(
             self.db_handle, self.reference_person, person
@@ -582,9 +553,7 @@ class GrampsTimeline:
 
                 if offspring > 0:
                     for family_handle in person.family_list:
-                        family = self.db_handle.get_family_from_handle(
-                            family_handle
-                        )
+                        family = self.db_handle.get_family_from_handle(family_handle)
                         if (
                             family.father_handle
                             and family.father_handle not in self.cached_people
@@ -627,15 +596,9 @@ class GrampsTimeline:
         """
         family = self.db_handle.get_family_from_handle(handle)
         if self.reference_person:
-            if (
-                family.father_handle
-                and family.father_handle not in self.cached_people
-            ):
+            if family.father_handle and family.father_handle not in self.cached_people:
                 self.add_relative(family.father_handle, ancestors=ancestors)
-            if (
-                family.mother_handle
-                and family.mother_handle not in self.cached_people
-            ):
+            if family.mother_handle and family.mother_handle not in self.cached_people:
                 self.add_relative(family.mother_handle, ancestors=ancestors)
             if include_children:
                 for child in family.child_ref_list:
