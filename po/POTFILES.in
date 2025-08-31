@@ -57,8 +57,24 @@ src/view/services/service_templates.py
 src/view/services/service_windows.py
 src/view/services/service_statistics_labels.py
 
-# Services (will be expanded in Stage 4)
-# src/view/services/*.py
+# Configuration and UI (Stage 5)
+src/view/config/config_timeline.py
+src/view/config/config_objects.py
+src/view/config/config_selectors.py
+src/view/config/config_colors.py
+src/view/config/configure_dialog.py
+src/view/config/config_const.py
+src/view/config/config_global.py
+src/view/config/config_defaults.py
+src/view/config/config_panel.py
+src/view/config/config_templates.py
+src/view/config/config_utils.py
+src/view/config/config_layout.py
+src/view/groups/group_window.py
+
+# Forms and dialogs (will be expanded in future stages)
+# src/view/dialogs/*.py
+# src/view/forms/*.py
 
 # Forms and dialogs (will be expanded in Stage 5)
 # src/view/dialogs/*.py
