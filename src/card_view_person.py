@@ -56,7 +56,11 @@ from view.actions import action_handler
 from view.common.common_const import BUTTON_PRIMARY
 from view.common.common_utils import button_pressed
 
-_ = glocale.translation.sgettext
+# Hybrid localization - supports both plugin and Gramps translations
+from view.common.hybrid_localization import _
+
+# Legacy imports (commented out for Stage 2)
+# _ = glocale.translation.sgettext
 
 
 # -------------------------------------------------------------------------

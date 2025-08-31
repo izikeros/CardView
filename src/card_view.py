@@ -74,7 +74,11 @@ from view.services.service_windows import WindowService
 from view.actions import action_handler
 from view.views.view_builder import view_builder
 
-_ = glocale.translation.sgettext
+# Hybrid localization - supports both plugin and Gramps translations
+from view.common.hybrid_localization import _
+
+# Legacy imports (commented out for Stage 2)
+# _ = glocale.translation.sgettext
 
 
 # -------------------------------------------------------------------------
@@ -157,9 +161,7 @@ class CardView(GlobalNavigationView):
             "Tag",
             "Repository",
         ]:
-            query_method = self.dbstate.db.method(
-                "get_%s_from_handle", obj_type
-            )
+            query_method = self.dbstate.db.method("get_%s_from_handle", obj_type)
             self.methods.update({obj_type: query_method})
 
     def _init_state(self, dbstate, uistate):
@@ -177,9 +179,7 @@ class CardView(GlobalNavigationView):
             "launch-config": self.launch_config,
             "set-dirty-redraw-trigger": self.set_dirty_redraw_trigger,
         }
-        self.grstate = GrampsState(
-            dbstate, uistate, callbacks, self._config_view
-        )
+        self.grstate = GrampsState(dbstate, uistate, callbacks, self._config_view)
         self.grstate.set_templates(self._config)
 
     def fetch_page_context(self):
@@ -309,9 +309,7 @@ class CardView(GlobalNavigationView):
         """
         Build templates manager panel for the configuration dialog.
         """
-        return _("Templates"), build_templates_panel(
-            configdialog, self.grstate
-        )
+        return _("Templates"), build_templates_panel(configdialog, self.grstate)
 
     def _get_configure_page_funcs(self):
         """
@@ -414,9 +412,7 @@ class CardView(GlobalNavigationView):
         )
         if not self.dbstate.is_open():
             self.uistate.status.pop(self.uistate.status_id)
-            self.uistate.status.push(
-                self.uistate.status_id, _("No active object")
-            )
+            self.uistate.status.push(self.uistate.status_id, _("No active object"))
 
     def load_page(self, new_context):
         """
@@ -512,10 +508,7 @@ class CardView(GlobalNavigationView):
                 _("Tag"),
                 page_context.primary_obj.obj.get_name(),
             )
-        if (
-            page_context.page_type in PAGE_LABELS
-            and page_context.page_type != "Tag"
-        ):
+        if page_context.page_type in PAGE_LABELS and page_context.page_type != "Tag":
             name = "%s - %s" % (name, PAGE_LABELS[page_context.page_type])
         if name:
             self.uistate.status.pop(self.uistate.status_id)
@@ -551,9 +544,7 @@ class CardView(GlobalNavigationView):
                 None,
             )
         else:
-            obj_tuple = get_initial_object(
-                self.dbstate.db, self.navigation_type()
-            )
+            obj_tuple = get_initial_object(self.dbstate.db, self.navigation_type())
         if obj_tuple:
             hobj = self.get_history()
             hobj.lock = True
@@ -707,10 +698,7 @@ class CardView(GlobalNavigationView):
         """
         if self.current_context:
             active = self.current_context.primary_obj
-            if (
-                active.obj_type not in ["Tag"]
-                and active.obj.handle == object_handle[1]
-            ):
+            if active.obj_type not in ["Tag"] and active.obj.handle == object_handle[1]:
                 active.obj.add_tag(tag_handle)
                 commit_method = self.grstate.dbstate.db.method(
                     "commit_%s", active.obj_type
