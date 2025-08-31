@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CardView\n"
 "Report-Msgid-Bugs-To: your-email@domain.com\n"
-"POT-Creation-Date: 2025-08-31 22:16+0200\n"
+"POT-Creation-Date: 2025-08-31 22:38+0200\n"
 "PO-Revision-Date: 2025-08-31 22:22+0200\n"
 "Last-Translator: Krystian Safjan <ksafjan@gmail.com>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
@@ -22,42 +22,54 @@ msgstr ""
 msgid "Templates"
 msgstr "Szablony"
 
-#: src/card_view.py:418
+#: src/card_view.py:415
 msgid "No active object"
 msgstr "Brak aktywnego obiektu"
 
-#: src/card_view.py:512
+#: src/card_view.py:508 src/card_view_tag.py:78
 msgid "Tag"
 msgstr "Etykieta"
 
-#: src/card_view.py:639
+#: src/card_view.py:630
 #, python-format
 msgid "Configure %(cat)s - %(view)s"
 msgstr "Konfiguruj %(cat)s - %(view)s"
 
-#: src/card_view_citation.py:74
+#: src/card_view_citation.py:78
 msgid "Citation"
 msgstr "Cytat"
 
-#: src/card_view_event.py:72
+#: src/card_view_event.py:76
 msgid "Event"
 msgstr "Wydarzenie"
 
-#: src/card_view_family.py:72
+#: src/card_view_family.py:76
 msgid "Family"
 msgstr "Rodzina"
 
-#: src/card_view_media.py:76
+#: src/card_view_media.py:80
 msgid "Media"
 msgstr "Media"
 
-#: src/card_view_note.py:74
+#: src/card_view_note.py:78
 msgid "Note"
 msgstr "Notatka"
 
-#: src/card_view_person.py:75
+#: src/card_view_person.py:79
 msgid "Person"
 msgstr "Osoba"
+
+#: src/card_view_place.py:78
+msgid "Place"
+msgstr ""
+
+#: src/card_view_repository.py:78
+msgid "Repository"
+msgstr ""
+
+#: src/card_view_source.py:78
+msgid "Source"
+msgstr ""
 
 #: src/view/common/common_strings.py:45
 msgid "reference"
@@ -128,17 +140,17 @@ msgid "Missing Origin"
 msgstr "Brakujące źródło"
 
 # Plugin-specific test strings (manually added for testing)
-msgid "Card Statistics"
-msgstr "Statystyki kart"
+#~ msgid "Card Statistics"
+#~ msgstr "Statystyki kart"
 
-msgid "Layout Options"
-msgstr "Opcje układu"
+#~ msgid "Layout Options"
+#~ msgstr "Opcje układu"
 
-msgid "Card Navigation"
-msgstr "Nawigacja kart"
+#~ msgid "Card Navigation"
+#~ msgstr "Nawigacja kart"
 
-msgid "Configure Card View"
-msgstr "Konfiguruj widok kart"
+#~ msgid "Configure Card View"
+#~ msgstr "Konfiguruj widok kart"
 
-msgid "Card Display Settings"
-msgstr "Ustawienia wyświetlania kart"
+#~ msgid "Card Display Settings"
+#~ msgstr "Ustawienia wyświetlania kart"
