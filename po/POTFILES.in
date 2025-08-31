@@ -80,14 +80,70 @@ src/view/groups/group_window.py
 # src/view/dialogs/*.py
 # src/view/forms/*.py
 
-# Configuration (will be expanded in Stage 6)
-# src/config*.py
-# src/view/config/*.py
+# Configuration and registry files - Stage 6
+src/status_todo.py
+src/status_person.py
+src/global_history.py
+src/tagview.py
+src/field_marriage_age.py
+src/field_duration.py
+src/field_child.py
+src/field_progenitors.py
+src/field_relationship.py
+src/field_occupations.py
+src/template_minimal.py
+src/view/config/config_timeline.py
+src/view/config/config_objects.py
+src/view/config/config_selectors.py
+src/view/config/config_colors.py
+src/view/config/configure_dialog.py
+src/view/config/config_const.py
+src/view/config/config_global.py
+src/view/config/config_defaults.py
+src/view/config/config_panel.py
+src/view/config/config_templates.py
+src/view/config/config_utils.py
+src/view/config/config_layout.py
 
-# Actions and menus (will be expanded in Stage 8)
-# src/view/actions/*.py
-# src/view/menus/*.py
+# Stage 7: Fields, Views, Actions, Menus, and Groups
+src/view/fields/field_base.py
+src/view/fields/field_utils.py
+src/view/views/view_event.py
+src/view/views/view_source.py
+src/view/actions/action_address.py
+src/view/actions/action_attribute.py
+src/view/actions/action_base.py
+src/view/actions/action_citation.py
+src/view/actions/action_const.py
+src/view/actions/action_event.py
+src/view/actions/action_family.py
+src/view/actions/action_ldsord.py
+src/view/actions/action_media.py
+src/view/actions/action_name.py
+src/view/actions/action_note.py
+src/view/actions/action_person.py
+src/view/actions/action_place.py
+src/view/actions/action_privacy.py
+src/view/actions/action_repository.py
+src/view/actions/action_source.py
+src/view/actions/action_tag.py
+src/view/actions/action_url.py
+src/view/menus/menu_bookmarks.py
+src/view/menus/menu_config.py
+src/view/menus/menu_templates.py
+src/view/menus/menu_utils.py
+src/view/groups/group_associations.py
+src/view/groups/group_builder.py
+src/view/groups/group_children.py
+src/view/groups/group_citations.py
+src/view/groups/group_const.py
+src/view/groups/group_events.py
+src/view/groups/group_media.py
+src/view/groups/group_notes.py
+src/view/groups/group_statistics.py
+src/view/groups/group_window.py
+src/view/zotero/zotero.py
 
-# Utilities and helpers (will be expanded in Stage 7)
+# Utilities and helpers (will be expanded in future stages if needed)
 # src/view/utilities/*.py
 # src/view/helpers/*.py
