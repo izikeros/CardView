@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CardView\n"
 "Report-Msgid-Bugs-To: your-email@domain.com\n"
-"POT-Creation-Date: 2025-08-31 23:18+0200\n"
+"POT-Creation-Date: 2025-08-31 23:36+0200\n"
 "PO-Revision-Date: 2025-08-31 22:22+0200\n"
 "Last-Translator: Krystian Safjan <ksafjan@gmail.com>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
@@ -18,139 +18,139 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
-#: src/card_view.py:312
+#: src/card_view.py:308
 msgid "Templates"
 msgstr "Szablony"
 
-#: src/card_view.py:415
+#: src/card_view.py:411
 msgid "No active object"
 msgstr "Brak aktywnego obiektu"
 
-#: src/card_view.py:508 src/card_view_tag.py:78
+#: src/card_view.py:504 src/card_view_tag.py:74
 #: src/view/services/service_windows.py:95 src/view/config/config_const.py:213
 #: src/view/config/config_const.py:235
 msgid "Tag"
 msgstr "Etykieta"
 
-#: src/card_view.py:630
+#: src/card_view.py:626
 #, python-format
 msgid "Configure %(cat)s - %(view)s"
 msgstr "Konfiguruj %(cat)s - %(view)s"
 
-#: src/card_view_citation.py:78 src/view/cards/card_event.py:375
+#: src/card_view_citation.py:74 src/view/cards/card_event.py:375
 #: src/view/config/config_const.py:197 src/view/config/config_const.py:219
 #: src/view/config/config_panel.py:197
 msgid "Citation"
 msgstr "Cytat"
 
-#: src/card_view_event.py:76 src/view/cards/card_reference.py:325
+#: src/card_view_event.py:72 src/view/cards/card_reference.py:325
 #: src/view/config/config_selectors.py:66 src/view/config/config_const.py:198
 #: src/view/config/config_const.py:220 src/view/config/config_panel.py:186
 #: src/view/config/config_panel.py:250
 msgid "Event"
 msgstr "Wydarzenie"
 
-#: src/card_view_family.py:76 src/view/cards/card_ordinance.py:125
+#: src/card_view_family.py:72 src/view/cards/card_ordinance.py:125
 #: src/view/config/config_const.py:200 src/view/config/config_const.py:222
 #: src/view/config/config_panel.py:184 src/view/config/config_panel.py:231
 msgid "Family"
 msgstr "Rodzina"
 
-#: src/card_view_media.py:80 src/view/cards/card_reference.py:329
+#: src/card_view_media.py:76 src/view/cards/card_reference.py:329
 #: src/view/services/service_statistics_labels.py:142
 #: src/view/config/config_const.py:202 src/view/config/config_const.py:224
 #: src/view/config/config_panel.py:205
 msgid "Media"
 msgstr "Media"
 
-#: src/card_view_note.py:78 src/view/config/config_const.py:205
+#: src/card_view_note.py:74 src/view/config/config_const.py:205
 #: src/view/config/config_const.py:227 src/view/config/config_panel.py:207
 msgid "Note"
 msgstr "Notatka"
 
-#: src/card_view_person.py:79 src/view/cards/card_reference.py:323
+#: src/card_view_person.py:75 src/view/cards/card_reference.py:323
 #: src/view/config/config_const.py:206 src/view/config/config_const.py:228
 #: src/view/config/config_panel.py:143 src/view/config/config_panel.py:229
 msgid "Person"
 msgstr "Osoba"
 
-#: src/card_view_place.py:78 src/view/cards/card_ordinance.py:114
+#: src/card_view_place.py:74 src/view/cards/card_ordinance.py:114
 #: src/view/cards/card_reference.py:331 src/view/config/config_const.py:208
 #: src/view/config/config_const.py:230 src/view/config/config_panel.py:195
 #: src/view/config/config_panel.py:233
 msgid "Place"
 msgstr "Miejsce"
 
-#: src/card_view_repository.py:78 src/view/cards/card_reference.py:327
+#: src/card_view_repository.py:74 src/view/cards/card_reference.py:327
 #: src/view/config/config_const.py:209 src/view/config/config_const.py:231
 #: src/view/config/config_panel.py:202
 msgid "Repository"
 msgstr "Repozytorium"
 
-#: src/card_view_source.py:78 src/view/cards/card_event.py:372
+#: src/card_view_source.py:74 src/view/cards/card_event.py:372
 #: src/view/config/config_const.py:211 src/view/config/config_const.py:233
 #: src/view/config/config_panel.py:199
 msgid "Source"
 msgstr "Źródło"
 
-#: src/view/common/common_strings.py:45
+#: src/view/common/common_strings.py:43
 msgid "reference"
 msgstr "odniesienie"
 
-#: src/view/common/common_strings.py:46 src/view/cards/card_family.py:303
+#: src/view/common/common_strings.py:44 src/view/cards/card_family.py:303
 msgid "Edit"
 msgstr "Edytuj"
 
-#: src/view/common/common_strings.py:47
+#: src/view/common/common_strings.py:45
 msgid "Delete"
 msgstr "Usuń"
 
-#: src/view/common/common_strings.py:48
+#: src/view/common/common_strings.py:46
 msgid "None Provided"
 msgstr "Nie podano"
 
-#: src/view/common/common_strings.py:49
+#: src/view/common/common_strings.py:47
 msgid "Back Reference"
 msgstr "Odniesienie wsteczne"
 
-#: src/view/common/common_strings.py:50
+#: src/view/common/common_strings.py:48
 msgid "Reciprocal"
 msgstr "Wzajemne"
 
-#: src/view/common/common_strings.py:51
+#: src/view/common/common_strings.py:49
 msgid "Missing"
 msgstr "Brakujące"
 
-#: src/view/common/common_strings.py:52
+#: src/view/common/common_strings.py:50
 msgid "Latitude"
 msgstr "Szerokość geograficzna"
 
-#: src/view/common/common_strings.py:52
+#: src/view/common/common_strings.py:50
 msgid "Longitude"
 msgstr "Długość geograficzna"
 
-#: src/view/common/common_strings.py:53
+#: src/view/common/common_strings.py:51
 msgid "Make"
 msgstr "Ustaw"
 
-#: src/view/common/common_strings.py:53
+#: src/view/common/common_strings.py:51
 msgid "media"
 msgstr "media"
 
-#: src/view/common/common_strings.py:53
+#: src/view/common/common_strings.py:51
 msgid "active"
 msgstr "aktywne"
 
-#: src/view/common/common_strings.py:54 src/view/cards/card_family.py:111
+#: src/view/common/common_strings.py:52 src/view/cards/card_family.py:111
 #: src/view/cards/card_name.py:173
 msgid "Unknown"
 msgstr "Nieznane"
 
-#: src/view/common/common_strings.py:55
+#: src/view/common/common_strings.py:53
 msgid "Untitled"
 msgstr "Bez tytułu"
 
-#: src/view/common/common_strings.py:56 src/view/config/config_selectors.py:63
+#: src/view/common/common_strings.py:54 src/view/config/config_selectors.py:63
 #: src/view/config/config_selectors.py:72
 #: src/view/config/config_selectors.py:83
 #: src/view/config/config_selectors.py:92
@@ -158,15 +158,15 @@ msgstr "Bez tytułu"
 #: src/view/config/config_selectors.py:203
 #: src/view/config/config_selectors.py:274
 #: src/view/config/config_selectors.py:276
-#: src/view/config/configure_dialog.py:63
+#: src/view/config/configure_dialog.py:64
 msgid "None"
 msgstr "Brak"
 
-#: src/view/common/common_strings.py:57
+#: src/view/common/common_strings.py:55
 msgid "Unavailable"
 msgstr "Niedostępne"
 
-#: src/view/common/common_strings.py:58
+#: src/view/common/common_strings.py:56
 msgid "Missing Origin"
 msgstr "Brakujące źródło"
 
@@ -1898,40 +1898,40 @@ msgstr ""
 msgid "Dark colors"
 msgstr ""
 
-#: src/view/config/configure_dialog.py:62
+#: src/view/config/configure_dialog.py:63
 msgid "Father's surname"
 msgstr ""
 
-#: src/view/config/configure_dialog.py:64
+#: src/view/config/configure_dialog.py:65
 msgid "Combination of mother's and father's surname"
 msgstr ""
 
-#: src/view/config/configure_dialog.py:65
+#: src/view/config/configure_dialog.py:66
 msgid "Icelandic style"
 msgstr ""
 
-#: src/view/config/configure_dialog.py:75
-#: src/view/config/configure_dialog.py:103 src/view/config/config_utils.py:75
+#: src/view/config/configure_dialog.py:76
+#: src/view/config/configure_dialog.py:104 src/view/config/config_utils.py:75
 #, fuzzy
 msgid "Preferences"
 msgstr "odniesienie"
 
-#: src/view/config/configure_dialog.py:128
+#: src/view/config/configure_dialog.py:129
 msgid "_Close"
 msgstr ""
 
-#: src/view/config/configure_dialog.py:184
-#: src/view/config/configure_dialog.py:192
+#: src/view/config/configure_dialog.py:185
+#: src/view/config/configure_dialog.py:193
 msgid "Invalid or incomplete format definition."
 msgstr ""
 
-#: src/view/config/configure_dialog.py:366
-#: src/view/config/configure_dialog.py:402
-#: src/view/config/configure_dialog.py:433
-#: src/view/config/configure_dialog.py:449
-#: src/view/config/configure_dialog.py:491
-#: src/view/config/configure_dialog.py:537
-#: src/view/config/configure_dialog.py:565
+#: src/view/config/configure_dialog.py:367
+#: src/view/config/configure_dialog.py:403
+#: src/view/config/configure_dialog.py:434
+#: src/view/config/configure_dialog.py:450
+#: src/view/config/configure_dialog.py:492
+#: src/view/config/configure_dialog.py:538
+#: src/view/config/configure_dialog.py:566
 #, python-format
 msgid "%s: "
 msgstr ""
