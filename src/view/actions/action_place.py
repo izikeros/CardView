@@ -188,10 +188,7 @@ class PlaceAction(GrampsAction):
                 new_list.append(place_ref)
 
         place_name = place_displayer.display(self.db, self.action_object.obj)
-        message = _("Removed Enclosed Place %s from %s") % (
-            place_name,
-            self.describe_object(self.target_object.obj),
-        )
+        message = _("Removed Enclosed Place %s from %s") % (place_name, self.describe_object(self.target_object.obj))
         self.action_object.obj.set_placeref_list(new_list)
         self.action_object.commit(self.grstate, message)
 

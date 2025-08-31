@@ -120,10 +120,7 @@ class UrlAction(GrampsAction):
         """
         if url:
             active_target_object = self.get_target_object()
-            message = _("Edited Url %s for %s") % (
-                url.path,
-                self.describe_object(active_target_object.obj),
-            )
+            message = _("Edited Url %s for %s") % (url.path, self.describe_object(active_target_object.obj))
             self.target_object.commit(self.grstate, message)
 
     def add_url(self, *_dummy_args):
@@ -144,10 +141,7 @@ class UrlAction(GrampsAction):
         """
         if url:
             active_target_object = self.get_target_object()
-            message = _("Added Url %s to %s") % (
-                url.path,
-                self.describe_object(active_target_object.obj),
-            )
+            message = _("Added Url %s to %s") % (url.path, self.describe_object(active_target_object.obj))
             active_target_object.obj.add_url(url)
             self.target_object.commit(self.grstate, message)
 
@@ -177,10 +171,7 @@ class UrlAction(GrampsAction):
         Actually delete the url.
         """
         active_target_object = self.get_target_object()
-        message = _("Deleted Url %s from %s") % (
-            self.action_object.obj.path,
-            self.describe_object(active_target_object.obj),
-        )
+        message = _("Deleted Url %s from %s") % (self.action_object.obj.path, self.describe_object(active_target_object.obj))
         if active_target_object.obj.remove_url(self.action_object.obj):
             self.target_object.commit(self.grstate, message)
 
