@@ -48,7 +48,11 @@ from gramps.gen.const import GRAMPS_LOCALE as glocale
 from ..common.common_classes import GrampsConfig
 from .card_widgets import CardGrid, CardIcons
 
-_ = glocale.translation.sgettext
+# Hybrid localization - supports both plugin and Gramps translations
+from view.common.hybrid_localization import _
+
+# Legacy imports (commented out for Stage 2)
+# _ = glocale.translation.sgettext
 
 
 # ------------------------------------------------------------------------
