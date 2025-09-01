@@ -41,6 +41,8 @@ from gi.repository import Gtk
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
+from gramps.gen.const import GRAMPS_LOCALE as glocale
+
 # ------------------------------------------------------------------------
 #
 # Plugin Modules
@@ -48,9 +50,6 @@ from gi.repository import Gtk
 # ------------------------------------------------------------------------
 from ..common.common_classes import GrampsContext
 from .card_secondary import SecondaryCard
-
-# Hybrid localization - supports both plugin and Gramps translations
-from ..common.hybrid_localization import _
 
 # # ------------------------------------------------------------------------
 #

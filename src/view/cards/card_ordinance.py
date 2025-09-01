@@ -27,6 +27,7 @@ LDSOrdinanceCard
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
+from gramps.gen.const import GRAMPS_LOCALE as glocale
 from gramps.gen.display.place import displayer as place_displayer
 from gramps.gen.utils.db import family_name
 

@@ -27,6 +27,7 @@ RepositoryRefCard
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
+from gramps.gen.const import GRAMPS_LOCALE as glocale
 from gramps.gui.ddtargets import DdTargets
 
 # ------------------------------------------------------------------------
