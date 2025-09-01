@@ -46,6 +46,7 @@ from .action_factory import factory
 
 # _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
+
 # ------------------------------------------------------------------------
 #
 # NameAction Class
@@ -90,10 +91,10 @@ class NameAction(GrampsAction):
         """
         if name:
             self.grstate.update_history_object(old_hash, name)
-            message = _("Edited Name %s for %s") % (
-                name.get_regular_name(),
-                self.describe_object(self.target_object.obj),
-            )
+            message = _("Edited Name %(arg1)s for %(arg2)s") % {
+                "arg1": name.get_regular_name(),
+                "arg2": self.describe_object(self.target_object.obj),
+            }
             self.target_object.commit(self.grstate, message)
 
     def add_name(self, *_dummy_args):
@@ -107,10 +108,10 @@ class NameAction(GrampsAction):
         Save the new name to finish adding it.
         """
         if name:
-            message = _("Added Name %s to %s") % (
-                name.get_regular_name(),
-                self.describe_object(self.target_object.obj),
-            )
+            message = _("Added Name %(arg1)s to %(arg2)s") % {
+                "arg1": name.get_regular_name(),
+                "arg2": self.describe_object(self.target_object.obj),
+            }
             self.target_object.obj.add_alternate_name(name)
             self.target_object.commit(self.grstate, message)
 
@@ -120,14 +121,14 @@ class NameAction(GrampsAction):
         """
         if self.action_object:
             name = self.action_object.obj.get_regular_name()
-            message1 = _("Delete Name %s?") % name
+            message1 = _("Delete Name %(arg1)s?") % {"arg1": name}
             message2 = _(
                 "Deleting the name will remove the name from "
-                "the %s %s in the database."
-            ) % (
-                self.target_object.obj_lang.lower(),
-                self.describe_object(self.target_object.obj),
-            )
+                "the %(arg1)s %(arg2)s in the database."
+            ) % {
+                "arg1": self.target_object.obj_lang.lower(),
+                "arg2": self.describe_object(self.target_object.obj),
+            }
             self.verify_action(
                 message1,
                 message2,
@@ -139,18 +140,16 @@ class NameAction(GrampsAction):
         """
         Actually delete the name.
         """
-        message = _("Deleted Name %s from %s") % (
-            self.action_object.obj.get_regular_name(),
-            self.describe_object(self.target_object.obj),
-        )
+        message = _("Deleted Name %(arg1)s from %(arg2)s") % {
+            "arg1": self.action_object.obj.get_regular_name(),
+            "arg2": self.describe_object(self.target_object.obj),
+        }
         name_list = []
         for alternate_name in self.target_object.obj.alternate_names:
-            if (
-                alternate_name.serialize()
-                != self.action_object.obj.serialize()
-            ):
+            if alternate_name.serialize() != self.action_object.obj.serialize():
                 name_list.append(alternate_name)
         self.target_object.obj.set_alternate_names(name_list)
         self.target_object.commit(self.grstate, message)
+
 
 factory.register_action("Name", NameAction)

@@ -51,6 +51,7 @@ from gramps.gen.const import GRAMPS_LOCALE as glocale
 from ..common.common_classes import GrampsContext
 from .card_secondary import SecondaryCard
 
+
 # # ------------------------------------------------------------------------
 #
 # AttributeCard Class
@@ -66,9 +67,7 @@ class AttributeCard(SecondaryCard):
         self.__add_attribute_title(attribute)
         self.__add_attribute_value(attribute)
         self.enable_drag()
-        self.enable_drop(
-            self.eventbox, self.dnd_drop_targets, self.drag_data_received
-        )
+        self.enable_drop(self.eventbox, self.dnd_drop_targets, self.drag_data_received)
         self.set_css_style()
 
     def __add_attribute_title(self, attribute):

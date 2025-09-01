@@ -120,10 +120,7 @@ class SourceAction(GrampsAction):
         if not repository_tuple:
             return
         (dummy_repo_ref, repository) = repository_tuple
-        message = _("Edited Repository %s for Source %s") % (
-            self.describe_object(repository),
-            self.describe_object(self.action_object.obj),
-        )
+        message = _("Edited Repository %(arg1)s for Source %(arg2)s") % {"arg1": self.describe_object(repository), "arg2": self.describe_object(self.action_object.obj)}
         self.action_object.commit(self.grstate, message)
 
     def add_new_repository(self, *_dummy_args):
@@ -191,10 +188,7 @@ class SourceAction(GrampsAction):
         """
         (repo_ref, repository) = repo_tuple
         repo_ref.ref = repository.handle
-        message = _("Added Repository %s to Source %s") % (
-            self.describe_object(repository),
-            self.describe_object(self.action_object.obj),
-        )
+        message = _("Added Repository %(arg1)s to Source %(arg2)s") % {"arg1": self.describe_object(repository), "arg2": self.describe_object(self.action_object.obj)}
         self.action_object.obj.add_repo_reference(repo_ref)
         self.action_object.commit(self.grstate, message)
 
@@ -239,10 +233,7 @@ class SourceAction(GrampsAction):
         repository = self.db.get_repository_from_handle(
             self.target_object.obj.ref
         )
-        message = _("Removed Repository %s from Source %s") % (
-            self.describe_object(repository),
-            self.describe_object(self.action_object.obj),
-        )
+        message = _("Removed Repository %(arg1)s from Source %(arg2)s") % {"arg1": self.describe_object(repository), "arg2": self.describe_object(self.action_object.obj)}
         self.action_object.obj.set_reporef_list(new_list)
         self.action_object.commit(self.grstate, message)
 

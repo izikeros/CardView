@@ -51,6 +51,7 @@ from .action_factory import factory
 
 # _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
+
 # ------------------------------------------------------------------------
 #
 # CitationAction Class
@@ -115,11 +116,11 @@ class CitationAction(GrampsAction):
         if citation_handle:
             active_target_object = self.get_target_object()
             citation = self.db.get_citation_from_handle(citation_handle)
-            message = _("Added Citation %s to %s %s") % (
-                self.describe_object(citation),
-                active_target_object.obj_lang,
-                self.describe_object(active_target_object.obj),
-            )
+            message = _("Added Citation %(arg1)s to %(arg2)s %(arg3)s") % {
+                "arg1": self.describe_object(citation),
+                "arg2": active_target_object.obj_lang,
+                "arg3": self.describe_object(active_target_object.obj),
+            }
             active_target_object.save_hash()
             if active_target_object.obj.add_citation(citation_handle):
                 active_target_object.sync_hash(self.grstate)
@@ -186,9 +187,7 @@ class CitationAction(GrampsAction):
         Add citation and possible sources as well using Zotero picker.
         """
         if self.zotero.online:
-            import_notes = self.grstate.config.get(
-                "general.zotero-enabled-notes"
-            )
+            import_notes = self.grstate.config.get("general.zotero-enabled-notes")
             active_target_object = self.get_target_object()
             self.zotero.add_citation(
                 self.target_object.obj,
@@ -216,7 +215,7 @@ class CitationAction(GrampsAction):
         active_target_object = self.get_target_object()
         citation_text = self.describe_object(self.action_object.obj)
 
-        message1 = _("Remove Citation %s?") % citation_text
+        message1 = _("Remove Citation %(arg1)s?") % {"arg1": citation_text}
         if active_target_object.is_primary:
             message2 = (
                 _(
@@ -228,11 +227,11 @@ class CitationAction(GrampsAction):
         else:
             message2 = _(
                 "Removing the citation will remove the citation from the "
-                "%s in the %s in the database."
-            ) % (
-                active_target_object.obj_lang.lower(),
-                self.target_object.obj_lang.lower(),
-            )
+                "%(arg1)s in the %(arg2)s in the database."
+            ) % {
+                "arg1": active_target_object.obj_lang.lower(),
+                "arg2": self.target_object.obj_lang.lower(),
+            }
         self.verify_action(
             message1,
             message2,
@@ -247,23 +246,26 @@ class CitationAction(GrampsAction):
         """
         active_target_object = self.get_target_object()
         if active_target_object.is_primary:
-            message = _("Removed Citation %s from %s %s") % (
-                self.describe_object(self.action_object.obj),
-                self.target_object.obj_lang,
-                self.describe_object(self.target_object.obj),
-            )
+            message = _("Removed Citation %(arg1)s from %(arg2)s %(arg3)s") % {
+                "arg1": self.describe_object(self.action_object.obj),
+                "arg2": self.target_object.obj_lang,
+                "arg3": self.describe_object(self.target_object.obj),
+            }
         else:
-            message = _("Removed Citation %s from %s in %s %s") % (
-                self.describe_object(self.action_object.obj),
-                self.target_child_object.obj_lang,
-                self.target_object.obj_lang,
-                self.describe_object(self.target_object.obj),
-            )
+            message = _(
+                "Removed Citation %(arg1)s from %(arg2)s in %(arg3)s %(arg4)s"
+            ) % {
+                "arg1": self.describe_object(self.action_object.obj),
+                "arg2": self.target_child_object.obj_lang,
+                "arg3": self.target_object.obj_lang,
+                "arg4": self.describe_object(self.target_object.obj),
+            }
         active_target_object.save_hash()
         active_target_object.obj.remove_citation_references(
             [self.action_object.obj.handle]
         )
         active_target_object.sync_hash(self.grstate)
         self.target_object.commit(self.grstate, message)
+
 
 factory.register_action("Citation", CitationAction)

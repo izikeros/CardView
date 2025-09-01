@@ -121,10 +121,10 @@ class UrlAction(GrampsAction):
         """
         if url:
             active_target_object = self.get_target_object()
-            message = _("Edited Url %s for %s") % (
-                url.path,
-                self.describe_object(active_target_object.obj),
-            )
+            message = _("Edited Url %(arg1)s for %(arg2)s") % {
+                "arg1": url.path,
+                "arg2": self.describe_object(active_target_object.obj),
+            }
             self.target_object.commit(self.grstate, message)
 
     def add_url(self, *_dummy_args):
@@ -145,10 +145,10 @@ class UrlAction(GrampsAction):
         """
         if url:
             active_target_object = self.get_target_object()
-            message = _("Added Url %s to %s") % (
-                url.path,
-                self.describe_object(active_target_object.obj),
-            )
+            message = _("Added Url %(arg1)s to %(arg2)s") % {
+                "arg1": url.path,
+                "arg2": self.describe_object(active_target_object.obj),
+            }
             active_target_object.obj.add_url(url)
             self.target_object.commit(self.grstate, message)
 
@@ -161,10 +161,11 @@ class UrlAction(GrampsAction):
         active_target_object = self.get_target_object()
         target_name = self.describe_object(active_target_object.obj)
         url_name = str(self.action_object.obj.path)
-        message1 = _("Delete Url %s?") % url_name
+        message1 = _("Delete Url %(arg1)s?") % {"arg1": url_name}
         message2 = _(
-            "Deleting the url will remove the url from " "the %s %s in the database."
-        ) % (active_target_object.obj_lang.lower(), target_name)
+            "Deleting the url will remove the url from "
+            "the %(arg1)s %(arg2)s in the database."
+        ) % {"arg1": active_target_object.obj_lang.lower(), "arg2": target_name}
         self.verify_action(
             message1,
             message2,
@@ -177,10 +178,10 @@ class UrlAction(GrampsAction):
         Actually delete the url.
         """
         active_target_object = self.get_target_object()
-        message = _("Deleted Url %s from %s") % (
-            self.action_object.obj.path,
-            self.describe_object(active_target_object.obj),
-        )
+        message = _("Deleted Url %(arg1)s from %(arg2)s") % {
+            "arg1": self.action_object.obj.path,
+            "arg2": self.describe_object(active_target_object.obj),
+        }
         if active_target_object.obj.remove_url(self.action_object.obj):
             self.target_object.commit(self.grstate, message)
 

@@ -90,16 +90,9 @@ class PrivacyAction(GrampsAction):
         else:
             text = _("Private")
         if self.target_child_object:
-            message = _("Made %s for %s %s") % (
-                self.target_child_object.obj_lang,
-                self.describe_object(self.target_object.obj),
-                text,
-            )
+            message = _("Made %(arg1)s for %(arg2)s %(arg3)s") % {"arg1": self.target_child_object.obj_lang, "arg2": self.describe_object(self.target_object.obj), "arg3": text}
         else:
-            message = _("Made %s %s") % (
-                self.describe_object(self.target_object.obj),
-                text,
-            )
+            message = _("Made %(arg1)s %(arg2)s") % {"arg1": self.describe_object(self.target_object.obj), "arg2": text}
         active_target_object.save_hash()
         active_target_object.obj.set_privacy(not mode)
         active_target_object.sync_hash(self.grstate)

@@ -155,10 +155,7 @@ class PersonAction(GrampsAction):
         Finish adding a new event for a person.
         """
         event_ref.ref = event.handle
-        message = _("Added Person %s as Participant to Event %s") % (
-            self.describe_object(self.action_object.obj),
-            self.describe_object(event),
-        )
+        message = _("Added Person %(arg1)s as Participant to Event %(arg2)s") % {"arg1": self.describe_object(self.action_object.obj), "arg2": self.describe_object(event)}
         if event.get_type() == EventType.BIRTH:
             if self.action_object.obj.get_birth_ref() is None:
                 self.action_object.obj.set_birth_ref(event_ref)
@@ -219,10 +216,7 @@ class PersonAction(GrampsAction):
         """
         Set preferred parents.
         """
-        message = _("Setting Family %s as Main Parents for Person %s") % (
-            self.describe_object(self.target_object.obj),
-            self.describe_object(self.action_object.obj),
-        )
+        message = _("Setting Family %(arg1)s as Main Parents for Person %(arg2)s") % {"arg1": self.describe_object(self.target_object.obj), "arg2": self.describe_object(self.action_object.obj)}
         self.action_object.obj.set_main_parent_family_handle(
             self.target_object.obj.handle
         )
@@ -247,10 +241,7 @@ class PersonAction(GrampsAction):
             )
         if self.target_object.obj.get_type() != EventType.BIRTH:
             raise AttributeError("target_object not a birth event")
-        message = _("Set Event %s as Preferred for Person %s") % (
-            self.describe_object(self.target_object.obj),
-            self.describe_object(self.action_object.obj),
-        )
+        message = _("Set Event %(arg1)s as Preferred for Person %(arg2)s") % {"arg1": self.describe_object(self.target_object.obj), "arg2": self.describe_object(self.action_object.obj)}
         birth_ref = EventRef()
         birth_ref.ref = self.target_object.obj.handle
         birth_ref.set_role(EventRoleType(EventRoleType.PRIMARY))
@@ -268,10 +259,7 @@ class PersonAction(GrampsAction):
             )
         if self.target_object.obj.get_type() != EventType.DEATH:
             raise AttributeError("target_object not a death event")
-        message = _("Set Event %s as Preferred for Person %s") % (
-            self.describe_object(self.target_object.obj),
-            self.describe_object(self.action_object.obj),
-        )
+        message = _("Set Event %(arg1)s as Preferred for Person %(arg2)s") % {"arg1": self.describe_object(self.target_object.obj), "arg2": self.describe_object(self.action_object.obj)}
         death_ref = EventRef()
         death_ref.ref = self.target_object.obj.handle
         death_ref.set_role(EventRoleType(EventRoleType.PRIMARY))
@@ -367,10 +355,7 @@ class PersonAction(GrampsAction):
         Finish adding a new person reference aka association.
         """
         person = self.db.get_person_from_handle(reference.ref)
-        message = _("Added Association from Person %s to Person %s") % (
-            self.describe_object(person),
-            self.describe_object(self.action_object.obj),
-        )
+        message = _("Added Association from Person %(arg1)s to Person %(arg2)s") % {"arg1": self.describe_object(person), "arg2": self.describe_object(self.action_object.obj)}
         self.action_object.obj.add_person_ref(reference)
         self.action_object.commit(self.grstate, message)
 
@@ -396,10 +381,7 @@ class PersonAction(GrampsAction):
         person = GrampsObject(
             self.db.get_person_from_handle(reciprocal_handle)
         )
-        message = _("Added Association from Person %s to Person %s") % (
-            self.describe_object(self.action_object.obj),
-            self.describe_object(person.obj),
-        )
+        message = _("Added Association from Person %(arg1)s to Person %(arg2)s") % {"arg1": self.describe_object(self.action_object.obj), "arg2": self.describe_object(person.obj)}
         person.obj.add_person_ref(reference)
         person.commit(self.grstate, message)
 
@@ -442,10 +424,7 @@ class PersonAction(GrampsAction):
         for ref in self.action_object.obj.person_ref_list:
             if not ref.ref == person.handle:
                 new_list.append(ref)
-        message = _("Removed Association from Person %s to Person %s") % (
-            self.describe_object(person),
-            self.describe_object(self.action_object.obj),
-        )
+        message = _("Removed Association from Person %(arg1)s to Person %(arg2)s") % {"arg1": self.describe_object(person), "arg2": self.describe_object(self.action_object.obj)}
         self.action_object.obj.set_person_ref_list(new_list)
         self.action_object.commit(self.grstate, message)
 

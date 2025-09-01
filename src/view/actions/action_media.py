@@ -39,6 +39,7 @@ import os
 #
 # ------------------------------------------------------------------------
 from gramps.gen.config import config as global_config
+
 # Hybrid localization - supports both plugin and Gramps translations
 from ..common.hybrid_localization import _
 from gramps.gen.errors import WindowActiveError
@@ -57,6 +58,7 @@ from .action_base import GrampsAction
 from .action_factory import factory
 
 # _ = glocale.translation.sgettext  # Replaced by hybrid localization
+
 
 # ------------------------------------------------------------------------
 #
@@ -93,9 +95,7 @@ class MediaAction(GrampsAction):
         if focus and callback is None:
             callback = lambda x: self.pivot_focus(x, "Media")
         try:
-            EditMedia(
-                self.grstate.dbstate, self.grstate.uistate, [], media, callback
-            )
+            EditMedia(self.grstate.dbstate, self.grstate.uistate, [], media, callback)
         except WindowActiveError:
             pass
 
@@ -133,11 +133,11 @@ class MediaAction(GrampsAction):
         """
         if not media_ref and media:
             return
-        message = _("Edited Media %s for %s %s") % (
-            self.describe_object(media),
-            self.target_object.obj_lang,
-            self.describe_object(self.target_object.obj),
-        )
+        message = _("Edited Media %(arg1)s for %(arg2)s %(arg3)s") % {
+            "arg1": self.describe_object(media),
+            "arg2": self.target_object.obj_lang,
+            "arg3": self.describe_object(self.target_object.obj),
+        }
         self.target_object.commit(self.grstate, message)
 
     def add_new_media(self, *_dummy_args):
@@ -181,11 +181,11 @@ class MediaAction(GrampsAction):
         """
         Finish adding a new media reference.
         """
-        message = _("Added Media %s to %s %s") % (
-            self.describe_object(media),
-            self.target_object.obj_lang,
-            self.describe_object(self.target_object.obj),
-        )
+        message = _("Added Media %(arg1)s to %(arg2)s %(arg3)s") % {
+            "arg1": self.describe_object(media),
+            "arg2": self.target_object.obj_lang,
+            "arg3": self.describe_object(self.target_object.obj),
+        }
         self.target_object.obj.add_media_reference(reference)
         self.target_object.commit(self.grstate, message)
 
@@ -212,14 +212,14 @@ class MediaAction(GrampsAction):
         else:
             media = self.db.get_media_from_handle(self.action_object.obj.ref)
 
-        message1 = _("Remove Media %s?") % self.describe_object(media)
+        message1 = _("Remove Media %(arg1)s?") % {"arg1": self.describe_object(media)}
         message2 = _(
             "Removing the media will remove the media "
-            "reference from the %s %s in the database."
-        ) % (
-            self.target_object.obj_lang.lower(),
-            self.describe_object(self.target_object.obj),
-        )
+            "reference from the %(arg1)s %(arg2)s in the database."
+        ) % {
+            "arg1": self.target_object.obj_lang.lower(),
+            "arg2": self.describe_object(self.target_object.obj),
+        }
         self.verify_action(
             message1,
             message2,
@@ -238,11 +238,11 @@ class MediaAction(GrampsAction):
         else:
             media_handle = self.action_object.obj.ref
             media = self.db.get_media_from_handle(self.action_object.obj.ref)
-        message = _("Removed Media %s from %s %s") % (
-            self.describe_object(media),
-            self.target_object.obj_lang,
-            self.describe_object(self.target_object.obj),
-        )
+        message = _("Removed Media %(arg1)s from %(arg2)s %(arg3)s") % {
+            "arg1": self.describe_object(media),
+            "arg2": self.target_object.obj_lang,
+            "arg3": self.describe_object(self.target_object.obj),
+        }
         self.target_object.obj.remove_media_references([media_handle])
         self.target_object.commit(self.grstate, message)
 
@@ -267,11 +267,11 @@ class MediaAction(GrampsAction):
         if image_ref:
             new_list.insert(0, image_ref)
 
-        message = _("Set Media %s Active for %s %s") % (
-            self.describe_object(media),
-            self.target_object.obj_lang,
-            self.describe_object(self.target_object.obj),
-        )
+        message = _("Set Media %(arg1)s Active for %(arg2)s %(arg3)s") % {
+            "arg1": self.describe_object(media),
+            "arg2": self.target_object.obj_lang,
+            "arg3": self.describe_object(self.target_object.obj),
+        }
         self.target_object.obj.set_media_list(new_list)
         self.target_object.commit(self.grstate, message)
 
@@ -286,5 +286,6 @@ class MediaAction(GrampsAction):
                 self.db.get_media_from_handle(self.action_object.obj.ref)
             )
         GrampsAction.delete_object(self, None, media)
+
 
 factory.register_action("Media", MediaAction)

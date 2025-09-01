@@ -112,10 +112,10 @@ class NoteAction(GrampsAction):
         if note_handle:
             active_target_object = self.get_target_object()
             note = self.db.get_note_from_handle(note_handle)
-            message = _("Added Note %s to %s") % (
-                note.gramps_id,
-                self.describe_object(self.target_object.obj),
-            )
+            message = _("Added Note %(arg1)s to %(arg2)s") % {
+                "arg1": note.gramps_id,
+                "arg2": self.describe_object(self.target_object.obj),
+            }
             active_target_object.save_hash()
             if active_target_object.obj.add_note(note_handle):
                 active_target_object.sync_hash(self.grstate)
@@ -151,26 +151,26 @@ class NoteAction(GrampsAction):
 
         active_target_object = self.get_target_object()
         note_label = self.describe_object(self.action_object.obj)
-        message1 = _("Remove Note %s?") % note_label
+        message1 = _("Remove Note %(arg1)s?") % {"arg1": note_label}
         if active_target_object.is_primary:
             message2 = _(
-                "Removing the note only detaches the note from the %s %s "
-                "in the database. %s"
-            ) % (
-                self.target_object.obj_lang.lower(),
-                self.describe_object(self.target_object.obj),
-                _("It does not delete any objects."),
-            )
+                "Removing the note only detaches the note from the %(arg1)s %(arg2)s "
+                "in the database. %(arg3)s"
+            ) % {
+                "arg1": self.target_object.obj_lang.lower(),
+                "arg2": self.describe_object(self.target_object.obj),
+                "arg3": _("It does not delete any objects."),
+            }
         else:
             message2 = _(
-                "Removing the note only detaches the note from the %s "
-                "in the %s %s in the database. %s"
-            ) % (
-                active_target_object.obj_lang,
-                self.target_object.obj_lang.lower(),
-                self.describe_object(self.target_object.obj),
-                _("It does not delete any objects."),
-            )
+                "Removing the note only detaches the note from the %(arg1)s "
+                "in the %(arg2)s %(arg3)s in the database. %(arg4)s"
+            ) % {
+                "arg1": active_target_object.obj_lang,
+                "arg2": self.target_object.obj_lang.lower(),
+                "arg3": self.describe_object(self.target_object.obj),
+                "arg4": _("It does not delete any objects."),
+            }
         self.verify_action(
             message1,
             message2,
@@ -185,16 +185,16 @@ class NoteAction(GrampsAction):
         """
         active_target_object = self.get_target_object()
         if active_target_object.is_primary:
-            message = _("Removed Note %s from %s") % (
-                self.describe_object(self.action_object.obj),
-                self.describe_object(self.target_object.obj),
-            )
+            message = _("Removed Note %(arg1)s from %(arg2)s") % {
+                "arg1": self.describe_object(self.action_object.obj),
+                "arg2": self.describe_object(self.target_object.obj),
+            }
         else:
-            message = _("Removed Note %s from %s in %s") % (
-                self.describe_object(self.action_object.obj),
-                active_target_object.obj_lang,
-                self.describe_object(self.target_object.obj),
-            )
+            message = _("Removed Note %(arg1)s from %(arg2)s in %(arg3)s") % {
+                "arg1": self.describe_object(self.action_object.obj),
+                "arg2": active_target_object.obj_lang,
+                "arg3": self.describe_object(self.target_object.obj),
+            }
         active_target_object.save_hash()
         active_target_object.obj.remove_note(self.action_object.obj.handle)
         active_target_object.sync_hash(self.grstate)

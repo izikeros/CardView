@@ -46,6 +46,7 @@ from .action_factory import factory
 
 # _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
+
 # ------------------------------------------------------------------------
 #
 # LdsOrdAction Class
@@ -82,9 +83,7 @@ class LdsOrdAction(GrampsAction):
         """
         Edit an ordinance. This overrides default method.
         """
-        callback = lambda x: self._edited_ordinance(
-            x, self.action_object.obj_hash
-        )
+        callback = lambda x: self._edited_ordinance(x, self.action_object.obj_hash)
         self._edit_ordinance(self.action_object.obj, callback)
 
     def _edited_ordinance(self, ordinance, old_hash):
@@ -93,10 +92,10 @@ class LdsOrdAction(GrampsAction):
         """
         if ordinance:
             self.grstate.update_history_object(old_hash, ordinance)
-            message = _("Edited Ordinance %s for %s") % (
-                ordinance.type2str(),
-                self.describe_object(self.target_object.obj),
-            )
+            message = _("Edited Ordinance %(arg1)s for %(arg2)s") % {
+                "arg1": ordinance.type2str(),
+                "arg2": self.describe_object(self.target_object.obj),
+            }
             self.target_object.commit(self.grstate, message)
 
     def add_ordinance(self, *_dummy_args):
@@ -110,10 +109,10 @@ class LdsOrdAction(GrampsAction):
         Save the new name to finish adding it.
         """
         if ordinance:
-            message = _("Added Ordinance %s to %s") % (
-                ordinance.type2str(),
-                self.describe_object(self.target_object.obj),
-            )
+            message = _("Added Ordinance %(arg1)s to %(arg2)s") % {
+                "arg1": ordinance.type2str(),
+                "arg2": self.describe_object(self.target_object.obj),
+            }
             self.target_object.obj.add_lds_ord(ordinance)
             self.target_object.commit(self.grstate, message)
 
@@ -123,18 +122,18 @@ class LdsOrdAction(GrampsAction):
         """
         if self.action_object:
             ordinance_type = self.action_object.obj.type2str()
-            message1 = _("Delete Ordinance %s?") % ordinance_type
+            message1 = _("Delete Ordinance %(arg1)s?") % {"arg1": ordinance_type}
             message2 = _(
                 "Deleting the ordinance will remove the ordinance from "
-                "the %s %s in the database."
-            ) % (
-                self.target_object.obj_lang.lower(),
-                self.describe_object(self.target_object.obj),
-            )
+                "the %(arg1)s %(arg2)s in the database."
+            ) % {
+                "arg1": self.target_object.obj_lang.lower(),
+                "arg2": self.describe_object(self.target_object.obj),
+            }
             self.verify_action(
                 message1,
                 message2,
-                _("Delete %s") % ordinance_type,
+                _("Delete %(arg1)s") % {"arg1": ordinance_type},
                 self._delete_object,
             )
 
@@ -142,11 +141,12 @@ class LdsOrdAction(GrampsAction):
         """
         Actually delete the ordinance.
         """
-        message = _("Deleted Ordinance %s from %s") % (
-            self.action_object.obj.type2str(),
-            self.describe_object(self.target_object.obj),
-        )
+        message = _("Deleted Ordinance %(arg1)s from %(arg2)s") % {
+            "arg1": self.action_object.obj.type2str(),
+            "arg2": self.describe_object(self.target_object.obj),
+        }
         self.target_object.obj.remove_lds_ord(self.action_object.obj)
         self.target_object.commit(self.grstate, message)
+
 
 factory.register_action("LdsOrd", LdsOrdAction)

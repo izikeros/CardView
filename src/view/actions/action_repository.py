@@ -136,10 +136,7 @@ class RepositoryAction(GrampsAction):
         Save updated source.
         """
         (repo_ref, repository) = repo_tuple
-        message = _("Added Repository %s to Source %s") % (
-            self.describe_object(repository),
-            self.describe_object(self.action_object.obj),
-        )
+        message = _("Added Repository %(arg1)s to Source %(arg2)s") % {"arg1": self.describe_object(repository), "arg2": self.describe_object(self.action_object.obj)}
         self.target_object.obj.add_repo_reference(repo_ref)
         self.target_object.commit(self.grstate, message)
 

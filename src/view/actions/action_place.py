@@ -133,10 +133,10 @@ class PlaceAction(GrampsAction):
                     if top_place_name:
                         place_name = "%s, %s" % (top_place_name, place_name)
             if place_name:
-                message = _("Updating Place Title %s for %s") % (
-                    place_name,
-                    place.gramps_id,
-                )
+                message = _("Updating Place Title %(arg1)s for %(arg2)s") % {
+                    "arg1": place_name,
+                    "arg2": place.gramps_id,
+                }
                 self.grstate.uistate.set_busy_cursor(True)
                 with DbTxn(message, self.db) as trans:
                     place.set_title(place_name)
@@ -154,12 +154,12 @@ class PlaceAction(GrampsAction):
 
         place_name = place_displayer.display(self.db, place)
         enclosed_place_name = place_displayer.display(self.db, self.action_object.obj)
-        message1 = _("Remove Enclosed Place %s?") % enclosed_place_name
+        message1 = _("Remove Enclosed Place %(arg1)s?") % {"arg1": enclosed_place_name}
         message2 = _(
             "Removing the enclosed place will remove the place reference "
-            "from the enclosed place %s to the parent place %s in the "
+            "from the enclosed place %(arg1)s to the parent place %(arg2)s in the "
             "database."
-        ) % (enclosed_place_name, place_name)
+        ) % {"arg1": enclosed_place_name, "arg2": place_name}
         self.verify_action(
             message1,
             message2,
@@ -183,10 +183,10 @@ class PlaceAction(GrampsAction):
                 new_list.append(place_ref)
 
         place_name = place_displayer.display(self.db, self.action_object.obj)
-        message = _("Removed Enclosed Place %s from %s") % (
-            place_name,
-            self.describe_object(self.target_object.obj),
-        )
+        message = _("Removed Enclosed Place %(arg1)s from %(arg2)s") % {
+            "arg1": place_name,
+            "arg2": self.describe_object(self.target_object.obj),
+        }
         self.action_object.obj.set_placeref_list(new_list)
         self.action_object.commit(self.grstate, message)
 

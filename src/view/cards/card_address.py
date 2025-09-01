@@ -40,6 +40,7 @@ from .card_secondary import SecondaryCard
 # Hybrid localization - supports both plugin and Gramps translations
 from ..common.hybrid_localization import _
 
+
 # # ------------------------------------------------------------------------
 #
 # AddressCard Class
@@ -65,9 +66,7 @@ class AddressCard(SecondaryCard):
             self.add_fact(self.get_label("[%s]" % _("Empty")))
         self.show_all()
         self.enable_drag()
-        self.enable_drop(
-            self.eventbox, self.dnd_drop_targets, self.drag_data_received
-        )
+        self.enable_drop(self.eventbox, self.dnd_drop_targets, self.drag_data_received)
         self.set_css_style()
 
     def __add_address_formatted(self, address):
@@ -91,9 +90,7 @@ class AddressCard(SecondaryCard):
         """
         address_date = address.get_date_object()
         if address_date:
-            self.add_fact(
-                self.get_label(glocale.date_displayer.display(address_date))
-            )
+            self.add_fact(self.get_label(glocale.date_displayer.display(address_date)))
             if self.groptions.age_base and (
                 self.groptions.context in ["timeline"]
                 or self.grstate.config.get("group.address.show-age")

@@ -131,10 +131,7 @@ class FamilyAction(GrampsAction):
         Finish adding a new event for a family.
         """
         event_ref.ref = event.handle
-        message = _("Added Family %s to Event %s") % (
-            self.describe_object(self.action_object.obj),
-            self.describe_object(event),
-        )
+        message = _("Added Family %(arg1)s to Event %(arg2)s") % {"arg1": self.describe_object(self.action_object.obj), "arg2": self.describe_object(event)}
         self.action_object.obj.add_event_ref(event_ref)
         self.action_object.commit(self.grstate, message)
 
@@ -223,10 +220,7 @@ class FamilyAction(GrampsAction):
         """
         Finish adding the child to the family.
         """
-        message = _("Added Child %s to Family %s") % (
-            self.describe_object(child),
-            self.describe_object(self.action_object.obj),
-        )
+        message = _("Added Child %(arg1)s to Family %(arg2)s") % {"arg1": self.describe_object(child), "arg2": self.describe_object(self.action_object.obj)}
         self.grstate.uistate.set_busy_cursor(True)
         with DbTxn(message, self.db) as trans:
             self.action_object.obj.add_child_ref(child_ref)
@@ -392,10 +386,7 @@ class FamilyAction(GrampsAction):
         """
         Set preferred parents.
         """
-        message = _("Setting Family %s as Main Parents for Person %s") % (
-            self.describe_object(self.action_object.obj),
-            self.describe_object(self.target_object.obj),
-        )
+        message = _("Setting Family %(arg1)s as Main Parents for Person %(arg2)s") % {"arg1": self.describe_object(self.action_object.obj), "arg2": self.describe_object(self.target_object.obj)}
         self.target_object.obj.set_main_parent_family_handle(
             self.action_object.obj.handle
         )

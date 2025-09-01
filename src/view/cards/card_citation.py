@@ -43,6 +43,7 @@ from .card_primary import PrimaryCard
 # Hybrid localization - supports both plugin and Gramps translations
 from ..common.hybrid_localization import _
 
+
 # # ------------------------------------------------------------------------
 #
 # CitationCard Class
@@ -65,9 +66,7 @@ class CitationCard(PrimaryCard):
         self.__add_citation_reference_desc(reference)
         self.__add_citation_confidence(citation)
         self.enable_drag()
-        self.enable_drop(
-            self.eventbox, self.dnd_drop_targets, self.drag_data_received
-        )
+        self.enable_drop(self.eventbox, self.dnd_drop_targets, self.drag_data_received)
         self.set_css_style()
 
     def __add_citation_title(self, source, citation):
@@ -130,11 +129,7 @@ class CitationCard(PrimaryCard):
         """
         Add reference type.
         """
-        if (
-            self.get_option("show-reference-type")
-            and reference
-            and reference[1]
-        ):
+        if self.get_option("show-reference-type") and reference and reference[1]:
             label = self.get_label(CITATION_TYPES[reference[1]], left=False)
             self.widgets["attributes"].add_fact(label)
 
@@ -142,11 +137,7 @@ class CitationCard(PrimaryCard):
         """
         Add citation reference description.
         """
-        if (
-            self.get_option("show-reference-description")
-            and reference
-            and reference[2]
-        ):
+        if self.get_option("show-reference-description") and reference and reference[2]:
             label = self.get_label(reference[2], left=False)
             self.widgets["attributes"].add_fact(label)
 
@@ -155,9 +146,7 @@ class CitationCard(PrimaryCard):
         Add citation confidence.
         """
         if self.get_option("show-confidence"):
-            label = self.get_label(
-                get_confidence(citation.confidence), left=False
-            )
+            label = self.get_label(get_confidence(citation.confidence), left=False)
             self.widgets["attributes"].add_fact(label)
 
     def _child_drop_handler(self, dnd_type, obj_or_handle, data):
@@ -183,9 +172,7 @@ class CitationCard(PrimaryCard):
         if self.groptions.backlink:
             (obj_type, obj_handle) = self.groptions.backlink
             obj = self.fetch(obj_type, obj_handle)
-            action = action_handler(
-                "Citation", self.grstate, self.primary, obj
-            )
+            action = action_handler("Citation", self.grstate, self.primary, obj)
             context_menu.append(
                 menu_item(
                     "list-remove",

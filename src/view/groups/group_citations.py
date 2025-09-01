@@ -41,6 +41,7 @@ from .group_list import CardGroupList
 
 # _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
+
 # ------------------------------------------------------------------------
 #
 # CitationsCardGroup Class
@@ -53,9 +54,7 @@ class CitationsCardGroup(CardGroupList):
     """
 
     def __init__(self, grstate, groptions, obj):
-        CardGroupList.__init__(
-            self, grstate, groptions, obj, enable_drop=False
-        )
+        CardGroupList.__init__(self, grstate, groptions, obj, enable_drop=False)
         if self.group_base.is_primary:
             groptions.set_backlink(
                 (self.group_base.obj_type, self.group_base.obj.handle)
@@ -64,15 +63,11 @@ class CitationsCardGroup(CardGroupList):
         citation_list = self.collect_citations()
         if citation_list:
             if self.get_option("sort-by-date"):
-                citation_list.sort(
-                    key=lambda x: x[0].get_date_object().sortval
-                )
+                citation_list.sort(key=lambda x: x[0].get_date_object().sortval)
 
             for citation, references, ref_type, ref_desc in citation_list:
                 reference = (references, ref_type, ref_desc)
-                card = CitationCard(
-                    grstate, groptions, citation, reference=reference
-                )
+                card = CitationCard(grstate, groptions, citation, reference=reference)
                 self.add_card(card)
         self.show_all()
 
@@ -163,9 +158,7 @@ class CitationsCardGroup(CardGroupList):
             if self.get_option("include-family"):
                 for family_handle in group_base_obj.family_list:
                     family = self.fetch("Family", family_handle)
-                    self.extract_citations(
-                        0, "Family", citation_list, None, [family]
-                    )
+                    self.extract_citations(0, "Family", citation_list, None, [family])
                     if self.get_option("include-family-indirect"):
                         self.extract_family_citations(citation_list, family)
 
@@ -185,9 +178,7 @@ class CitationsCardGroup(CardGroupList):
                                     )
                                 )
 
-        if group_base_obj_type == "Family" and self.get_option(
-            "include-indirect"
-        ):
+        if group_base_obj_type == "Family" and self.get_option("include-indirect"):
             self.extract_family_citations(citation_list, group_base_obj)
 
         if group_base_obj_type == "Source":
@@ -224,9 +215,7 @@ class CitationsCardGroup(CardGroupList):
             if isinstance(item, CitationBase):
                 for handle in item.citation_list:
                     citation = self.fetch("Citation", handle)
-                    citation_list.append(
-                        (citation, [item], ref_type, ref_desc)
-                    )
+                    citation_list.append((citation, [item], ref_type, ref_desc))
                     if len(citation_list) >= self.maximum:
                         break
 

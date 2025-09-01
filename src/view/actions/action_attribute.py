@@ -48,6 +48,7 @@ from .action_factory import factory
 
 # _ = glocale.translation.sgettext  # Replaced by hybrid localization
 
+
 # ------------------------------------------------------------------------
 #
 # AttributeAction Class
@@ -98,12 +99,8 @@ class AttributeAction(GrampsAction):
         """
         Edit an attribute.
         """
-        attribute_types = get_attribute_types(
-            self.db, self.target_object.obj_type
-        )
-        callback = lambda x: self._edited_attribute(
-            x, self.action_object.obj_hash
-        )
+        attribute_types = get_attribute_types(self.db, self.target_object.obj_type)
+        callback = lambda x: self._edited_attribute(x, self.action_object.obj_hash)
         self._edit_attribute(self.action_object.obj, attribute_types, callback)
 
     def _edited_attribute(self, attribute, old_hash):
@@ -113,10 +110,10 @@ class AttributeAction(GrampsAction):
         if attribute:
             self.grstate.update_history_object(old_hash, attribute)
             active_target_object = self.get_target_object()
-            message = _("Edited Attribute %s for %s") % (
-                attribute.get_type(),
-                self.describe_object(active_target_object.obj),
-            )
+            message = _("Edited Attribute %(arg1)s for %(arg2)s") % {
+                "arg1": attribute.get_type(),
+                "arg2": self.describe_object(active_target_object.obj),
+            }
             self.target_object.commit(self.grstate, message)
 
     def add_attribute(self, *_dummy_args):
@@ -124,9 +121,7 @@ class AttributeAction(GrampsAction):
         Add a new attribute.
         """
         active_target_object = self.get_target_object()
-        attribute_types = get_attribute_types(
-            self.db, self.target_object.obj_type
-        )
+        attribute_types = get_attribute_types(self.db, self.target_object.obj_type)
         if active_target_object.obj_type in ["Source", "Citation"]:
             attribute = SrcAttribute()
         else:
@@ -139,10 +134,10 @@ class AttributeAction(GrampsAction):
         """
         if attribute:
             active_target_object = self.get_target_object()
-            message = _("Added Attribute %s to %s") % (
-                attribute.get_type(),
-                self.describe_object(active_target_object.obj),
-            )
+            message = _("Added Attribute %(arg1)s to %(arg2)s") % {
+                "arg1": attribute.get_type(),
+                "arg2": self.describe_object(active_target_object.obj),
+            }
             active_target_object.obj.add_attribute(attribute)
             self.target_object.commit(self.grstate, message)
 
@@ -155,15 +150,15 @@ class AttributeAction(GrampsAction):
         active_target_object = self.get_target_object()
         target_name = self.describe_object(active_target_object.obj)
         attribute_type = str(self.action_object.obj.get_type())
-        message1 = _("Delete Attribute %s?") % attribute_type
+        message1 = _("Delete Attribute %(arg1)s?") % {"arg1": attribute_type}
         message2 = _(
             "Deleting the attribute will remove the attribute from "
-            "the %s %s in the database."
-        ) % (active_target_object.obj_lang.lower(), target_name)
+            "the %(arg1)s %(arg2)s in the database."
+        ) % {"arg1": active_target_object.obj_lang.lower(), "arg2": target_name}
         self.verify_action(
             message1,
             message2,
-            _("Delete %s") % attribute_type,
+            _("Delete %(arg1)s") % {"arg1": attribute_type},
             self._delete_object,
         )
 
@@ -172,10 +167,10 @@ class AttributeAction(GrampsAction):
         Actually delete the attribute.
         """
         active_target_object = self.get_target_object()
-        message = _("Deleted Attribute %s from %s") % (
-            self.action_object.obj.get_type(),
-            self.describe_object(active_target_object.obj),
-        )
+        message = _("Deleted Attribute %(arg1)s from %(arg2)s") % {
+            "arg1": self.action_object.obj.get_type(),
+            "arg2": self.describe_object(active_target_object.obj),
+        }
         active_target_object.obj.remove_attribute(self.action_object.obj)
         self.target_object.commit(self.grstate, message)
 
@@ -184,5 +179,6 @@ class AttributeAction(GrampsAction):
         Edit the attribute. This overrides default method.
         """
         self.edit_attribute()
+
 
 factory.register_action("Attribute", AttributeAction)

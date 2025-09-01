@@ -116,10 +116,7 @@ class EventAction(GrampsAction):
         Save the event participant.
         """
         if event_ref:
-            message = _("Edited Participant %s in Event %s") % (
-                self.describe_object(self.target_object.obj),
-                self.describe_object(self.action_object.obj),
-            )
+            message = _("Edited Participant %(arg1)s in Event %(arg2)s") % {"arg1": self.describe_object(self.target_object.obj), "arg2": self.describe_object(self.action_object.obj)}
             self.target_object.obj.add_event_ref(event_ref)
             self.target_object.commit(self.grstate, message)
 
@@ -168,10 +165,7 @@ class EventAction(GrampsAction):
         Save the added participant.
         """
         if event_ref:
-            message = _("Added Participant %s to Event %s") % (
-                self.describe_object(self.target_object.obj),
-                self.describe_object(self.action_object.obj),
-            )
+            message = _("Added Participant %(arg1)s to Event %(arg2)s") % {"arg1": self.describe_object(self.target_object.obj), "arg2": self.describe_object(self.action_object.obj)}
             self.target_object.obj.add_event_ref(event_ref)
             self.target_object.commit(self.grstate, message)
 
@@ -219,10 +213,7 @@ class EventAction(GrampsAction):
         for event_ref in participant.obj.event_ref_list:
             if event_ref.ref != self.action_object.obj.handle:
                 new_list.append(event_ref)
-        message = _("Removed Participant %s from Event %s") % (
-            self.describe_object(participant.obj),
-            self.describe_object(self.action_object.obj),
-        )
+        message = _("Removed Participant %(arg1)s from Event %(arg2)s") % {"arg1": self.describe_object(participant.obj), "arg2": self.describe_object(self.action_object.obj)}
         birth_ref = participant.obj.get_birth_ref()
         death_ref = participant.obj.get_death_ref()
         participant.obj.set_event_ref_list(new_list)

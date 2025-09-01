@@ -202,14 +202,8 @@ class GrampsAction:
                 )
             )
             obj_lang = target_object.obj_lang
-            message1 = _("Delete %s %s?") % (
-                obj_lang,
-                self.describe_object(target_object.obj),
-            )
-            message2 = _("Deleting the %s will remove the %s from the database.") % (
-                obj_lang.lower(),
-                obj_lang.lower(),
-            )
+            message1 = _("Delete %(arg1)s %(arg2)s?") % {"arg1": obj_lang, "arg2": self.describe_object(target_object.obj)}
+            message2 = _("Deleting the %(arg1)s will remove the %(arg2)s from the database.") % {"arg1": obj_lang.lower(), "arg2": obj_lang.lower()}
             if backlink_count > 0:
                 message2 = "%s %s" % (
                     message2,
