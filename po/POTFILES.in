@@ -27,6 +27,7 @@ src/view/cards/card_citation.py
 src/view/cards/card_event_ref.py
 src/view/cards/card_event.py
 src/view/cards/card_family.py
+src/view/cards/card_family_tree.py
 src/view/cards/card_generic.py
 src/view/cards/card_media_ref.py
 src/view/cards/card_media.py
@@ -144,6 +145,8 @@ src/view/groups/group_statistics.py
 src/view/groups/group_window.py
 src/view/zotero/zotero.py
 
-# Utilities and helpers (will be expanded in future stages if needed)
-# src/view/utilities/*.py
-# src/view/helpers/*.py
+# Stage 8: Utilities and Helpers
+# All identified files with translations have been covered in previous stages
+# Stage 8 completed one missed card component: card_family_tree.py (added above)
+
+# Final summary: All core files have been migrated to hybrid localization
