@@ -34,6 +34,8 @@ from gi.repository import Gtk
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
+from gramps.gen.const import GRAMPS_LOCALE as glocale
+
 # ------------------------------------------------------------------------
 #
 # Plugin Modules
@@ -45,6 +47,7 @@ from .card_reference import ReferenceCard
 
 # Hybrid localization - supports both plugin and Gramps translations
 from ..common.hybrid_localization import _
+
 
 # # ------------------------------------------------------------------------
 #
@@ -140,13 +143,9 @@ class MediaCard(ReferenceCard):
                 self.widgets["age"], expand=False, fill=False, padding=0
             )
             if "age" in self.groptions.size_groups:
-                self.groptions.size_groups["age"].add_widget(
-                    self.widgets["age"]
-                )
+                self.groptions.size_groups["age"].add_widget(self.widgets["age"])
         hcontent = Gtk.HBox(hexpand=False)
-        self.widgets["body"].pack_start(
-            hcontent, expand=True, fill=True, padding=0
-        )
+        self.widgets["body"].pack_start(hcontent, expand=True, fill=True, padding=0)
 
         if active:
             hcontent.pack_start(
@@ -156,9 +155,7 @@ class MediaCard(ReferenceCard):
         fact_block = Gtk.VBox(halign=Gtk.Align.START, hexpand=True)
         if "data" in self.groptions.size_groups:
             self.groptions.size_groups["data"].add_widget(fact_block)
-        fact_block.pack_start(
-            self.widgets["title"], expand=True, fill=True, padding=0
-        )
+        fact_block.pack_start(self.widgets["title"], expand=True, fill=True, padding=0)
         if active:
             fact_block.pack_start(
                 self.widgets["facts"], expand=True, fill=True, padding=0
@@ -173,25 +170,19 @@ class MediaCard(ReferenceCard):
             )
             fact_block.pack_start(ncontent, expand=True, fill=True, padding=0)
 
-        fact_block.pack_start(
-            self.widgets["icons"], expand=True, fill=True, padding=0
-        )
+        fact_block.pack_start(self.widgets["icons"], expand=True, fill=True, padding=0)
         hcontent.pack_start(fact_block, expand=True, fill=True, padding=0)
 
         attribute_block = Gtk.VBox(halign=Gtk.Align.END, hexpand=False)
         if "attributes" in self.groptions.size_groups:
-            self.groptions.size_groups["attributes"].add_widget(
-                attribute_block
-            )
+            self.groptions.size_groups["attributes"].add_widget(attribute_block)
         attribute_block.pack_start(
             self.widgets["id"], expand=False, fill=False, padding=0
         )
         attribute_block.pack_start(
             self.widgets["attributes"], expand=False, fill=False, padding=0
         )
-        hcontent.pack_start(
-            attribute_block, expand=False, fill=False, padding=0
-        )
+        hcontent.pack_start(attribute_block, expand=False, fill=False, padding=0)
 
     def add_custom_actions(self, context_menu):
         """
@@ -200,9 +191,7 @@ class MediaCard(ReferenceCard):
         if self.groptions.backlink:
             (obj_type, obj_handle) = self.groptions.backlink
             target_object = self.fetch(obj_type, obj_handle)
-            action = action_handler(
-                "Media", self.grstate, self.primary, target_object
-            )
+            action = action_handler("Media", self.grstate, self.primary, target_object)
             context_menu.append(
                 menu_item(
                     "gramps-media",

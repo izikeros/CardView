@@ -27,6 +27,8 @@ NameCard
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
+from gramps.gen.const import GRAMPS_LOCALE as glocale
+
 # ------------------------------------------------------------------------
 #
 # Plugin Modules
@@ -38,6 +40,7 @@ from .card_secondary import SecondaryCard
 
 # Hybrid localization - supports both plugin and Gramps translations
 from ..common.hybrid_localization import _
+
 
 # # ------------------------------------------------------------------------
 #
@@ -60,9 +63,7 @@ class NameCard(SecondaryCard):
         self.__add_name_date(name)
         self.show_all()
         self.enable_drag()
-        self.enable_drop(
-            self.eventbox, self.dnd_drop_targets, self.drag_data_received
-        )
+        self.enable_drop(self.eventbox, self.dnd_drop_targets, self.drag_data_received)
         self.set_css_style()
 
     def __add_name_title(self, obj, name):
@@ -86,9 +87,7 @@ class NameCard(SecondaryCard):
         given_name = name.get_regular_name()
         if name.title:
             given_name = "%s %s" % (name.title, given_name)
-        self.add_fact(
-            self.get_label(given_name), label=self.get_label(_("Given"))
-        )
+        self.add_fact(self.get_label(given_name), label=self.get_label(_("Given")))
 
     def __add_name_call(self, name):
         """
@@ -126,9 +125,7 @@ class NameCard(SecondaryCard):
 
             text = "".join((prefix, surname.get_surname(), connector)).strip()
             if text:
-                self.add_fact(
-                    self.get_label(text), label=self.get_label(origin_type)
-                )
+                self.add_fact(self.get_label(text), label=self.get_label(origin_type))
 
     def __add_name_family_nick(self, name):
         """
@@ -148,9 +145,7 @@ class NameCard(SecondaryCard):
         if name_date:
             text = glocale.date_displayer.display(name_date)
             if text:
-                self.add_fact(
-                    self.get_label(text), label=self.get_label(_("Date"))
-                )
+                self.add_fact(self.get_label(text), label=self.get_label(_("Date")))
             if self.groptions.age_base and (
                 self.groptions.context in ["timeline"]
                 or self.grstate.config.get("group.name.show-age")
@@ -164,6 +159,7 @@ class NameCard(SecondaryCard):
         grcontext = GrampsContext(self.primary, None, self.secondary)
         return self.grstate.load_page(grcontext.pickled)
 
+
 def get_name_type(name):
     """
     Return name type.
@@ -171,6 +167,7 @@ def get_name_type(name):
     if name.get_type():
         return glocale.translation.sgettext(name.get_type().xml_str())
     return _("Unknown")
+
 
 def get_origin_type(surname):
     """

@@ -34,6 +34,7 @@ from gi.repository import Gtk
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
+from gramps.gen.const import GRAMPS_LOCALE as glocale
 from gramps.gen.lib import StyledText
 from gramps.gui.widgets import StyledTextBuffer
 
@@ -48,6 +49,7 @@ from .card_primary import PrimaryCard
 
 # Hybrid localization - supports both plugin and Gramps translations
 from ..common.hybrid_localization import _
+
 
 # # ------------------------------------------------------------------------
 #
@@ -71,9 +73,7 @@ class NoteCard(PrimaryCard):
         self.__add_note_title(note, preview_mode)
         self.__add_note_reference(reference)
         self.enable_drag()
-        self.enable_drop(
-            self.eventbox, self.dnd_drop_targets, self.drag_data_received
-        )
+        self.enable_drop(self.eventbox, self.dnd_drop_targets, self.drag_data_received)
         self.set_css_style()
 
     def __add_note_text(self, note, preview_mode, preview_lines):
@@ -132,37 +132,25 @@ class NoteCard(PrimaryCard):
         Construct framework for note layout, overrides base class.
         """
         vcontent = Gtk.VBox(spacing=3)
-        self.widgets["body"].pack_start(
-            vcontent, expand=True, fill=True, padding=0
-        )
+        self.widgets["body"].pack_start(vcontent, expand=True, fill=True, padding=0)
 
         hcontent = Gtk.HBox(hexpand=True)
         vfacts = Gtk.VBox(vexpand=False, hexpand=True)
-        vfacts.pack_start(
-            self.widgets["facts"], expand=True, fill=True, padding=0
-        )
-        vfacts.pack_start(
-            self.widgets["icons"], expand=True, fill=True, padding=0
-        )
+        vfacts.pack_start(self.widgets["facts"], expand=True, fill=True, padding=0)
+        vfacts.pack_start(self.widgets["icons"], expand=True, fill=True, padding=0)
         hcontent.pack_start(vfacts, expand=True, fill=True, padding=0)
 
         vmeta = Gtk.VBox(vexpand=False, hexpand=False)
         vmeta.pack_start(self.widgets["id"], expand=True, fill=True, padding=0)
-        vmeta.pack_start(
-            self.widgets["attributes"], expand=True, fill=True, padding=0
-        )
+        vmeta.pack_start(self.widgets["attributes"], expand=True, fill=True, padding=0)
         hcontent.pack_start(vmeta, expand=True, fill=True, padding=0)
 
         if self.get_option("text-on-top"):
-            vcontent.pack_start(
-                self.text_view, expand=True, fill=True, padding=0
-            )
+            vcontent.pack_start(self.text_view, expand=True, fill=True, padding=0)
             vcontent.pack_start(hcontent, expand=True, fill=True, padding=0)
         else:
             vcontent.pack_start(hcontent, expand=True, fill=True, padding=0)
-            vcontent.pack_start(
-                self.text_view, expand=True, fill=True, padding=0
-            )
+            vcontent.pack_start(self.text_view, expand=True, fill=True, padding=0)
 
     def add_custom_actions(self, context_menu):
         """

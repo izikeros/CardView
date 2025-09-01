@@ -27,6 +27,8 @@ PlaceRefCard
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
+from gramps.gen.const import GRAMPS_LOCALE as glocale
+
 # ------------------------------------------------------------------------
 #
 # Plugin Modules
@@ -43,6 +45,7 @@ from .card_place import PlaceCard
 
 # Hybrid localization - supports both plugin and Gramps translations
 from ..common.hybrid_localization import _
+
 
 # # ------------------------------------------------------------------------
 #
@@ -81,12 +84,8 @@ class PlaceRefCard(PlaceCard):
         """
         Add custom action menu items for an associate.
         """
-        action = action_handler(
-            "Place", self.grstate, self.primary, self.reference
-        )
-        context_menu.append(
-            menu_item("gtk-edit", EDIT_REFERENCE, action.edit_place)
-        )
+        action = action_handler("Place", self.grstate, self.primary, self.reference)
+        context_menu.append(menu_item("gtk-edit", EDIT_REFERENCE, action.edit_place))
         context_menu.append(
             menu_item(
                 "list-remove",

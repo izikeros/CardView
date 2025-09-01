@@ -34,6 +34,7 @@ from gi.repository import Gtk
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
+from gramps.gen.const import GRAMPS_LOCALE as glocale
 from gramps.gen.display.place import displayer as place_displayer
 
 # ------------------------------------------------------------------------
@@ -47,6 +48,7 @@ from .card_reference import ReferenceCard
 
 # Hybrid localization - supports both plugin and Gramps translations
 from ..common.hybrid_localization import _
+
 
 # # ------------------------------------------------------------------------
 #
@@ -68,9 +70,7 @@ class PlaceCard(ReferenceCard):
         self.__add_place_coordinates(place)
         self.__add_place_alternative_names(place)
         self.enable_drag()
-        self.enable_drop(
-            self.eventbox, self.dnd_drop_targets, self.drag_data_received
-        )
+        self.enable_drop(self.eventbox, self.dnd_drop_targets, self.drag_data_received)
         self.set_css_style()
 
     def __add_place_title(self, place):
@@ -78,9 +78,7 @@ class PlaceCard(ReferenceCard):
         Add place title.
         """
         if "group" in self.groptions.option_space:
-            place_name = place_displayer.display(
-                self.grstate.dbstate.db, place
-            )
+            place_name = place_displayer.display(self.grstate.dbstate.db, place)
             title = self.get_link(
                 place_name,
                 "Place",
@@ -97,9 +95,7 @@ class PlaceCard(ReferenceCard):
         if place.place_type:
             text = glocale.translation.sgettext(place.place_type.xml_str())
             if text:
-                self.add_fact(
-                    self.get_label(text), label=self.get_label(_("Type"))
-                )
+                self.add_fact(self.get_label(text), label=self.get_label(_("Type")))
 
     def __add_place_code(self, place):
         """
@@ -124,9 +120,7 @@ class PlaceCard(ReferenceCard):
         else:
             longitude_text = MISSING
         text = "%s, %s" % (latitude_text, longitude_text)
-        self.add_fact(
-            self.get_label(text), label=self.get_label(LATITUDE_LONGITUDE)
-        )
+        self.add_fact(self.get_label(text), label=self.get_label(LATITUDE_LONGITUDE))
 
     def __add_place_alternative_names(self, place):
         """
@@ -137,9 +131,7 @@ class PlaceCard(ReferenceCard):
                 value = alternate_name.value
                 if alternate_name.lang:
                     value = "%s (%s)" % (value, alternate_name.lang)
-                date = glocale.date_displayer.display(
-                    alternate_name.get_date_object()
-                )
+                date = glocale.date_displayer.display(alternate_name.get_date_object())
                 if not date:
                     date = ""
                 date = "%s %s" % (_("Alternate Name"), date)
@@ -160,9 +152,7 @@ class PlaceCard(ReferenceCard):
         for place in chain:
             title = place.name.value
             if place.place_type:
-                place_type = glocale.translation.sgettext(
-                    place.place_type.xml_str()
-                )
+                place_type = glocale.translation.sgettext(place.place_type.xml_str())
             else:
                 place_type = None
             place_label = self.get_link(

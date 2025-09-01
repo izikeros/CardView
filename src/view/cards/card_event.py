@@ -27,6 +27,7 @@ EventCard.
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
+from gramps.gen.const import GRAMPS_LOCALE as glocale
 from gramps.gen.display.place import displayer as place_displayer
 from gramps.gen.lib import EventType
 from gramps.gen.utils.alive import probably_alive
@@ -62,6 +63,7 @@ from .card_reference import ReferenceCard
 # Hybrid localization - supports both plugin and Gramps translations
 from ..common.hybrid_localization import _
 
+
 # # ------------------------------------------------------------------------
 #
 # EventCard Class
@@ -89,9 +91,7 @@ class EventCard(ReferenceCard):
         self.participants = get_participants(grstate.dbstate.db, event)
         self.primary_participant = get_primary_participant(self.participants)
         event_type = glocale.translation.sgettext(event.type.xml_str())
-        title, role = self._get_title_and_role(
-            event_type, self.primary_participant
-        )
+        title, role = self._get_title_and_role(event_type, self.primary_participant)
         self.__add_event_title(event, title)
         self.__add_event_role(role)
         self.__add_event_date(event)
@@ -101,9 +101,7 @@ class EventCard(ReferenceCard):
         self.__add_event_quality()
         self.enable_drag()
         self.dnd_drop_targets.append(DdTargets.PERSON_LINK.target())
-        self.enable_drop(
-            self.eventbox, self.dnd_drop_targets, self.drag_data_received
-        )
+        self.enable_drop(self.eventbox, self.dnd_drop_targets, self.drag_data_received)
         self.set_css_style()
 
     def __add_event_title(self, event, title):
@@ -197,9 +195,7 @@ class EventCard(ReferenceCard):
                     primary=self.primary_participant,
                 )
                 self.add_fact(
-                    self.get_label(
-                        "%s %s" % (_("Participants"), participant_text)
-                    )
+                    self.get_label("%s %s" % (_("Participants"), participant_text))
                 )
 
     def __add_event_quality(self):
@@ -243,10 +239,7 @@ class EventCard(ReferenceCard):
         if self.reference_base:
             if self.reference_base.obj.handle == primary_obj.handle:
                 title = self.__adjust_title(title, event_type, primary_obj)
-            if (
-                self.groptions.relation
-                and self.reference_base.obj_type == "Person"
-            ):
+            if self.groptions.relation and self.reference_base.obj_type == "Person":
                 relationship = get_relation(
                     self.grstate.dbstate.db,
                     self.reference_base.obj,
@@ -289,19 +282,13 @@ class EventCard(ReferenceCard):
                 self.grstate.dbstate.db, primary_obj, EventType.BIRTH
             ):
                 birth_ref = primary_obj.get_birth_ref()
-                if (
-                    birth_ref is not None
-                    and birth_ref.ref == self.primary.obj.handle
-                ):
+                if birth_ref is not None and birth_ref.ref == self.primary.obj.handle:
                     title = "%s*" % title
             elif current_type == EventType.DEATH and check_multiple_events(
                 self.grstate.dbstate.db, primary_obj, EventType.DEATH
             ):
                 death_ref = primary_obj.get_death_ref()
-                if (
-                    death_ref is not None
-                    and death_ref.ref == self.primary.obj.handle
-                ):
+                if death_ref is not None and death_ref.ref == self.primary.obj.handle:
                     title = "%s*" % title
         return title
 
@@ -332,7 +319,7 @@ class EventCard(ReferenceCard):
                 continue
             roles.append((str(obj_event_ref.get_role()), obj_name))
         roles.sort(key=lambda x: x[0])
-        for (role, obj_name) in roles:
+        for role, obj_name in roles:
             self.add_fact(
                 self.get_label(obj_name),
                 label=self.get_label(role),
@@ -387,18 +374,12 @@ class EventCard(ReferenceCard):
 
         scheme = self.get_option("color-scheme")
         if scheme == 1:
-            return get_event_role_color_css(
-                self.event_role_type, self.grstate.config
-            )
+            return get_event_role_color_css(self.event_role_type, self.grstate.config)
         if scheme == 2:
-            category = get_event_category(
-                self.grstate.dbstate.db, self.primary.obj
-            )
+            category = get_event_category(self.grstate.dbstate.db, self.primary.obj)
             return get_event_category_color_css(category, self.grstate.config)
         if scheme == 3:
-            return get_confidence_color_css(
-                self.event_confidence, self.grstate.config
-            )
+            return get_confidence_color_css(self.event_confidence, self.grstate.config)
         if scheme == 4:
             return get_relationship_color_css(
                 self.event_relationship, self.grstate.config
@@ -437,10 +418,8 @@ class EventCard(ReferenceCard):
         if (
             self.primary.obj.get_type() == EventType.BIRTH
             and self.reference_base
-            and self.reference_base.obj.handle
-            == self.primary_participant[1].handle
-            and self.reference_base.obj.get_birth_ref().ref
-            != self.primary.obj.handle
+            and self.reference_base.obj.handle == self.primary_participant[1].handle
+            and self.reference_base.obj.get_birth_ref().ref != self.primary.obj.handle
         ):
             action = action_handler(
                 "Person", self.grstate, self.reference_base, self.primary
@@ -460,10 +439,8 @@ class EventCard(ReferenceCard):
         if (
             self.primary.obj.get_type() == EventType.DEATH
             and self.reference_base
-            and self.reference_base.obj.handle
-            == self.primary_participant[1].handle
-            and self.reference_base.obj.get_death_ref().ref
-            != self.primary.obj.handle
+            and self.reference_base.obj.handle == self.primary_participant[1].handle
+            and self.reference_base.obj.get_death_ref().ref != self.primary.obj.handle
         ):
             action = action_handler(
                 "Person", self.grstate, self.reference_base, self.primary
@@ -475,6 +452,7 @@ class EventCard(ReferenceCard):
                     action.set_death_event,
                 )
             )
+
 
 def get_object_text(obj_list, single, plural):
     """
