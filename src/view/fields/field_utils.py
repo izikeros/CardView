@@ -27,6 +27,8 @@ Field formatting utility functions.
 # Gramps Modules
 #
 # ------------------------------------------------------------------------
+from gramps.gen.const import GRAMPS_LOCALE as glocale
+
 # Hybrid localization - supports both plugin and Gramps translations
 from ..common.hybrid_localization import _
 from gramps.gen.display.place import displayer as place_displayer
@@ -37,6 +39,7 @@ from gramps.gen.display.place import displayer as place_displayer
 #
 # ------------------------------------------------------------------------
 # _ = glocale.translation.sgettext  # Replaced by hybrid localization
+
 
 def format_single_line_normal(
     event, _dummy_get_label, get_link, description, date, place
@@ -61,6 +64,7 @@ def format_single_line_normal(
     )
     return [(type_label, body_label)]
 
+
 def format_single_line_abbreviated(
     event, get_label, get_link, description, date, place
 ):
@@ -80,9 +84,8 @@ def format_single_line_abbreviated(
     )
     return [(body_label, get_label(""))]
 
-def format_split_line_normal(
-    event, get_label, get_link, description, date, place
-):
+
+def format_split_line_normal(event, get_label, get_link, description, date, place):
     """
     Return widgets for a formatted split line event description.
     """
@@ -116,9 +119,8 @@ def format_split_line_normal(
         widgets.append((type_label, get_label("")))
     return widgets
 
-def format_split_line_abbreviated(
-    event, get_label, get_link, description, date, place
-):
+
+def format_split_line_abbreviated(event, get_label, get_link, description, date, place):
     """
     Return widgets for a formatted split line abbreviated event description.
     """
@@ -155,6 +157,7 @@ def format_split_line_abbreviated(
         widgets.append((type_label, get_label("")))
     return widgets
 
+
 EVENT_FORMATTERS = {
     1: format_single_line_normal,
     2: format_single_line_normal,
@@ -163,6 +166,7 @@ EVENT_FORMATTERS = {
     5: format_split_line_normal,
     6: format_split_line_abbreviated,
 }
+
 
 def get_event_labels(grstate, event, args):
     """
