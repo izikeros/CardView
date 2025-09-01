@@ -335,7 +335,7 @@ msgstr "Status"
 #: src/status_person.py:635 src/view/groups/group_associations.py:163
 #: src/view/groups/group_citations.py:152 src/view/groups/group_const.py:65
 msgid "Association"
-msgstr "Skojarzenie"
+msgstr "Powiązanie"
 
 #: src/view/cards/card_person_backref.py:91
 #: src/view/cards/card_person_ref.py:84 src/view/config/config_selectors.py:68
@@ -2887,7 +2887,7 @@ msgstr ""
 #: src/view/config/config_templates.py:819
 #, fuzzy
 msgid "Preference Templates"
-msgstr "Typy nośników referencyjnych"
+msgstr "Szablony"
 
 #: src/view/config/config_utils.py:79
 msgid "This option will launch the Gramps default preferences dialog."
@@ -3880,11 +3880,6 @@ msgstr ""
 #, fuzzy
 msgid "Remove Repository"
 msgstr "Repozytorium"
-
-#: src/view/actions/action_source.py:242
-#, python-format
-msgid "Removed Repository %s from Source %s"
-msgstr ""
 
 #: src/view/actions/action_tag.py:99
 #, python-format
