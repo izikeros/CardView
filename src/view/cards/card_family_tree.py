@@ -43,7 +43,6 @@ from gi.repository import Gtk
 #
 # ------------------------------------------------------------------------
 from gramps.cli.clidbman import CLIDbManager
-from gramps.gen.const import GRAMPS_LOCALE
 from gramps.gen.dbstate import DbState
 from gramps.gen.display.name import displayer as name_displayer
 from gramps.gen.errors import WindowActiveError
@@ -55,12 +54,14 @@ from gramps.gui.editors import EditNote
 # Plugin Modules
 #
 # ------------------------------------------------------------------------
+# Hybrid localization - supports both plugin and Gramps translations
+from ..common.hybrid_localization import _
 from .card_generic import GenericCard
 from .card_widgets import CardGrid
 from ..common.common_strings import NONE
-from ..common.common_utils import format_address, TextLink
+from ..common.common_utils import format_address
 
-_ = GRAMPS_LOCALE.translation.sgettext
+# _ = GRAMPS_LOCALE.translation.sgettext  # Replaced by hybrid localization
 
 
 # ------------------------------------------------------------------------
@@ -244,7 +245,7 @@ def get_database_information(db):
         database_names=[db_name]
     )
     if db_summary:
-        db_key = GRAMPS_LOCALE.translation.sgettext("Database")
+        db_key = _("Database")
         for key in db_summary[0]:
             if key == db_key:
                 db_type = db_summary[0][key]
