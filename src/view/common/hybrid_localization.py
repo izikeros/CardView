@@ -81,7 +81,7 @@ class HybridTranslation:
             # For plugin translations with context, we'd need msgctxt support
             # For now, fall back to Gramps sgettext directly
             return self.gramps_gettext(text)
-        
+
         # Try plugin translation first
         plugin_result = self.plugin_gettext(text)
         if plugin_result != text:
