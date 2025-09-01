@@ -92,9 +92,7 @@ class FamilyTreeCard(GenericCard):
         if self.title:
             label = Gtk.Label(
                 use_markup=True,
-                label=self.title_markup.format(
-                    "<b>%s</b>" % escape(self.title)
-                ),
+                label=self.title_markup.format("<b>%s</b>" % escape(self.title)),
             )
             widgets["title"].pack_start(label, False, False, 0)
 
@@ -124,14 +122,10 @@ class FamilyTreeCard(GenericCard):
             self.add_fact(facts, NONE, _("Home Person"))
 
         if self.person_history.present():
-            active_person = db.get_person_from_handle(
-                self.person_history.present()
-            )
+            active_person = db.get_person_from_handle(self.person_history.present())
             active_person_name = name_displayer.display(active_person)
             facts.add_fact(
-                self.get_link(
-                    active_person_name, "Person", active_person.handle
-                ),
+                self.get_link(active_person_name, "Person", active_person.handle),
                 label=self.get_label(_("Active Person")),
             )
         else:
@@ -171,12 +165,8 @@ class FamilyTreeCard(GenericCard):
         widgets["facts3"] = CardGrid()
 
         fact_block = Gtk.VBox()
-        widgets["body"].pack_start(
-            fact_block, expand=True, fill=True, padding=0
-        )
-        fact_block.pack_start(
-            widgets["title"], expand=True, fill=True, padding=0
-        )
+        widgets["body"].pack_start(fact_block, expand=True, fill=True, padding=0)
+        fact_block.pack_start(widgets["title"], expand=True, fill=True, padding=0)
         hbox = Gtk.HBox(vexpand=False)
         hbox.pack_start(widgets["facts"], expand=True, fill=True, padding=0)
         hbox.pack_start(widgets["facts2"], expand=True, fill=True, padding=0)
@@ -207,9 +197,7 @@ class FamilyTreeCard(GenericCard):
         """
         border = self.grstate.config.get("display.border-width")
         color = self.get_color_css()
-        css = "".join(
-            (".frame { border-width: ", str(border), "px; ", color, " }")
-        )
+        css = "".join((".frame { border-width: ", str(border), "px; ", color, " }"))
         css = css.encode("utf-8")
         provider = Gtk.CssProvider()
         provider.load_from_data(css)
@@ -241,9 +229,7 @@ def get_database_information(db):
 
     db_type = None
     dbstate = DbState()
-    db_summary = CLIDbManager(dbstate).family_tree_summary(
-        database_names=[db_name]
-    )
+    db_summary = CLIDbManager(dbstate).family_tree_summary(database_names=[db_name])
     if db_summary:
         db_key = _("Database")
         for key in db_summary[0]:
