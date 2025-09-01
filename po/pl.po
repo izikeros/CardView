@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CardView\n"
 "Report-Msgid-Bugs-To: your-email@domain.com\n"
-"POT-Creation-Date: 2025-08-31 23:41+0200\n"
+"POT-Creation-Date: 2025-09-01 00:07+0200\n"
 "PO-Revision-Date: 2025-08-31 22:22+0200\n"
 "Last-Translator: Krystian Safjan <ksafjan@gmail.com>\n"
 "Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
-#: src/card_view.py:308
+#: src/card_view.py:308 src/view/menus/menu_templates.py:67
 msgid "Templates"
 msgstr "Szablony"
 
@@ -40,6 +40,8 @@ msgstr "Konfiguruj %(cat)s - %(view)s"
 #: src/card_view_citation.py:74 src/view/cards/card_event.py:375
 #: src/view/config/config_const.py:197 src/view/config/config_const.py:219
 #: src/view/config/config_panel.py:197 src/status_person.py:498
+#: src/view/groups/group_citations.py:87 src/view/groups/group_const.py:75
+#: src/view/zotero/zotero.py:308 src/view/zotero/zotero.py:343
 msgid "Citation"
 msgstr "Cytat"
 
@@ -47,13 +49,18 @@ msgstr "Cytat"
 #: src/view/config/config_selectors.py:66 src/view/config/config_const.py:198
 #: src/view/config/config_const.py:220 src/view/config/config_panel.py:186
 #: src/view/config/config_panel.py:250 src/status_person.py:620
+#: src/view/groups/group_builder.py:392 src/view/groups/group_citations.py:158
+#: src/view/groups/group_events.py:146 src/view/zotero/zotero.py:332
 msgid "Event"
 msgstr "Wydarzenie"
 
 #: src/card_view_family.py:72 src/view/cards/card_ordinance.py:125
 #: src/view/config/config_const.py:200 src/view/config/config_const.py:222
 #: src/view/config/config_panel.py:184 src/view/config/config_panel.py:231
-#: src/status_person.py:618
+#: src/status_person.py:618 src/view/menus/menu_config.py:130
+#: src/view/menus/menu_config.py:141 src/view/groups/group_builder.py:389
+#: src/view/groups/group_children.py:101 src/view/groups/group_children.py:153
+#: src/view/zotero/zotero.py:335
 msgid "Family"
 msgstr "Rodzina"
 
@@ -61,38 +68,54 @@ msgstr "Rodzina"
 #: src/view/services/service_statistics_labels.py:142
 #: src/view/config/config_const.py:202 src/view/config/config_const.py:224
 #: src/view/config/config_panel.py:205 src/status_person.py:642
+#: src/view/menus/menu_bookmarks.py:78 src/view/menus/menu_utils.py:537
+#: src/view/groups/group_citations.py:122 src/view/groups/group_const.py:164
+#: src/view/groups/group_media.py:126 src/view/groups/group_media.py:173
+#: src/view/zotero/zotero.py:338
 msgid "Media"
 msgstr "Media"
 
 #: src/card_view_note.py:74 src/view/config/config_const.py:205
 #: src/view/config/config_const.py:227 src/view/config/config_panel.py:207
-#: src/status_todo.py:344
+#: src/status_todo.py:344 src/view/groups/group_const.py:110
+#: src/view/groups/group_notes.py:97 src/view/zotero/zotero.py:258
+#: src/view/zotero/zotero.py:262 src/view/zotero/zotero.py:274
+#: src/view/zotero/zotero.py:277
 msgid "Note"
 msgstr "Notatka"
 
 #: src/card_view_person.py:75 src/view/cards/card_reference.py:323
 #: src/view/config/config_const.py:206 src/view/config/config_const.py:228
 #: src/view/config/config_panel.py:143 src/view/config/config_panel.py:229
-#: src/status_person.py:615
+#: src/status_person.py:615 src/view/fields/field_base.py:222
+#: src/view/menus/menu_config.py:138 src/view/groups/group_associations.py:118
+#: src/view/groups/group_associations.py:161
+#: src/view/groups/group_associations.py:165 src/view/zotero/zotero.py:329
 msgid "Person"
 msgstr "Osoba"
 
 #: src/card_view_place.py:74 src/view/cards/card_ordinance.py:114
 #: src/view/cards/card_reference.py:331 src/view/config/config_const.py:208
 #: src/view/config/config_const.py:230 src/view/config/config_panel.py:195
-#: src/view/config/config_panel.py:233
+#: src/view/config/config_panel.py:233 src/view/menus/menu_config.py:144
 msgid "Place"
 msgstr "Miejsce"
 
 #: src/card_view_repository.py:74 src/view/cards/card_reference.py:327
 #: src/view/config/config_const.py:209 src/view/config/config_const.py:231
-#: src/view/config/config_panel.py:202
+#: src/view/config/config_panel.py:202 src/view/menus/menu_bookmarks.py:82
+#: src/view/groups/group_const.py:120
 msgid "Repository"
 msgstr "Repozytorium"
 
 #: src/card_view_source.py:74 src/view/cards/card_event.py:372
 #: src/view/config/config_const.py:211 src/view/config/config_const.py:233
-#: src/view/config/config_panel.py:199
+#: src/view/config/config_panel.py:199 src/view/menus/menu_bookmarks.py:81
+#: src/view/groups/group_const.py:130 src/view/zotero/zotero.py:149
+#: src/view/zotero/zotero.py:153 src/view/zotero/zotero.py:163
+#: src/view/zotero/zotero.py:166 src/view/zotero/zotero.py:205
+#: src/view/zotero/zotero.py:264 src/view/zotero/zotero.py:279
+#: src/view/zotero/zotero.py:310
 msgid "Source"
 msgstr "Źródło"
 
@@ -101,6 +124,7 @@ msgid "reference"
 msgstr "odniesienie"
 
 #: src/view/common/common_strings.py:44 src/view/cards/card_family.py:303
+#: src/view/menus/menu_utils.py:122
 msgid "Edit"
 msgstr "Edytuj"
 
@@ -121,6 +145,7 @@ msgid "Reciprocal"
 msgstr "Wzajemne"
 
 #: src/view/common/common_strings.py:49 src/status_person.py:498
+#: src/view/fields/field_base.py:222
 msgid "Missing"
 msgstr "Brakujące"
 
@@ -163,6 +188,7 @@ msgstr "Bez tytułu"
 #: src/view/config/config_selectors.py:274
 #: src/view/config/config_selectors.py:276
 #: src/view/config/configure_dialog.py:64
+#: src/view/groups/group_statistics.py:512
 msgid "None"
 msgstr "Brak"
 
@@ -200,7 +226,8 @@ msgstr "Edytuj źródło cytatu"
 msgid "of"
 msgstr "z"
 
-#: src/view/cards/card_event.py:201
+#: src/view/cards/card_event.py:201 src/view/menus/menu_utils.py:736
+#: src/view/groups/group_const.py:166
 msgid "Participants"
 msgstr "Uczestnicy"
 
@@ -210,11 +237,14 @@ msgstr "Rodzina domniemana"
 
 #: src/view/cards/card_event.py:372
 #: src/view/services/service_statistics_labels.py:170
+#: src/view/groups/group_const.py:131 src/view/groups/group_const.py:171
 msgid "Sources"
 msgstr "Źródła"
 
 #: src/view/cards/card_event.py:376
 #: src/view/services/service_statistics_labels.py:169
+#: src/view/menus/menu_bookmarks.py:80 src/view/menus/menu_utils.py:261
+#: src/view/groups/group_const.py:76 src/view/groups/group_const.py:159
 msgid "Citations"
 msgstr "Cytaty"
 
@@ -271,7 +301,8 @@ msgstr "Data"
 msgid "Found"
 msgstr "Znaleziono"
 
-#: src/view/cards/card_note_url.py:76
+#: src/view/cards/card_note_url.py:76 src/view/fields/field_utils.py:55
+#: src/view/fields/field_utils.py:74
 msgid "in"
 msgstr "w"
 
@@ -301,7 +332,8 @@ msgstr "Status"
 
 #: src/view/cards/card_person_backref.py:86
 #: src/view/cards/card_person_ref.py:79 src/view/config/config_panel.py:168
-#: src/status_person.py:635
+#: src/status_person.py:635 src/view/groups/group_associations.py:163
+#: src/view/groups/group_citations.py:152 src/view/groups/group_const.py:65
 msgid "Association"
 msgstr "Skojarzenie"
 
@@ -332,7 +364,7 @@ msgstr "Typ"
 msgid "Code"
 msgstr "Kod"
 
-#: src/view/cards/card_place.py:145
+#: src/view/cards/card_place.py:145 src/view/groups/group_citations.py:128
 msgid "Alternate Name"
 msgstr "Nazwa alternatywna"
 
@@ -346,6 +378,7 @@ msgstr "Nigdy nie zmieniane"
 
 #: src/view/cards/card_reference.py:321 src/view/config/config_panel.py:163
 #: src/status_person.py:568 src/field_child.py:127
+#: src/view/groups/group_builder.py:183
 msgid "Child"
 msgstr "Dziecko"
 
@@ -377,7 +410,7 @@ msgstr "Kolor"
 msgid "Edit tag"
 msgstr "Edytuj etykietę"
 
-#: src/view/cards/card_tag.py:116
+#: src/view/cards/card_tag.py:116 src/view/menus/menu_utils.py:437
 msgid "Organize tags"
 msgstr "Organizuj etykiety"
 
@@ -389,11 +422,11 @@ msgstr "Osoba główna"
 msgid "Bookmarked"
 msgstr "Zakładka"
 
-#: src/view/cards/card_utils.py:155
+#: src/view/cards/card_utils.py:155 src/view/actions/action_privacy.py:91
 msgid "Private"
 msgstr "Prywatne"
 
-#: src/view/cards/card_utils.py:158
+#: src/view/cards/card_utils.py:158 src/view/actions/action_privacy.py:89
 msgid "Public"
 msgstr "Publiczne"
 
@@ -713,22 +746,29 @@ msgstr "Preferowane zgony"
 
 #: src/view/services/service_statistics_labels.py:135
 #: src/view/services/service_statistics_labels.py:158
+#: src/view/menus/menu_bookmarks.py:75 src/view/groups/group_builder.py:225
+#: src/view/groups/group_builder.py:262 src/view/groups/group_const.py:161
 msgid "Families"
 msgstr "Rodziny"
 
 #: src/view/services/service_statistics_labels.py:136
 #: src/view/services/service_statistics_labels.py:160
+#: src/view/groups/group_builder.py:183 src/view/groups/group_const.py:158
 msgid "Children"
 msgstr "Dzieci"
 
 #: src/view/services/service_statistics_labels.py:137
 #: src/view/services/service_statistics_labels.py:161
+#: src/view/menus/menu_utils.py:608 src/view/groups/group_associations.py:116
+#: src/view/groups/group_const.py:66 src/view/groups/group_const.py:156
 msgid "Associations"
 msgstr "Skojarzenia"
 
 #: src/view/services/service_statistics_labels.py:138
 #: src/view/services/service_statistics_labels.py:143
 #: src/view/services/service_statistics_labels.py:162
+#: src/view/menus/menu_bookmarks.py:76 src/view/groups/group_builder.py:394
+#: src/view/groups/group_const.py:160 src/view/groups/group_events.py:96
 msgid "Events"
 msgstr "Wydarzenia"
 
@@ -742,6 +782,7 @@ msgstr "Obrzędy rodzinne"
 
 #: src/view/services/service_statistics_labels.py:141
 #: src/view/services/service_statistics_labels.py:167
+#: src/view/menus/menu_bookmarks.py:77 src/view/groups/group_const.py:168
 msgid "Places"
 msgstr "Miejsca"
 
@@ -790,10 +831,15 @@ msgid "Media objects"
 msgstr "Obiekty multimedialne"
 
 #: src/view/services/service_statistics_labels.py:171
+#: src/view/menus/menu_utils.py:795 src/view/groups/group_const.py:121
+#: src/view/groups/group_const.py:170
 msgid "Repositories"
 msgstr "Repozytoria"
 
 #: src/view/services/service_statistics_labels.py:172
+#: src/view/menus/menu_bookmarks.py:79 src/view/menus/menu_utils.py:320
+#: src/view/groups/group_const.py:111 src/view/groups/group_const.py:165
+#: src/view/zotero/zotero.py:203
 msgid "Notes"
 msgstr "Notatki"
 
@@ -1451,6 +1497,7 @@ msgid ""
 msgstr ""
 
 #: src/view/config/config_objects.py:611 src/view/config/config_objects.py:748
+#: src/view/menus/menu_utils.py:199 src/view/groups/group_const.py:71
 msgid "Attributes"
 msgstr ""
 
@@ -1559,6 +1606,7 @@ msgid "Family display format"
 msgstr "Uczestnicy rodzinni"
 
 #: src/view/config/config_selectors.py:64 src/status_person.py:631
+#: src/view/groups/group_citations.py:140 src/view/groups/group_const.py:70
 msgid "Attribute"
 msgstr ""
 
@@ -1922,27 +1970,27 @@ msgid "Icelandic style"
 msgstr ""
 
 #: src/view/config/configure_dialog.py:76
-#: src/view/config/configure_dialog.py:104 src/view/config/config_utils.py:75
+#: src/view/config/configure_dialog.py:105 src/view/config/config_utils.py:75
 #, fuzzy
 msgid "Preferences"
 msgstr "odniesienie"
 
-#: src/view/config/configure_dialog.py:129
+#: src/view/config/configure_dialog.py:130
 msgid "_Close"
 msgstr ""
 
-#: src/view/config/configure_dialog.py:185
-#: src/view/config/configure_dialog.py:193
+#: src/view/config/configure_dialog.py:186
+#: src/view/config/configure_dialog.py:194
 msgid "Invalid or incomplete format definition."
 msgstr ""
 
-#: src/view/config/configure_dialog.py:367
-#: src/view/config/configure_dialog.py:403
-#: src/view/config/configure_dialog.py:434
-#: src/view/config/configure_dialog.py:450
-#: src/view/config/configure_dialog.py:492
-#: src/view/config/configure_dialog.py:538
-#: src/view/config/configure_dialog.py:566
+#: src/view/config/configure_dialog.py:366
+#: src/view/config/configure_dialog.py:402
+#: src/view/config/configure_dialog.py:433
+#: src/view/config/configure_dialog.py:449
+#: src/view/config/configure_dialog.py:489
+#: src/view/config/configure_dialog.py:535
+#: src/view/config/configure_dialog.py:563
 #, python-format
 msgid "%s: "
 msgstr ""
@@ -2121,6 +2169,7 @@ msgstr ""
 
 #: src/view/config/config_const.py:195 src/view/config/config_const.py:217
 #: src/view/config/config_panel.py:217 src/status_person.py:639
+#: src/view/groups/group_citations.py:134 src/view/groups/group_const.py:60
 msgid "Address"
 msgstr ""
 
@@ -2146,6 +2195,7 @@ msgstr "Media"
 #: src/view/config/config_const.py:204 src/view/config/config_const.py:226
 #: src/view/config/config_panel.py:212 src/view/config/config_templates.py:140
 #: src/status_person.py:624 src/tagview.py:170
+#: src/view/groups/group_const.py:105
 #, fuzzy
 msgid "Name"
 msgstr "Imię używane"
@@ -2622,7 +2672,7 @@ msgstr "Szablony"
 msgid "Parent"
 msgstr ""
 
-#: src/view/config/config_panel.py:153
+#: src/view/config/config_panel.py:153 src/view/groups/group_builder.py:181
 msgid "Sibling"
 msgstr ""
 
@@ -2630,11 +2680,13 @@ msgstr ""
 msgid "Spouse"
 msgstr ""
 
-#: src/view/config/config_panel.py:175
+#: src/view/config/config_panel.py:175 src/view/groups/group_const.py:115
+#: src/view/groups/group_const.py:116
 msgid "Paternal Lineage"
 msgstr ""
 
-#: src/view/config/config_panel.py:181
+#: src/view/config/config_panel.py:181 src/view/groups/group_const.py:95
+#: src/view/groups/group_const.py:96
 msgid "Maternal Lineage"
 msgstr ""
 
@@ -2648,7 +2700,7 @@ msgid "Role"
 msgstr ""
 
 #: src/view/config/config_templates.py:139
-#: src/view/config/config_templates.py:537
+#: src/view/config/config_templates.py:537 src/view/menus/menu_config.py:132
 #, fuzzy
 msgid "Active"
 msgstr "aktywne"
@@ -2759,11 +2811,11 @@ msgstr "Szablony"
 msgid "Card"
 msgstr ""
 
-#: src/view/config/config_templates.py:525
+#: src/view/config/config_templates.py:525 src/view/menus/menu_config.py:106
 msgid "Global"
 msgstr ""
 
-#: src/view/config/config_templates.py:531
+#: src/view/config/config_templates.py:531 src/view/menus/menu_config.py:158
 #, fuzzy
 msgid "Layout"
 msgstr "Opcje układu"
@@ -2947,7 +2999,7 @@ msgstr ""
 msgid "Append Next Group If Visible"
 msgstr ""
 
-#: src/view/groups/group_window.py:76
+#: src/view/groups/group_window.py:76 src/view/groups/group_builder.py:306
 #, fuzzy
 msgid "Reference"
 msgstr "odniesienie"
@@ -3084,7 +3136,7 @@ msgstr "Poziom wiarygodności"
 msgid "Missing Events"
 msgstr "Brakujące wydarzenia"
 
-#: src/status_person.py:627
+#: src/status_person.py:627 src/view/groups/group_const.py:90
 #, fuzzy
 msgid "Ordinance"
 msgstr "Obrzędy osobiste LDS"
@@ -3117,7 +3169,8 @@ msgstr ""
 msgid "Delete the selected tag"
 msgstr ""
 
-#: src/tagview.py:204
+#: src/tagview.py:204 src/view/menus/menu_utils.py:438
+#: src/view/groups/group_const.py:172
 msgid "Tags"
 msgstr ""
 
@@ -3187,7 +3240,7 @@ msgstr ""
 msgid "divorced"
 msgstr ""
 
-#: src/field_child.py:236
+#: src/field_child.py:236 src/view/menus/menu_utils.py:644
 #, fuzzy
 msgid "Parents"
 msgstr "Wydarzenia"
@@ -3228,8 +3281,1301 @@ msgstr ""
 msgid "Minimal view template"
 msgstr "Szablony"
 
+#: src/view/fields/field_base.py:195
+#, fuzzy
+msgid "Relation"
+msgstr "Pokrewieństwo"
+
+#: src/view/fields/field_base.py:198
+#, fuzzy
+msgid "Home person"
+msgstr "Osoba główna"
+
+#: src/view/fields/field_base.py:212
+msgid "Not related to"
+msgstr ""
+
+#: src/view/views/view_event.py:98 src/view/views/view_event.py:99
+#, fuzzy
+msgid "Individual Participants"
+msgstr "Uczestnicy indywidualni"
+
+#: src/view/views/view_event.py:119
+#, fuzzy
+msgid "Family Participants"
+msgstr "Uczestnicy rodzinni"
+
+#: src/view/views/view_source.py:91
+msgid "Cited People"
+msgstr ""
+
+#: src/view/views/view_source.py:106
+#, fuzzy
+msgid "Cited Event"
+msgstr "Wydarzenie"
+
+#: src/view/views/view_source.py:106
+#, fuzzy
+msgid "Cited Events"
+msgstr "Wydarzenia"
+
+#: src/view/views/view_source.py:121
+#, fuzzy
+msgid "Cited Place"
+msgstr "Miejsce"
+
+#: src/view/views/view_source.py:121
+#, fuzzy
+msgid "Cited Places"
+msgstr "Miejsca"
+
+#: src/view/actions/action_address.py:85
+#, python-format
+msgid "Edited Address for %s"
+msgstr ""
+
+#: src/view/actions/action_attribute.py:116
+#, python-format
+msgid "Edited Attribute %s for %s"
+msgstr ""
+
+#: src/view/actions/action_attribute.py:142
+#, python-format
+msgid "Added Attribute %s to %s"
+msgstr ""
+
+#: src/view/actions/action_attribute.py:158
+#, fuzzy, python-format
+msgid "Delete Attribute %s?"
+msgstr "Ustawienia wyświetlania kart"
+
+#: src/view/actions/action_attribute.py:160
+#, python-format
+msgid ""
+"Deleting the attribute will remove the attribute from the %s %s in the "
+"database."
+msgstr ""
+
+#: src/view/actions/action_attribute.py:166 src/view/actions/action_base.py:244
+#: src/view/actions/action_ldsord.py:137 src/view/menus/menu_utils.py:149
+#, fuzzy, python-format
+msgid "Delete %s"
+msgstr "Usuń"
+
+#: src/view/actions/action_attribute.py:175
+#, python-format
+msgid "Deleted Attribute %s from %s"
+msgstr ""
+
+#: src/view/actions/action_base.py:177
+#, fuzzy
+msgid "Edited"
+msgstr "Edytuj"
+
+#: src/view/actions/action_base.py:179 src/view/menus/menu_config.py:146
+#: src/view/menus/menu_config.py:162 src/view/groups/group_associations.py:117
+#: src/view/groups/group_children.py:100 src/view/groups/group_events.py:97
+#: src/view/groups/group_media.py:127 src/view/zotero/zotero.py:164
+#: src/view/zotero/zotero.py:204 src/view/zotero/zotero.py:263
+#: src/view/zotero/zotero.py:275 src/view/zotero/zotero.py:278
+msgid "for"
+msgstr ""
+
+#: src/view/actions/action_base.py:205
+#, fuzzy, python-format
+msgid "Delete %s %s?"
+msgstr "Usuń"
+
+#: src/view/actions/action_base.py:209
+#, python-format
+msgid "Deleting the %s will remove the %s from the database."
+msgstr ""
+
+#: src/view/actions/action_base.py:217
+msgid ""
+"Any references by other objects with additional data they may contain will "
+"also be removed"
+msgstr ""
+
+#: src/view/actions/action_base.py:225
+#, python-format
+msgid "and %s other objects in the database still refer to this one."
+msgstr ""
+
+#: src/view/actions/action_base.py:234
+msgid "and 1 other object in the database still refers to this one."
+msgstr ""
+
+#: src/view/actions/action_base.py:241
+msgid "No other objects in the database refer to this one."
+msgstr ""
+
+#: src/view/actions/action_base.py:260
+#, fuzzy, python-format
+msgid "Deleted %s"
+msgstr "Usuń"
+
+#: src/view/actions/action_citation.py:118
+#, python-format
+msgid "Added Citation %s to %s %s"
+msgstr ""
+
+#: src/view/actions/action_citation.py:200
+msgid "Could Not Connect To Local Zotero Client"
+msgstr ""
+
+#: src/view/actions/action_citation.py:202
+msgid ""
+"A connection test to the local Zotero client using the Better BibTex Zotero "
+"extension failed. The local Zotero client needs to be running and extension "
+"installed in order to use it as a citation picker."
+msgstr ""
+
+#: src/view/actions/action_citation.py:219
+#, fuzzy, python-format
+msgid "Remove Citation %s?"
+msgstr "Usuń cytat"
+
+#: src/view/actions/action_citation.py:223
+#, python-format
+msgid ""
+"Removing the citation will remove the citation from the %s in the database."
+msgstr ""
+
+#: src/view/actions/action_citation.py:230
+#, python-format
+msgid ""
+"Removing the citation will remove the citation from the %s in the %s in the "
+"database."
+msgstr ""
+
+#: src/view/actions/action_citation.py:239
+#, fuzzy
+msgid "Remove Citation"
+msgstr "Usuń cytat"
+
+#: src/view/actions/action_citation.py:250
+#, fuzzy, python-format
+msgid "Removed Citation %s from %s %s"
+msgstr "Usuń cytat"
+
+#: src/view/actions/action_citation.py:256
+#, python-format
+msgid "Removed Citation %s from %s in %s %s"
+msgstr ""
+
+#: src/view/actions/action_const.py:60
+#, fuzzy
+msgid "Godfather"
+msgstr "Ojciec"
+
+#: src/view/actions/action_const.py:60 src/view/actions/action_const.py:61
+#: src/view/actions/action_const.py:62 src/view/actions/action_const.py:63
+#, fuzzy
+msgid "Godchild"
+msgstr "Dziecko"
+
+#: src/view/actions/action_const.py:61
+#, fuzzy
+msgid "Godmother"
+msgstr "Matka"
+
+#: src/view/actions/action_const.py:62 src/view/actions/action_const.py:63
+#, fuzzy
+msgid "Godparent"
+msgstr "Wydarzenia"
+
+#: src/view/actions/action_const.py:64 src/view/actions/action_const.py:65
+msgid "Landlord"
+msgstr ""
+
+#: src/view/actions/action_const.py:64 src/view/actions/action_const.py:65
+msgid "Tenant"
+msgstr ""
+
+#: src/view/actions/action_const.py:66
+msgid "DNA"
+msgstr ""
+
+#: src/view/actions/action_const.py:67
+msgid "cm"
+msgstr ""
+
+#: src/view/actions/action_const.py:68
+msgid "Best Man"
+msgstr ""
+
+#: src/view/actions/action_const.py:68
+msgid "Groom"
+msgstr ""
+
+#: src/view/actions/action_const.py:69
+msgid "Maid of Honor"
+msgstr ""
+
+#: src/view/actions/action_const.py:69
+msgid "Bride"
+msgstr ""
+
+#: src/view/actions/action_const.py:70
+msgid "Friend"
+msgstr ""
+
+#: src/view/actions/action_const.py:71 src/view/actions/action_const.py:72
+msgid "Employer"
+msgstr ""
+
+#: src/view/actions/action_const.py:71 src/view/actions/action_const.py:72
+msgid "Employee"
+msgstr ""
+
+#: src/view/actions/action_const.py:73
+msgid "Lawyer"
+msgstr ""
+
+#: src/view/actions/action_const.py:73
+msgid "Client"
+msgstr ""
+
+#: src/view/actions/action_const.py:74 src/view/actions/action_const.py:75
+msgid "Doctor"
+msgstr ""
+
+#: src/view/actions/action_const.py:74 src/view/actions/action_const.py:75
+msgid "Patient"
+msgstr ""
+
+#: src/view/actions/action_const.py:76 src/view/actions/action_const.py:77
+msgid "Teacher"
+msgstr ""
+
+#: src/view/actions/action_const.py:76 src/view/actions/action_const.py:77
+msgid "Student"
+msgstr ""
+
+#: src/view/actions/action_event.py:119
+#, fuzzy, python-format
+msgid "Edited Participant %s in Event %s"
+msgstr "Uczestnicy wydarzeń"
+
+#: src/view/actions/action_event.py:171
+#, fuzzy, python-format
+msgid "Added Participant %s to Event %s"
+msgstr "Uczestnicy wydarzeń"
+
+#: src/view/actions/action_event.py:198
+#, fuzzy, python-format
+msgid "Remove Participant %s?"
+msgstr "Uczestnicy"
+
+#: src/view/actions/action_event.py:202
+msgid "Removing the participant will remove their event reference."
+msgstr ""
+
+#: src/view/actions/action_event.py:208
+#, fuzzy
+msgid "Remove Participant"
+msgstr "Uczestnicy"
+
+#: src/view/actions/action_event.py:222
+#, fuzzy, python-format
+msgid "Removed Participant %s from Event %s"
+msgstr "Uczestnicy wydarzeń"
+
+#: src/view/actions/action_family.py:134
+#, python-format
+msgid "Added Family %s to Event %s"
+msgstr ""
+
+#: src/view/actions/action_family.py:179
+#, fuzzy, python-format
+msgid "Edited Child Reference for %s"
+msgstr "Łączna liczba odwołań do dzieci"
+
+#: src/view/actions/action_family.py:226
+#, python-format
+msgid "Added Child %s to Family %s"
+msgstr ""
+
+#: src/view/actions/action_family.py:250
+msgid "Select Child"
+msgstr ""
+
+#: src/view/actions/action_family.py:278
+#, python-format
+msgid "Remove Child %s?"
+msgstr ""
+
+#: src/view/actions/action_family.py:281
+#, python-format
+msgid ""
+"Removing the child will remove the child reference from the family %s in the "
+"database."
+msgstr ""
+
+#: src/view/actions/action_family.py:289
+#, fuzzy
+msgid "Remove Child"
+msgstr "Usuń notatkę"
+
+#: src/view/actions/action_family.py:331
+#, fuzzy, python-format
+msgid "Remove Partner %s?"
+msgstr "Usuń notatkę"
+
+#: src/view/actions/action_family.py:333
+msgid ""
+"Removing the partner or spouse will remove the person from the family in the "
+"database."
+msgstr ""
+
+#: src/view/actions/action_family.py:340
+#, fuzzy
+msgid "Remove Partner"
+msgstr "Usuń notatkę"
+
+#: src/view/actions/action_family.py:395 src/view/actions/action_person.py:222
+#, python-format
+msgid "Setting Family %s as Main Parents for Person %s"
+msgstr ""
+
+#: src/view/actions/action_ldsord.py:96
+#, python-format
+msgid "Edited Ordinance %s for %s"
+msgstr ""
+
+#: src/view/actions/action_ldsord.py:113
+#, python-format
+msgid "Added Ordinance %s to %s"
+msgstr ""
+
+#: src/view/actions/action_ldsord.py:126
+#, fuzzy, python-format
+msgid "Delete Ordinance %s?"
+msgstr "Obrzędy osobiste LDS"
+
+#: src/view/actions/action_ldsord.py:128
+#, python-format
+msgid ""
+"Deleting the ordinance will remove the ordinance from the %s %s in the "
+"database."
+msgstr ""
+
+#: src/view/actions/action_ldsord.py:145
+#, python-format
+msgid "Deleted Ordinance %s from %s"
+msgstr ""
+
+#: src/view/actions/action_media.py:136
+#, python-format
+msgid "Edited Media %s for %s %s"
+msgstr ""
+
+#: src/view/actions/action_media.py:184
+#, python-format
+msgid "Added Media %s to %s %s"
+msgstr ""
+
+#: src/view/actions/action_media.py:215
+#, python-format
+msgid "Remove Media %s?"
+msgstr ""
+
+#: src/view/actions/action_media.py:217
+#, python-format
+msgid ""
+"Removing the media will remove the media reference from the %s %s in the "
+"database."
+msgstr ""
+
+#: src/view/actions/action_media.py:226
+#, fuzzy
+msgid "Remove Media"
+msgstr "Usuń notatkę"
+
+#: src/view/actions/action_media.py:241
+#, python-format
+msgid "Removed Media %s from %s %s"
+msgstr ""
+
+#: src/view/actions/action_media.py:270
+#, python-format
+msgid "Set Media %s Active for %s %s"
+msgstr ""
+
+#: src/view/actions/action_name.py:93
+#, python-format
+msgid "Edited Name %s for %s"
+msgstr ""
+
+#: src/view/actions/action_name.py:110
+#, python-format
+msgid "Added Name %s to %s"
+msgstr ""
+
+#: src/view/actions/action_name.py:123
+#, fuzzy, python-format
+msgid "Delete Name %s?"
+msgstr "Nazwa alternatywna"
+
+#: src/view/actions/action_name.py:125
+#, python-format
+msgid "Deleting the name will remove the name from the %s %s in the database."
+msgstr ""
+
+#: src/view/actions/action_name.py:134
+#, fuzzy
+msgid "Delete Name"
+msgstr "Nazwa alternatywna"
+
+#: src/view/actions/action_name.py:142
+#, python-format
+msgid "Deleted Name %s from %s"
+msgstr ""
+
+#: src/view/actions/action_note.py:115
+#, python-format
+msgid "Added Note %s to %s"
+msgstr ""
+
+#: src/view/actions/action_note.py:154
+#, fuzzy, python-format
+msgid "Remove Note %s?"
+msgstr "Usuń notatkę"
+
+#: src/view/actions/action_note.py:157
+#, python-format
+msgid ""
+"Removing the note only detaches the note from the %s %s in the database. %s"
+msgstr ""
+
+#: src/view/actions/action_note.py:162 src/view/actions/action_note.py:172
+msgid "It does not delete any objects."
+msgstr ""
+
+#: src/view/actions/action_note.py:166
+#, python-format
+msgid ""
+"Removing the note only detaches the note from the %s in the %s %s in the "
+"database. %s"
+msgstr ""
+
+#: src/view/actions/action_note.py:177
+#, fuzzy
+msgid "Remove Note"
+msgstr "Usuń notatkę"
+
+#: src/view/actions/action_note.py:188
+#, python-format
+msgid "Removed Note %s from %s"
+msgstr ""
+
+#: src/view/actions/action_note.py:193
+#, python-format
+msgid "Removed Note %s from %s in %s"
+msgstr ""
+
+#: src/view/actions/action_person.py:158
+#, fuzzy, python-format
+msgid "Added Person %s as Participant to Event %s"
+msgstr "Dodaj jako uczestnika do istniejącego zdarzenia"
+
+#: src/view/actions/action_person.py:250 src/view/actions/action_person.py:271
+#, python-format
+msgid "Set Event %s as Preferred for Person %s"
+msgstr ""
+
+#: src/view/actions/action_person.py:326
+#, fuzzy, python-format
+msgid "Edited Association for Person %s"
+msgstr "Edytuj źródło cytatu"
+
+#: src/view/actions/action_person.py:370 src/view/actions/action_person.py:399
+#, python-format
+msgid "Added Association from Person %s to Person %s"
+msgstr ""
+
+#: src/view/actions/action_person.py:420
+#, fuzzy, python-format
+msgid "Remove Association %s?"
+msgstr "Usuń cytat"
+
+#: src/view/actions/action_person.py:422
+msgid ""
+"Removing the association will remove the person reference between the people "
+"in the database."
+msgstr ""
+
+#: src/view/actions/action_person.py:428
+#, fuzzy
+msgid "Remove Association"
+msgstr "Usuń cytat"
+
+#: src/view/actions/action_person.py:445
+#, python-format
+msgid "Removed Association from Person %s to Person %s"
+msgstr ""
+
+#: src/view/actions/action_place.py:136
+#, python-format
+msgid "Updating Place Title %s for %s"
+msgstr ""
+
+#: src/view/actions/action_place.py:157
+#, python-format
+msgid "Remove Enclosed Place %s?"
+msgstr ""
+
+#: src/view/actions/action_place.py:159
+#, python-format
+msgid ""
+"Removing the enclosed place will remove the place reference from the "
+"enclosed place %s to the parent place %s in the database."
+msgstr ""
+
+#: src/view/actions/action_place.py:166
+#, fuzzy
+msgid "Remove Place"
+msgstr "Usuń notatkę"
+
+#: src/view/actions/action_place.py:186
+#, python-format
+msgid "Removed Enclosed Place %s from %s"
+msgstr ""
+
+#: src/view/actions/action_privacy.py:93
+#, python-format
+msgid "Made %s for %s %s"
+msgstr ""
+
+#: src/view/actions/action_privacy.py:99
+#, python-format
+msgid "Made %s %s"
+msgstr ""
+
+#: src/view/actions/action_repository.py:139
+#: src/view/actions/action_source.py:194
+#, python-format
+msgid "Added Repository %s to Source %s"
+msgstr ""
+
+#: src/view/actions/action_source.py:123
+#, python-format
+msgid "Edited Repository %s for Source %s"
+msgstr ""
+
+#: src/view/actions/action_source.py:215
+#, fuzzy, python-format
+msgid "Remove Repository %s?"
+msgstr "Typy repozytoriów"
+
+#: src/view/actions/action_source.py:218
+#, python-format
+msgid ""
+"Removing the repository will remove the repository reference from the source "
+"%s in the database."
+msgstr ""
+
+#: src/view/actions/action_source.py:226
+#, fuzzy
+msgid "Remove Repository"
+msgstr "Repozytorium"
+
+#: src/view/actions/action_source.py:242
+#, python-format
+msgid "Removed Repository %s from Source %s"
+msgstr ""
+
+#: src/view/actions/action_tag.py:99
+#, python-format
+msgid "Added Tag %s to %s %s"
+msgstr ""
+
+#: src/view/actions/action_tag.py:129
+#, python-format
+msgid "Removed Tag %s from %s %s"
+msgstr ""
+
+#: src/view/actions/action_url.py:124
+#, python-format
+msgid "Edited Url %s for %s"
+msgstr ""
+
+#: src/view/actions/action_url.py:148
+#, python-format
+msgid "Added Url %s to %s"
+msgstr ""
+
+#: src/view/actions/action_url.py:164
+#, fuzzy, python-format
+msgid "Delete Url %s?"
+msgstr "Usuń"
+
+#: src/view/actions/action_url.py:166
+#, python-format
+msgid "Deleting the url will remove the url from the %s %s in the database."
+msgstr ""
+
+#: src/view/actions/action_url.py:171
+#, fuzzy
+msgid "Delete Url"
+msgstr "Usuń"
+
+#: src/view/actions/action_url.py:180
+#, python-format
+msgid "Deleted Url %s from %s"
+msgstr ""
+
+#: src/view/menus/menu_bookmarks.py:74 src/view/groups/group_const.py:167
+msgid "People"
+msgstr ""
+
+#: src/view/menus/menu_bookmarks.py:95
+#, fuzzy
+msgid "Organize Bookmarks"
+msgstr "Organizuj etykiety"
+
+#: src/view/menus/menu_bookmarks.py:128 src/view/groups/group_const.py:157
+#, fuzzy
+msgid "Bookmarks"
+msgstr "Zakładka"
+
+#: src/view/menus/menu_config.py:57
+msgid "Disable linking people to relationship category view"
+msgstr ""
+
+#: src/view/menus/menu_config.py:58
+msgid "Enable linking people to relationship category view"
+msgstr ""
+
+#: src/view/menus/menu_config.py:62
+msgid "Disable media bar"
+msgstr ""
+
+#: src/view/menus/menu_config.py:63
+#, fuzzy
+msgid "Enable media bar"
+msgstr "Edytuj źródło cytatu"
+
+#: src/view/menus/menu_config.py:67
+msgid "Disable tags"
+msgstr ""
+
+#: src/view/menus/menu_config.py:68
+#, fuzzy
+msgid "Enable tags"
+msgstr "Edytuj źródło cytatu"
+
+#: src/view/menus/menu_config.py:72
+#, fuzzy
+msgid "Disable child object indicators"
+msgstr "Ustaw osobę główną"
+
+#: src/view/menus/menu_config.py:73
+#, fuzzy
+msgid "Enable child object indicators"
+msgstr "Ustaw osobę główną"
+
+#: src/view/menus/menu_config.py:77
+#, fuzzy
+msgid "Disable display of child object indicator counts"
+msgstr "Ustaw osobę główną"
+
+#: src/view/menus/menu_config.py:78
+#, fuzzy
+msgid "Enable display of child object indicator counts"
+msgstr "Ustaw osobę główną"
+
+#: src/view/menus/menu_config.py:82
+#, fuzzy
+msgid "Disable display of to do indicator"
+msgstr "Ustaw osobę główną"
+
+#: src/view/menus/menu_config.py:83
+#, fuzzy
+msgid "Enable display of to do indicator"
+msgstr "Ustaw osobę główną"
+
+#: src/view/menus/menu_config.py:87
+msgid "Disable display of confidence ranking indicator"
+msgstr ""
+
+#: src/view/menus/menu_config.py:88
+msgid "Enable display of confidence ranking indicator"
+msgstr ""
+
+#: src/view/menus/menu_config.py:92
+#, fuzzy
+msgid "Disable display of citation alert indicator"
+msgstr "Cytaty z multimediami"
+
+#: src/view/menus/menu_config.py:93
+#, fuzzy
+msgid "Enable display of citation alert indicator"
+msgstr "Edytuj źródło cytatu"
+
+#: src/view/menus/menu_config.py:97
+#, fuzzy
+msgid "Disable display of missing events indicator"
+msgstr "Brakujące wydarzenia"
+
+#: src/view/menus/menu_config.py:98
+#, fuzzy
+msgid "Enable display of missing events indicator"
+msgstr "Brakujące wydarzenia"
+
+#: src/view/menus/menu_config.py:134
+#, fuzzy
+msgid "Group"
+msgstr "grupa"
+
+#: src/view/menus/menu_config.py:138 src/view/menus/menu_config.py:141
+#: src/view/menus/menu_config.py:144
+msgid "Timeline"
+msgstr ""
+
+#: src/view/menus/menu_config.py:145 src/view/menus/menu_config.py:155
+#, fuzzy
+msgid "Configure"
+msgstr "Konfiguruj widok kart"
+
+#: src/view/menus/menu_config.py:146 src/view/menus/menu_config.py:161
+#: src/view/menus/menu_config.py:221
+#, fuzzy
+msgid "Configuration"
+msgstr "Cytat"
+
+#: src/view/menus/menu_config.py:157 src/view/menus/menu_config.py:164
+msgid "Page"
+msgstr ""
+
+#: src/view/menus/menu_config.py:189
+#, fuzzy
+msgid "Global options"
+msgstr "Opcje układu"
+
+#: src/view/menus/menu_config.py:216
+msgid "Disable statistics dashboard (requires restart)"
+msgstr ""
+
+#: src/view/menus/menu_config.py:217
+msgid "Enable statistics dashboard (requires restart)"
+msgstr ""
+
+#: src/view/menus/menu_utils.py:168
+#, fuzzy
+msgid "Add a new attribute"
+msgstr "Dodaj nowe zdarzenie podstawowe"
+
+#: src/view/menus/menu_utils.py:172
+#, fuzzy
+msgid "Delete an attribute"
+msgstr "Liczba unikalnych elementów multimedialnych"
+
+#: src/view/menus/menu_utils.py:215
+#, fuzzy
+msgid "Add new citation for a new source"
+msgstr "Edytuj źródło cytatu"
+
+#: src/view/menus/menu_utils.py:221
+#, fuzzy
+msgid "Add new citation for an existing source"
+msgstr "Dodaj istniejące źródło"
+
+#: src/view/menus/menu_utils.py:228
+#, fuzzy
+msgid "Add an existing citation"
+msgstr "Dodaj istniejące źródło"
+
+#: src/view/menus/menu_utils.py:236
+#, fuzzy
+msgid "Remove a citation"
+msgstr "Usuń cytat"
+
+#: src/view/menus/menu_utils.py:240
+#, fuzzy
+msgid "Delete a citation"
+msgstr "Usuń cytat"
+
+#: src/view/menus/menu_utils.py:273
+#, fuzzy
+msgid "Add citation using Zotero"
+msgstr "Edytuj źródło cytatu"
+
+#: src/view/menus/menu_utils.py:280
+msgid "Add citation using Zotero (currently offline)"
+msgstr ""
+
+#: src/view/menus/menu_utils.py:297
+#, fuzzy
+msgid "Add a new note"
+msgstr "Dodaj nowe zdarzenie podstawowe"
+
+#: src/view/menus/menu_utils.py:300
+#, fuzzy
+msgid "Add an existing note"
+msgstr "Dodaj istniejące źródło"
+
+#: src/view/menus/menu_utils.py:305
+#, fuzzy
+msgid "Remove a note"
+msgstr "Usuń notatkę"
+
+#: src/view/menus/menu_utils.py:307
+#, fuzzy
+msgid "Delete a note"
+msgstr "Szablony"
+
+#: src/view/menus/menu_utils.py:365
+msgid "Make public"
+msgstr ""
+
+#: src/view/menus/menu_utils.py:369
+#, fuzzy
+msgid "Make private"
+msgstr "Prywatne"
+
+#: src/view/menus/menu_utils.py:379
+msgid "Copy to clipboard"
+msgstr ""
+
+#: src/view/menus/menu_utils.py:392
+#, fuzzy
+msgid "Unbookmark"
+msgstr "Zakładki wydarzeń"
+
+#: src/view/menus/menu_utils.py:397
+#, fuzzy
+msgid "Bookmark"
+msgstr "Zakładka"
+
+#: src/view/menus/menu_utils.py:436
+#, fuzzy
+msgid "Add new tag"
+msgstr "Dodaj nowe zdarzenie podstawowe"
+
+#: src/view/menus/menu_utils.py:446
+#, fuzzy
+msgid "Add a tag"
+msgstr "Dodaj nowe zdarzenie podstawowe"
+
+#: src/view/menus/menu_utils.py:448
+#, fuzzy
+msgid "Remove a tag"
+msgstr "Usuń notatkę"
+
+#: src/view/menus/menu_utils.py:450
+#, fuzzy
+msgid "Delete a tag"
+msgstr "Szablony"
+
+#: src/view/menus/menu_utils.py:473
+#, fuzzy
+msgid "Add a url"
+msgstr "Dodaj nowe źródło"
+
+#: src/view/menus/menu_utils.py:476
+#, fuzzy
+msgid "Edit a url"
+msgstr "Edytuj etykietę"
+
+#: src/view/menus/menu_utils.py:477
+#, fuzzy
+msgid "Delete a url"
+msgstr "Usuń"
+
+#: src/view/menus/menu_utils.py:493 src/view/groups/group_const.py:151
+msgid "Urls"
+msgstr ""
+
+#: src/view/menus/menu_utils.py:506
+#, fuzzy
+msgid "Add a new media item"
+msgstr "Liczba unikalnych elementów multimedialnych"
+
+#: src/view/menus/menu_utils.py:511
+#, fuzzy
+msgid "Add an existing media item"
+msgstr "Dodaj istniejące źródło"
+
+#: src/view/menus/menu_utils.py:518
+#, fuzzy
+msgid "Remove a media item"
+msgstr "Liczba unikalnych elementów multimedialnych"
+
+#: src/view/menus/menu_utils.py:522
+#, fuzzy
+msgid "Delete a media item"
+msgstr "Liczba unikalnych elementów multimedialnych"
+
+#: src/view/menus/menu_utils.py:546
+#, fuzzy
+msgid "Add a new name"
+msgstr "Dodaj nowe zdarzenie podstawowe"
+
+#: src/view/menus/menu_utils.py:549
+#, fuzzy
+msgid "Delete a name"
+msgstr "Szablony"
+
+#: src/view/menus/menu_utils.py:562 src/view/groups/group_const.py:106
+#, fuzzy
+msgid "Names"
+msgstr "Imię używane"
+
+#: src/view/menus/menu_utils.py:574
+#, fuzzy
+msgid "Add an association for a new person"
+msgstr "Łączna liczba odwołań do skojarzeń"
+
+#: src/view/menus/menu_utils.py:580
+#, fuzzy
+msgid "Add an association for an existing person"
+msgstr "Dodaj jako uczestnika do istniejącego zdarzenia"
+
+#: src/view/menus/menu_utils.py:587
+#, fuzzy
+msgid "Delete an association"
+msgstr "Osoby ze skojarzeniami"
+
+#: src/view/menus/menu_utils.py:620
+#, fuzzy
+msgid "Add a new set of parents"
+msgstr "Dodaj nowe zdarzenie podstawowe"
+
+#: src/view/menus/menu_utils.py:626
+#, fuzzy
+msgid "Add as child to an existing family"
+msgstr "Dodaj jako uczestnika do istniejącego zdarzenia"
+
+#: src/view/menus/menu_utils.py:656
+msgid "Add as parent of new family"
+msgstr ""
+
+#: src/view/menus/menu_utils.py:673
+msgid "Spouses"
+msgstr ""
+
+#: src/view/menus/menu_utils.py:684
+msgid "Add a new person as a participant"
+msgstr ""
+
+#: src/view/menus/menu_utils.py:690
+msgid "Add an existing person as a participant"
+msgstr ""
+
+#: src/view/menus/menu_utils.py:698
+#, fuzzy
+msgid "Go to a participant"
+msgstr "Uczestnicy rodzinni"
+
+#: src/view/menus/menu_utils.py:700
+#, fuzzy
+msgid "Edit a participant"
+msgstr "Uczestnicy indywidualni"
+
+#: src/view/menus/menu_utils.py:702
+#, fuzzy
+msgid "Remove a participant"
+msgstr "Uczestnicy rodzinni"
+
+#: src/view/menus/menu_utils.py:760
+#, fuzzy
+msgid "Add a new repository"
+msgstr "Dodaj nowe zdarzenie podstawowe"
+
+#: src/view/menus/menu_utils.py:766
+#, fuzzy
+msgid "Add an existing repository"
+msgstr "Brak repozytorium"
+
+#: src/view/menus/menu_utils.py:773
+#, fuzzy
+msgid "Remove a repository"
+msgstr "Repozytorium"
+
+#: src/view/menus/menu_utils.py:810
+msgid "Remove parent from this family"
+msgstr ""
+
+#: src/view/menus/menu_utils.py:818
+msgid "Remove spouse from this family"
+msgstr ""
+
+#: src/view/menus/menu_utils.py:827
+msgid "Make current parents preferred"
+msgstr ""
+
+#: src/view/menus/menu_utils.py:834
+#, fuzzy
+msgid "Remove child from this family"
+msgstr "Niepołączone z rodziną"
+
+#: src/view/menus/menu_utils.py:846
+#, fuzzy
+msgid "Add a new family event"
+msgstr "Dodaj nowe zdarzenie podstawowe"
+
+#: src/view/menus/menu_utils.py:858
+msgid "Add a new child to the family"
+msgstr ""
+
+#: src/view/menus/menu_utils.py:865
+msgid "Add an existing child to the family"
+msgstr ""
+
+#: src/view/menus/menu_utils.py:896
+#, fuzzy
+msgid "Add a new ordinance"
+msgstr "Dodaj nowe źródło"
+
+#: src/view/menus/menu_utils.py:900
+#, fuzzy
+msgid "Delete an ordinance"
+msgstr "Z niekompletnymi nazwami"
+
+#: src/view/menus/menu_utils.py:915 src/view/groups/group_const.py:91
+#, fuzzy
+msgid "Ordinances"
+msgstr "Obrzędy osobiste LDS"
+
+#: src/view/menus/menu_utils.py:926
+msgid "Add a new enclosed place"
+msgstr ""
+
+#: src/view/menus/menu_utils.py:932
+#, fuzzy
+msgid "Add an existing enclosed place"
+msgstr "Dodaj istniejące źródło"
+
+#: src/view/menus/menu_utils.py:940
+msgid "Remove an enclosed place"
+msgstr ""
+
+#: src/view/menus/menu_utils.py:951 src/view/groups/group_const.py:81
+msgid "Enclosed Places"
+msgstr ""
+
+#: src/view/groups/group_associations.py:115 src/view/groups/group_events.py:95
+#: src/view/groups/group_media.py:125
+msgid "Reordered"
+msgstr ""
+
+#: src/view/groups/group_associations.py:160
+#: src/view/groups/group_citations.py:86 src/view/groups/group_events.py:145
+#: src/view/groups/group_media.py:172 src/view/groups/group_notes.py:96
+#: src/view/zotero/zotero.py:342
+msgid "Added"
+msgstr ""
+
+#: src/view/groups/group_associations.py:164
+#: src/view/groups/group_children.py:152 src/view/groups/group_citations.py:89
+#: src/view/groups/group_events.py:148 src/view/groups/group_media.py:175
+#: src/view/groups/group_notes.py:99 src/view/zotero/zotero.py:345
+msgid "to"
+msgstr ""
+
+#: src/view/groups/group_builder.py:99
+#, fuzzy
+msgid "Cited Source"
+msgstr "Źródło"
+
+#: src/view/groups/group_builder.py:99
+#, fuzzy
+msgid "Cited Sources"
+msgstr "Źródła"
+
+#: src/view/groups/group_builder.py:181
+msgid "Siblings"
+msgstr ""
+
+#: src/view/groups/group_builder.py:223 src/view/groups/group_builder.py:228
+msgid "Parents and Siblings"
+msgstr ""
+
+#: src/view/groups/group_builder.py:260
+msgid "Spouses and Children"
+msgstr ""
+
+#: src/view/groups/group_builder.py:265
+msgid "Spouse and Children"
+msgstr ""
+
+#: src/view/groups/group_builder.py:306
+#, fuzzy
+msgid "References"
+msgstr "odniesienie"
+
+#: src/view/groups/group_builder.py:311
+msgid "Not Shown"
+msgstr ""
+
+#: src/view/groups/group_builder.py:387
+#, fuzzy
+msgid "Personal"
+msgstr "Osoba"
+
+#: src/view/groups/group_children.py:99
+#, fuzzy
+msgid "Reordered Children"
+msgstr "Dzieci"
+
+#: src/view/groups/group_children.py:150
+#, fuzzy
+msgid "Added Child"
+msgstr "Dziecko"
+
+#: src/view/groups/group_citations.py:115
+#, fuzzy
+msgid "Primary Name"
+msgstr "Główne"
+
+#: src/view/groups/group_citations.py:146
+#, fuzzy
+msgid "LDS Event"
+msgstr "Wydarzenie"
+
+#: src/view/groups/group_citations.py:184
+msgid "Parent Family Child"
+msgstr ""
+
+#: src/view/groups/group_citations.py:238
+#, fuzzy
+msgid "Family Media"
+msgstr "Obrzędy rodzinne"
+
+#: src/view/groups/group_citations.py:241
+#, fuzzy
+msgid "Family Attribute"
+msgstr "Ustawienia wyświetlania kart"
+
+#: src/view/groups/group_citations.py:244
+msgid "Family LDS Event"
+msgstr ""
+
+#: src/view/groups/group_citations.py:247
+#, fuzzy
+msgid "Family Child"
+msgstr "Rodzina"
+
+#: src/view/groups/group_citations.py:250
+#, fuzzy
+msgid "Family Event"
+msgstr "Rodzina"
+
+#: src/view/groups/group_const.py:61
+msgid "Addresses"
+msgstr ""
+
+#: src/view/groups/group_const.py:80
+msgid "Enclosed Place"
+msgstr ""
+
+#: src/view/groups/group_const.py:85
+#, fuzzy
+msgid "Enclosing Place"
+msgstr "Brak miejsca"
+
+#: src/view/groups/group_const.py:86
+#, fuzzy
+msgid "Enclosing Places"
+msgstr "Brak miejsca"
+
+#: src/view/groups/group_const.py:100
+#, fuzzy
+msgid "Media Item"
+msgstr "Typ medium"
+
+#: src/view/groups/group_const.py:101
+#, fuzzy
+msgid "Media Items"
+msgstr "Typ medium"
+
+#: src/view/groups/group_const.py:125
+msgid "Research Note"
+msgstr ""
+
+#: src/view/groups/group_const.py:126
+msgid "Research Notes"
+msgstr ""
+
+#: src/view/groups/group_const.py:135
+#, fuzzy
+msgid "Timeline Event"
+msgstr "Brakujące wydarzenia"
+
+#: src/view/groups/group_const.py:136
+#, fuzzy
+msgid "Timeline Events"
+msgstr "Brakujące wydarzenia"
+
+#: src/view/groups/group_const.py:140
+msgid "To Do Note"
+msgstr ""
+
+#: src/view/groups/group_const.py:141
+#, fuzzy
+msgid "To Do Notes"
+msgstr "Notatki"
+
+#: src/view/groups/group_const.py:145
+msgid "Uncited Event"
+msgstr ""
+
+#: src/view/groups/group_const.py:146
+#, fuzzy
+msgid "Uncited Events"
+msgstr "Wydarzenia"
+
+#: src/view/groups/group_const.py:150
+msgid "Url"
+msgstr ""
+
+#: src/view/groups/group_const.py:162
+#, fuzzy
+msgid "Family Ordinances"
+msgstr "Obrzędy rodzinne"
+
+#: src/view/groups/group_const.py:163
+#, fuzzy
+msgid "Person Ordinances"
+msgstr "Obrzędy osobiste"
+
+#: src/view/groups/group_const.py:169
+#, fuzzy
+msgid "Privacy"
+msgstr "Prywatne"
+
+#: src/view/groups/group_const.py:173
+msgid "Uncited Information"
+msgstr ""
+
+#: src/view/groups/group_statistics.py:599
+msgid "Calculating..."
+msgstr ""
+
+#: src/view/zotero/zotero.py:148 src/view/zotero/zotero.py:257
+msgid "Updating"
+msgstr ""
+
+#: src/view/zotero/zotero.py:151 src/view/zotero/zotero.py:260
+#: src/view/zotero/zotero.py:309
+msgid "from"
+msgstr ""
+
+#: src/view/zotero/zotero.py:152 src/view/zotero/zotero.py:165
+#: src/view/zotero/zotero.py:261 src/view/zotero/zotero.py:276
+msgid "Zotero"
+msgstr ""
+
+#: src/view/zotero/zotero.py:162 src/view/zotero/zotero.py:273
+#: src/view/zotero/zotero.py:307
+msgid "Creating"
+msgstr ""
+
+#: src/view/zotero/zotero.py:202
+msgid "Updated"
+msgstr ""
+
 #~ msgid "Card Navigation"
 #~ msgstr "Nawigacja kart"
-
-#~ msgid "Configure Card View"
-#~ msgstr "Konfiguruj widok kart"
